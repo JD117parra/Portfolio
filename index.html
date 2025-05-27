@@ -1,160 +1,320 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>JD's Portfolio</title>
-  <link rel="stylesheet" href="styles.css">
-</head>
-<body>
+<html lang="es">
 
-  <!-- Header with avatar and name -->
-  <header>
-    <div class="logo">
-      <img src="Images/ProfilePicture.png" alt="JD's Photo" class="avatar">
-      <h1>Jhon “JD” Parra</h1>
-    </div>
+  <head>    
+    <meta charset="UTF-8">    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">    
+    <title>J.D - Full Stack Developer</title>    
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">    
+    <link rel="preconnect" href="https://fonts.googleapis.com">    
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"> 
+    <link rel="stylesheet" href="styles.css">
+  </head>
 
-    <div class="menu-toggle" id="mobile-menu">
-        <span class="bar"></span>
-        <span class="bar"></span>
-        <span class="bar"></span>
-      </div>
-
-    <nav class="nav-links">
-      <ul>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#contact">Contact</a></li>
-        <!-- <li><a href="hobbies.html">Hobbies & Extras</a></li> -->
-      </ul>
+  <body>    
+   <!-- Navigation -->    
+    <nav class="navbar">
+        <div class="nav-container">            
+          <div class="logo">JD Parra</div>            
+            <ul class="nav-links">
+              <li><a href="#home">Home</a></li>               
+              <li><a href="#about">About me</a></li>
+              <li><a href="#skills">Skills</a></li>
+              <li><a href="#projects">Projects</a></li>
+              <li><a href="#contact">Contact</a></li>
+            </ul>
+          </div>
+        </div>  
     </nav>
-  </header>
 
-  <!-- Hero Section -->
-  <section class="hero">
-    <h2>Full Stack Developer</h2>
-  </section>
 
- <!-- About Me -->
- <section class="about">
-    <div class="about-content">
-      <div class="about-media">
-        <img src="Images/R.jpg" alt="JD Photo 1">
-        <img src="Images/OIP.jpg" alt="JD Photo 2">
+   <!-- Hero Section -->    
+    <section id="home" class="hero">
+      <div class="hero-content">  
+        <h1>J.D Parra</h1>
+        <p class="subtitle">Full Stack Developer & System Ingeneer</p>
+        <a href="#contact" class="cta-button">Let's talk!</a> 
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Skills -->
-<section class="skills">
-  <h2>Skills & Languages</h2>
+    <!-- references Section --> 
 
-  <div class="skills-grid">
-    <!-- Front-end -->
-    <div class="skill-block frontend-block">
-      <h3>Front-end</h3>
-      <ul class="tech-skills">
-        <li>HTML5</li>
-        <li>CSS3</li>
-        <li>JavaScript (ES6+)</li>
-        <li>React</li>
-        <li>Vite</li>
-        <li>Tailwind CSS</li>
-        <li>Axios</li>
-      </ul>
-    </div>
+    <section id="references" class="section">
+      <div class="references">
+        <h2 class="section-title">Professional References</h2>
+        <p class="section-subtitle">What colleagues and mentors say about my work</p>
+        <div class="references-grid">
+      
+      <div class="reference-card">
+        <div class="reference-image">
+          <img src="Images/reference-img-robert-becerra.jpg" alt="Robert Becerra">
+        </div>
+        <div class="reference-content">
+          <div class="quote-icon">
+            <i class="fas fa-quote-left"></i>
+          </div>
+          <p class="reference-quote">
+            "J.D is a professional with outstanding problem-solving skills. His attention to detail and ability to deliver high-quality solutions under tight deadlines made him an invaluable team member."
+          </p>
+          <div class="reference-author">
+            <h4>Robert Becerra</h4>
+            <p class="reference-position">BPO Senior Supervisor</p>
+            <p class="reference-company">Sutherland</p>
+            <div class="reference-achievements">
+              <span class="achievement-tag">10+ years experience</span>
+              <span class="achievement-tag">Team Lead</span>
+            </div>
+          </div>
+        </div>
+      </div>
 
-    <!-- Back-end -->
-    <div class="skill-block backend-block">
-      <h3>Back-end</h3>
-      <ul class="tech-skills">
-        <li>Node.js</li>
-        <li>Express.js</li>
-        <li>MongoDB</li>
-        <li>Mongoose</li>
-        <li>JWT Authentication</li>
-        <li>dotenv</li>
-      </ul>
-    </div>
+      <div class="reference-card">
+        <div class="reference-image">
+          <img src="Images/reference-img-carolina-camacho.jpg" alt="Carolina Camacho">
+        </div>
+        <div class="reference-content">
+          <div class="quote-icon">
+            <i class="fas fa-quote-left"></i>
+          </div>
+          <p class="reference-quote">
+            "Jhon Parra was my private student for more than two years, responsible, disciplined and above all with a natural humility to receive knowledge, with an undeniable talent for singing and above all with a capacity and passion that will make him a great artist in any of the disciplines in which he wants to develop."
+          </p>
+          <div class="reference-author">
+            <h4>Carolina Camacho</h4>
+            <p class="reference-position">Lyric singing teacher</p>
+            <p class="reference-company">U.N.E.T. <br> (Universidad Nacional Experimental del Tachira)</p>
+            <div class="reference-achievements">
+              <span class="achievement-tag">National Singing Award of the Colombian Philharmonic Orchestra 2022</span>
+            </div>
+          </div>
+        </div>
+      </div>
 
-    <!-- Herramientas / DevOps -->
-    <div class="skill-block tools-block">
-      <h3>Tools</h3>
-      <ul class="tools-skills">
-        <li>Git & GitHub</li>
-        <li>Jest & Supertest</li>
-        <li>Vercel</li>
-        <li>Railway</li>
-        <li>npm / yarn</li>
-      </ul>
-    </div>
+      <div class="reference-card">
+        <div class="reference-image">
+          <img src="Images/reference-image-daniel-rodriguez.jpg" alt="Daniel Rodriguez">
+        </div>
+        <div class="reference-content">
+          <div class="quote-icon">
+            <i class="fas fa-quote-left"></i>
+          </div>
+          <p class="reference-quote">
+            "J.D's was a supervisor for several years when I worked as a call center agent. His poise, charisma, and professionalism were some of the most valuable qualities I learned from him. He always knew how to motivate the team and lead us to achieve our goals."
+          </p>
+          <div class="reference-author">
+            <h4>Daniel Rodriguez</h4>
+            <p class="reference-position">Sales Force Agent</p>
+            <p class="reference-company">Sutherland</p>
+            <div class="reference-achievements">
+              <span class="achievement-tag">Startup Founder</span>
+              <span class="achievement-tag">Industry Speaker</span>
+            </div>
+          </div>
+        </div>
+      </div>
 
-    <!-- Idiomas -->
-    <div class="skill-block languages-block">
-      <h3>Languages</h3>
-      <ul class="languages">
-        <li>Spanish</li>
-        <li>English</li>
-        <li>Portuguese</li>
-      </ul>
     </div>
   </div>
 </section>
 
- <!-- Projects -->
- <section id="projects" class="projects">
-  <h2>Projects</h2>
-  <div >
-    <div class="projects-grid">
-      <div class="project-card">
-        <img src="Images/project1.png" alt="Screenshot of Project Landing-Page-Universal-Guitar" class="project-img">
+   <!-- About Section -->    
+    <section id="about" class="section">        
+      <div class="about">
+        <h2 class="section-title">About me</h2>
+        <div class="about-content">                
+          <div class="profile-img">
+            <img src="Images/Profile-Picture-1.jpg" alt="J.D - Full Stack Developer">
+          </div>
+        <div class="about-text">
+            <h3>Hi!  I'm J.D</h3>
+            <p>
+              I'm a full-stack developer passionate about creating innovative technology solutions. With experience in both front- and back-end web development, I specialize in building modern, scalable, and user-centric applications.
+            </p>                       
+          </div>
+      </div>    
+    </section>
 
-        <h3>Universal Guitars(Landing Page)</h3>
-        <p>Landing page for a guitars shop (In collaborative work).</p>
-        <a href="https://github.com/JD117parra/Landing-Page-Universal-Guitar.git" target="_blank" rel="noopener noreferrer">View on GitHub</a>
+
+
+
+   <!-- Skills Section -->   
+    <section id="skills" class="section">      
+      <div class="skills">           
+        <h2 class="section-title">Technical Skills</h2>         
+        <div class="skills-grid">             
+          <div class="skill-category">
+            <i class="fas fa-laptop-code"></i>         
+            <h3>Frontend</h3>                 
+            <div class="skill-list">                    
+              <span class="skill-tag">HTML5</span>
+              <span class="skill-tag">CSS3</span>
+              <span class="skill-tag">JavaScript</span>
+              <span class="skill-tag">React</span>
+              <span class="skill-tag">Vue.js</span>
+              <span class="skill-tag">Bootstrap</span>                        
+              <span class="skill-tag">Tailwind</span>
+            </div>
+          </div>
+
+          <div class="skill-category">                    
+            <i class="fas fa-server"></i>
+            <h3>Backend</h3>
+            <div class="skill-list">                        
+              <span class="skill-tag">Node.js</span>
+              <span class="skill-tag">Python</span>
+              <span class="skill-tag">PHP</span>
+              <span class="skill-tag">Express.js</span>
+              <span class="skill-tag">Laravel</span>
+              <span class="skill-tag">API REST</span>
+            </div>
+          </div>
+
+          <div class="skill-category">                    
+            <i class="fas fa-database"></i>
+            <h3>Base de Datos</h3>
+            <div class="skill-list">
+              <span class="skill-tag">MySQL</span>
+              <span class="skill-tag">PostgreSQL</span>
+              <span class="skill-tag">MongoDB</span>
+              <span class="skill-tag">Firebase</span>
+              <span class="skill-tag">Supabase</span>
+            </div>
+          </div>
+
+          <div class="skill-category">
+            <i class="fas fa-tools"></i>
+            <h3>Herramientas</h3>
+            <div class="skill-list">
+              <span class="skill-tag">Git</span>
+              <span class="skill-tag">GitHub</span>
+              <span class="skill-tag">VS Code</span>
+              <span class="skill-tag">Docker</span>
+              <span class="skill-tag">AWS</span>
+              <span class="skill-tag">Vercel</span>
+            </div>                
+          </div>
+        </div>
       </div>
-      <div class="project-card">
-        <img src="Images/todo-app.png" alt="Screenshot of Project todo-app" class="project-img">
+    </section>
+                                      
+                                      
 
-        <h3>Check-App</h3>
-        <p>Todo-App Build with React</p>
-        <a href="https://github.com/JD117parra/check-app-fullstack.git" target="_blank" rel="noopener noreferrer">View on GitHub</a>
+
+   <!-- Projects Section -->    
+    <section id="projects" class="section">
+      <div class="projects">            
+        <h2 class="section-title">Projects</h2>
+        <div class="projects-grid">
+          <div class="project-card">                    
+            <h3>ToDo-App</h3>
+            <p>
+              Aplicación web completa para gestión de tareas, quehaceres y pendientes. Desarrollada con React, Node.js y MongoDB.
+            </p>                    
+            <div class="project-links">
+              <a href="https://github.com/JD117parra/check-app-fullstack" class="project-link" target="_blank">                            
+              <i class="fab fa-github"></i>Código</a>
+              <a href="#" class="project-link">                            
+              <i class="fas fa-external-link-alt"></i>Demo</a>
+            </div>
+          </div>
+
+          <div class="project-card">
+            <h3>Personal Finance App</h3>
+            <p>
+              Aplicación de finanzas personales con tracking de gastos en tiempo real, categorización automática, dashboard analítico y metas de ahorro. Stack: React, Express.js y PostgreSQL.
+            </p>       
+            <div class="project-links">                        
+              <a href="https://github.com/JD117parra/personal-finance-app" class="project-link" target="_blank">
+                <i class="fab fa-github"></i>Código</a>
+              <a href="#" class="project-link"><i class="fas fa-external-link-alt"></i>Demo</a>
+            </div>
+          </div>
+
+          <div class="project-card">
+            <h3>Dashboard Analítico</h3>
+            <p>
+              Panel de control con gráficos interactivos y métricas en tiempo real. Tecnologías: Vue.js, Chart.js y Firebase.
+            </p>   
+            <div class="project-links">                        
+             <a href="#" class="project-link"><i class="fab fa-github"></i>Código</a>
+             <a href="#" class="project-link"><i class="fas fa-external-link-alt"></i> Demo</a>
+            </div>
+          </div>
+
+          <div class="project-card">                 
+            <h3>App de Productividad</h3>                 
+            <p>
+              Aplicación web progresiva para gestión de tareas, hábitos y finanzas personales. Next.js, Supabase y PWA.
+            </p>                
+              
+            <div class="project-links">               
+              <a href="#" class="project-link"><i class="fab fa-github"></i>Código</a> 
+              <a href="#" class="project-link"><i class="fas fa-external-link-alt"></i>Demo</a>
+            </div>
+          </div> 
+        </div>
       </div>
-      <div class="project-card">
-        <img src="Images/dashboard.png" alt="Screenshot of Project X" class="project-img ">
+    </section>
 
-        <h3>Personal Finance App</h3>
-        <p>Personal finance app for your own financial tracking. Built with Reach and Vite</p>
-        <a href="https://github.com/JD117parra/personal-finance-app" target="_blank" rel="noopener noreferrer">View on GitHub</a>
+
+
+    <section id="contact" class="section">
+      <div class="contact">            
+        <h2 class="section-title">Let's Connect!</h2>
+        <p>
+          Do you have a project in mind? Do you want to collaborate? I would love to hear about you!         
+        </p>          
+        <div class="contact-links">           
+          <a href="mailto:tu-email@ejemplo.com" class="contact-link"><i class="fas fa-envelope"></i>Email</a>         
+          <a href="https://www.linkedin.com/in/juan-parra-2358b428b" class="contact-link" target="_blank"> <i class="fab fa-linkedin">
+          </i>LinkedIn</a>  
+          <a href="https://github.com/JD117parra" class="contact-link" target="_blank"><i class="fab fa-github"></i>GitHub</a>
+          <a href="tel:+57-tu-numero" class="contact-link"><i class="fas fa-phone"></i>Phone Number</a>
+        </div>        
+      </div>  
+    </section>
+            
+   <!-- Footer -->   
+
+    <footer class="footer-enhanced">
+  <div class="footer-content">
+    <div class="footer-section">
+      <h3>J.D Parra</h3>
+      <p>Creating digital experiences that matter</p>
+      <div class="social-links">
+        <a href="#" aria-label="GitHub"><i class="fab fa-github"></i></a>
+        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+        <a href="#" aria-label="Email"><i class="fas fa-envelope"></i></a>
       </div>
     </div>
-    <!-- Existing card on the side -->
-    
-  </div>
-  <div class="portfolio-grid">
-   <div class="text-box">
-    <p>Do you want to see more of my projects? Just click in the button at my right side</p>
-   </div>
-   <div>
-      <div class="project-card-portfolio">
-        <h3>Personal Portfolio</h3>
-        <p>This website, built with HTML, CSS, and JavaScript, showcases my skills and projects.</p>
-        <a href="https://github.com/JD117parra" target="_blank" rel="noopener noreferrer">View on GitHub</a>
+    <div class="footer-section">
+      <h4>Services</h4>
+      <ul>
+        <li><a href="#">Web Development</a></li>
+        <li><a href="#">Mobile Apps</a></li>
+        <li><a href="#">UI/UX Design</a></li>
+        <li><a href="#">Consulting</a></li>
+      </ul>
+    </div>
+    <div class="footer-section">
+      <h4>Get In Touch</h4>
+      <div class="contact-info">
+        <p><i class="fas fa-envelope"></i> JhonParra117@outlook.com</p>
       </div>
-   </div>
+    </div>
   </div>
-</section>
+  <div class="footer-bottom">
+    <p>&copy; 2025 J.D Parra. All rights reserved.</p>
+    <div class="footer-links">
+      <a href="#">Privacy Policy</a>
+      <a href="#">Terms of Service</a>
+    </div>
+  </div>
+</footer>
 
-  <!-- Contact -->
-  <section id="contact" class="contact">
-    <h2>Contact</h2>
-    <p>Feel free to reach out at <a href="mailto:your.email@example.com">JhonParra117@outlook.com</a></p>
-  </section>
-
-  <!-- Footer -->
-  <footer>
-    <p>&copy; 2025 Jhon “JD” Parra</p>
-  </footer>
-  <script src="script.js"></script>
-</body>
+    <!-- JavaScript separado también si quieres -->  
+    <script src="script.js"></script>
+  </body>
 </html>
