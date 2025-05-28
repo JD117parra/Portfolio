@@ -39,8 +39,8 @@ document.addEventListener('DOMContentLoaded', function() {
     hamburgerBtn.innerHTML = '<i class="fas fa-bars"></i>';
     
     // Insertar el botón después del logo
-    navContainer.appendChild(hamburgerBtn);
-    
+    navContainer.insertBefore(hamburgerBtn, navContainer.firstChild);
+     
     // Funcionalidad del menú móvil
     hamburgerBtn.addEventListener('click', function() {
         navLinksContainer.classList.toggle('nav-active');
