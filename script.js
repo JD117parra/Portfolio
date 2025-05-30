@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // === NAVEGACIÓN SUAVE ===
     // Obtener todos los enlaces del menú de navegación
-    const navLinks = document.querySelectorAll('.nav-links a');
+    const navLinks = document.querySelectorAll('.nav-links a[href^="#"]');
     
     navLinks.forEach(link => {
         link.addEventListener('click', function(e) {
@@ -78,22 +78,15 @@ document.addEventListener('DOMContentLoaded', function() {
     let lastScrollTop = 0;
     const navbarElement = document.querySelector('.navbar');
     
-    window.addEventListener('scroll', function() {
-        const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-        
-        // Cambiar opacidad del navbar basado en el scroll
-        if (scrollTop > 100) {
-            navbarElement.classList.add('scrolled');
-            navbarElement.style.background = 'rgba(255, 255, 255, 0.98)';
-            navbarElement.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.1)';
-        } else {
-            navbarElement.classList.remove('scrolled');
-            navbarElement.style.background = 'rgba(255, 255, 255, 0.95)';
-            navbarElement.style.boxShadow = 'none';
-        }
-        
-        lastScrollTop = scrollTop;
-    });
+   window.addEventListener('scroll', function() {
+  const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+  
+  if (scrollTop > 100) {
+    navbarElement.classList.add('scrolled');
+  } else {
+    navbarElement.classList.remove('scrolled');
+  }
+});
 
     // === ANIMACIONES DE ENTRADA ===
     // Configurar el Intersection Observer para animaciones
