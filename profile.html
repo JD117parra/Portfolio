@@ -9,6 +9,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">    
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>    
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"> 
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
     <link rel="stylesheet" href="styles.css">
   </head>
 
@@ -29,7 +30,6 @@
         </div>  
     </nav>
 
-
    <!-- Hero Section -->    
     <section id="home" class="hero">
       <div class="hero-content">  
@@ -40,7 +40,6 @@
     </section>
 
     <!-- references Section --> 
-
     <section id="references" class="section">
       <div class="references">
         <h2 class="section-title">Referencias Profesionales</h2>
@@ -199,6 +198,7 @@
 
    <!-- Projects Section -->    
     <section id="projects" class="section">
+
       <div class="projects">            
         <h2 class="section-title">Proyectos</h2>
         <div class="projects-grid">
@@ -249,10 +249,67 @@
           </div> 
         </div>
       </div>
+
+
+      <div class="projects swiper">        
+        <h2 class="section-title">Proyectos</h2>
+      <div class="card-wrapper">
+          
+        <ul class="swiper-wrapper">
+          <li class="project-card swiper-slide">                    
+            <h3>ToDo-App</h3>
+            <p>
+              Aplicación web completa para gestionar tareas, pendientes y pendientes. Desarrollada con React, Node.js y MongoDB.
+            </p>                    
+            <div class="project-links">
+              <a href="https://github.com/JD117parra/check-app-fullstack" class="project-link" target="_blank">                            
+              <i class="fab fa-github"></i>Code</a>
+              <a href="#" class="project-link">                            
+              <i class="fas fa-external-link-alt"></i>Demo</a>
+            </div>
+          </li>
+
+          <li class="project-card swiper-slide">
+            <h3>Personal Finance App</h3>
+            <p>
+              Aplicación de finanzas personales con seguimiento de gastos en tiempo real, categorización automática, panel de análisis y objetivos de ahorro. Stack: React, Express.js y PostgreSQL.</p>       
+            <div class="project-links">                        
+              <a href="https://github.com/JD117parra/personal-finance-app" class="project-link" target="_blank">
+                <i class="fab fa-github"></i>Code</a>
+              <a href="#" class="project-link"><i class="fas fa-external-link-alt"></i>Demo</a>
+            </div>
+          </li>
+
+          <li class="project-card swiper-slide">
+            <h3>Panel analítico (próximamente)</h3>
+            <p>
+              Panel con gráficos interactivos y métricas en tiempo real. Tecnologías: Vue.js, Chart.js y Firebase.</p>   
+            <div class="project-links">                        
+             <a href="#" class="project-link"><i class="fab fa-github"></i>Code</a>
+             <a href="#" class="project-link"><i class="fas fa-external-link-alt"></i> Demo</a>
+            </div>
+          </li>
+
+          <li class="project-card swiper-slide">                 
+            <h3>Aplicación de productividad (próximamente)</h3>                 
+            <p>
+             Aplicación web progresiva para la gestión de tareas, hábitos y finanzas personales. Next.js, Supabase y PWA.           
+            </p>                
+            <div class="project-links">               
+              <a href="#" class="project-link"><i class="fab fa-github"></i>Code</a> 
+              <a href="#" class="project-link"><i class="fas fa-external-link-alt"></i>Demo</a>
+            </div>
+          </li> 
+        </ul>
+        
+          <div class="swiper-pagination"></div>
+          <div class="swiper-button-prev"></div>
+          <div class="swiper-button-next"></div>
+        </div>
+      </div>
     </section>
 
-    <!-- Contact Section=================================================================== -->
-
+    <!-- Contact Section== -->
     <section id="contact" class="section">
       <div class="contact">            
         <h2 class="section-title">Empecemos!</h2>
@@ -269,7 +326,6 @@
     </section>
             
    <!-- Footer -->   
-
     <footer class="footer-enhanced">
   <div class="footer-content">
     <div class="footer-section">
@@ -307,6 +363,7 @@
   </div>
     </footer>
 
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script src="script.js"></script>
   </body>
 </html>

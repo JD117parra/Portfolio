@@ -269,37 +269,26 @@ document.addEventListener('DOMContentLoaded', function() {
     console.log('🚀 ¡JavaScript cargado correctamente! Página web de Juan David Parra lista.');
 });
 
-/**
- * Inicializa todos los carouseles que tengan el atributo data-carousel============================================
- */
-function initCarousel(selector = '[data-carousel]') {
-  document.querySelectorAll(selector).forEach(carousel => {
-    const track   = carousel.querySelector('.carousel__track');
-    const slides  = Array.from(track.children);
-    const prevBtn = carousel.querySelector('.carousel__button--prev');
-    const nextBtn = carousel.querySelector('.carousel__button--next');
-    let current   = 0;
+new Swiper('.card-wrapper', {
+  // Optional parameters
+  loop: true,
+  spaceBetween: 40,
+  slidesPerView: 1,
 
-    function update() {
-      track.style.transform = `translateX(-${100 * current}%)`;
-    }
+  // If we need pagination
+  pagination: {
+    el: '.swiper-pagination',
+    clickable: true,
+    dynamicBullets: true,
+  },
 
-    prevBtn.addEventListener('click', () => {
-      current = (current - 1 + slides.length) % slides.length;
-      update();
-    });
-    nextBtn.addEventListener('click', () => {
-      current = (current + 1) % slides.length;
-      update();
-    });
+  // Navigation arrows
+  navigation: {
+    nextEl: '.swiper-button-next',
+    prevEl: '.swiper-button-prev',
+  },
 
-    // opcional: auto-play en móvil
-    // if (isMobile()) setInterval(() => nextBtn.click(), 5000);
-  });
-}
-
-// Llamas a initCarousel justo después de definirlo
-initCarousel();
+});
 
 // === FUNCIONES UTILITARIAS ===
 // Función para detectar si el usuario está en móvil

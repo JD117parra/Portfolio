@@ -8,6 +8,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -18,7 +19,6 @@
             <ul class="nav-links">
               <li><a href="profile.html">Desarrollador</a></li>    
               <li><a href="#services" class="active">Servicios</a></li>           
-                <li><a href="#process">Proceso</a></li>
                 <li><a href="#technologies">Tecnologías</a></li>
                 <li><a href="#faq">FAQ</a></li>
                 <li><a href="#contact">Contacto</a></li>
@@ -41,7 +41,7 @@
 
     <!-- Services Section -->
      
-    <section id="services" class="section">
+    <section id="projects" class="section">
         <div class="projects">
             <h2 class="section-title">Nuestros servicios de desarrollo</h2>
             <p class="section-subtitle">Soluciones web integrales adaptadas a las necesidades de su negocio</p>
@@ -127,16 +127,17 @@
                     <div class="service-price">Cotización personalizada</div>
                 </div>
             </div>
+        </div>
+
             
             <!-- CAROUSEL para móvil -->
-            <div class="carousel" data-carousel>
-             <button class="carousel__button carousel__button--prev">&lt;</button>
-             
-             <div class="carousel__track">
-               
-               <div class="carousel__slide">
+            <div class="projects swiper"><h2 class="section-title">Nuestros servicios de desarrollo</h2>
+            <p class="section-subtitle">Soluciones web integrales adaptadas a las necesidades de su negocio</p>
+             <div class="card-wrapper">
+
+             <ul class="swiper-wrapper">
                  
-                 <div class="project-card service-card--red">
+                <li class="project-card service-card--red swiper-slide">
                    <div class="service-icon"><i class="fas fa-globe"></i></div>
                    <h3>Sitios web corporativos</h3>
                    <p>Sitios web profesionales para empresas que buscan establecer su presencia digital con elegancia y funcionalidad.</p>
@@ -147,13 +148,9 @@
                      <span class="skill-tag">Integración de redes sociales</span>
                     </div>
                     <!-- <div class="service-price">Desde 300.000 COP</div> -->
-                </div>
-                
-               </div>
-              
-              <div class="carousel__slide">
+                </li>
 
-                <div class="project-card service-card--teal featured">
+                <li class="project-card service-card--teal featured swiper-slide">
                     <div class="service-badge">⭐ Mas Popular</div>
                     <div class="service-icon"><i class="fas fa-shopping-cart"></i></div>
                     <h3>Soluciones para E-commerce</h3>
@@ -165,13 +162,9 @@
                       <span class="skill-tag">Sistema de envío</span>
                     </div>
                     <!-- <div class="service-price">Desde 500.000 COP</div> -->
-                  </div>
+                </li>
                   
-              </div>
-                
-                <div class="carousel__slide">
-                  
-                  <div class="project-card service-card--pink">
+                <li class="project-card service-card--pink swiper-slide">
                     <div class="service-icon service-icon--colored"><i class="fas fa-mobile-alt"></i></div>
                     <h3>Landing Pages</h3>
                     <p>Páginas de destino optimizadas para la conversión, perfectas para campañas de marketing y actividades promocionales.</p>
@@ -182,13 +175,9 @@
                       <span class="skill-tag">Analítica</span>
                     </div>
                     <!-- <div class="service-price">Desde 400.000 COP</div> -->
-                  </div>
-                  
-                </div>
+                </li>
                 
-                <div class="carousel__slide">
-                  
-                  <div class="project-card service-card--orange">
+                <li class="project-card service-card--orange swiper-slide">
                     <div class="service-icon service-icon--colored"><i class="fas fa-paint-brush"></i></div>
                     <h3>Website Redesign</h3>
                     <p>Modernice su sitio web existente con las últimas tendencias de diseño y las mejores prácticas de usabilidad.</p>
@@ -199,13 +188,9 @@
                       <span class="skill-tag">Optimización móvil</span>
                     </div>
                     <!-- <div class="service-price">Desde 600.000 COP</div> -->
-                  </div>
-
-                </div>
-
-               <div class="carousel__slide">
+                </li>  
                  
-                 <div class="project-card service-card--purple">
+                <li class="project-card service-card--purple swiper-slide">
                    <div class="service-icon"><i class="fas fa-tools"></i></div>
                    <h3>Mantenimiento Web</h3>
                    <p>Servicio continuo de actualizaciones, copias de seguridad y soporte técnico para mantener su sitio web funcionando sin problemas.</p>
@@ -216,13 +201,9 @@
                      <span class="skill-tag">Monitorización 24/7</span>
                     </div>
                     <!-- <div class="service-price">Desde 300.000 COP</div> -->
-                  </div>
+                </li>
                   
-               </div>
-                
-                <div class="carousel__slide">
-                  
-                  <div class="project-card service-card--magenta">
+                <li class="project-card service-card--magenta swiper-slide">
                     <div class="service-icon"><i class="fas fa-code"></i></div>
                     <h3>Desarrollo personalizado</h3>
                     <p>Soluciones web a medida para necesidades específicas, aplicaciones web y funcionalidades personalizadas.</p>
@@ -233,19 +214,21 @@
                         <span class="skill-tag">Características únicas</span>
                       </div>
                       <div class="service-price">Cotización personalizada</div>
-                    </div>
-                    <!-- <div class="service-price">Desde 500.000 COP</div> -->
-                </div>
+                </li>
+
+             </ul>
+
+            <div class="swiper-pagination"></div>
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next"></div>
                   
-             </div>
-                
-                <button class="carousel__button carousel__button--next">&gt;</button>
             </div>
-        </div>
+                
+            </div>
     </section>
             
-            <!-- Work Process Section -->
-            <section id="process" class="section">
+    <!-- Work Process Section -->
+    <section id="process" class="section">
               <div class="skills">
                 <h2 class="section-title">My Development Process</h2>
                 <p class="section-subtitle">Organized and transparent workflow to ensure project success</p>
@@ -456,6 +439,7 @@
       </div>
     </footer>
 
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
