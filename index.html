@@ -36,7 +36,7 @@
     <main>
 
     <!-- Hero Section -->
-    <section id="home" class="hero hero--services">
+    <section id="home" class="hero hero--services flex-center">
       <div class="hero-content">  
         <h1>Desarrollo web profesional</h1>
         <p class="subtitle">Transforma tus ideas en potentes soluciones digitales</p>
@@ -49,7 +49,7 @@
 
     <!-- Services Section -->
     <section id="services" class="section">
-        <div class="projects">
+        <div class="projects section-card">
             <h2 class="section-title">Nuestros servicios de desarrollo</h2>
             <p class="section-subtitle">Soluciones web integrales adaptadas a las necesidades de su negocio</p>
             
@@ -68,7 +68,6 @@
                 </div>
 
                 <div class="project-card service-card--teal">
-                    <div class="service-badge">⭐ Más Popular</div>
                     <div class="service-icon"><i class="fas fa-shopping-cart"></i></div>
                     <h3>Soluciones para E-commerce</h3>
                     <p>Tiendas online completas con carrito de compra, pasarelas de pago y gestión de inventario para vender online de forma eficaz.</p>
@@ -126,7 +125,6 @@
                         <span class="skill-tag">Diseño de bases de datos</span>
                         <span class="skill-tag">Características únicas</span>
                     </div>
-                    <div class="service-price">Cotización personalizada</div>
                 </div>
             </div>
         </div>
@@ -152,7 +150,6 @@
                 </li>
 
                 <li class="project-card service-card--teal swiper-slide">
-                    <div class="service-badge">⭐ Más Popular</div>
                     <div class="service-icon"><i class="fas fa-shopping-cart"></i></div>
                     <h3>Soluciones para E-commerce</h3>
                     <p>Tiendas online completas con carrito de compra, pasarelas de pago y gestión de inventario para vender online de forma eficaz.</p>
@@ -210,7 +207,6 @@
                         <span class="skill-tag">Diseño de bases de datos</span>
                         <span class="skill-tag">Características únicas</span>
                       </div>
-                      <div class="service-price">Cotización personalizada</div>
                 </li>
 
              </ul>
@@ -226,7 +222,7 @@
             
     <!-- Work Process Section -->
     <section id="process" class="section">
-              <div class="skills">
+              <div class="skills section-card">
                 <h2 class="section-title">Nuestro Proceso de Desarrollo</h2>
                 <p class="section-subtitle">Flujo de trabajo organizado y transparente para garantizar el éxito del proyecto</p>
                 
@@ -260,7 +256,7 @@
 
     <!-- Technologies Section -->
     <section id="technologies" class="section">
-        <div class="skills">           
+        <div class="skills section-card">           
             <h2 class="section-title">Tecnologías que utilizamos</h2>
             <p class="section-subtitle">Stack tecnológico moderno para proyectos web de vanguardia</p>         
             <div class="skills-grid">             
@@ -321,7 +317,7 @@
 
     <!-- FAQ Section -->
     <section id="faq" class="section">
-      <div class="about">
+      <div class="faq section-card">
         <h2 class="section-title">Preguntas frecuentes</h2>
         <p class="section-subtitle">Respuestas rápidas a las dudas más comunes antes de comenzar</p>
 
@@ -395,7 +391,7 @@
 
     <!-- Contact Section -->
     <section id="contact" class="section">
-      <div class="contact">            
+      <div class="contact section-card">
         <h2 class="section-title">¿Listo para tu próximo proyecto?</h2>
         <p class="text-large">¿Tiene un proyecto en mente? ¿Le gustaría colaborar? ¡Me encantaría saber de usted!</p>          
         <div class="contact-grid--services">
@@ -409,10 +405,9 @@
             
         </div>
 
-        <div class="contact-links">           
-          <a href="mailto:JD117parra@outlook.com" class="contact-link"><i class="fas fa-envelope"></i>Enviar Email</a>         
-          <a href="https://www.linkedin.com/in/juan-parra-2358b428b" class="contact-link" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin"></i>LinkedIn</a>  
-          <a href="tel:+57-300-123-4567" class="contact-link"><i class="fas fa-phone"></i>Llámanos</a>
+        <div class="contact-links">
+          <a href="https://www.linkedin.com/in/juan-parra-2358b428b" class="contact-link flex-center" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin"></i>LinkedIn</a>
+          <a href="tel:+57-300-123-4567" class="contact-link flex-center"><i class="fas fa-phone"></i>Llámanos</a>
         </div>        
       </div>  
     </section>
@@ -426,34 +421,40 @@
           <h3>J.D. Parra</h3>
           <p>Creando Experiencias Digitales que Importan</p>
           <div class="social-links">
-            <a href="https://github.com/JD117parra" aria-label="GitHub" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i></a>
-            <a href="https://www.linkedin.com/in/juan-parra-2358b428b" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin"></i></a>
-            <a href="mailto:JD117parra@outlook.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+            <a href="https://github.com/JD117parra" class="flex-center" aria-label="GitHub" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i></a>
+            <a href="https://www.linkedin.com/in/juan-parra-2358b428b" class="flex-center" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin"></i></a>
+            <a href="mailto:JD117parra@outlook.com" class="flex-center" aria-label="Email"><i class="fas fa-envelope"></i></a>
           </div>
         </div>
         <div class="footer-section">
-          <h4>Servicios</h4>
-          <ul>
-            <li><a href="index.html">Desarrollo Web</a></li>
-            <li><a href="#services">E-commerce</a></li>
-            <li><a href="#services">Landing Pages</a></li>
-            <li><a href="#services">Mantenimiento</a></li>
-          </ul>
+          <details>
+            <summary>Servicios</summary>
+            <ul>
+              <li><a href="index.html">Desarrollo Web</a></li>
+              <li><a href="#services">E-commerce</a></li>
+              <li><a href="#services">Landing Pages</a></li>
+              <li><a href="#services">Mantenimiento</a></li>
+            </ul>
+          </details>
         </div>
         <div class="footer-section">
-          <h4>Enlaces</h4>
-          <ul>
-            <li><a href="#services">Servicios</a></li>
-            <li><a href="profile.html">Acerca de mí</a></li>
-            <li><a href="profile.html#projects">Proyectos</a></li>
-            <li><a href="#contact">Contacto</a></li>
-          </ul>
+          <details>
+            <summary>Enlaces</summary>
+            <ul>
+              <li><a href="#services">Servicios</a></li>
+              <li><a href="profile.html">Acerca de mí</a></li>
+              <li><a href="profile.html#projects">Proyectos</a></li>
+              <li><a href="#contact">Contacto</a></li>
+            </ul>
+          </details>
         </div>
         <div class="footer-section">
-          <h4>Contacto</h4>
-          <div class="contact-info">
-            <p><i class="fas fa-envelope"></i><a href="mailto:JD117parra@outlook.com">JD117parra@outlook.com</a></p>
-          </div>
+          <details>
+            <summary>Contacto</summary>
+            <div class="contact-info">
+              <p><i class="fas fa-envelope"></i><a href="mailto:JD117parra@outlook.com">JD117parra@outlook.com</a></p>
+            </div>
+          </details>
         </div>
       </div>
       <div class="footer-bottom">

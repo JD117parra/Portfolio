@@ -52,7 +52,7 @@
 
     <main>
       <!-- Hero Section -->
-      <section id="home" class="hero">
+      <section id="home" class="hero flex-center">
         <div class="hero-content">
           <h1>J.D. Parra</h1>
           <p class="subtitle">Ingeniero en Sistemas</p>
@@ -62,7 +62,7 @@
 
       <!-- References Section -->
       <section id="references" class="section">
-        <div class="references">
+        <div class="references section-card">
           <h2 class="section-title">Referencias Profesionales</h2>
           <p class="section-subtitle">
             Lo que dicen mis colegas y mentores sobre mi trabajo
@@ -179,7 +179,7 @@
                
       <!-- Projects Section -->
       <section id="projects" class="section">
-        <div class="projects">
+        <div class="projects section-card">
           <h2 class="section-title">Proyectos</h2>
           <div class="projects-grid">
             <div class="project-card">
@@ -349,19 +349,19 @@
 
       <!-- Contact Section -->
       <section id="contact" class="section">
-        <div class="contact">
+        <div class="contact section-card">
           <h2 class="section-title">¡Empecemos!</h2>
           <p>
             ¿Tienes un proyecto en mente? ¿Te gustaría colaborar? ¡Me encantaría
             saber de ti!
           </p>
           <div class="contact-links">
-            <a href="mailto:JD117parra@outlook.com" class="contact-link"
+            <a href="mailto:JD117parra@outlook.com" class="contact-link flex-center"
               ><i class="fas fa-envelope"></i>Email</a
             >
             <a
               href="https://www.linkedin.com/in/juan-parra-2358b428b"
-              class="contact-link"
+              class="contact-link flex-center"
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -369,7 +369,7 @@
             >
             <a
               href="https://github.com/JD117parra"
-              class="contact-link"
+              class="contact-link flex-center"
               target="_blank"
               rel="noopener noreferrer"
               ><i class="fab fa-github"></i>GitHub</a
@@ -388,6 +388,7 @@
           <div class="social-links">
             <a
               href="https://github.com/JD117parra"
+              class="flex-center"
               aria-label="GitHub"
               target="_blank"
               rel="noopener noreferrer"
@@ -395,33 +396,38 @@
             ></a>
             <a
               href="https://www.linkedin.com/in/juan-parra-2358b428b"
+              class="flex-center"
               aria-label="LinkedIn"
               target="_blank"
               rel="noopener noreferrer"
               ><i class="fab fa-linkedin"></i
             ></a>
-            <a href="mailto:JD117parra@outlook.com" aria-label="Email"
+            <a href="mailto:JD117parra@outlook.com" class="flex-center" aria-label="Email"
               ><i class="fas fa-envelope"></i
             ></a>
           </div>
         </div>
         <div class="footer-section">
-          <h4>Servicios</h4>
-          <ul>
-            <li><a href="index.html">Desarrollo Web</a></li>
-            <li><a href="index.html#services">E-commerce</a></li>
-            <li><a href="index.html#services">Landing Pages</a></li>
-            <li><a href="#">Consultorías</a></li>
-          </ul>
+          <details>
+            <summary>Servicios</summary>
+            <ul>
+              <li><a href="index.html">Desarrollo Web</a></li>
+              <li><a href="index.html#services">E-commerce</a></li>
+              <li><a href="index.html#services">Landing Pages</a></li>
+              <li><a href="#">Consultorías</a></li>
+            </ul>
+          </details>
         </div>
         <div class="footer-section">
-          <h4>Contacto</h4>
-          <div class="contact-info">
-            <p>
-              <i class="fas fa-envelope"></i>
-              <a href="mailto:JD117parra@outlook.com">JD117parra@outlook.com</a>
-            </p>
-          </div>
+          <details>
+            <summary>Contacto</summary>
+            <div class="contact-info">
+              <p>
+                <i class="fas fa-envelope"></i>
+                <a href="mailto:JD117parra@outlook.com">JD117parra@outlook.com</a>
+              </p>
+            </div>
+          </details>
         </div>
       </div>
       <div class="footer-bottom">
