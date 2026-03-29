@@ -270,24 +270,24 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 new Swiper('.card-wrapper', {
-  // Optional parameters
   loop: true,
-  spaceBetween: 40,
-  slidesPerView: 1,
+  loopedSlides: 3,         // slides duplicados necesarios para loop con slidesPerView: 'auto'
+  observer: true,          // re-inicializar si el elemento estaba oculto al inicio
+  observeParents: true,
+  spaceBetween: 20,        // espacio entre tarjetas
+  slidesPerView: 'auto',   // permite que se vean varias a la vez
+  centeredSlides: true,    // centra la tarjeta activa
 
-  // If we need pagination
   pagination: {
     el: '.swiper-pagination',
     clickable: true,
     dynamicBullets: true,
   },
 
-  // Navigation arrows
   navigation: {
     nextEl: '.swiper-button-next',
     prevEl: '.swiper-button-prev',
   },
-
 });
 
 // === FUNCIONES UTILITARIAS ===

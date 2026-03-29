@@ -1,9 +1,16 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Servicios de desarrollo web - J.D. Desarrollador Full Stack</title>
+    <meta name="description" content="Servicios de desarrollo web profesional por J.D. Parra — sitios corporativos, e-commerce, landing pages, rediseño y mantenimiento web.">
+    <meta name="author" content="J.D. Parra">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="J.D. Parra - Servicios de Desarrollo Web">
+    <meta property="og:description" content="Servicios de desarrollo web profesional por J.D. Parra — sitios corporativos, e-commerce, landing pages, rediseño y mantenimiento web.">
+    <meta property="og:image" content="Images/Profile-Picture-2.jpg">
+    <title>J.D. Parra - Servicios de Desarrollo Web</title>
+    <link rel="icon" href="favicon.ico">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -13,27 +20,28 @@
 </head>
 <body>
     <!-- Navigation -->    
-    <nav class="navbar">
+    <nav class="navbar" aria-label="Navegación principal">
         <div class="nav-container">   
           <div class="logo">JD Parra</div>            
             <ul class="nav-links">
-              <li><a href="profile.html">Desarrollador</a></li>    
-              <li><a href="#projects" class="active">Servicios</a></li>           
-                <li><a href="#technologies">Tecnologías</a></li>
-                <li><a href="#faq">FAQ</a></li>
-                <li><a href="#contact">Contacto</a></li>
+              <li><a href="profile.html">Desarrollador</a></li>
+              <li><a href="#services">Servicios</a></li>
+              <li><a href="#technologies">Tecnologías</a></li>
+              <li><a href="#faq">FAQ</a></li>
+              <li><a href="#contact">Contacto</a></li>
             </ul>
           </div>
-        </div>  
     </nav>
 
-    <!-- Hero Section -->    
+    <main>
+
+    <!-- Hero Section -->
     <section id="home" class="hero hero--services">
       <div class="hero-content">  
         <h1>Desarrollo web profesional</h1>
         <p class="subtitle">Transforma tus ideas en potentes soluciones digitales</p>
         <div class="hero__buttons">
-          <a href="#projects" class="cta-button">Explora Nuestros Servicios</a>
+          <a href="#services" class="cta-button">Explora Nuestros Servicios</a>
           <a href="#contact" class="cta-button cta-button--outline">Obtener cotización</a>
         </div>
       </div>
@@ -41,7 +49,7 @@
 
     <!-- Services Section -->
      
-    <section id="projects" class="section">
+    <section id="services" class="section">
         <div class="projects">
             <h2 class="section-title">Nuestros servicios de desarrollo</h2>
             <p class="section-subtitle">Soluciones web integrales adaptadas a las necesidades de su negocio</p>
@@ -58,11 +66,10 @@
                         <span class="skill-tag">Panel de administración</span>
                         <span class="skill-tag">Integración de redes sociales</span>
                     </div>
-                    <!-- <div class="service-price">Desde 300.000 COP</div> -->
                 </div>
 
-                <div class="project-card service-card--teal featured">
-                    <div class="service-badge">⭐ Mas Popular</div>
+                <div class="project-card service-card--teal">
+                    <div class="service-badge">⭐ Más Popular</div>
                     <div class="service-icon"><i class="fas fa-shopping-cart"></i></div>
                     <h3>Soluciones para E-commerce</h3>
                     <p>Tiendas online completas con carrito de compra, pasarelas de pago y gestión de inventario para vender online de forma eficaz.</p>
@@ -72,11 +79,10 @@
                         <span class="skill-tag">Gestión de productos</span>
                         <span class="skill-tag">Sistema de envío</span>
                     </div>
-                    <!-- <div class="service-price">Desde 500.000 COP</div> -->
                 </div>
 
                 <div class="project-card service-card--pink">
-                    <div class="service-icon service-icon--colored"><i class="fas fa-mobile-alt"></i></div>
+                    <div class="service-icon"><i class="fas fa-mobile-alt"></i></div>
                     <h3>Landing Pages</h3>
                     <p>Páginas de destino optimizadas para la conversión, perfectas para campañas de marketing y actividades promocionales.</p>
                     <div class="skill-list">
@@ -85,12 +91,11 @@
                         <span class="skill-tag">Formularios optimizados</span>
                         <span class="skill-tag">Analítica</span>
                     </div>
-                    <!-- <div class="service-price">Desde 400.000 COP</div> -->
                 </div>
 
                 <div class="project-card service-card--orange">
-                    <div class="service-icon service-icon--colored"><i class="fas fa-paint-brush"></i></div>
-                    <h3>Website Redesign</h3>
+                    <div class="service-icon"><i class="fas fa-paint-brush"></i></div>
+                    <h3>Rediseño Web</h3>
                     <p>Modernice su sitio web existente con las últimas tendencias de diseño y las mejores prácticas de usabilidad.</p>
                     <div class="skill-list">
                         <span class="skill-tag">Diseño moderno</span>
@@ -98,7 +103,6 @@
                         <span class="skill-tag">Migración de contenido</span>
                         <span class="skill-tag">Optimización móvil</span>
                     </div>
-                    <!-- <div class="service-price">Desde 600.000 COP</div> -->
                 </div>
 
                 <div class="project-card service-card--purple">
@@ -111,7 +115,6 @@
                         <span class="skill-tag">Soporte Técnico</span>
                         <span class="skill-tag">Monitorización 24/7</span>
                     </div>
-                    <!-- <div class="service-price">Desde 300.000 COP</div> -->
                 </div>
 
                 <div class="project-card service-card--magenta">
@@ -131,7 +134,7 @@
 
             
             <!-- CAROUSEL para móvil -->
-            <div class="projects swiper"><h2 class="section-title">Nuestros servicios de desarrollo</h2>
+            <div class="projects swiper" aria-hidden="true"><h2 class="section-title">Nuestros servicios de desarrollo</h2>
             <p class="section-subtitle">Soluciones web integrales adaptadas a las necesidades de su negocio</p>
              <div class="card-wrapper">
 
@@ -147,11 +150,10 @@
                      <span class="skill-tag">Panel de administración</span>
                      <span class="skill-tag">Integración de redes sociales</span>
                     </div>
-                    <!-- <div class="service-price">Desde 300.000 COP</div> -->
                 </li>
 
-                <li class="project-card service-card--teal featured swiper-slide">
-                    <div class="service-badge">⭐ Mas Popular</div>
+                <li class="project-card service-card--teal swiper-slide">
+                    <div class="service-badge">⭐ Más Popular</div>
                     <div class="service-icon"><i class="fas fa-shopping-cart"></i></div>
                     <h3>Soluciones para E-commerce</h3>
                     <p>Tiendas online completas con carrito de compra, pasarelas de pago y gestión de inventario para vender online de forma eficaz.</p>
@@ -161,33 +163,30 @@
                       <span class="skill-tag">Gestión de productos</span>
                       <span class="skill-tag">Sistema de envío</span>
                     </div>
-                    <!-- <div class="service-price">Desde 500.000 COP</div> -->
                 </li>
                   
                 <li class="project-card service-card--pink swiper-slide">
-                    <div class="service-icon service-icon--colored"><i class="fas fa-mobile-alt"></i></div>
+                    <div class="service-icon"><i class="fas fa-mobile-alt"></i></div>
                     <h3>Landing Pages</h3>
                     <p>Páginas de destino optimizadas para la conversión, perfectas para campañas de marketing y actividades promocionales.</p>
                     <div class="skill-list">
-                      <span class="skill-tag">Alta Conversión</span>
-                      <span class="skill-tag">Carga Rápida</span>
-                      <span class="skill-tag">Formularios Optimizados</span>
+                      <span class="skill-tag">Alta conversión</span>
+                      <span class="skill-tag">Carga rápida</span>
+                      <span class="skill-tag">Formularios optimizados</span>
                       <span class="skill-tag">Analítica</span>
                     </div>
-                    <!-- <div class="service-price">Desde 400.000 COP</div> -->
                 </li>
                 
                 <li class="project-card service-card--orange swiper-slide">
-                    <div class="service-icon service-icon--colored"><i class="fas fa-paint-brush"></i></div>
-                    <h3>Website Redesign</h3>
+                    <div class="service-icon"><i class="fas fa-paint-brush"></i></div>
+                    <h3>Rediseño Web</h3>
                     <p>Modernice su sitio web existente con las últimas tendencias de diseño y las mejores prácticas de usabilidad.</p>
                     <div class="skill-list">
                       <span class="skill-tag">Diseño moderno</span>
-                      <span class="skill-tag">Mejora de la velocidadt</span>
+                      <span class="skill-tag">Mejora de la velocidad</span>
                       <span class="skill-tag">Migración de contenido</span>
                       <span class="skill-tag">Optimización móvil</span>
                     </div>
-                    <!-- <div class="service-price">Desde 600.000 COP</div> -->
                 </li>  
                  
                 <li class="project-card service-card--purple swiper-slide">
@@ -200,7 +199,6 @@
                      <span class="skill-tag">Soporte Técnico</span>
                      <span class="skill-tag">Monitorización 24/7</span>
                     </div>
-                    <!-- <div class="service-price">Desde 300.000 COP</div> -->
                 </li>
                   
                 <li class="project-card service-card--magenta swiper-slide">
@@ -235,27 +233,27 @@
                 
                 <div class="skills-grid">
                   <div class="skill-category process-card--pink">
-                    <i class="fas fa-comments" style="color: #667eea; font-size: 3rem; margin-bottom: 1rem;"></i>
+                    <i class="fas fa-comments process-icon"></i>
                     <h3>1. Consulta inicial</h3>
-                    <p>Analizamos sus necesidades, objetivos y definimos el alcance del proyecto con total claridad y comprensión.</p>
+                    <p>Analizo sus necesidades, objetivos y defino el alcance del proyecto con total claridad y comprensión.</p>
                 </div>
                 
                 <div class="skill-category process-card--aqua">
-                    <i class="fas fa-drafting-compass" style="color: #667eea; font-size: 3rem; margin-bottom: 1rem;"></i>
+                    <i class="fas fa-drafting-compass process-icon"></i>
                     <h3>2. Diseño y planificación</h3>
                     <p>Creo maquetas y wireframes para visualizar la estructura y el diseño antes de que comience el desarrollo.</p>
                 </div>
                 
                 <div class="skill-category process-card--peach">
-                    <i class="fas fa-code" style="color: #667eea; font-size: 3rem; margin-bottom: 1rem;"></i>
+                    <i class="fas fa-code process-icon"></i>
                     <h3>3. Desarrollo</h3>
-                    <p>Construyo tu sitio web utilizando las mejores tecnologías y prácticas actuales del mercado para obtener resultados óptimos.</p>
+                    <p>Construyo su sitio web utilizando las mejores tecnologías y prácticas actuales del mercado para obtener resultados óptimos.</p>
                 </div>
                 
                 <div class="skill-category process-card--blue">
-                    <i class="fas fa-rocket" style="color: #667eea; font-size: 3rem; margin-bottom: 1rem;"></i>
+                    <i class="fas fa-rocket process-icon"></i>
                     <h3>4. Lanzamiento y soporte</h3>
-                    <p>Pruebas exhaustivas antes del lanzamiento oficial para garantizar la calidad y el soporte continuo posterior.</p>
+                    <p>Realizo pruebas exhaustivas antes del lanzamiento oficial y brindo soporte continuo posterior.</p>
                 </div>
             </div>
         </div>
@@ -265,10 +263,10 @@
     <section id="technologies" class="section">
         <div class="skills">           
             <h2 class="section-title">Tecnologías que utilizamos</h2>
-            <p class="section-subtitle">Stack tecnológica moderna para proyectos web de vanguardia</p>         
+            <p class="section-subtitle">Stack tecnológico moderno para proyectos web de vanguardia</p>         
             <div class="skills-grid">             
-              <div class="skill-category">
-                <i class="fas fa-laptop-code"></i>         
+              <div class="skill-category skill-category--frontend">
+                <i class="fas fa-laptop-code"></i>
                 <h3>Frontend</h3>                 
                 <div class="skill-list">                    
                   <span class="skill-tag">HTML5</span>
@@ -281,7 +279,7 @@
                 </div>
               </div>
 
-              <div class="skill-category">                    
+              <div class="skill-category skill-category--backend">
                 <i class="fas fa-server"></i>
                 <h3>Backend</h3>
                 <div class="skill-list">                        
@@ -294,9 +292,9 @@
                 </div>
               </div>
 
-              <div class="skill-category">                    
+              <div class="skill-category skill-category--db">
                 <i class="fas fa-database"></i>
-                <h3>Databases</h3>
+                <h3>Base de Datos</h3>
                 <div class="skill-list">
                   <span class="skill-tag">MySQL</span>
                   <span class="skill-tag">PostgreSQL</span>
@@ -306,7 +304,7 @@
                 </div>
               </div>
 
-              <div class="skill-category">
+              <div class="skill-category skill-category--tools">
                 <i class="fas fa-tools"></i>
                 <h3>Herramientas</h3>
                 <div class="skill-list">
@@ -323,101 +321,131 @@
     </section>
 
     <!-- FAQ Section -->
-    <section id="faq"  class="section">
-        <div class="about">
-            <h2 class="section-title">Preguntas frecuentes</h2>
-            <p class="section-subtitle">Preguntas frecuentes sobre mis servicios de desarrollo</p>
-            
-            <div class="about-content grid-single">
-                <div class="faq-card">
-                    <h3>¿Cuánto tiempo se tarda en desarrollar un sitio web?</h3>
-                    <p>El tiempo de desarrollo depende de la complejidad del proyecto. Una landing page puede estar lista en una o dos semanas, mientras que un sitio web de comercio electrónico completo puede tardar entre cuatro y ocho semanas.</p>
-                </div>
-                
-                <div class="faq-card">
-                    <h3>¿Incluye hosting y dominio?</h3>
-                    <p>Los precios incluyen únicamente el desarrollo. El alojamiento y el dominio se cotizan por separado según tus necesidades específicas, o puedes usar tu propio proveedor.</p>
-                </div>
-                
-                <div class="faq-card">
-                    <h3>¿Puedo realizar cambios después del lanzamiento?</h3>
-                    <p>Sí, ofrezco soporte poslanzamiento. Los cambios menores están incluidos en la garantía y los cambios mayores se cotizan por separado.</p>
-                </div>
-                
-                <div class="faq-card">
-                    <h3>¿Los sitios web son adaptables a dispositivos móviles?</h3>
-                    <p>Por supuesto. Todos mis sitios web se adaptan perfectamente a dispositivos móviles, tabletas y ordenadores. Es un estándar en todos mis proyectos.</p>
-                </div>
+    <section id="faq" class="section">
+      <div class="about">
+        <h2 class="section-title">Preguntas frecuentes</h2>
+        <p class="section-subtitle">Respuestas rápidas a las dudas más comunes antes de comenzar</p>
+
+        <!-- Carrusel -->
+        <div class="swiper card-wrapper">
+          <div class="swiper-wrapper">
+            <!-- Slide 1 -->
+            <div class="swiper-slide">
+              <div class="faq-card">
+                <h3>¿Cuánto tiempo se tarda en desarrollar un sitio web?</h3>
+                <p>El tiempo de desarrollo depende de la complejidad del proyecto. Una landing page puede estar lista en una o dos semanas, mientras que un sitio web de comercio electrónico completo puede tardar entre cuatro y ocho semanas.</p>
+              </div>
             </div>
+
+            <!-- Slide 2 -->
+            <div class="swiper-slide">
+              <div class="faq-card">
+                <h3>¿Incluye hosting y dominio?</h3>
+                <p>Los precios incluyen únicamente el desarrollo. El alojamiento y el dominio se cotizan por separado según sus necesidades específicas, o puede usar su propio proveedor.</p>
+              </div>
+            </div>
+
+            <!-- Slide 3 -->
+            <div class="swiper-slide">
+              <div class="faq-card">
+                <h3>¿Puedo realizar cambios después del lanzamiento?</h3>
+                <p>Sí, ofrezco soporte poslanzamiento. Los cambios menores están incluidos en la garantía y los cambios mayores se cotizan por separado.</p>
+              </div>
+            </div>
+
+            <!-- Slide 4 -->
+            <div class="swiper-slide">
+              <div class="faq-card">
+                <h3>¿Los sitios web son adaptables a dispositivos móviles?</h3>
+                <p>Por supuesto. Todos mis sitios web se adaptan perfectamente a dispositivos móviles, tabletas y ordenadores. Es un estándar en todos mis proyectos.</p>
+              </div>
+            </div>
+
+            <!-- Slide 5 -->
+            <div class="swiper-slide">
+              <div class="faq-card">
+                <h3>¿Cuánto cuesta desarrollar un sitio web?</h3>
+                <p>El precio varía según el tipo de proyecto y su complejidad. Una landing page básica tiene un costo diferente al de un sitio corporativo o una tienda en línea. Contácteme para recibir una cotización personalizada sin compromiso.</p>
+              </div>
+            </div>
+
+            <!-- Slide 6 -->
+            <div class="swiper-slide">
+              <div class="faq-card">
+                <h3>¿Necesito tener el contenido listo antes de comenzar?</h3>
+                <p>No es obligatorio, pero sí recomendable. Contar con textos, imágenes y logotipos desde el inicio agiliza el desarrollo. Si aún no los tiene, puedo orientarle sobre cómo prepararlos o trabajar con contenido provisional mientras los consigue.</p>
+              </div>
+            </div>
+
+            <!-- Slide 7 -->
+            <div class="swiper-slide">
+              <div class="faq-card">
+                <h3>¿El sitio web estará optimizado para aparecer en Google?</h3>
+                <p>Sí. Aplico buenas prácticas de SEO técnico desde el desarrollo: estructura semántica, velocidad de carga, etiquetas meta y compatibilidad con dispositivos móviles. Esto le da una base sólida para posicionarse en los motores de búsqueda.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Controles -->
+          <div class="swiper-button-next"></div>
+          <div class="swiper-button-prev"></div>
+          <div class="swiper-pagination"></div>
         </div>
+      </div>
     </section>
 
     <!-- Contact Section -->
     <section id="contact" class="section">
       <div class="contact">            
         <h2 class="section-title">¿Listo para tu próximo proyecto?</h2>
-        <p class="text-large">¿Tienes un proyecto en mente? ¿Te gustaría colaborar? ¡Me encantaría saber de ti!</p>          
+        <p class="text-large">¿Tiene un proyecto en mente? ¿Le gustaría colaborar? ¡Me encantaría saber de usted!</p>          
         <div class="contact-grid--services">
             <div class="contact-card contact-card--purple">
                 <div class="contact-icon"><i class="fas fa-envelope"></i></div>
                 <div>
                     <h3>Email</h3>
-                    <p>JhonParra117@outlook.com</p>
+                    <p><a href="mailto:JD117parra@outlook.com">JD117parra@outlook.com</a></p>
                 </div>
             </div>
             
-            <!-- <div class="contact-card contact-card--red">
-                <div class="contact-icon"><i class="fas fa-phone"></i></div>
-                <div>
-                    <h3>Télefono</h3>
-                    <p>+57 300 123 4567</p>
-                </div>
-            </div>
-            
-            <div class="contact-card contact-card--teal">
-                <div class="contact-icon"><i class="fab fa-whatsapp"></i></div>
-                <div>
-                    <h3>WhatsApp</h3>
-                    <p>+57 300 123 4567</p>
-                </div>
-            </div> -->
         </div>
 
         <div class="contact-links">           
-          <a href="mailto:JhonParra117@outlook.com" class="contact-link"><i class="fas fa-envelope"></i>Enviar Email</a>         
-          <a href="https://www.linkedin.com/in/juan-parra-2358b428b" class="contact-link" target="_blank"> <i class="fab fa-linkedin">
-          </i>LinkedIn</a>  
+          <a href="mailto:JD117parra@outlook.com" class="contact-link"><i class="fas fa-envelope"></i>Enviar Email</a>         
+          <a href="https://www.linkedin.com/in/juan-parra-2358b428b" class="contact-link" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin"></i>LinkedIn</a>  
           <a href="tel:+57-300-123-4567" class="contact-link"><i class="fas fa-phone"></i>Llámanos</a>
         </div>        
       </div>  
     </section>
 
+    </main>
+
     <!-- Footer -->
     <footer class="footer-enhanced">
       <div class="footer-content">
         <div class="footer-section">
-          <h3>J.D Parra</h3>
+          <h3>J.D. Parra</h3>
           <p>Creando Experiencias Digitales que Importan</p>
           <div class="social-links">
-            <a href="https://github.com/JD117parra" aria-label="GitHub"><i class="fab fa-github"></i></a>
-            <a href="https://www.linkedin.com/in/juan-parra-2358b428b" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
-            <a href="mailto:JhonParra117@outlook.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+            <a href="https://github.com/JD117parra" aria-label="GitHub" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i></a>
+            <a href="https://www.linkedin.com/in/juan-parra-2358b428b" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin"></i></a>
+            <a href="mailto:JD117parra@outlook.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
           </div>
         </div>
         <div class="footer-section">
           <h4>Servicios</h4>
           <ul>
             <li><a href="index.html">Desarrollo Web</a></li>
-            <li><a href="#projects">E-commerce</a></li>
-            <li><a href="#projects">Landing Pages</a></li>
-            <li><a href="#projects">Mantenimiento</a></li>
+            <li><a href="#services">E-commerce</a></li>
+            <li><a href="#services">Landing Pages</a></li>
+            <li><a href="#services">Mantenimiento</a></li>
           </ul>
         </div>
         <div class="footer-section">
           <h4>Enlaces</h4>
           <ul>
-            <li><a href="#projects">Servicios</a></li>
-            <li><a href="profile.html#about">Acerca de mí</a></li>
+            <li><a href="#services">Servicios</a></li>
+            <li><a href="profile.html">Acerca de mí</a></li>
             <li><a href="profile.html#projects">Proyectos</a></li>
             <li><a href="#contact">Contacto</a></li>
           </ul>
@@ -425,15 +453,15 @@
         <div class="footer-section">
           <h4>Contacto</h4>
           <div class="contact-info">
-            <p><i class="fas fa-envelope"></i>JhonParra117@outlook.com</p>
+            <p><i class="fas fa-envelope"></i><a href="mailto:JD117parra@outlook.com">JD117parra@outlook.com</a></p>
           </div>
         </div>
       </div>
       <div class="footer-bottom">
-        <p>&copy; 2025 J.D Parra. Todos los derechos reservados.</p>
+        <p>&copy; 2026 J.D. Parra. Todos los derechos reservados.</p>
         <div class="footer-links">
-          <a href="#">política de privacidad</a>
-          <a href="#">Términos & Condiciones</a>
+          <a href="#">Política de Privacidad</a>
+          <a href="#">Términos &amp; Condiciones</a>
         </div>
       </div>
     </footer>
