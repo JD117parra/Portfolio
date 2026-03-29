@@ -1,0 +1,3 @@
+# Ignorar carpetas internas
+.claude/
+.history/
