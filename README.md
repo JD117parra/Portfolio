@@ -1,6 +1,6 @@
-# 💼 J.D Parra - Full Stack Developer Portfolio
+# 💼 J.D Parra - Full Stack Developer & Microsoft Consultant Portfolio
 
-¡Bienvenido a mi portfolio personal! Una página web moderna y responsive que muestra mis habilidades, proyectos y experiencia como desarrollador Full Stack.
+¡Bienvenido a mi portfolio personal! Una página web moderna y responsive que muestra mis habilidades, proyectos y experiencia como Desarrollador Full Stack & Consultor Microsoft.
 
 ## 🚀 Demo en Vivo
 

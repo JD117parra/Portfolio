@@ -828,3 +828,43 @@ if (document.getElementById('cmpQuestion')) {
     } catch(e) { console.error('[CMP] init error:', e.message); }
   })();
 }
+
+// === FOOTER DETAILS: abrir en desktop, acordeón en móvil ===
+(function () {
+  var details = document.querySelectorAll('.footer-section details');
+  if (!details.length) return;
+
+  function toggle() {
+    var desktop = window.innerWidth > 480;
+    details.forEach(function (d) {
+      if (desktop) d.setAttribute('open', '');
+      else d.removeAttribute('open');
+    });
+  }
+
+  toggle();
+  window.addEventListener('resize', toggle);
+})();
+
+// === LOGO CAROUSEL ===
+(function () {
+  const track = document.querySelector('.logo-track');
+  if (!track) return;
+
+  let pos = 0;
+  const speed = 1.2; // px por frame
+
+  function step() {
+    {
+      pos -= speed;
+      // Cuando se ha desplazado la mitad (los 5 originales), reiniciar
+      if (Math.abs(pos) >= track.scrollWidth / 2) {
+        pos = 0;
+      }
+      track.style.transform = 'translateX(' + pos + 'px)';
+    }
+    requestAnimationFrame(step);
+  }
+
+  requestAnimationFrame(step);
+})();
