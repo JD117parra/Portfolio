@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Casos técnicos reales de consultoría Microsoft — Azure, Microsoft 365 y Power Platform por J.D. Parra.">
+    <meta name="author" content="J.D. Parra">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="J.D. Parra - Casos Técnicos">
+    <meta property="og:description" content="Casos técnicos reales de consultoría Microsoft — Azure, Microsoft 365 y Power Platform por J.D. Parra.">
+    <meta property="og:image" content="Images/Profile-Picture-2.jpg">
+    <title>J.D. Parra - Casos Técnicos</title>
+    <link rel="icon" href="favicon.ico">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar" aria-label="Navegación principal">
+        <div class="nav-container">
+          <div class="logo">JD Parra</div>
+            <ul class="nav-links">
+              <li><a href="index.html">Desarrollo Web</a></li>
+              <li><a href="microsoft.html">Consultoría Microsoft</a></li>
+              <li><a href="casos.html">Casos Técnicos</a></li>
+              <li><a href="recursos-tecnicos.html">Recursos Técnicos</a></li>
+              <li><a href="profile.html">JD Parra</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main>
+
+    <!-- Hero -->
+    <section id="home" class="hero hero--casos flex-center">
+      <div class="hero-content">
+        <h1>Casos Técnicos</h1>
+        <p class="subtitle">Implementaciones reales en Azure, Microsoft 365 y Power Platform — problemas concretos, soluciones documentadas</p>
+        <div class="hero__buttons">
+          <a href="microsoft.html" class="cta-button cta-button--outline"><i class="fas fa-arrow-left"></i> Volver a Consultoría</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Hub + Filtros -->
+    <section class="section" style="padding-bottom: 0;">
+      <div style="max-width:1200px; margin: 0 auto; padding: 0 2rem;">
+
+        <div class="hub-grid">
+          <button class="hub-card hub-card--azure" data-filter="azure">
+            <i class="fab fa-microsoft"></i>
+            <h3>Azure</h3>
+          </button>
+          <button class="hub-card hub-card--m365" data-filter="m365">
+            <i class="fas fa-users"></i>
+            <h3>Microsoft 365</h3>
+          </button>
+          <button class="hub-card hub-card--power" data-filter="power">
+            <i class="fas fa-bolt"></i>
+            <h3>Power Platform</h3>
+          </button>
+          <button class="hub-card hub-card--arch" data-filter="arch">
+            <i class="fas fa-server"></i>
+            <h3>Arquitectura Microsoft</h3>
+          </button>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Casos -->
+    <section class="section">
+      <div class="casos-wrapper">
+
+        <!-- ══ AZURE ══════════════════════════════════════════════ -->
+
+        <!-- Azure 1 — texto izquierda, visual derecha -->
+        <article class="caso" data-area="azure">
+          <div class="caso-content">
+            <div class="caso-header">
+              <span class="caso-badge caso-badge--azure"><i class="fab fa-microsoft"></i> Azure</span>
+              <span class="caso-badge" style="background:rgba(255,180,0,0.15);color:#fbbf24;border:1px solid rgba(255,180,0,0.3);"><i class="fas fa-clock"></i> En evaluación</span>
+            </div>
+            <h2>Migración de intranet corporativa on-premises a Azure</h2>
+
+            <p class="caso-label">El problema</p>
+            <p>Empresa de 170 funcionarios con intranet corporativa operando sobre WordPress + MySQL en contenedores Docker sobre servidor físico propio (8 núcleos, 32 GB RAM, 12 TB). Sin respaldo estructurado, sin plan de recuperación ante desastres y con todo el peso operativo sobre el equipo de TI interno.</p>
+
+            <p class="caso-label">La solución</p>
+            <p>Evaluación comparativa IaaS vs PaaS: Azure VM frente a Azure Container Apps + Azure Database for MySQL Flexible Server. Para el tamaño de este workload, la VM resultó más costo-efectiva. Arquitectura propuesta: Azure VM para WordPress, Azure Database for MySQL Flexible Server y Azure Backup con respaldos diarios automatizados y retención de 30 días.</p>
+
+            <p class="caso-label">Resultados proyectados</p>
+            <ul class="caso-results">
+              <li>Reducción estimada del 40–60% en costos operativos vs operación on-premises</li>
+              <li>Almacenamiento ajustado de 12 TB sobredimensionado a 1–3 TB según uso real</li>
+              <li>SLA de 99.9% de disponibilidad garantizado por Microsoft</li>
+              <li>RPO de 24 horas y RTO de 1–4 horas con Azure Backup</li>
+              <li>Eliminación completa de carga de mantenimiento físico del servidor</li>
+            </ul>
+          </div>
+          <div class="caso-visual" style="aspect-ratio: 1/1;">
+            <img src="Images/Capas Vivas.png" alt="Diagrama de arquitectura: migración de intranet WordPress + MySQL on-premises a Azure VM con Azure Backup" loading="lazy" style="width:100%;height:100%;object-fit:contain;border-radius:var(--radius-card);">
+          </div>
+        </article>
+
+        <!-- Azure 2 — visual izquierda, texto derecha -->
+        <article class="caso caso--reverse" data-area="azure">
+          <div class="caso-content">
+            <div class="caso-header">
+              <span class="caso-badge caso-badge--azure"><i class="fab fa-microsoft"></i> Azure</span>
+              <span class="caso-badge" style="background:rgba(255,180,0,0.15);color:#fbbf24;border:1px solid rgba(255,180,0,0.3);"><i class="fas fa-clock"></i> En evaluación</span>
+            </div>
+            <h2>Migración de sistema legacy Visual Basic 6.0 + SQL Server 2016 a Azure</h2>
+
+            <p class="caso-label">El problema</p>
+            <p>Sistema legacy crítico compuesto por aplicación Visual Basic 6.0 (descontinuada desde 2008) y SQL Server 2016 Standard con 4 bases de datos (~40 GB). El soporte extendido de SQL Server 2016 termina en julio 2026, generando riesgo de seguridad y cumplimiento. Sin opciones de VPS robustas y con urgencia de migrar antes del fin de soporte.</p>
+
+            <p class="caso-label">La solución</p>
+            <p>Arquitectura IaaS completa: Azure VM D4s_v5 con Windows Server 2025 Datacenter y SQL Server 2019/2022 en la misma VM. Se descartó PaaS por incompatibilidad con VB6 y posible uso de SQL Agent, Linked Servers y Database Mail. Estrategia "lift-and-shift" sin reescribir código ni modificar el driver MSOLEDBSQL19. Complementado con Managed Disk Premium SSD 256 GB, Azure Backup y VNet privada con NSG.</p>
+
+            <p class="caso-label">Resultados esperados</p>
+            <ul class="caso-results">
+              <li>Eliminación del riesgo por fin de soporte SQL Server 2016 antes de julio 2026</li>
+              <li>SLA de 99.9% de disponibilidad garantizado por Microsoft</li>
+              <li>Ahorro del 40–55% en licenciamiento con Azure Hybrid Benefit</li>
+              <li>Costo estimado: ~$415–540 USD/mes con AHB vs ~$815–940 sin AHB</li>
+              <li>Migración sin modificar código ni drivers — mínimo riesgo operativo</li>
+            </ul>
+          </div>
+          <div class="caso-visual" style="aspect-ratio: 1/1;">
+            <img src="Images/Panel Ejecutivo.png" alt="Panel ejecutivo: arquitectura IaaS Azure y comparativo de costos con y sin Azure Hybrid Benefit" loading="lazy" style="width:100%;height:100%;object-fit:contain;border-radius:var(--radius-card);">
+          </div>
+        </article>
+
+        <!-- Azure 3 — full width -->
+        <article class="caso caso--full" data-area="azure">
+          <div class="caso-header">
+            <span class="caso-badge caso-badge--azure"><i class="fab fa-microsoft"></i> Azure</span>
+          </div>
+          <h2>Monitoreo y optimización de costos con Azure Monitor y Cost Management</h2>
+
+          <div class="caso-visual">
+            <div class="caso-placeholder">
+              <i class="fas fa-chart-line"></i>
+              <p>Dashboard de Azure Monitor<br><strong>Próximamente</strong></p>
+            </div>
+          </div>
+
+          <div class="caso-bottom">
+            <div>
+              <p class="caso-label">El problema</p>
+              <p>Placeholder — organización sin visibilidad sobre el consumo real de recursos en Azure, con costos crecientes sin trazabilidad y sin alertas ante anomalías de rendimiento.</p>
+
+              <p class="caso-label">La solución</p>
+              <p>Placeholder — implementación de Azure Monitor con dashboards personalizados, alertas de métricas críticas y Cost Management con presupuestos y reportes automáticos por área.</p>
+            </div>
+            <div>
+              <p class="caso-label">Resultados</p>
+              <ul class="caso-results">
+                <li>Reducción del gasto mensual en Azure mediante identificación de recursos ociosos</li>
+                <li>Alertas proactivas antes de que los incidentes afecten al usuario final</li>
+                <li>Reportes de consumo automatizados para cada área de negocio</li>
+                <li>Visibilidad total del entorno en un único dashboard operativo</li>
+              </ul>
+            </div>
+          </div>
+        </article>
+
+        <!-- ══ MICROSOFT 365 ═══════════════════════════════════════ -->
+
+        <!-- M365 1 — texto izquierda, visual derecha -->
+        <article class="caso" data-area="m365">
+          <div class="caso-content">
+            <div class="caso-header">
+              <span class="caso-badge caso-badge--m365"><i class="fas fa-users"></i> Microsoft 365</span>
+              <span class="caso-badge" style="background:rgba(255,180,0,0.15);color:#fbbf24;border:1px solid rgba(255,180,0,0.3);"><i class="fas fa-clock"></i> Propuesta técnica en curso</span>
+            </div>
+            <h2>Propuesta de licenciamiento Microsoft 365 Enterprise para entidad financiera regulada</h2>
+
+            <p class="caso-label">El problema</p>
+            <p>Entidad fiduciaria del sector financiero regulado en Colombia, sin un stack de productividad y seguridad estructurado bajo Microsoft 365. La exposición era triple: riesgo de incumplimiento normativo, protección insuficiente de datos sensibles de clientes, y falta de trazabilidad para auditorías.</p>
+
+            <p class="caso-label">La solución</p>
+            <p>Propuesta de licenciamiento M365 en modelo híbrido por roles: M365 E3 como base para la mayoría de usuarios (DLP, retención, SharePoint, Teams, Exchange Online 100 GB) con Defender for Office 365 Plan 1 como add-on obligatorio. M365 E5 exclusivamente para roles críticos — Compliance, Legal, Riesgos y Ejecutivos — que requieren eDiscovery avanzado, Defender Plan 2 y cumplimiento avanzado. Se descartaron explícitamente F1 y Business Standard por insuficiencia para el sector.</p>
+
+            <p class="caso-label">Resultados</p>
+            <ul class="caso-results">
+              <li>Recomendación de licenciamiento estructurada y justificada técnicamente para presentar al cliente</li>
+              <li>Modelo híbrido E3/E5 optimizado por costo-beneficio según rol, sin sobrelicenciar ni sublicenciar</li>
+              <li>Cobertura obligatoria de Defender for Office 365 Plan 1 ante ataques de correo en sector financiero</li>
+              <li>Alineación con requisitos de cumplimiento regulatorio del sector financiero colombiano</li>
+            </ul>
+          </div>
+          <div class="caso-visual" style="aspect-ratio: 1/1;">
+            <img src="Images/Mapa de Riesgo (1).png" alt="Mapa de riesgo: modelo de licenciamiento M365 E3/E5 híbrido por roles para entidad financiera regulada" loading="lazy" style="width:100%;height:100%;object-fit:contain;border-radius:var(--radius-card);">
+          </div>
+        </article>
+
+        <!-- M365 2 — visual izquierda, texto derecha -->
+        <article class="caso caso--full" data-area="m365">
+          <div class="caso-header">
+            <span class="caso-badge caso-badge--m365"><i class="fas fa-users"></i> Microsoft 365</span>
+            <span class="caso-badge" style="background:rgba(255,180,0,0.15);color:#fbbf24;border:1px solid rgba(255,180,0,0.3);"><i class="fas fa-clock"></i> Preparación para reunión técnica</span>
+          </div>
+          <h2>Auditoría y consolidación de licenciamiento Microsoft 365 — cliente con SKUs redundantes</h2>
+
+          <div class="caso-bottom">
+            <div>
+              <p class="caso-label">El problema</p>
+              <p>Cliente del sector minero en Chile con ~379 licencias activas bajo NCE y 7 SKUs distintos acumulados de forma no planificada. Se identificaron al menos tres fuentes de gasto innecesario: 84 licencias de Exchange Online Plan 1 standalone duplicando buzones ya incluidos en Business Basic, 12 licencias de Apps for Business redundantes, y 65 licencias de Defender for Business standalone incluidas en Business Premium. Dos bloques de vencimiento (junio y octubre 2026) indicaban crecimiento orgánico sin estructura.</p>
+
+              <p class="caso-label">La solución</p>
+              <p>Consultoría técnica de optimización de licenciamiento para preparar la reunión de reestructuración con el cliente. Mapeo completo de SKUs activos, detección de redundancias y propuesta de consolidación en tres fases: Discovery, Optimización y Roadmap. La consolidación se planificó alineada con las fechas de renovación NCE — las reducciones de licencias solo son posibles en renovación anual, no antes. Se mantienen los 20 usuarios con Exchange Plan 2 por requisitos de Litigation Hold y retención legal.</p>
+            </div>
+            <div>
+              <p class="caso-label">Resultados</p>
+              <ul class="caso-results">
+                <li>Identificación de al menos 3 fuentes de gasto innecesario en el stack de licenciamiento</li>
+                <li>Hoja de ruta de consolidación alineada con vencimientos NCE de junio y octubre 2026</li>
+                <li>Propuesta técnica lista para presentar al cliente con justificación por cada cambio recomendado</li>
+                <li>Exchange Plan 2 preservado para los 20 usuarios con necesidades de compliance y retención legal</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="caso-visual" style="margin: 0 -3rem; width: calc(100% + 6rem); border-radius: 0;">
+            <img src="Images/Ciclo de Decisión.png" alt="Ciclo de decisión: consolidación de SKUs Microsoft 365 y hoja de ruta de licenciamiento NCE" loading="lazy" style="width:100%;height:100%;object-fit:contain;">
+          </div>
+        </article>
+
+        <!-- M365 3 — full width -->
+        <article class="caso caso--full" data-area="m365">
+          <div class="caso-header">
+            <span class="caso-badge caso-badge--m365"><i class="fas fa-users"></i> Microsoft 365</span>
+          </div>
+          <h2>Protección de información sensible con Microsoft Purview y DLP</h2>
+
+          <div class="caso-visual">
+            <div class="caso-placeholder">
+              <i class="fas fa-lock"></i>
+              <p>Diagrama de políticas DLP y clasificación<br><strong>Próximamente</strong></p>
+            </div>
+          </div>
+
+          <div class="caso-bottom">
+            <div>
+              <p class="caso-label">El problema</p>
+              <p>Placeholder — organización sin clasificación de información, con documentos confidenciales compartidos sin restricciones y sin registro de quién accedía a datos sensibles.</p>
+
+              <p class="caso-label">La solución</p>
+              <p>Placeholder — implementación de Microsoft Purview con etiquetas de confidencialidad, políticas DLP para correo y SharePoint y auditoría de acceso a datos críticos.</p>
+            </div>
+            <div>
+              <p class="caso-label">Resultados</p>
+              <ul class="caso-results">
+                <li>Clasificación automática de documentos por nivel de confidencialidad</li>
+                <li>Bloqueo de envío de información sensible fuera de la organización</li>
+                <li>Trazabilidad completa de accesos a datos críticos</li>
+                <li>Cumplimiento de requisitos de auditoría interna y regulatorios</li>
+              </ul>
+            </div>
+          </div>
+        </article>
+
+        <!-- ══ POWER PLATFORM ══════════════════════════════════════ -->
+
+        <!-- Power 1 — full width -->
+        <article class="caso caso--full" data-area="power">
+          <div class="caso-header">
+            <span class="caso-badge caso-badge--power"><i class="fas fa-bolt"></i> Power Platform</span>
+            <span class="caso-badge" style="background:rgba(255,180,0,0.15);color:#fbbf24;border:1px solid rgba(255,180,0,0.3);"><i class="fas fa-clock"></i> Propuesta técnica en curso</span>
+          </div>
+          <h2>Automatización del proceso de egreso universitario con Power Automate</h2>
+
+          <div class="caso-visual" style="margin: 0 -3rem; width: calc(100% + 6rem); border-radius: 0;">
+            <img src="Images/Pulso Vital.png" alt="Diagrama de flujos Power Automate para el proceso de egreso universitario: swim lanes por actor, control de SLA y entrega digital al alumno" loading="lazy" style="width:100%;height:100%;object-fit:contain;">
+          </div>
+
+          <div class="caso-bottom">
+            <div>
+              <p class="caso-label">El problema</p>
+              <p>Institución universitaria del sector privado con un proceso de egreso (emisión de Analítico Final y Diploma) gestionado de forma manual y desarticulada entre tres áreas internas y el sistema ministerial SIDCer. Sin trazabilidad entre etapas, sin notificaciones automáticas al alumno y sin control del SLA de 3 meses ni escalamiento ante vencimientos.</p>
+
+              <p class="caso-label">La solución</p>
+              <p>Arquitectura de automatización con Power Automate como orquestador central, sin reemplazar los sistemas existentes. Cuatro flujos especializados por responsabilidad: recepción del trámite vía trigger HTTP desde el portal institucional, monitoreo de cambios de estado en el sistema de gestión, control del SLA con recordatorios programados a los 30, 60, 75 y 85 días, y cierre con entrega digital al alumno. Integración vía API REST como método preferido, con SQL Server como alternativa. Licencia Process por flujo y cuenta de servicio centralizada como dueña de los flujos.</p>
+            </div>
+            <div>
+              <p class="caso-label">Resultados proyectados</p>
+              <ul class="caso-results">
+                <li>Eliminación del seguimiento manual entre áreas con notificación automática al alumno en cada cambio de estado</li>
+                <li>Trazabilidad completa del trámite con historial de estados, timestamps y responsables por etapa</li>
+                <li>Control automatizado del SLA de 3 meses con escalamiento proactivo antes del vencimiento</li>
+                <li>Modelo replicable a otros trámites institucionales sin rediseñar la infraestructura existente</li>
+              </ul>
+            </div>
+          </div>
+        </article>
+
+        <!-- Power 2 — visual izquierda, texto derecha -->
+        <article class="caso caso--reverse" data-area="power">
+          <div class="caso-content">
+            <div class="caso-header">
+              <span class="caso-badge caso-badge--power"><i class="fas fa-bolt"></i> Power Platform</span>
+              <span class="caso-badge" style="background:rgba(255,180,0,0.15);color:#fbbf24;border:1px solid rgba(255,180,0,0.3);"><i class="fas fa-clock"></i> Propuesta técnica en curso</span>
+            </div>
+            <h2>Automatización del proceso de facturación con Power Automate y Office Scripts</h2>
+
+            <p class="caso-label">El problema</p>
+            <p>PYME del sector servicios con un equipo de facturación que exportaba datos manualmente desde su sistema de gestión hacia Excel, construyendo tablas cliente por cliente. El proceso tomaba entre 20 y 30 minutos por cliente, con errores frecuentes que generaban retrasos en la emisión de facturas.</p>
+
+            <p class="caso-label">La solución</p>
+            <p>Power Automate como orquestador del flujo: detecta automáticamente la llegada de nuevos archivos exportados en SharePoint/OneDrive y dispara la ejecución de un Office Script (TypeScript) que limpia, normaliza y estructura el archivo Excel. Al finalizar, envía una notificación automática por email. Todo el stack corre sobre Microsoft 365 Business Standard existente, sin licencias adicionales.</p>
+
+            <p class="caso-label">Resultados proyectados</p>
+            <ul class="caso-results">
+              <li>Eliminación del procesamiento manual de 20 a 30 minutos por cliente</li>
+              <li>Reducción de errores en tablas de facturación por normalización automática</li>
+              <li>Costo adicional cero — solución cubierta por Microsoft 365 Business Standard</li>
+              <li>Tiempo estimado de implementación: 3 a 4 días</li>
+            </ul>
+          </div>
+          <div class="caso-visual" style="aspect-ratio: 1/1;">
+            <img src="Images/Tubería Viva.png" alt="Diagrama del flujo de automatización de facturación: Power Automate, Office Scripts y SharePoint como pipeline de procesamiento" loading="lazy" style="width:100%;height:100%;object-fit:contain;border-radius:var(--radius-card);">
+          </div>
+        </article>
+
+        <!-- Power 3 — full width -->
+        <article class="caso caso--full" data-area="power">
+          <div class="caso-header">
+            <span class="caso-badge caso-badge--power"><i class="fas fa-bolt"></i> Power Platform</span>
+          </div>
+          <h2>Dashboard ejecutivo de métricas de negocio con Power BI</h2>
+
+          <div class="caso-visual">
+            <div class="caso-placeholder">
+              <i class="fas fa-chart-bar"></i>
+              <p>Demo del dashboard de Power BI<br><strong>Próximamente</strong></p>
+            </div>
+          </div>
+
+          <div class="caso-bottom">
+            <div>
+              <p class="caso-label">El problema</p>
+              <p>Placeholder — dirección sin visibilidad consolidada de métricas clave: datos dispersos en Excel, SharePoint y sistemas externos, sin actualización en tiempo real y sin acceso desde móvil.</p>
+
+              <p class="caso-label">La solución</p>
+              <p>Placeholder — dashboard en Power BI conectado a múltiples fuentes de datos, con actualización automática, seguridad por rol y acceso desde la app móvil para directivos.</p>
+            </div>
+            <div>
+              <p class="caso-label">Resultados</p>
+              <ul class="caso-results">
+                <li>Métricas clave consolidadas en un único panel actualizado diariamente</li>
+                <li>Reducción del tiempo de preparación de reportes semanales</li>
+                <li>Decisiones basadas en datos en tiempo real, no en reportes estáticos</li>
+                <li>Acceso seguro desde dispositivos móviles para la dirección</li>
+              </ul>
+            </div>
+          </div>
+        </article>
+
+        <!-- ══ ARQUITECTURA MICROSOFT ══════════════════════════════ -->
+
+        <!-- Arch 1 — full width con imágenes lado a lado -->
+        <article class="caso caso--full" data-area="arch">
+          <div class="caso-header">
+            <span class="caso-badge caso-badge--arch"><i class="fas fa-server"></i> Arquitectura Microsoft</span>
+          </div>
+          <h2>Nube privada con licenciamiento SPLA para proveedor MSP</h2>
+
+          <div class="caso-images-grid">
+            <figure class="caso-figure">
+              <img src="Images/Plano Técnico.png" alt="Plano técnico del cluster: hosts físicos, distribución de VMs y reglas Affinity de VMware" loading="lazy">
+            </figure>
+            <figure class="caso-figure">
+              <img src="Images/Flujo Dual.png" alt="Diagrama de licenciamiento SPLA: mapeo de Windows Server Datacenter y SQL Server Enterprise por cores y vCores" loading="lazy">
+            </figure>
+          </div>
+
+          <div class="caso-bottom">
+            <div>
+              <p class="caso-label">El problema</p>
+              <p>Empresa de tecnología que buscaba ofrecer servicios administrados (MSP) a clientes terceros bajo modelo SPLA. Sin un modelo de licenciamiento definido, enfrentaba riesgo de incumplimiento al hospedar SQL Server y Windows Server sin el programa adecuado, sin claridad sobre si licenciar por servidor físico, por VM o por usuario.</p>
+
+              <p class="caso-label">La solución</p>
+              <p>Implementación del programa SPLA como modelo de licenciamiento mensual. Windows Server Datacenter licenciado por cores físicos en los hosts (cubre VMs ilimitadas). SQL Server Enterprise licenciado por vCores por VM. VMware vSphere con reglas DRS Affinity para fijar las VMs de SQL a los hosts licenciados — demostrable en auditoría y sin necesidad de licenciar todo el cluster.</p>
+            </div>
+            <div>
+              <p class="caso-label">Resultados estimados</p>
+              <ul class="caso-results">
+                <li>Cumplimiento legal total bajo programa SPLA — sin riesgo de auditoría</li>
+                <li>Windows Server Datacenter cubre VMs ilimitadas por host con una sola licencia del host físico</li>
+                <li>Costo mensual estimado ~$5,180 USD recuperable con margen comercial sobre clientes finales</li>
+                <li>Modelo OPEX sin inversión inicial en licencias perpetuas</li>
+              </ul>
+            </div>
+          </div>
+        </article>
+
+        <!-- Arch 2 — full width -->
+        <article class="caso caso--full" data-area="arch">
+          <div class="caso-header">
+            <span class="caso-badge caso-badge--arch"><i class="fas fa-server"></i> Arquitectura Microsoft</span>
+            <span class="caso-badge" style="background:rgba(255,180,0,0.15);color:#fbbf24;border:1px solid rgba(255,180,0,0.3);"><i class="fas fa-clock"></i> Pre-venta</span>
+          </div>
+          <h2>Arquitectura híbrida para simulador profesional marítimo</h2>
+
+          <div class="caso-visual" style="margin: 0 -3rem; width: calc(100% + 6rem); border-radius: 0;">
+            <img src="Images/Centro de Mando.png" alt="Diagrama de arquitectura híbrida: simulador on-premises con Azure Backup, Intune y Microsoft 365" loading="lazy" style="width:100%;height:100%;object-fit:contain;">
+          </div>
+
+          <div class="caso-bottom">
+            <div>
+              <p class="caso-label">El problema</p>
+              <p>Una asociación profesional del sector marítimo en Argentina adquirió un simulador profesional de Maniobra, Navegación y Pesca que requiere hardware físico específico. El cliente consultó si era viable migrar la solución 100% a Azure para evitar la compra de hardware Lenovo ThinkStation P2 con GPUs NVIDIA RTX serie 50.</p>
+
+              <p class="caso-label">La solución</p>
+              <p>Arquitectura híbrida: 10 equipos físicos Lenovo on-premises (9 estaciones Windows 11 Pro + 1 servidor coordinador Windows Server), licenciados vía CSP, complementados con Azure Backup, Microsoft Intune y Microsoft 365. La migración 100% a nube fue descartada: las GPUs RTX 5060/5070 Ti no existen en ningún datacenter cloud, el simulador requiere salida de video a 3 pantallas físicas de 65" y la arquitectura del software exige latencia sub-milisegundo en red local.</p>
+            </div>
+            <div>
+              <p class="caso-label">Estimados referenciales</p>
+              <ul class="caso-results">
+                <li>Costo estimado del servidor en Azure (si se valida): ~$90–100 USD/mes en Brazil South con 40 horas de uso mensual</li>
+                <li>Gestión remota de los 10 equipos físicos desde cualquier ubicación vía Intune</li>
+                <li>Protección del servidor on-premises con Azure Backup sin reemplazar el almacenamiento local</li>
+                <li>Licenciamiento CSP: el canal más ágil para clientes en Argentina sin EA o MPSA previo</li>
+              </ul>
+            </div>
+          </div>
+        </article>
+
+        <!-- Arch 3 — full width -->
+        <article class="caso caso--full" data-area="arch">
+          <div class="caso-header">
+            <span class="caso-badge caso-badge--arch"><i class="fas fa-server"></i> Arquitectura Microsoft</span>
+          </div>
+          <h2>Caso técnico en preparación</h2>
+
+          <div class="caso-visual">
+            <div class="caso-placeholder">
+              <i class="fas fa-server"></i>
+              <p>Diagrama de arquitectura<br><strong>Próximamente</strong></p>
+            </div>
+          </div>
+
+          <div class="caso-bottom">
+            <div>
+              <p class="caso-label">El problema</p>
+              <p>Placeholder — descripción del problema que enfrentaba la organización.</p>
+              <p class="caso-label">La solución</p>
+              <p>Placeholder — arquitectura implementada, servicios y decisiones técnicas.</p>
+            </div>
+            <div>
+              <p class="caso-label">Resultados</p>
+              <ul class="caso-results">
+                <li>Próximamente</li>
+              </ul>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- Contacto -->
+    <section id="contact" class="section">
+      <div class="contact section-card">
+        <h2 class="section-title">¿Tiene un caso similar?</h2>
+        <p class="text-large">Cuénteme el reto que enfrenta su organización y diseñamos juntos la solución más adecuada.</p>
+        <div class="contact-links">
+          <a href="mailto:JD117parra@outlook.com" class="contact-link flex-center"><i class="fas fa-envelope"></i>Email</a>
+          <a href="https://www.linkedin.com/in/juan-parra-2358b428b" class="contact-link flex-center" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin"></i>LinkedIn</a>
+          <a href="tel:+57-300-123-4567" class="contact-link flex-center"><i class="fas fa-phone"></i>Llámanos</a>
+        </div>
+      </div>
+    </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer-enhanced">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3>J.D. Parra</h3>
+          <p>Creando Experiencias Digitales que Importan</p>
+          <div class="social-links">
+            <a href="https://github.com/JD117parra" class="flex-center" aria-label="GitHub" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i></a>
+            <a href="https://www.linkedin.com/in/juan-parra-2358b428b" class="flex-center" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin"></i></a>
+            <a href="mailto:JD117parra@outlook.com" class="flex-center" aria-label="Email"><i class="fas fa-envelope"></i></a>
+          </div>
+        </div>
+        <div class="footer-section">
+          <details>
+            <summary>Servicios</summary>
+            <ul>
+              <li><a href="index.html">Desarrollo Web</a></li>
+              <li><a href="microsoft.html">Consultoría Microsoft</a></li>
+              <li><a href="casos.html">Casos Técnicos</a></li>
+            </ul>
+          </details>
+        </div>
+        <div class="footer-section">
+          <details>
+            <summary>Enlaces</summary>
+            <ul>
+              <li><a href="microsoft.html">Consultoría Microsoft</a></li>
+              <li><a href="profile.html">Acerca de mí</a></li>
+              <li><a href="index.html">Desarrollo Web</a></li>
+              <li><a href="#contact">Contacto</a></li>
+            </ul>
+          </details>
+        </div>
+        <div class="footer-section">
+          <details>
+            <summary>Contacto</summary>
+            <div class="contact-info">
+              <p><i class="fas fa-envelope"></i><a href="mailto:JD117parra@outlook.com">JD117parra@outlook.com</a></p>
+            </div>
+          </details>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 J.D. Parra. Todos los derechos reservados.</p>
+        <div class="footer-links">
+          <a href="#">Política de Privacidad</a>
+          <a href="#">Términos &amp; Condiciones</a>
+        </div>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

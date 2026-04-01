@@ -26,6 +26,8 @@
             <ul class="nav-links">
               <li><a href="index.html">Desarrollo Web</a></li>
               <li><a href="microsoft.html">Consultoría Microsoft</a></li>
+              <li><a href="casos.html">Casos Técnicos</a></li>
+              <li><a href="recursos-tecnicos.html">Recursos Técnicos</a></li>
               <li><a href="profile.html">JD Parra</a></li>
             </ul>
         </div>
@@ -40,6 +42,7 @@
         <p class="subtitle">Soluciones Azure, Microsoft 365 y Power Platform para acelerar la transformación digital de su empresa</p>
         <div class="hero__buttons">
           <a href="#solutions" class="cta-button">Ver Soluciones</a>
+          <a href="casos.html" class="cta-button cta-button--outline">Casos Técnicos</a>
           <a href="#contact" class="cta-button cta-button--outline">Solicitar Consultoría</a>
         </div>
       </div>
@@ -48,29 +51,63 @@
     <!-- Solutions Section -->
     <section id="solutions" class="section">
 
-        <!-- Desktop grid -->
+        <!-- Desktop bento grid -->
         <div class="projects section-card">
             <h2 class="section-title">Soluciones Microsoft</h2>
             <p class="section-subtitle">Lo que su organización puede lograr con el ecosistema Microsoft bien implementado</p>
 
-            <div class="projects-grid">
+            <div class="bento-grid">
 
-                <div class="project-card service-card--teal">
-                    <div class="service-icon"><i class="fab fa-microsoft"></i></div>
+                <div class="bento-card bento-card--azure">
+                    <div class="bento-icon"><i class="fab fa-microsoft"></i></div>
                     <h3>Microsoft Azure</h3>
                     <p>Escale su infraestructura sin inversión en hardware, reduzca costos operativos y garantice la continuidad del negocio con alta disponibilidad y recuperación ante desastres en la nube.</p>
+                    <div class="bento-tags">
+                        <span class="skill-tag">IaaS / PaaS</span>
+                        <span class="skill-tag">Alta disponibilidad</span>
+                        <span class="skill-tag">Recuperación ante desastres</span>
+                        <span class="skill-tag">CI/CD</span>
+                    </div>
                 </div>
 
-                <div class="project-card service-card--blue">
-                    <div class="service-icon"><i class="fas fa-users"></i></div>
+                <div class="bento-card bento-card--m365">
+                    <div class="bento-icon"><i class="fas fa-users"></i></div>
                     <h3>Microsoft 365</h3>
-                    <p>Unifique la colaboración de sus equipos híbridos y remotos en una sola plataforma, con gestión centralizada de identidades, dispositivos y cumplimiento de seguridad corporativa.</p>
+                    <p>Unifique la colaboración de sus equipos híbridos y remotos con gestión centralizada de identidades, dispositivos y seguridad corporativa.</p>
+                    <div class="bento-tags">
+                        <span class="skill-tag">Teams</span>
+                        <span class="skill-tag">SharePoint</span>
+                        <span class="skill-tag">Intune</span>
+                        <span class="skill-tag">Entra ID</span>
+                    </div>
                 </div>
 
-                <div class="project-card service-card--purple">
-                    <div class="service-icon"><i class="fas fa-chart-bar"></i></div>
+                <div class="bento-card bento-card--power">
+                    <div class="bento-icon"><i class="fas fa-chart-bar"></i></div>
                     <h3>Power Platform</h3>
-                    <p>Elimine procesos manuales, visualice sus datos en dashboards en tiempo real y cree aplicaciones internas adaptadas a su negocio sin necesidad de un equipo de desarrollo extenso.</p>
+                    <p>Elimine procesos manuales y visualice datos en dashboards en tiempo real sin necesidad de un equipo de desarrollo extenso.</p>
+                    <div class="bento-tags">
+                        <span class="skill-tag">Power BI</span>
+                        <span class="skill-tag">Power Apps</span>
+                        <span class="skill-tag">Power Automate</span>
+                    </div>
+                </div>
+
+                <div class="bento-card bento-card--stats">
+                    <div class="bento-stats-row">
+                        <div class="bento-stat">
+                            <span class="bento-stat__num">99.9<span style="font-size:2rem">%</span></span>
+                            <span class="bento-stat__label">SLA de disponibilidad con Azure</span>
+                        </div>
+                        <div class="bento-stat">
+                            <span class="bento-stat__num">3</span>
+                            <span class="bento-stat__label">áreas de especialización Microsoft</span>
+                        </div>
+                        <div class="bento-stat">
+                            <span class="bento-stat__num">4</span>
+                            <span class="bento-stat__label">certificaciones oficiales Microsoft</span>
+                        </div>
+                    </div>
                 </div>
 
             </div>
@@ -116,30 +153,38 @@
             <h2 class="section-title">¿Por qué un consultor Microsoft?</h2>
             <p class="section-subtitle">Experiencia directa con el ecosistema Microsoft, no conocimiento genérico de IT</p>
 
-            <div class="skills-grid">
+            <div class="value-splits">
 
-                <div class="skill-category process-card--blue">
-                    <i class="fas fa-shield-alt"></i>
-                    <h3>Seguridad y cumplimiento</h3>
-                    <p>Configuración de políticas de seguridad, MFA, acceso condicional y cumplimiento normativo sobre la infraestructura Microsoft.</p>
+                <div class="value-split">
+                    <div class="value-number">99.9<span class="value-unit">%</span></div>
+                    <div class="value-text">
+                        <p class="value-label"><i class="fas fa-shield-alt" style="color:var(--accent); margin-right:.5rem"></i>Seguridad y cumplimiento</p>
+                        <p class="value-desc">Configuración de políticas de seguridad, MFA, acceso condicional y cumplimiento normativo sobre la infraestructura Microsoft. El SLA de Azure garantiza que sus servicios críticos estén disponibles.</p>
+                    </div>
                 </div>
 
-                <div class="skill-category process-card--aqua">
-                    <i class="fas fa-tachometer-alt"></i>
-                    <h3>Optimización de costos</h3>
-                    <p>Análisis y optimización de licenciamiento Microsoft 365 y Azure para eliminar gastos innecesarios y ajustar los planes al uso real.</p>
+                <div class="value-split">
+                    <div class="value-number">-30<span class="value-unit">%</span></div>
+                    <div class="value-text">
+                        <p class="value-label"><i class="fas fa-tachometer-alt" style="color:var(--accent); margin-right:.5rem"></i>Optimización de costos</p>
+                        <p class="value-desc">Análisis y optimización de licenciamiento Microsoft 365 y Azure para eliminar gastos innecesarios y ajustar los planes al uso real de cada organización.</p>
+                    </div>
                 </div>
 
-                <div class="skill-category process-card--pink">
-                    <i class="fas fa-plug"></i>
-                    <h3>Integración nativa</h3>
-                    <p>Azure AD, Teams, SharePoint y Power Platform forman un ecosistema coherente. Las soluciones se integran entre sí sin fricciones.</p>
+                <div class="value-split">
+                    <div class="value-number">1</div>
+                    <div class="value-text">
+                        <p class="value-label"><i class="fas fa-plug" style="color:var(--accent); margin-right:.5rem"></i>Integración nativa</p>
+                        <p class="value-desc">Azure, Teams, SharePoint y Power Platform forman un único ecosistema coherente. Las soluciones se integran entre sí sin fricciones ni desarrollos adicionales.</p>
+                    </div>
                 </div>
 
-                <div class="skill-category process-card--peach">
-                    <i class="fas fa-graduation-cap"></i>
-                    <h3>Transferencia de conocimiento</h3>
-                    <p>Capacitación a los equipos internos para que puedan operar y mantener las soluciones implementadas con autonomía.</p>
+                <div class="value-split">
+                    <div class="value-number">4</div>
+                    <div class="value-text">
+                        <p class="value-label"><i class="fas fa-graduation-cap" style="color:var(--accent); margin-right:.5rem"></i>Certificaciones y transferencia de conocimiento</p>
+                        <p class="value-desc">AZ-900, MS-900, SC-900 y AI-900 respaldan la experiencia técnica. Cada implementación incluye capacitación para que el equipo interno opere con autonomía.</p>
+                    </div>
                 </div>
 
             </div>
@@ -152,14 +197,19 @@
             <h2 class="section-title">Stack técnico y certificaciones</h2>
             <p class="section-subtitle">Herramientas con las que trabajo a diario y credenciales Microsoft que respaldan la experiencia</p>
 
-            <div class="skills-grid">
+            <div class="narrative-stack">
 
-                <div class="skill-category skill-category--frontend">
-                    <i class="fab fa-microsoft"></i>
-                    <h3>Azure Cloud</h3>
-                    <div class="skill-list">
+                <div class="narrative-block narrative-block--azure">
+                    <div class="narrative-left">
+                        <p class="narrative-question">¿Su infraestructura está lista para escalar sin límites?</p>
+                        <div class="narrative-area">
+                            <i class="fab fa-microsoft"></i>
+                            <h3>Azure Cloud</h3>
+                        </div>
+                    </div>
+                    <div class="narrative-tags">
                         <span class="skill-tag">Virtual Machines — IaaS</span>
-                        <span class="skill-tag">App Service — hosting PaaS</span>
+                        <span class="skill-tag">App Service — PaaS</span>
                         <span class="skill-tag">Azure Functions — serverless</span>
                         <span class="skill-tag">SQL / Cosmos DB — datos</span>
                         <span class="skill-tag">Blob Storage — archivos</span>
@@ -169,24 +219,34 @@
                     </div>
                 </div>
 
-                <div class="skill-category skill-category--backend">
-                    <i class="fas fa-users-cog"></i>
-                    <h3>Microsoft 365</h3>
-                    <div class="skill-list">
+                <div class="narrative-block narrative-block--m365">
+                    <div class="narrative-left">
+                        <p class="narrative-question">¿Sus equipos colaboran de verdad o solo coexisten?</p>
+                        <div class="narrative-area">
+                            <i class="fas fa-users-cog"></i>
+                            <h3>Microsoft 365</h3>
+                        </div>
+                    </div>
+                    <div class="narrative-tags">
                         <span class="skill-tag">Teams — comunicación</span>
                         <span class="skill-tag">SharePoint — portales</span>
                         <span class="skill-tag">Exchange Online — correo</span>
                         <span class="skill-tag">OneDrive — almacenamiento</span>
-                        <span class="skill-tag">Intune — gestión de dispositivos</span>
+                        <span class="skill-tag">Intune — dispositivos</span>
                         <span class="skill-tag">Entra ID — identidades</span>
                         <span class="skill-tag">Defender — seguridad</span>
                     </div>
                 </div>
 
-                <div class="skill-category skill-category--db">
-                    <i class="fas fa-bolt"></i>
-                    <h3>Power Platform</h3>
-                    <div class="skill-list">
+                <div class="narrative-block narrative-block--power">
+                    <div class="narrative-left">
+                        <p class="narrative-question">¿Cuántas horas pierde su equipo en procesos manuales?</p>
+                        <div class="narrative-area">
+                            <i class="fas fa-bolt"></i>
+                            <h3>Power Platform</h3>
+                        </div>
+                    </div>
+                    <div class="narrative-tags">
                         <span class="skill-tag">Power BI Desktop — reportes</span>
                         <span class="skill-tag">Power BI Service — publicación</span>
                         <span class="skill-tag">Power Apps Canvas — UI libre</span>
@@ -243,36 +303,51 @@
             <h2 class="section-title">Proceso de consultoría</h2>
             <p class="section-subtitle">Un enfoque estructurado para garantizar resultados medibles desde el primer día</p>
 
-            <div class="skills-grid">
+            <div class="process-timeline">
 
-                <div class="skill-category process-card--pink">
-                    <i class="fas fa-search"></i>
-                    <h3>1. Diagnóstico</h3>
-                    <p>Análisis del entorno tecnológico actual, licencias existentes, brechas de seguridad y oportunidades de mejora.</p>
+                <div class="process-step">
+                    <div class="process-dot"><i class="fas fa-search"></i></div>
+                    <div class="process-step-content">
+                        <span class="process-step-num">Paso 1</span>
+                        <h3>Diagnóstico</h3>
+                        <p>Análisis del entorno actual, licencias existentes, brechas de seguridad y oportunidades de mejora.</p>
+                    </div>
                 </div>
 
-                <div class="skill-category process-card--aqua">
-                    <i class="fas fa-drafting-compass"></i>
-                    <h3>2. Diseño de solución</h3>
-                    <p>Propuesta técnica detallada con arquitectura, cronograma, estimación de costos y métricas de éxito definidas.</p>
+                <div class="process-step">
+                    <div class="process-dot"><i class="fas fa-drafting-compass"></i></div>
+                    <div class="process-step-content">
+                        <span class="process-step-num">Paso 2</span>
+                        <h3>Diseño de solución</h3>
+                        <p>Propuesta técnica con arquitectura, cronograma, costos y métricas de éxito definidas.</p>
+                    </div>
                 </div>
 
-                <div class="skill-category process-card--peach">
-                    <i class="fas fa-cogs"></i>
-                    <h3>3. Implementación</h3>
-                    <p>Despliegue controlado por fases con pruebas en entorno piloto antes de producción y documentación continua.</p>
+                <div class="process-step">
+                    <div class="process-dot"><i class="fas fa-cogs"></i></div>
+                    <div class="process-step-content">
+                        <span class="process-step-num">Paso 3</span>
+                        <h3>Implementación</h3>
+                        <p>Despliegue por fases con pruebas en entorno piloto antes de producción y documentación continua.</p>
+                    </div>
                 </div>
 
-                <div class="skill-category process-card--blue">
-                    <i class="fas fa-user-graduate"></i>
-                    <h3>4. Capacitación</h3>
-                    <p>Sesiones de formación dirigidas a los equipos de TI y usuarios finales para garantizar la adopción efectiva.</p>
+                <div class="process-step">
+                    <div class="process-dot"><i class="fas fa-user-graduate"></i></div>
+                    <div class="process-step-content">
+                        <span class="process-step-num">Paso 4</span>
+                        <h3>Capacitación</h3>
+                        <p>Formación para equipos de TI y usuarios finales para garantizar la adopción efectiva.</p>
+                    </div>
                 </div>
 
-                <div class="skill-category process-card--pink">
-                    <i class="fas fa-headset"></i>
-                    <h3>5. Soporte post-implantación</h3>
-                    <p>Acompañamiento técnico durante el período de estabilización y disponibilidad para ajustes según el uso real.</p>
+                <div class="process-step">
+                    <div class="process-dot"><i class="fas fa-headset"></i></div>
+                    <div class="process-step-content">
+                        <span class="process-step-num">Paso 5</span>
+                        <h3>Soporte</h3>
+                        <p>Acompañamiento técnico en el período de estabilización y ajustes según el uso real.</p>
+                    </div>
                 </div>
 
             </div>
