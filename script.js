@@ -852,7 +852,7 @@ if (document.getElementById('cmpQuestion')) {
   if (!track) return;
 
   let pos = 0;
-  const speed = 1.2; // px por frame
+  const speed = 0.6; // px por frame
 
   function step() {
     {
