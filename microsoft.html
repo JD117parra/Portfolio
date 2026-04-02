@@ -51,62 +51,91 @@
     <!-- Solutions Section -->
     <section id="solutions" class="section">
 
-        <!-- Desktop bento grid -->
+        <!-- Desktop layout -->
         <div class="projects section-card">
             <h2 class="section-title">Soluciones Microsoft</h2>
             <p class="section-subtitle">Lo que su organización puede lograr con el ecosistema Microsoft bien implementado</p>
 
-            <div class="bento-grid">
+            <div class="sol-two-col">
 
-                <div class="bento-card bento-card--azure">
-                    <div class="bento-icon"><i class="fab fa-microsoft"></i></div>
-                    <h3>Microsoft Azure</h3>
-                    <p>Escale su infraestructura sin inversión en hardware, reduzca costos operativos y garantice la continuidad del negocio con alta disponibilidad y recuperación ante desastres en la nube.</p>
-                    <div class="bento-tags">
-                        <span class="skill-tag">IaaS / PaaS</span>
-                        <span class="skill-tag">Alta disponibilidad</span>
-                        <span class="skill-tag">Recuperación ante desastres</span>
-                        <span class="skill-tag">CI/CD</span>
+                <!-- Columna izquierda: 3 tarjetas de servicio apiladas -->
+                <div class="sol-col-left">
+                    <div class="sol-services-grid">
+
+                        <div class="bento-card bento-card--azure">
+                            <div class="bento-icon"><i class="fab fa-microsoft"></i></div>
+                            <h3>Microsoft Azure</h3>
+                            <p>Escale su infraestructura sin inversión en hardware, reduzca costos operativos y garantice la continuidad del negocio con alta disponibilidad y recuperación ante desastres en la nube.</p>
+                            <div class="bento-tags">
+                                <span class="skill-tag">IaaS / PaaS</span>
+                                <span class="skill-tag">Alta disponibilidad</span>
+                                <span class="skill-tag">Recuperación ante desastres</span>
+                                <span class="skill-tag">CI/CD</span>
+                            </div>
+                        </div>
+
+                        <div class="bento-card bento-card--m365">
+                            <div class="bento-icon"><i class="fas fa-users"></i></div>
+                            <h3>Microsoft 365</h3>
+                            <p>Unifique la colaboración de sus equipos híbridos y remotos con gestión centralizada de identidades, dispositivos y seguridad corporativa.</p>
+                            <div class="bento-tags">
+                                <span class="skill-tag">Teams</span>
+                                <span class="skill-tag">SharePoint</span>
+                                <span class="skill-tag">Intune</span>
+                                <span class="skill-tag">Entra ID</span>
+                            </div>
+                        </div>
+
+                        <div class="bento-card bento-card--power">
+                            <div class="bento-icon"><i class="fas fa-chart-bar"></i></div>
+                            <h3>Power Platform</h3>
+                            <p>Elimine procesos manuales y visualice datos en dashboards en tiempo real sin necesidad de un equipo de desarrollo extenso.</p>
+                            <div class="bento-tags">
+                                <span class="skill-tag">Power BI</span>
+                                <span class="skill-tag">Power Apps</span>
+                                <span class="skill-tag">Power Automate</span>
+                            </div>
+                        </div>
+
                     </div>
                 </div>
 
-                <div class="bento-card bento-card--m365">
-                    <div class="bento-icon"><i class="fas fa-users"></i></div>
-                    <h3>Microsoft 365</h3>
-                    <p>Unifique la colaboración de sus equipos híbridos y remotos con gestión centralizada de identidades, dispositivos y seguridad corporativa.</p>
-                    <div class="bento-tags">
-                        <span class="skill-tag">Teams</span>
-                        <span class="skill-tag">SharePoint</span>
-                        <span class="skill-tag">Intune</span>
-                        <span class="skill-tag">Entra ID</span>
-                    </div>
-                </div>
+                <!-- Columna derecha: 4 puntos de valor -->
+                <div class="sol-col-right">
+                    <div class="sol-value-list">
 
-                <div class="bento-card bento-card--power">
-                    <div class="bento-icon"><i class="fas fa-chart-bar"></i></div>
-                    <h3>Power Platform</h3>
-                    <p>Elimine procesos manuales y visualice datos en dashboards en tiempo real sin necesidad de un equipo de desarrollo extenso.</p>
-                    <div class="bento-tags">
-                        <span class="skill-tag">Power BI</span>
-                        <span class="skill-tag">Power Apps</span>
-                        <span class="skill-tag">Power Automate</span>
-                    </div>
-                </div>
+                        <div class="sol-value-item">
+                            <i class="fas fa-shield-alt"></i>
+                            <div class="sol-value-text">
+                                <p class="sol-value-title">Seguridad y cumplimiento</p>
+                                <p class="sol-value-desc">Configuración de políticas de seguridad, MFA, acceso condicional y cumplimiento normativo sobre la infraestructura Microsoft. El SLA de Azure garantiza que sus servicios críticos estén disponibles.</p>
+                            </div>
+                        </div>
 
-                <div class="bento-card bento-card--stats">
-                    <div class="bento-stats-row">
-                        <div class="bento-stat">
-                            <span class="bento-stat__num">99.9<span style="font-size:2rem">%</span></span>
-                            <span class="bento-stat__label">SLA de disponibilidad con Azure</span>
+                        <div class="sol-value-item">
+                            <i class="fas fa-tachometer-alt"></i>
+                            <div class="sol-value-text">
+                                <p class="sol-value-title">Optimización de costos</p>
+                                <p class="sol-value-desc">Análisis y optimización de licenciamiento Microsoft 365 y Azure para eliminar gastos innecesarios y ajustar los planes al uso real de cada organización.</p>
+                            </div>
                         </div>
-                        <div class="bento-stat">
-                            <span class="bento-stat__num">3</span>
-                            <span class="bento-stat__label">áreas de especialización Microsoft</span>
+
+                        <div class="sol-value-item">
+                            <i class="fas fa-plug"></i>
+                            <div class="sol-value-text">
+                                <p class="sol-value-title">Integración nativa</p>
+                                <p class="sol-value-desc">Azure, Teams, SharePoint y Power Platform forman un ecosistema coherente. Las soluciones se integran entre sí sin fricciones ni desarrollos adicionales.</p>
+                            </div>
                         </div>
-                        <div class="bento-stat">
-                            <span class="bento-stat__num">4</span>
-                            <span class="bento-stat__label">certificaciones oficiales Microsoft</span>
+
+                        <div class="sol-value-item">
+                            <i class="fas fa-graduation-cap"></i>
+                            <div class="sol-value-text">
+                                <p class="sol-value-title">Certificaciones y transferencia de conocimiento</p>
+                                <p class="sol-value-desc">AZ-900, MS-900, SC-900 y AI-900 respaldan la experiencia técnica. Cada implementación incluye capacitación para que el equipo interno opere con autonomía.</p>
+                            </div>
                         </div>
+
                     </div>
                 </div>
 
@@ -145,50 +174,6 @@
             </div>
         </div>
 
-    </section>
-
-    <!-- Value Proposition Section -->
-    <section id="value" class="section">
-        <div class="skills section-card">
-            <h2 class="section-title">¿Por qué un consultor Microsoft?</h2>
-            <p class="section-subtitle">Experiencia directa con el ecosistema Microsoft, no conocimiento genérico de IT</p>
-
-            <div class="value-splits">
-
-                <div class="value-split">
-                    <div class="value-number">99.9<span class="value-unit">%</span></div>
-                    <div class="value-text">
-                        <p class="value-label"><i class="fas fa-shield-alt" style="color:var(--accent); margin-right:.5rem"></i>Seguridad y cumplimiento</p>
-                        <p class="value-desc">Configuración de políticas de seguridad, MFA, acceso condicional y cumplimiento normativo sobre la infraestructura Microsoft. El SLA de Azure garantiza que sus servicios críticos estén disponibles.</p>
-                    </div>
-                </div>
-
-                <div class="value-split">
-                    <div class="value-number">-30<span class="value-unit">%</span></div>
-                    <div class="value-text">
-                        <p class="value-label"><i class="fas fa-tachometer-alt" style="color:var(--accent); margin-right:.5rem"></i>Optimización de costos</p>
-                        <p class="value-desc">Análisis y optimización de licenciamiento Microsoft 365 y Azure para eliminar gastos innecesarios y ajustar los planes al uso real de cada organización.</p>
-                    </div>
-                </div>
-
-                <div class="value-split">
-                    <div class="value-number">1</div>
-                    <div class="value-text">
-                        <p class="value-label"><i class="fas fa-plug" style="color:var(--accent); margin-right:.5rem"></i>Integración nativa</p>
-                        <p class="value-desc">Azure, Teams, SharePoint y Power Platform forman un único ecosistema coherente. Las soluciones se integran entre sí sin fricciones ni desarrollos adicionales.</p>
-                    </div>
-                </div>
-
-                <div class="value-split">
-                    <div class="value-number">4</div>
-                    <div class="value-text">
-                        <p class="value-label"><i class="fas fa-graduation-cap" style="color:var(--accent); margin-right:.5rem"></i>Certificaciones y transferencia de conocimiento</p>
-                        <p class="value-desc">AZ-900, MS-900, SC-900 y AI-900 respaldan la experiencia técnica. Cada implementación incluye capacitación para que el equipo interno opere con autonomía.</p>
-                    </div>
-                </div>
-
-            </div>
-        </div>
     </section>
 
     <!-- Technologies Section -->
@@ -260,37 +245,36 @@
             </div>
 
             <h3 class="section-title" style="font-size:1.6rem; margin-top: 3rem;">Certificaciones Microsoft</h3>
-            <p class="section-subtitle">Credenciales oficiales emitidas por Microsoft</p>
 
-            <div class="skills-grid">
+            <div class="skills-grid skills-grid--certs">
 
-                <div class="skill-category process-card--blue">
+                <a href="https://learn.microsoft.com/api/credentials/share/en-us/juanparra-3897/31AEC5A86D14D9F6?sharingId=CFB15301D8174A09" target="_blank" rel="noopener noreferrer" class="cert-card cert-card--az">
                     <i class="fab fa-microsoft"></i>
                     <h3>AZ-900</h3>
                     <p>Microsoft Azure Fundamentals</p>
                     <span class="achievement-tag">Microsoft Certified</span>
-                </div>
+                </a>
 
-                <div class="skill-category process-card--aqua">
+                <a href="https://learn.microsoft.com/api/credentials/share/en-us/juanparra-3897/330A32FB0F7E4D00?sharingId=CFB15301D8174A09" target="_blank" rel="noopener noreferrer" class="cert-card cert-card--ms">
                     <i class="fab fa-microsoft"></i>
                     <h3>MS-900</h3>
                     <p>Microsoft 365 Fundamentals</p>
                     <span class="achievement-tag">Microsoft Certified</span>
-                </div>
+                </a>
 
-                <div class="skill-category process-card--pink">
+                <a href="https://learn.microsoft.com/api/credentials/share/en-us/juanparra-3897/8EAFA3E845ED528A?sharingId=CFB15301D8174A09" target="_blank" rel="noopener noreferrer" class="cert-card cert-card--sc">
                     <i class="fab fa-microsoft"></i>
                     <h3>SC-900</h3>
                     <p>Security, Compliance &amp; Identity Fundamentals</p>
                     <span class="achievement-tag">Microsoft Certified</span>
-                </div>
+                </a>
 
-                <div class="skill-category process-card--peach">
+                <a href="https://learn.microsoft.com/api/credentials/share/en-us/juanparra-3897/49BAC7F6E57197D4?sharingId=CFB15301D8174A09" target="_blank" rel="noopener noreferrer" class="cert-card cert-card--ai">
                     <i class="fab fa-microsoft"></i>
                     <h3>AI-900</h3>
                     <p>Azure AI Fundamentals</p>
                     <span class="achievement-tag">Microsoft Certified</span>
-                </div>
+                </a>
 
             </div>
 

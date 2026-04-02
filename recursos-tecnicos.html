@@ -1,156 +1,251 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Herramientas técnicas interactivas por J.D. Parra, Desarrollador Full Stack &amp; Consultor Microsoft — comparador de licencias M365 y más.">
-    <meta name="author" content="J.D. Parra">
-    <meta property="og:type" content="website">
-    <meta property="og:title" content="J.D. Parra - Desarrollador Full Stack &amp; Consultor Microsoft | Recursos Técnicos">
-    <meta property="og:description" content="Herramientas técnicas interactivas por J.D. Parra, Desarrollador Full Stack &amp; Consultor Microsoft.">
-    <meta property="og:image" content="Images/Profile-Picture-2.jpg">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Herramientas técnicas interactivas por J.D. Parra, Desarrollador Full Stack &amp; Consultor Microsoft — comparador de licencias M365 y más."
+    />
+    <meta name="author" content="J.D. Parra" />
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:title"
+      content="J.D. Parra - Desarrollador Full Stack &amp; Consultor Microsoft | Recursos Técnicos"
+    />
+    <meta
+      property="og:description"
+      content="Herramientas técnicas interactivas por J.D. Parra, Desarrollador Full Stack &amp; Consultor Microsoft."
+    />
+    <meta property="og:image" content="Images/Profile-Picture-2.jpg" />
     <title>J.D. Parra - Recursos Técnicos</title>
-    <link rel="icon" href="favicon.ico">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body class="app-page">
-
+    <link rel="icon" href="favicon.ico" />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body class="app-page">
     <!-- Navigation -->
     <nav class="navbar" aria-label="Navegación principal">
-        <div class="nav-container">
-            <div class="logo"><a href="profile.html">JD Parra</a></div>
-            <ul class="nav-links">
-                <li><a href="index.html">Desarrollo Web</a></li>
-                <li><a href="microsoft.html">Consultoría Microsoft</a></li>
-                <li><a href="casos.html">Casos Técnicos</a></li>
-                <li><a href="recursos-tecnicos.html" class="nav-link--active">Recursos Técnicos</a></li>
-                <li><a href="profile.html">Sobre mí</a></li>
-            </ul>
-        </div>
+      <div class="nav-container">
+        <div class="logo"><a href="profile.html">JD Parra</a></div>
+        <ul class="nav-links">
+          <li><a href="index.html">Desarrollo Web</a></li>
+          <li><a href="microsoft.html">Consultoría Microsoft</a></li>
+          <li><a href="casos.html">Casos Técnicos</a></li>
+          <li>
+            <a href="recursos-tecnicos.html" class="nav-link--active"
+              >Recursos Técnicos</a
+            >
+          </li>
+          <li><a href="profile.html">Sobre mí</a></li>
+        </ul>
+      </div>
     </nav>
 
     <!-- App Shell -->
     <div class="app-shell">
+      <!-- ── Sidebar ─────────────────────────────── -->
+      <aside class="app-sidebar" id="appSidebar">
+        <div class="app-sidebar__header">
+          <i class="fas fa-tools"></i>
+          <span>Recursos Técnicos</span>
+        </div>
 
-        <!-- ── Sidebar ─────────────────────────────── -->
-        <aside class="app-sidebar" id="appSidebar">
-            <div class="app-sidebar__header">
-                <i class="fas fa-tools"></i>
-                <span>Recursos Técnicos</span>
-            </div>
+        <nav class="app-sidebar__nav" aria-label="Herramientas disponibles">
+          <p class="sidebar-section-label">Microsoft 365</p>
+          <button
+            class="sidebar-item sidebar-item--active"
+            data-panel="comparador"
+            type="button"
+          >
+            <span class="sidebar-item__icon"
+              ><i class="fas fa-sliders-h"></i
+            ></span>
+            <span class="sidebar-item__label">Comparador de licencias</span>
+          </button>
+          <button class="sidebar-item" data-panel="tabla" type="button">
+            <span class="sidebar-item__icon"><i class="fas fa-table"></i></span>
+            <span class="sidebar-item__label">Tabla de planes</span>
+          </button>
 
-            <nav class="app-sidebar__nav" aria-label="Herramientas disponibles">
-                <p class="sidebar-section-label">Microsoft 365</p>
-                <button class="sidebar-item sidebar-item--active" data-panel="comparador" type="button">
-                    <span class="sidebar-item__icon"><i class="fas fa-sliders-h"></i></span>
-                    <span class="sidebar-item__label">Comparador de licencias</span>
-                </button>
-                <button class="sidebar-item" data-panel="tabla" type="button">
-                    <span class="sidebar-item__icon"><i class="fas fa-table"></i></span>
-                    <span class="sidebar-item__label">Tabla de planes</span>
-                </button>
+          <p class="sidebar-section-label">Próximamente</p>
+          <div class="sidebar-item sidebar-item--soon" aria-disabled="true">
+            <span class="sidebar-item__icon"
+              ><i class="fas fa-calculator"></i
+            ></span>
+            <span class="sidebar-item__label">Azure Hybrid Benefit</span>
+            <span class="sidebar-badge">Pronto</span>
+          </div>
+          <div class="sidebar-item sidebar-item--soon" aria-disabled="true">
+            <span class="sidebar-item__icon"
+              ><i class="fas fa-shield-alt"></i
+            ></span>
+            <span class="sidebar-item__label">Selector de Seguridad</span>
+            <span class="sidebar-badge">Pronto</span>
+          </div>
+        </nav>
 
-                <p class="sidebar-section-label">Próximamente</p>
-                <div class="sidebar-item sidebar-item--soon" aria-disabled="true">
-                    <span class="sidebar-item__icon"><i class="fas fa-calculator"></i></span>
-                    <span class="sidebar-item__label">Azure Hybrid Benefit</span>
-                    <span class="sidebar-badge">Pronto</span>
-                </div>
-                <div class="sidebar-item sidebar-item--soon" aria-disabled="true">
-                    <span class="sidebar-item__icon"><i class="fas fa-shield-alt"></i></span>
-                    <span class="sidebar-item__label">Selector de Seguridad</span>
-                    <span class="sidebar-badge">Pronto</span>
-                </div>
-            </nav>
+        <div class="app-sidebar__footer">
+          <a href="microsoft.html" class="sidebar-footer-link">
+            <i class="fas fa-arrow-right"></i>
+            <span>Ver consultoría Microsoft</span>
+          </a>
+        </div>
+      </aside>
 
-            <div class="app-sidebar__footer">
-                <a href="microsoft.html" class="sidebar-footer-link">
-                    <i class="fas fa-arrow-right"></i>
-                    <span>Ver consultoría Microsoft</span>
-                </a>
-            </div>
-        </aside>
-
-        <!-- ── Main Content ────────────────────────── -->
-        <main class="app-main" id="appMain">
-
-            <!-- ═══════════════════════════════════════
+      <!-- ── Main Content ────────────────────────── -->
+      <main class="app-main" id="appMain">
+        <!-- ═══════════════════════════════════════
                  PANEL: Comparador de licencias
             ═══════════════════════════════════════ -->
-            <div class="app-panel" id="panel-comparador">
-                <div class="app-panel__header">
-                    <h1 class="app-panel__title">Comparador de Licencias M365</h1>
-                    <p class="app-panel__subtitle">Respondé 6 preguntas y obtené una recomendación técnica basada en <a href="https://learn.microsoft.com/microsoft-365/" target="_blank" rel="noopener noreferrer">documentación oficial de Microsoft</a></p>
-                </div>
+        <div class="app-panel" id="panel-comparador">
+          <div class="app-panel__header">
+            <h1 class="app-panel__title">Comparador de Licencias M365</h1>
+            <p class="app-panel__subtitle">
+              Respondé 6 preguntas y obtené una recomendación técnica basada en
+              <a
+                href="https://learn.microsoft.com/microsoft-365/"
+                target="_blank"
+                rel="noopener noreferrer"
+                >documentación oficial de Microsoft</a
+              >
+            </p>
+          </div>
 
-                <!-- Quiz wizard -->
-                <div class="cmp-wizard" id="cmpWizard">
-                    <div class="cmp-progress-bar" id="cmpProgressBar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="6" aria-label="Progreso del cuestionario">
-                        <div class="cmp-progress-fill" id="cmpProgressFill"></div>
-                    </div>
-                    <div class="cmp-steps" id="cmpSteps" aria-label="Pasos del cuestionario"></div>
-                    <div class="cmp-question-stage">
-                        <div class="cmp-question cmp-question--visible" id="cmpQuestion"></div>
-                    </div>
-                </div>
-
-                <!-- Result (hidden until quiz complete) -->
-                <div class="cmp-result" id="cmpResult" hidden aria-live="polite">
-                    <div class="cmp-result-header">
-                        <p class="cmp-result-eyebrow"><i class="fas fa-check-circle"></i> Recomendación para tu organización</p>
-                        <div id="cmpPlanBadge" class="cmp-plan-badge"></div>
-                        <p id="cmpPlanSubtitle" class="cmp-result-subtitle"></p>
-                    </div>
-                    <div class="cmp-result-body">
-                        <div id="cmpJustification" class="cmp-justification"></div>
-                        <div id="cmpAddons" class="cmp-addons"></div>
-                    </div>
-                    <div class="cmp-result-actions">
-                        <a href="microsoft.html#contact" class="cta-button"><i class="fas fa-envelope"></i> Solicitar propuesta personalizada</a>
-                        <button class="cta-button cta-button--outline" id="cmpRestart" type="button"><i class="fas fa-redo"></i> Reiniciar comparador</button>
-                        <button class="cta-button cta-button--ghost" id="cmpGoToTable" type="button"><i class="fas fa-table"></i> Ver tabla completa</button>
-                    </div>
-                </div>
+          <!-- Quiz wizard -->
+          <div class="cmp-wizard" id="cmpWizard">
+            <div
+              class="cmp-progress-bar"
+              id="cmpProgressBar"
+              role="progressbar"
+              aria-valuenow="0"
+              aria-valuemin="0"
+              aria-valuemax="6"
+              aria-label="Progreso del cuestionario"
+            >
+              <div class="cmp-progress-fill" id="cmpProgressFill"></div>
             </div>
+            <div
+              class="cmp-steps"
+              id="cmpSteps"
+              aria-label="Pasos del cuestionario"
+            ></div>
+            <div class="cmp-question-stage">
+              <div
+                class="cmp-question cmp-question--visible"
+                id="cmpQuestion"
+              ></div>
+            </div>
+          </div>
 
-            <!-- ═══════════════════════════════════════
+          <!-- Result (hidden until quiz complete) -->
+          <div class="cmp-result" id="cmpResult" hidden aria-live="polite">
+            <div class="cmp-result-header">
+              <p class="cmp-result-eyebrow">
+                <i class="fas fa-check-circle"></i> Recomendación para tu
+                organización
+              </p>
+              <div id="cmpPlanBadge" class="cmp-plan-badge"></div>
+              <p id="cmpPlanSubtitle" class="cmp-result-subtitle"></p>
+            </div>
+            <div class="cmp-result-body">
+              <div id="cmpJustification" class="cmp-justification"></div>
+              <div id="cmpAddons" class="cmp-addons"></div>
+            </div>
+            <div class="cmp-result-actions">
+              <a href="microsoft.html#contact" class="cta-button"
+                ><i class="fas fa-envelope"></i> Solicitar propuesta
+                personalizada</a
+              >
+              <button
+                class="cta-button cta-button--outline"
+                id="cmpRestart"
+                type="button"
+              >
+                <i class="fas fa-redo"></i> Reiniciar comparador
+              </button>
+              <button
+                class="cta-button cta-button--ghost"
+                id="cmpGoToTable"
+                type="button"
+              >
+                <i class="fas fa-table"></i> Ver tabla completa
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- ═══════════════════════════════════════
                  PANEL: Tabla comparativa
             ═══════════════════════════════════════ -->
-            <div class="app-panel app-panel--hidden" id="panel-tabla">
-                <div class="app-panel__header">
-                    <h1 class="app-panel__title">Tabla comparativa de planes</h1>
-                    <p class="app-panel__subtitle">Comparación técnica basada en <a href="https://learn.microsoft.com/office365/servicedescriptions/office-365-platform-service-description/" target="_blank" rel="noopener noreferrer">documentación oficial de Microsoft</a>. Los precios varían según canal, región y tipo de compromiso.</p>
-                </div>
+        <div class="app-panel app-panel--hidden" id="panel-tabla">
+          <div class="app-panel__header">
+            <h1 class="app-panel__title">Tabla comparativa de planes</h1>
+            <p class="app-panel__subtitle">
+              Comparación técnica basada en
+              <a
+                href="https://learn.microsoft.com/office365/servicedescriptions/office-365-platform-service-description/"
+                target="_blank"
+                rel="noopener noreferrer"
+                >documentación oficial de Microsoft</a
+              >. Los precios varían según canal, región y tipo de compromiso.
+            </p>
+          </div>
 
-                <!-- Controls -->
-                <div class="tbl-controls">
-                    <div class="tbl-search-wrap">
-                        <i class="fas fa-search tbl-search-icon"></i>
-                        <input type="text" id="tblSearch" class="tbl-search-input" placeholder="Buscar característica..." autocomplete="off" spellcheck="false">
-                        <button class="tbl-search-clear" id="tblSearchClear" type="button" aria-label="Limpiar búsqueda" hidden>
-                            <i class="fas fa-times"></i>
-                        </button>
-                    </div>
-                    <div class="tbl-col-toggles" id="tblColToggles" aria-label="Mostrar u ocultar columnas de planes"></div>
-                </div>
-
-                <!-- Table -->
-                <div class="tbl-wrapper">
-                    <table class="cmp-table" id="cmpTable"></table>
-                </div>
-
-                <p class="cmp-table-note">
-                    <i class="fas fa-info-circle"></i> Fuente:
-                    <a href="https://learn.microsoft.com/office365/servicedescriptions/office-365-platform-service-description/" target="_blank" rel="noopener noreferrer">Microsoft Learn — Office 365 Platform Service Description</a>.
-                    Los datos reflejan capacidades del plan base, sin add-ons.
-                </p>
+          <!-- Controls -->
+          <div class="tbl-controls">
+            <div class="tbl-search-wrap">
+              <i class="fas fa-search tbl-search-icon"></i>
+              <input
+                type="text"
+                id="tblSearch"
+                class="tbl-search-input"
+                placeholder="Buscar característica..."
+                autocomplete="off"
+                spellcheck="false"
+              />
+              <button
+                class="tbl-search-clear"
+                id="tblSearchClear"
+                type="button"
+                aria-label="Limpiar búsqueda"
+                hidden
+              >
+                <i class="fas fa-times"></i>
+              </button>
             </div>
+            <div
+              class="tbl-col-toggles"
+              id="tblColToggles"
+              aria-label="Mostrar u ocultar columnas de planes"
+            ></div>
+          </div>
 
-        </main>
+          <!-- Table -->
+          <div class="tbl-wrapper">
+            <table class="cmp-table" id="cmpTable"></table>
+          </div>
+
+          <p class="cmp-table-note">
+            <i class="fas fa-info-circle"></i> Fuente:
+            <a
+              href="https://learn.microsoft.com/office365/servicedescriptions/office-365-platform-service-description/"
+              target="_blank"
+              rel="noopener noreferrer"
+              >Microsoft Learn — Office 365 Platform Service Description</a
+            >. Los datos reflejan capacidades del plan base, sin add-ons.
+          </p>
+        </div>
+      </main>
     </div>
 
     <!-- Footer -->
@@ -160,9 +255,28 @@
           <h3>J.D. Parra</h3>
           <p>Creando Experiencias Digitales que Importan</p>
           <div class="social-links">
-            <a href="https://github.com/JD117parra" class="flex-center" aria-label="GitHub" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i></a>
-            <a href="https://www.linkedin.com/in/juan-parra-2358b428b" class="flex-center" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin"></i></a>
-            <a href="mailto:JD117parra@outlook.com" class="flex-center" aria-label="Email"><i class="fas fa-envelope"></i></a>
+            <a
+              href="https://github.com/JD117parra"
+              class="flex-center"
+              aria-label="GitHub"
+              target="_blank"
+              rel="noopener noreferrer"
+              ><i class="fab fa-github"></i
+            ></a>
+            <a
+              href="https://www.linkedin.com/in/juan-parra-2358b428b"
+              class="flex-center"
+              aria-label="LinkedIn"
+              target="_blank"
+              rel="noopener noreferrer"
+              ><i class="fab fa-linkedin"></i
+            ></a>
+            <a
+              href="mailto:JD117parra@outlook.com"
+              class="flex-center"
+              aria-label="Email"
+              ><i class="fas fa-envelope"></i
+            ></a>
           </div>
         </div>
         <div class="footer-section">
@@ -190,8 +304,21 @@
           <details>
             <summary>Contacto</summary>
             <div class="contact-info">
-              <p><i class="fas fa-envelope"></i><a href="mailto:JD117parra@outlook.com">JD117parra@outlook.com</a></p>
-              <p><i class="fab fa-linkedin"></i><a href="https://www.linkedin.com/in/juan-parra-2358b428b" target="_blank" rel="noopener noreferrer">LinkedIn</a></p>
+              <p>
+                <i class="fas fa-envelope"></i
+                ><a href="mailto:JD117parra@outlook.com"
+                  >JD117parra@outlook.com</a
+                >
+              </p>
+              <p>
+                <i class="fab fa-linkedin"></i
+                ><a
+                  href="https://www.linkedin.com/in/juan-parra-2358b428b"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >LinkedIn</a
+                >
+              </p>
             </div>
           </details>
         </div>
@@ -206,5 +333,5 @@
     </footer>
 
     <script src="script.js"></script>
-</body>
+  </body>
 </html>

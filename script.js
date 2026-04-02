@@ -1,6 +1,18 @@
 // Esperar a que el DOM esté completamente cargado
 document.addEventListener('DOMContentLoaded', function() {
-    
+
+    // === NAV LINK ACTIVO SEGÚN PÁGINA ACTUAL ===
+    (function () {
+      const raw = window.location.pathname.replace(/\/$/, '').split('/').pop() || 'index';
+      const current = raw.replace(/\.html$/, '');
+      document.querySelectorAll('.nav-links a').forEach(function (link) {
+        const href = link.getAttribute('href').split('/').pop().replace(/\.html$/, '');
+        if (href === current || (current === '' && href === 'index')) {
+          link.classList.add('nav-link--active');
+        }
+      });
+    })();
+
     // === NAVEGACIÓN SUAVE ===
     // Obtener todos los enlaces del menú de navegación
     const navLinks = document.querySelectorAll('.nav-links a[href^="#"]');
