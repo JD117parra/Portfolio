@@ -46,8 +46,10 @@ document.addEventListener('DOMContentLoaded', function() {
     const navLinksContainer = document.querySelector('.nav-links');
     
     // Crear botón hamburguesa
-    const hamburgerBtn = document.createElement('div');
+    const hamburgerBtn = document.createElement('button');
     hamburgerBtn.className = 'hamburger-btn';
+    hamburgerBtn.type = 'button';
+    hamburgerBtn.setAttribute('aria-label', 'Abrir menú de navegación');
     hamburgerBtn.innerHTML = '<i class="fas fa-bars"></i>';
     
     // Insertar el botón después del logo
@@ -122,21 +124,6 @@ document.addEventListener('DOMContentLoaded', function() {
         observer.observe(el);
     });
 
-    // === EFECTOS HOVER MEJORADOS ===
-    // Efecto parallax suave en las tarjetas de proyecto
-    const projectCards = document.querySelectorAll('.project-card');
-    
-    projectCards.forEach(card => {
-        card.addEventListener('mouseenter', function() {
-            this.style.transform = 'translateY(-10px) scale(1.02)';
-            this.style.transition = 'all 0.3s ease';
-        });
-        
-        card.addEventListener('mouseleave', function() {
-            this.style.transform = 'translateY(0) scale(1)';
-        });
-    });
-
     // === TYPING EFFECT EN EL HERO ===
     const heroTitle = document.querySelector('.hero h1');
     const heroSubtitle = document.querySelector('.hero .subtitle');
@@ -158,96 +145,17 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Iniciar el efecto de escritura después de un pequeño delay
     setTimeout(() => {
-    const titleText = heroTitle.textContent; // Toma el texto del HTML
-    const subtitleText = heroSubtitle.textContent; // Toma el texto del HTML
-
-    createTypingEffect(heroTitle, titleText, 150);
-    setTimeout(() => {
-        createTypingEffect(heroSubtitle, subtitleText, 80);
-    }, 2000);
+    if (heroTitle) {
+        const titleText = heroTitle.textContent;
+        createTypingEffect(heroTitle, titleText, 150);
+    }
+    if (heroSubtitle) {
+        const subtitleText = heroSubtitle.textContent;
+        setTimeout(() => {
+            createTypingEffect(heroSubtitle, subtitleText, 80);
+        }, 2000);
+    }
     }, 500);
-
-    // === CONTADOR ANIMADO PARA ESTADÍSTICAS ===
-    function animateCounter(element, target, duration = 2000) {
-        let start = 0;
-        const increment = target / (duration / 16);
-        
-        function updateCounter() {
-            start += increment;
-            element.textContent = Math.floor(start);
-            if (start < target) {
-                requestAnimationFrame(updateCounter);
-            } else {
-                element.textContent = target;
-            }
-        }
-        
-        updateCounter();
-    }
-
-    // === SMOOTH SCROLL MEJORADO ===
-    // Mejorar el comportamiento del scroll suave
-    function smoothScrollTo(targetPosition, duration = 1000) {
-        const startPosition = window.pageYOffset;
-        const distance = targetPosition - startPosition;
-        let startTime = null;
-        
-        function animation(currentTime) {
-            if (startTime === null) startTime = currentTime;
-            const timeElapsed = currentTime - startTime;
-            const run = ease(timeElapsed, startPosition, distance, duration);
-            window.scrollTo(0, run);
-            if (timeElapsed < duration) requestAnimationFrame(animation);
-        }
-        
-        function ease(t, b, c, d) {
-            t /= d / 2;
-            if (t < 1) return c / 2 * t * t + b;
-            t--;
-            return -c / 2 * (t * (t - 2) - 1) + b;
-        }
-        
-        requestAnimationFrame(animation);
-    }
-
-    // === VALIDACIÓN DE FORMULARIO DE CONTACTO ===
-    // Si decides agregar un formulario de contacto más adelante
-    function validateEmail(email) {
-        const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        return re.test(email);
-    }
-
-    // === PRELOADER (OPCIONAL) ===
-    // Crear y mostrar preloader
-    function createPreloader() {
-        const preloader = document.createElement('div');
-        preloader.id = 'preloader';
-        preloader.className = 'preloader';
-        
-        preloader.innerHTML = `
-            <div class="preloader-content">
-                <div class="preloader-spinner"></div>
-                <p>Cargando...</p>
-            </div>
-        `;
-        
-        document.body.prepend(preloader);
-        
-        // Ocultar preloader después de que todo cargue
-        window.addEventListener('load', function() {
-            setTimeout(() => {
-                preloader.classList.add('fade-out');
-                setTimeout(() => {
-                    preloader.remove();
-                }, 500);
-            }, 1000);
-        });
-    }
-    
-    // Activar preloader solo si la página se está cargando
-    if (document.readyState === 'loading') {
-        createPreloader();
-    }
 
     // === EASTER EGG ===
     // Agregar un pequeño easter egg
@@ -302,44 +210,6 @@ document.addEventListener('DOMContentLoaded', function() {
     console.log('🚀 ¡JavaScript cargado correctamente! Página web de Juan David Parra lista.');
 });
 
-if (typeof Swiper !== 'undefined') {
-  new Swiper('.card-wrapper', {
-    loop: true,
-    loopedSlides: 3,         // slides duplicados necesarios para loop con slidesPerView: 'auto'
-    observer: true,          // re-inicializar si el elemento estaba oculto al inicio
-    observeParents: true,
-    spaceBetween: 20,        // espacio entre tarjetas
-    slidesPerView: 'auto',   // permite que se vean varias a la vez
-    centeredSlides: true,    // centra la tarjeta activa
-
-    pagination: {
-      el: '.swiper-pagination',
-      clickable: true,
-      dynamicBullets: true,
-    },
-
-    navigation: {
-      nextEl: '.swiper-button-next',
-      prevEl: '.swiper-button-prev',
-    },
-  });
-}
-
-// === FUNCIONES UTILITARIAS ===
-// Función para detectar si el usuario está en móvil
-function isMobile() {
-    return window.innerWidth <= 768;
-}
-
-// Función para obtener la posición de scroll
-function getScrollPosition() {
-    return window.pageYOffset || document.documentElement.scrollTop;
-}
-
-// Función para obtener la altura de la ventana
-function getWindowHeight() {
-    return window.innerHeight || document.documentElement.clientHeight;
-}
 
 // === MANEJO DE ERRORES ===
 window.addEventListener('error', function(e) {
@@ -847,7 +717,7 @@ if (document.getElementById('cmpQuestion')) {
   if (!details.length) return;
 
   function toggle() {
-    var desktop = window.innerWidth > 480;
+    var desktop = window.innerWidth > 768;
     details.forEach(function (d) {
       if (desktop) d.setAttribute('open', '');
       else d.removeAttribute('open');
@@ -880,3 +750,21 @@ if (document.getElementById('cmpQuestion')) {
 
   requestAnimationFrame(step);
 })();
+
+document.querySelectorAll('.swiper').forEach(function(el) {
+  new Swiper(el, {
+    loop: true,
+    centeredSlides: true,
+    slidesPerView: 'auto',
+    spaceBetween: 24,
+    pagination: {
+      el: el.querySelector('.swiper-pagination'),
+      clickable: true,
+      dynamicBullets: true,
+    },
+    navigation: {
+      nextEl: el.querySelector('.swiper-button-next'),
+      prevEl: el.querySelector('.swiper-button-prev'),
+    },
+  });
+});

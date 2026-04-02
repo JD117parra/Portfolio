@@ -1,157 +1,80 @@
-# 💼 J.D Parra - Full Stack Developer & Microsoft Consultant Portfolio
+# Portfolio web — J.D. Parra
 
-¡Bienvenido a mi portfolio personal! Una página web moderna y responsive que muestra mis habilidades, proyectos y experiencia como Desarrollador Full Stack & Consultor Microsoft.
+Sitio web multi-página de presentación profesional como desarrollador full-stack y consultor Microsoft.
 
-## 🚀 Demo en Vivo
-
-🔗 **[Ver Portfolio](https://jd117parra.github.io/Portfolio/)**
-
-## ✨ Características
-
-### 🎨 **Diseño Moderno**
-- Diseño responsivo que se adapta a todos los dispositivos
-- Gradientes y animaciones suaves
-- Interfaz limpia y profesional
-- Efectos hover interactivos
-
-### 🧭 **Navegación Intuitiva**
-- Navbar fijo con scroll suave
-- Menú hamburguesa para móvil
-- Enlaces de navegación animados
-
-### 📱 **Secciones Principales**
-- **Hero:** Presentación principal con imagen de fondo
-- **References:** Testimonios profesionales con diseño de cards
-- **About:** Información personal y profesional
-- **Skills:** Habilidades técnicas organizadas por categorías
-- **Projects:** Proyectos destacados con enlaces a código y demos
-- **Contact:** Enlaces de contacto y redes sociales
-- **Footer:** Información adicional y links útiles
-
-### 🎭 **Animaciones y Efectos**
-- Animaciones de entrada suaves
-- Efectos hover en cards y botones
-- Transiciones fluidas entre secciones
-- Efectos de paralaje sutiles
-
-## 🛠️ Tecnologías Utilizadas
-
-### **Frontend**
-- **HTML5** - Estructura semántica
-- **CSS3** - Estilos modernos con Flexbox y Grid
-- **JavaScript** - Interactividad y navegación suave
-- **Font Awesome** - Iconos vectoriales
-- **Google Fonts** - Tipografía (Inter)
-
-### **Características Técnicas**
-- **Responsive Design** - Mobile-first approach
-- **CSS Grid & Flexbox** - Layout moderno
-- **Smooth Scroll** - Navegación fluida
-- **Intersection Observer** - Animaciones al scroll
-- **Backdrop Filter** - Efectos de vidrio esmerilado
-
-## 📁 Estructura del Proyecto
-
-```
-Portfolio/
-│
-├── index.html          # Página principal
-├── styles.css          # Estilos CSS
-├── script.js           # JavaScript funcional
-├── README.md           # Este archivo
-│
-├── Images/             # Recursos gráficos
-│   ├── ProfilePicture.png
-│   ├── Profile-Picture-2.jpg
-│   ├── reference-img-robert-becerra.jpg
-│   ├── reference-img-carolina-camacho.jpg
-│   └── reference-image-daniel-rodriguez.jpg
-│
-└── docs/               # Documentación adicional
-```
-
-## 🎯 Secciones Detalladas
-
-### **References (Testimonios)**
-- Cards con imágenes de perfil
-- Sistema de alineación flexible
-- Testimonios profesionales reales
-- Tags de logros y experiencia
-
-### **Skills (Habilidades)**
-- Organización por categorías (Frontend, Backend, Database, Tools)
-- Tags interactivos con hover effects
-- Iconos representativos de Font Awesome
-
-### **Projects (Proyectos)**
-- Cards con gradientes atractivos
-- Enlaces a código fuente y demos
-- Botones animados con efectos
-- Descripciones técnicas detalladas
-
-
-### **Personalización**
-1. **Cambiar información personal** en `index.html`
-2. **Actualizar estilos** en `styles.css`
-3. **Modificar funcionalidad** en `script.js`
-4. **Reemplazar imágenes** en la carpeta `Images/`
-
-## 📱 Responsive Design
-
-El portfolio está optimizado para:
-- 📱 **Móvil** (320px - 768px)
-- 📋 **Tablet** (768px - 1024px)
-- 💻 **Desktop** (1024px+)
-
-## 🎨 Paleta de Colores
-
-```css
-/* Colores principales */
---primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
---accent-orange: linear-gradient(45deg, #ff6b6b, #ee5a24);
---text-dark: #333;
---text-light: #666;
---white: #ffffff;
---light-bg: #f8f9fa;
-```
-
-## 🔧 Funcionalidades JavaScript
-
-- **Smooth Scrolling** - Navegación suave entre secciones
-- **Navbar Transparency** - Cambia opacidad al hacer scroll
-- **Mobile Menu** - Menú hamburguesa responsive
-- **Intersection Observer** - Animaciones al aparecer elementos
-- **Copy to Clipboard** - Funcionalidad en el email de contacto
-
-## 📊 Performance
-
-- ✅ **Lighthouse Score**: 95+ en todas las métricas
-- ✅ **Mobile Friendly**: Optimizado para dispositivos móviles
-- ✅ **SEO Optimized**: Metadatos y estructura semántica
-- ✅ **Fast Loading**: Imágenes optimizadas y CSS eficiente
-
-## 🌟 Próximas Mejoras
-
-- [ ] Modo oscuro/claro
-- [ ] Animaciones más avanzadas con GSAP
-- [ ] Blog personal integrado
-- [ ] Formulario de contacto funcional
-- [ ] PWA (Progressive Web App)
-- [ ] Internacionalización (ES/EN)
-
-## 📄 Licencia
-
-Este proyecto está bajo la Licencia MIT - mira el archivo [LICENSE](LICENSE) para más detalles.
-
-## 🙏 Agradecimientos
-
-- **Font Awesome** por los iconos
-- **Google Fonts** por la tipografía Inter
-- **Unsplash** por las imágenes de referencia
-- **Comunidad de desarrolladores** por la inspiración
+**URL en vivo:** https://jd117parra.github.io/Portfolio/
 
 ---
 
-⭐ **¡Si te gusta este portfolio, dale una estrella al repositorio!**
+## Estructura del proyecto
 
-Desarrollado con 💜 y mucho ☕ por **J.D Parra**
+| Archivo | Propósito |
+|---|---|
+| `profile.html` | Página de inicio: presentación personal, carrusel de empresas, proyectos dev, contacto |
+| `index.html` | Servicios de desarrollo web: servicios ofrecidos, proceso de trabajo, stack técnico, FAQ |
+| `microsoft.html` | Consultoría Microsoft: Azure, M365, Power Platform, certificaciones, proceso de consultoría |
+| `casos.html` | Casos técnicos: filtros por área, casos reales y en curso, layout editorial |
+| `recursos-tecnicos.html` | Herramientas interactivas: comparador de licencias M365, tabla comparativa de planes |
+| `styles.css` | Estilos globales (~3,400 líneas), organizados por regiones con `/* #region */` |
+| `script.js` | Lógica de navegación, animaciones, filtros de casos y motor del comparador M365 |
+| `Images/` | Recursos gráficos (foto de perfil, imágenes de hero, logos) |
+
+---
+
+## Arquitectura técnica
+
+- **HTML5 / CSS3 / JavaScript vanilla** — sin frameworks, sin bundlers, sin dependencias npm
+- **Font Awesome** — iconografía
+- **Google Fonts** — tipografía (Inter)
+- **Swiper.js** — carrusel de logos en `profile.html`
+
+No hay backend ni proceso de build. El sitio se sirve directamente desde GitHub Pages como archivos estáticos.
+
+---
+
+## Decisiones de diseño relevantes
+
+### `profile.html` como página de inicio
+
+`index.html` contiene los servicios de desarrollo web, no la presentación personal. El logo del navbar enlaza a `profile.html` desde todas las páginas, lo que la convierte en el punto de entrada del sitio. No hay redirect ni canonical tag explícito; la convención está implementada solo a nivel de navegación.
+
+### Organización del CSS por regiones
+
+`styles.css` usa 22 bloques `/* #region nombre */` para separar responsabilidades. Esto permite navegar el archivo por secciones sin fragmentarlo en múltiples archivos. Las regiones principales son: Reset, Navegación, Hero, Cards, Secciones base, Animaciones, Responsive Design, Casos Técnicos (layout editorial) y Recursos Técnicos (dashboard app).
+
+### Sistema de filtros en `casos.html`
+
+Cada tarjeta `.caso` tiene un atributo `data-area` con uno de estos valores: `azure`, `m365`, `powerplatform`, `arquitectura`. Los botones del filter hub llaman a un handler en `script.js` que itera sobre todas las tarjetas y alterna `display: none` según el filtro activo. No hay estado persistente ni URL params.
+
+### Paleta de color
+
+El sitio usa un único modo visual: dark. Las variables CSS principales son `--bg-deep` (navy profundo) y `--accent: #00d4ff` (cian). No existe modo claro ni toggle de tema.
+
+### Comparador de licencias M365
+
+`recursos-tecnicos.html` incluye un wizard de 6 preguntas implementado en JS vanilla. El motor de recomendación evalúa las respuestas (tamaño de organización, necesidad de escritorio, MDM, cumplimiento normativo, trabajadores de primera línea) y devuelve un plan recomendado entre F1, F3, Business Basic, Business Standard, Business Premium, E3 y E5, con justificación y add-ons sugeridos. La tabla comparativa es una vista independiente del wizard con búsqueda, toggle de columnas y categorías plegables.
+
+---
+
+## Estado actual
+
+### Páginas completas
+
+| Página | Estado |
+|---|---|
+| `profile.html` | Funcional, sin placeholders |
+| `index.html` | Funcional, sin placeholders |
+| `microsoft.html` | Funcional, sin placeholders |
+| `recursos-tecnicos.html` | Comparador M365 y tabla comparativa funcionales |
+
+### Secciones con placeholders o contenido pendiente
+
+**`casos.html`:**
+- Azure: "Azure Monitor & optimización de costos" — marcado como próximamente
+- M365: "Microsoft Purview & protección DLP" — marcado como próximamente
+- Power Platform: "Dashboard ejecutivo Power BI" — marcado como próximamente
+- Arquitectura: un caso adicional — marcado como próximamente
+- Varios casos existentes tienen estado "propuesta en curso" o "en preparación"
+
+**`recursos-tecnicos.html`:**
+- Sidebar lista dos herramientas adicionales marcadas como próximamente: Azure Hybrid Benefit Calculator y Security Selector

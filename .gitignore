@@ -1,3 +1,25 @@
-# Ignorar carpetas internas
+# Carpetas internas de herramientas
 .claude/
 .history/
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+
+# Sistema operativo
+.DS_Store
+Thumbs.db
+
+# Editores
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Node (por si se agrega un build step en el futuro)
+node_modules/
+npm-debug.log*
+
+# Logs
+*.log
