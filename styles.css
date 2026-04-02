@@ -1565,6 +1565,10 @@ body {
   .contact-grid--services {
     grid-template-columns: 1fr;
   }
+
+  .skills-grid--certs {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
 @media (max-width: 480px) {
