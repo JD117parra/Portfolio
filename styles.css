@@ -256,6 +256,7 @@ body {
   position: relative;
   overflow: hidden;
   padding-top: 8rem;
+  padding-bottom: 4rem;
   background-image: url('Images/Profile-Picture-2.jpg');
   background-size: cover;
   background-position: center top;
