@@ -719,14 +719,24 @@ body {
 
 .projects-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  grid-template-columns: 1fr;
   gap: 2rem;
   margin-top: 2rem;
+}
+
+@media (min-width: 768px) {
+  .projects-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
 @media (min-width: 1024px) {
   .projects-grid {
     grid-template-columns: repeat(4, 1fr);
+  }
+  /* Servicios: 6 tarjetas en 3 columnas */
+  #services .projects-grid {
+    grid-template-columns: repeat(3, 1fr);
   }
 }
 
@@ -1244,11 +1254,9 @@ body {
 /* #region FAQ y Contact cards */
 
 .faq-card {
-  margin: 0.2rem;
   padding: 1rem;
   width: 100%;
-  max-width: 95%;
-  min-height: 350px;
+  min-height: 200px;
   border-radius: var(--radius-card);
   background: linear-gradient(135deg, var(--bg-section) 0%, var(--bg-faq-end) 100%);
   color: var(--text-primary);
@@ -1278,9 +1286,16 @@ body {
   box-shadow: 0 10px 20px var(--shadow-xl);
 }
 
-/* El slide es display:block por defecto — flex permite que .faq-card llene la altura */
-.faq .swiper-slide {
-  display: flex;
+/* FAQ grid estático — reemplaza el carrusel Swiper */
+.faq-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+@media (max-width: 768px) {
+  .faq-grid { grid-template-columns: 1fr; }
 }
 
 .contact-card {
@@ -1706,6 +1721,11 @@ body {
     display: none;
   }
 
+  /* Sección Soluciones Microsoft: usa solo el bloque principal, sin swiper */
+  #solutions .projects {
+    display: block;
+  }
+
   /* Tarjetas de servicio: icono + título en la misma fila (solo tarjetas con icono) */
   .card-wrapper .project-card:has(.service-icon) {
     display: grid;
@@ -1767,8 +1787,14 @@ body {
     gap: 1rem;
   }
 
-  .projects-grid {
-    display: none;
+  /* Sección proyectos profile.html: usa solo el bloque principal, sin swiper */
+  #projects .projects {
+    display: block;
+  }
+
+  /* Sección servicios index.html: usa solo el bloque principal, sin swiper */
+  #services .projects {
+    display: block;
   }
 
   #projects.section {
