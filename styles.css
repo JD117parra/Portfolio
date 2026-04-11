@@ -2012,7 +2012,7 @@ body {
   }
 
   .footer-enhanced {
-    padding: 3rem 0 0;
+    padding: 1rem 0 0;
   }
 
   .footer-content {
@@ -3693,7 +3693,9 @@ body.app-page {
 }
 
 .bio-companies-section .section-title {
-  margin-bottom: 0;
+  margin: 1rem;
+  font-size: clamp(0.8rem, 5vw, 1.5rem);
+  color: var(--text-muted);
 }
 
 
@@ -3885,7 +3887,7 @@ body.app-page {
   }
 
   .projects.section-card {
-    padding: 1.5rem 0.75rem;
+    padding: 1rem 0rem;
   }
 
   .bio-grid {
