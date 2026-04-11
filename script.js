@@ -119,7 +119,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }, observerOptions);
     
     // Observar elementos que necesitan animación
-    const animatedElements = document.querySelectorAll('.skill-category, .project-card, .about, .contact');
+    const animatedElements = document.querySelectorAll('.skill-category, .project-card, .contact');
     animatedElements.forEach(el => {
         el.classList.add('animate-on-scroll');
         observer.observe(el);
