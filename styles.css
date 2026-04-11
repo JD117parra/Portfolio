@@ -4856,27 +4856,35 @@ body.app-page {
 }
 
 .m365t-table-wrap {
-  background: var(--card-inner);
-  border: 1px solid rgba(255, 255, 255, 0.06);
+  background: rgba(20, 28, 45, 0.9);
+  border: 1px solid rgba(255, 255, 255, 0.12);
   border-radius: var(--radius-card);
   overflow-x: auto;
   -webkit-overflow-scrolling: touch;
+  width: fit-content;
+  max-width: 100%;
+  margin: 0 auto;
 }
 
 .m365t-table {
-  width: 100%;
+  width: auto;
+  margin: 0 auto;
   border-collapse: collapse;
-  font-size: 0.8rem;
+  font-size: 0.9rem;
 }
 
 .m365t-table thead th {
   text-align: center;
-  padding: 0.85rem 0.75rem;
-  color: var(--text-primary);
-  font-size: 0.75rem;
+  padding: 1rem 0.75rem;
+  color: #fff;
+  font-size: 0.85rem;
   font-weight: 700;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  border-bottom: 2px solid rgba(0, 212, 255, 0.2);
   white-space: nowrap;
+  position: sticky;
+  top: 0;
+  background: rgba(10, 14, 26, 0.98);
+  z-index: 2;
 }
 
 .m365t-table thead th:first-child {
@@ -4885,29 +4893,60 @@ body.app-page {
   font-weight: 600;
 }
 
+/* Column tints by plan */
+.m365t-table tbody td:nth-child(2),
+.m365t-table thead th:nth-child(2) { /* Business Basic */ }
+.m365t-table tbody td:nth-child(3),
+.m365t-table thead th:nth-child(3) { /* Business Standard */ }
+.m365t-table tbody td:nth-child(4),
+.m365t-table thead th:nth-child(4) { /* Business Premium */
+  border-left: 1px solid rgba(0, 212, 255, 0.08);
+}
+.m365t-table tbody td:nth-child(5),
+.m365t-table thead th:nth-child(5) { /* E3 */
+  border-left: 1px solid rgba(96, 165, 250, 0.08);
+  background: rgba(96, 165, 250, 0.03);
+}
+.m365t-table tbody td:nth-child(6),
+.m365t-table thead th:nth-child(6) { /* E5 */
+  background: rgba(74, 222, 128, 0.03);
+}
+
 .m365t-table tbody td {
-  padding: 0.7rem 0.75rem;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.04);
-  color: var(--text-muted);
+  padding: 0.75rem 0.75rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  color: var(--text-primary);
   vertical-align: middle;
   text-align: center;
-  font-size: 0.78rem;
+  font-size: 0.82rem;
   line-height: 1.5;
+}
+
+/* Zebra striping */
+.m365t-table tbody tr:nth-child(even):not(.m365t-subheader) td {
+  background-color: rgba(255, 255, 255, 0.025);
+}
+
+.m365t-table thead th:not(:first-child),
+.m365t-table tbody td:not(:first-child) {
+  width: 120px;
 }
 
 .m365t-table tbody td:first-child {
   text-align: left;
-  color: var(--text-primary);
-  font-weight: 400;
+  color: #fff;
+  font-weight: 500;
   min-width: 200px;
+  width: auto;
+  background: rgba(255, 255, 255, 0.03);
 }
 
 .m365t-table tbody tr:last-child td {
   border-bottom: none;
 }
 
-.m365t-table tbody tr:hover {
-  background: rgba(255, 255, 255, 0.02);
+.m365t-table tbody tr:hover td {
+  background: rgba(255, 255, 255, 0.06);
 }
 
 /* Sub-headers inside tables */
@@ -4917,17 +4956,27 @@ body.app-page {
   letter-spacing: 0.15em;
   text-transform: uppercase;
   color: var(--accent) !important;
-  text-align: center !important;
+  text-align: left !important;
   padding-top: 1.25rem !important;
   border-bottom: 1px solid rgba(0, 212, 255, 0.15) !important;
   background: rgba(0, 212, 255, 0.04) !important;
 }
 
-.m365t-subheader td[colspan] {
-  text-align: center !important;
+/* Status icons */
+.m365t-table td.m365t-check,
+.m365t-table td.m365t-cross,
+.m365t-table td.m365t-warn,
+.m365t-table td.m365t-partial {
+  font-size: 0.82rem;
+  font-weight: 600;
 }
 
-/* Status icons */
+.m365t-table td.m365t-check i,
+.m365t-table td.m365t-cross i,
+.m365t-table td.m365t-warn i {
+  font-size: 1.1rem;
+}
+
 .m365t-table td.m365t-check {
   color: #4ade80;
   background: rgba(74, 222, 128, 0.08);
@@ -4943,20 +4992,22 @@ body.app-page {
 .m365t-table td.m365t-partial {
   color: #60a5fa;
   background: rgba(96, 165, 250, 0.08);
-  font-size: 0.72rem;
-  text-align: center;
 }
 
 /* Note */
 .m365t-note {
-  background: rgba(251, 191, 36, 0.06);
-  border: 1px solid rgba(251, 191, 36, 0.15);
-  border-radius: 10px;
-  padding: 0.85rem 1rem;
-  margin-top: 1.25rem;
-  font-size: 0.75rem;
-  line-height: 1.6;
-  color: var(--text-muted);
+  background: rgba(251, 191, 36, 0.04);
+  border-left: 3px solid rgba(251, 191, 36, 0.4);
+  border-radius: 0 6px 6px 0;
+  padding: 0.5rem 0.75rem;
+  margin-top: 0.75rem;
+  font-size: 0.7rem;
+  line-height: 1.5;
+  color: var(--text-faint);
+  width: fit-content;
+  max-width: 100%;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .m365t-note strong {
