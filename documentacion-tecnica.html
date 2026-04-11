@@ -44,7 +44,7 @@
       href="https://jd117parra.github.io/Portfolio/documentacion-tecnica.html"
     />
   </head>
-  <body>
+  <body class="app-page">
     <!-- Navigation -->
     <nav class="navbar" aria-label="Navegación principal">
       <div class="nav-container">
@@ -54,43 +54,49 @@
           <li><a href="casos.html">Casos Técnicos</a></li>
           <li><a href="recursos-tecnicos.html">Recursos Técnicos</a></li>
           <li>
-            <a href="documentacion-tecnica.html" class="nav-link--active"
-              >Documentación</a
-            >
+            <a href="documentacion-tecnica.html" class="nav-link--active">Documentación</a>
           </li>
           <li><a href="profile.html">Sobre mí</a></li>
         </ul>
       </div>
     </nav>
 
-    <!-- Hero -->
-    <section class="dt-hero">
-      <h1>Documentación <span>Técnica</span></h1>
-      <p>Guías de referencia y arquitecturas de servicios Microsoft — desde la ingesta de datos hasta el consumo analítico.</p>
-    </section>
+    <!-- App Shell -->
+    <div class="app-shell">
 
-    <!-- Content -->
-    <div class="dt-container">
+      <!-- Sidebar -->
+      <aside class="app-sidebar">
+        <div class="app-sidebar__header">
+          <i class="fas fa-book"></i>
+          <span>Documentación Técnica</span>
+        </div>
 
-      <!-- Tabs -->
-      <div class="dt-tabs">
-        <button class="dt-tab dt-tab--active" data-doc="azure-data" type="button">
-          <i class="fas fa-database"></i> Herramientas de Datos
-        </button>
-        <button class="dt-tab" data-doc="azure-rbac" type="button">
-          <i class="fas fa-shield-alt"></i> RBAC y Ámbitos
-        </button>
-        <button class="dt-tab" data-doc="azure-arch" type="button">
-          <i class="fas fa-project-diagram"></i> Arquitecturas
-        </button>
-        <button class="dt-tab" data-doc="m365-guide" type="button">
-          <i class="fas fa-envelope-open-text"></i> Guía M365
-        </button>
-        <button class="dt-tab" disabled type="button">
-          <i class="fas fa-cogs"></i> Power Platform
-          <span class="dt-tab__badge">Pronto</span>
-        </button>
-      </div>
+        <nav class="app-sidebar__nav" aria-label="Documentación disponible">
+          <p class="sidebar-section-label">Azure</p>
+          <button class="sidebar-item sidebar-item--active" data-doc="azure-data" type="button">
+            <i class="fas fa-database"></i> Herramientas de Datos
+          </button>
+          <button class="sidebar-item" data-doc="azure-rbac" type="button">
+            <i class="fas fa-shield-alt"></i> RBAC y Ámbitos
+          </button>
+          <button class="sidebar-item" data-doc="azure-arch" type="button">
+            <i class="fas fa-project-diagram"></i> Arquitecturas
+          </button>
+
+          <p class="sidebar-section-label">Microsoft 365</p>
+          <button class="sidebar-item" data-doc="m365-guide" type="button">
+            <i class="fas fa-envelope-open-text"></i> Guía M365
+          </button>
+
+          <p class="sidebar-section-label">Power Platform</p>
+          <button class="sidebar-item" type="button" disabled>
+            <i class="fas fa-cogs"></i> Próximamente
+          </button>
+        </nav>
+      </aside>
+
+      <!-- Main Content -->
+      <main class="app-main">
 
       <!-- ═══════════════════════════════════════
            PANEL: Herramientas Azure para Datos
@@ -695,16 +701,16 @@
       <div class="dt-panel dt-panel--hidden" id="doc-m365-guide">
 
         <div class="dt-panel__header">
-          <h2 class="dt-panel__title">Comparativa de Licencias M365 Business</h2>
-          <p class="dt-panel__desc">Diferencias clave entre Business Basic, Standard y Premium organizadas por categoría. Desliza para ver cada tabla.</p>
+          <h2 class="dt-panel__title">Comparativa de Licencias Microsoft 365</h2>
+          <p class="dt-panel__desc">Diferencias clave entre Business (Basic, Standard, Premium) y Enterprise (E3, E5) organizadas por categoría. Desliza para ver cada tabla.</p>
         </div>
 
         <div class="swiper m365t-swiper">
           <div class="swiper-wrapper">
 
-            <!-- Slide 1: Seguridad y Cumplimiento -->
+            <!-- Slide 1: Aplicaciones y Límites -->
             <div class="swiper-slide">
-              <h3 class="m365t-slide-title"><i class="fas fa-shield-alt"></i> Seguridad y Cumplimiento</h3>
+              <h3 class="m365t-slide-title"><i class="fas fa-th-large"></i> Aplicaciones y Límites</h3>
               <div class="m365t-table-wrap">
                 <table class="m365t-table">
                   <thead>
@@ -713,77 +719,322 @@
                       <th>Business Basic</th>
                       <th>Business Standard</th>
                       <th>Business Premium</th>
+                      <th>E3</th>
+                      <th>E5</th>
                     </tr>
                   </thead>
                   <tbody>
+                    <tr class="m365t-subheader"><td colspan="6">Aplicaciones Office</td></tr>
                     <tr>
-                      <td>Revocar acceso manualmente</td>
+                      <td>Office web (Word, Excel, PowerPoint, OneNote)</td>
                       <td class="m365t-check"><i class="fas fa-check"></i></td>
                       <td class="m365t-check"><i class="fas fa-check"></i></td>
-                      <td class="m365t-check"><i class="fas fa-check"></i></td>
-                    </tr>
-                    <tr>
-                      <td>Audit log básico — 90 días</td>
                       <td class="m365t-check"><i class="fas fa-check"></i></td>
                       <td class="m365t-check"><i class="fas fa-check"></i></td>
                       <td class="m365t-check"><i class="fas fa-check"></i></td>
                     </tr>
                     <tr>
-                      <td>Audit log extendido — 1 año</td>
+                      <td>Office desktop (Word, Excel, PowerPoint, Outlook)</td>
                       <td class="m365t-cross"><i class="fas fa-times"></i></td>
-                      <td class="m365t-cross"><i class="fas fa-times"></i></td>
-                      <td class="m365t-warn"><i class="fas fa-exclamation-triangle"></i> Add-on*</td>
+                      <td class="m365t-check"><i class="fas fa-check"></i></td>
+                      <td class="m365t-check"><i class="fas fa-check"></i></td>
+                      <td class="m365t-check"><i class="fas fa-check"></i></td>
+                      <td class="m365t-check"><i class="fas fa-check"></i></td>
                     </tr>
                     <tr>
-                      <td>Ver si alguien descargó un archivo</td>
+                      <td>Access y Publisher (solo PC)</td>
+                      <td class="m365t-cross"><i class="fas fa-times"></i></td>
+                      <td class="m365t-check"><i class="fas fa-check"></i></td>
+                      <td class="m365t-check"><i class="fas fa-check"></i></td>
+                      <td class="m365t-check"><i class="fas fa-check"></i></td>
+                      <td class="m365t-check"><i class="fas fa-check"></i></td>
+                    </tr>
+                    <tr>
+                      <td>Instalaciones por usuario</td>
+                      <td>Solo web</td>
+                      <td>5 dispositivos</td>
+                      <td>5 dispositivos</td>
+                      <td>5 dispositivos</td>
+                      <td>5 dispositivos</td>
+                    </tr>
+                    <tr class="m365t-subheader"><td colspan="6">Servicios incluidos</td></tr>
+                    <tr>
+                      <td>Exchange Online</td>
+                      <td class="m365t-partial">Plan 1</td>
+                      <td class="m365t-partial">Plan 1</td>
+                      <td class="m365t-partial">Plan 1</td>
+                      <td class="m365t-check">Plan 2</td>
+                      <td class="m365t-check">Plan 2</td>
+                    </tr>
+                    <tr>
+                      <td>Microsoft Teams</td>
+                      <td class="m365t-check"><i class="fas fa-check"></i></td>
+                      <td class="m365t-check"><i class="fas fa-check"></i></td>
+                      <td class="m365t-check"><i class="fas fa-check"></i></td>
+                      <td class="m365t-check"><i class="fas fa-check"></i></td>
+                      <td class="m365t-check"><i class="fas fa-check"></i></td>
+                    </tr>
+                    <tr>
+                      <td>SharePoint Online</td>
+                      <td class="m365t-check"><i class="fas fa-check"></i></td>
+                      <td class="m365t-check"><i class="fas fa-check"></i></td>
+                      <td class="m365t-check"><i class="fas fa-check"></i></td>
+                      <td class="m365t-check"><i class="fas fa-check"></i></td>
+                      <td class="m365t-check"><i class="fas fa-check"></i></td>
+                    </tr>
+                    <tr class="m365t-subheader"><td colspan="6">Límites</td></tr>
+                    <tr>
+                      <td>Máximo de usuarios</td>
+                      <td>300</td>
+                      <td>300</td>
+                      <td>300</td>
+                      <td>Ilimitado</td>
+                      <td>Ilimitado</td>
+                    </tr>
+                    <tr>
+                      <td>Windows Enterprise</td>
+                      <td class="m365t-cross"><i class="fas fa-times"></i></td>
+                      <td class="m365t-cross"><i class="fas fa-times"></i></td>
+                      <td class="m365t-cross"><i class="fas fa-times"></i></td>
+                      <td class="m365t-check"><i class="fas fa-check"></i> E3</td>
+                      <td class="m365t-check"><i class="fas fa-check"></i> E5</td>
+                    </tr>
+                    <tr>
+                      <td>Enterprise Mobility + Security</td>
+                      <td class="m365t-cross"><i class="fas fa-times"></i></td>
+                      <td class="m365t-cross"><i class="fas fa-times"></i></td>
+                      <td class="m365t-cross"><i class="fas fa-times"></i></td>
+                      <td class="m365t-check"><i class="fas fa-check"></i> E3</td>
+                      <td class="m365t-check"><i class="fas fa-check"></i> E5</td>
+                    </tr>
+                    <tr class="m365t-subheader"><td colspan="6">Power Automate y Power Apps</td></tr>
+                    <tr>
+                      <td>Cloud flows + conectores estándar</td>
+                      <td class="m365t-check"><i class="fas fa-check"></i></td>
+                      <td class="m365t-check"><i class="fas fa-check"></i></td>
+                      <td class="m365t-check"><i class="fas fa-check"></i></td>
+                      <td class="m365t-check"><i class="fas fa-check"></i></td>
+                      <td class="m365t-check"><i class="fas fa-check"></i></td>
+                    </tr>
+                    <tr>
+                      <td>Canvas apps con datos M365</td>
+                      <td class="m365t-check"><i class="fas fa-check"></i></td>
+                      <td class="m365t-check"><i class="fas fa-check"></i></td>
+                      <td class="m365t-check"><i class="fas fa-check"></i></td>
+                      <td class="m365t-check"><i class="fas fa-check"></i></td>
+                      <td class="m365t-check"><i class="fas fa-check"></i></td>
+                    </tr>
+                    <tr>
+                      <td>Conectores premium / Dataverse / RPA</td>
+                      <td class="m365t-cross"><i class="fas fa-times"></i></td>
+                      <td class="m365t-cross"><i class="fas fa-times"></i></td>
+                      <td class="m365t-cross"><i class="fas fa-times"></i></td>
+                      <td class="m365t-cross"><i class="fas fa-times"></i></td>
+                      <td class="m365t-cross"><i class="fas fa-times"></i></td>
+                    </tr>
+                    <tr class="m365t-subheader"><td colspan="6">Comunicación y Colaboración</td></tr>
+                    <tr>
+                      <td>Participantes por reunión Teams</td>
+                      <td>300</td>
+                      <td>300</td>
+                      <td>300</td>
+                      <td>1.000</td>
+                      <td>1.000</td>
+                    </tr>
+                    <tr>
+                      <td>Webinars</td>
+                      <td class="m365t-cross"><i class="fas fa-times"></i></td>
+                      <td class="m365t-check"><i class="fas fa-check"></i></td>
+                      <td class="m365t-check"><i class="fas fa-check"></i></td>
+                      <td class="m365t-check"><i class="fas fa-check"></i></td>
+                      <td class="m365t-check"><i class="fas fa-check"></i></td>
+                    </tr>
+                    <tr>
+                      <td>Town Halls</td>
+                      <td class="m365t-cross"><i class="fas fa-times"></i></td>
+                      <td class="m365t-cross"><i class="fas fa-times"></i></td>
+                      <td class="m365t-cross"><i class="fas fa-times"></i></td>
+                      <td class="m365t-check"><i class="fas fa-check"></i></td>
+                      <td class="m365t-check"><i class="fas fa-check"></i></td>
+                    </tr>
+                    <tr>
+                      <td>Teams Phone (PSTN)</td>
+                      <td class="m365t-cross"><i class="fas fa-times"></i></td>
+                      <td class="m365t-cross"><i class="fas fa-times"></i></td>
+                      <td class="m365t-cross"><i class="fas fa-times"></i></td>
+                      <td class="m365t-cross"><i class="fas fa-times"></i></td>
+                      <td class="m365t-check"><i class="fas fa-check"></i></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <div class="m365t-note">
+                <strong>Nota:</strong> Business máx. 300 usuarios — superar requiere Enterprise. Conectores premium y RPA requieren licencia standalone. Teams Phone en E5 incluye el sistema pero no los minutos.
+              </div>
+            </div>
+
+            <!-- Slide 2: Identidad, Acceso y Dispositivos -->
+            <div class="swiper-slide">
+              <h3 class="m365t-slide-title"><i class="fas fa-user-shield"></i> Identidad, Acceso y Dispositivos</h3>
+              <div class="m365t-table-wrap">
+                <table class="m365t-table">
+                  <thead>
+                    <tr>
+                      <th>Capacidad</th>
+                      <th>Business Basic</th>
+                      <th>Business Standard</th>
+                      <th>Business Premium</th>
+                      <th>E3</th>
+                      <th>E5</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr class="m365t-subheader"><td colspan="6">Entra ID (Identidad)</td></tr>
+                    <tr>
+                      <td>Entra ID incluido</td>
+                      <td>Free</td>
+                      <td>Free</td>
+                      <td class="m365t-check">P1</td>
+                      <td class="m365t-check">P1</td>
+                      <td class="m365t-check">P2</td>
+                    </tr>
+                    <tr>
+                      <td>MFA (Multi-Factor Authentication)</td>
+                      <td class="m365t-partial">Security Defaults</td>
+                      <td class="m365t-partial">Security Defaults</td>
+                      <td class="m365t-check"><i class="fas fa-check"></i></td>
+                      <td class="m365t-check"><i class="fas fa-check"></i></td>
+                      <td class="m365t-check"><i class="fas fa-check"></i></td>
+                    </tr>
+                    <tr>
+                      <td>Conditional Access</td>
+                      <td class="m365t-cross"><i class="fas fa-times"></i></td>
+                      <td class="m365t-cross"><i class="fas fa-times"></i></td>
+                      <td class="m365t-check"><i class="fas fa-check"></i></td>
+                      <td class="m365t-check"><i class="fas fa-check"></i></td>
+                      <td class="m365t-check"><i class="fas fa-check"></i></td>
+                    </tr>
+                    <tr>
+                      <td>Self-Service Password Reset</td>
+                      <td class="m365t-partial">Cloud only</td>
+                      <td class="m365t-partial">Cloud only</td>
+                      <td class="m365t-check"><i class="fas fa-check"></i></td>
+                      <td class="m365t-check"><i class="fas fa-check"></i></td>
+                      <td class="m365t-check"><i class="fas fa-check"></i></td>
+                    </tr>
+                    <tr>
+                      <td>Dynamic Groups</td>
+                      <td class="m365t-cross"><i class="fas fa-times"></i></td>
+                      <td class="m365t-cross"><i class="fas fa-times"></i></td>
+                      <td class="m365t-check"><i class="fas fa-check"></i></td>
+                      <td class="m365t-check"><i class="fas fa-check"></i></td>
+                      <td class="m365t-check"><i class="fas fa-check"></i></td>
+                    </tr>
+                    <tr>
+                      <td>Application Proxy (apps on-prem)</td>
+                      <td class="m365t-cross"><i class="fas fa-times"></i></td>
+                      <td class="m365t-cross"><i class="fas fa-times"></i></td>
+                      <td class="m365t-check"><i class="fas fa-check"></i></td>
+                      <td class="m365t-check"><i class="fas fa-check"></i></td>
+                      <td class="m365t-check"><i class="fas fa-check"></i></td>
+                    </tr>
+                    <tr>
+                      <td>Identity Protection (risk-based)</td>
+                      <td class="m365t-cross"><i class="fas fa-times"></i></td>
+                      <td class="m365t-cross"><i class="fas fa-times"></i></td>
                       <td class="m365t-cross"><i class="fas fa-times"></i></td>
                       <td class="m365t-cross"><i class="fas fa-times"></i></td>
                       <td class="m365t-check"><i class="fas fa-check"></i></td>
                     </tr>
                     <tr>
-                      <td>DLP (Data Loss Prevention) básico — Exchange/SharePoint/OneDrive</td>
+                      <td>Privileged Identity Management (PIM)</td>
+                      <td class="m365t-cross"><i class="fas fa-times"></i></td>
+                      <td class="m365t-cross"><i class="fas fa-times"></i></td>
                       <td class="m365t-cross"><i class="fas fa-times"></i></td>
                       <td class="m365t-cross"><i class="fas fa-times"></i></td>
                       <td class="m365t-check"><i class="fas fa-check"></i></td>
                     </tr>
                     <tr>
-                      <td>Sensitivity Labels manuales</td>
+                      <td>Access Reviews</td>
+                      <td class="m365t-cross"><i class="fas fa-times"></i></td>
+                      <td class="m365t-cross"><i class="fas fa-times"></i></td>
                       <td class="m365t-cross"><i class="fas fa-times"></i></td>
                       <td class="m365t-cross"><i class="fas fa-times"></i></td>
                       <td class="m365t-check"><i class="fas fa-check"></i></td>
                     </tr>
                     <tr>
-                      <td>Sensitivity Labels automáticas (auto-labeling)</td>
+                      <td>Entitlement Management</td>
                       <td class="m365t-cross"><i class="fas fa-times"></i></td>
                       <td class="m365t-cross"><i class="fas fa-times"></i></td>
-                      <td><span class="m365t-cross"><i class="fas fa-times"></i></span> (requiere E5)</td>
+                      <td class="m365t-cross"><i class="fas fa-times"></i></td>
+                      <td class="m365t-cross"><i class="fas fa-times"></i></td>
+                      <td class="m365t-check"><i class="fas fa-check"></i></td>
+                    </tr>
+                    <tr class="m365t-subheader"><td colspan="6">Intune (Dispositivos)</td></tr>
+                    <tr>
+                      <td>MDM — Enrolamiento y gestión de dispositivos</td>
+                      <td class="m365t-cross"><i class="fas fa-times"></i></td>
+                      <td class="m365t-cross"><i class="fas fa-times"></i></td>
+                      <td class="m365t-check"><i class="fas fa-check"></i></td>
+                      <td class="m365t-check"><i class="fas fa-check"></i></td>
+                      <td class="m365t-check"><i class="fas fa-check"></i></td>
                     </tr>
                     <tr>
-                      <td>Proteger copias fuera del tenant</td>
+                      <td>MAM — Protección de apps sin enrolar</td>
                       <td class="m365t-cross"><i class="fas fa-times"></i></td>
                       <td class="m365t-cross"><i class="fas fa-times"></i></td>
-                      <td class="m365t-partial"><i class="fas fa-check"></i> básico</td>
+                      <td class="m365t-check"><i class="fas fa-check"></i></td>
+                      <td class="m365t-check"><i class="fas fa-check"></i></td>
+                      <td class="m365t-check"><i class="fas fa-check"></i></td>
                     </tr>
                     <tr>
-                      <td>eDiscovery</td>
+                      <td>Compliance Policies (device health)</td>
                       <td class="m365t-cross"><i class="fas fa-times"></i></td>
                       <td class="m365t-cross"><i class="fas fa-times"></i></td>
-                      <td class="m365t-partial"><i class="fas fa-check"></i> básico</td>
+                      <td class="m365t-check"><i class="fas fa-check"></i></td>
+                      <td class="m365t-check"><i class="fas fa-check"></i></td>
+                      <td class="m365t-check"><i class="fas fa-check"></i></td>
                     </tr>
                     <tr>
-                      <td>Microsoft Purview completo</td>
+                      <td>App deployment (Win32, LOB, Store)</td>
                       <td class="m365t-cross"><i class="fas fa-times"></i></td>
                       <td class="m365t-cross"><i class="fas fa-times"></i></td>
-                      <td class="m365t-warn"><i class="fas fa-exclamation-triangle"></i> Add-on*</td>
+                      <td class="m365t-check"><i class="fas fa-check"></i></td>
+                      <td class="m365t-check"><i class="fas fa-check"></i></td>
+                      <td class="m365t-check"><i class="fas fa-check"></i></td>
+                    </tr>
+                    <tr>
+                      <td>Windows Autopilot</td>
+                      <td class="m365t-cross"><i class="fas fa-times"></i></td>
+                      <td class="m365t-cross"><i class="fas fa-times"></i></td>
+                      <td class="m365t-check"><i class="fas fa-check"></i></td>
+                      <td class="m365t-check"><i class="fas fa-check"></i></td>
+                      <td class="m365t-check"><i class="fas fa-check"></i></td>
+                    </tr>
+                    <tr>
+                      <td>Windows Autopatch</td>
+                      <td class="m365t-cross"><i class="fas fa-times"></i></td>
+                      <td class="m365t-cross"><i class="fas fa-times"></i></td>
+                      <td class="m365t-cross"><i class="fas fa-times"></i></td>
+                      <td class="m365t-check"><i class="fas fa-check"></i></td>
+                      <td class="m365t-check"><i class="fas fa-check"></i></td>
+                    </tr>
+                    <tr>
+                      <td>Endpoint Analytics</td>
+                      <td class="m365t-cross"><i class="fas fa-times"></i></td>
+                      <td class="m365t-cross"><i class="fas fa-times"></i></td>
+                      <td class="m365t-check"><i class="fas fa-check"></i></td>
+                      <td class="m365t-check"><i class="fas fa-check"></i></td>
+                      <td class="m365t-check"><i class="fas fa-check"></i></td>
                     </tr>
                   </tbody>
                 </table>
               </div>
             </div>
 
-            <!-- Slide 2: Power Automate y Power Apps -->
+            <!-- Slide 3: Microsoft Defender -->
             <div class="swiper-slide">
-              <h3 class="m365t-slide-title"><i class="fas fa-bolt"></i> Power Automate y Power Apps</h3>
+              <h3 class="m365t-slide-title"><i class="fas fa-shield-alt"></i> Microsoft Defender</h3>
               <div class="m365t-table-wrap">
                 <table class="m365t-table">
                   <thead>
@@ -792,68 +1043,387 @@
                       <th>Business Basic</th>
                       <th>Business Standard</th>
                       <th>Business Premium</th>
+                      <th>E3</th>
+                      <th>E5</th>
                     </tr>
                   </thead>
                   <tbody>
+                    <tr class="m365t-subheader"><td colspan="6">Defender for Office 365</td></tr>
                     <tr>
-                      <td>Cloud flows (automatizados, programados, de botón)</td>
+                      <td>Plan incluido</td>
+                      <td class="m365t-cross"><i class="fas fa-times"></i></td>
+                      <td class="m365t-cross"><i class="fas fa-times"></i></td>
+                      <td class="m365t-check">Plan 1</td>
+                      <td class="m365t-cross"><i class="fas fa-times"></i></td>
+                      <td class="m365t-check">Plan 2</td>
+                    </tr>
+                    <tr>
+                      <td>Safe Attachments / Safe Links</td>
+                      <td class="m365t-cross"><i class="fas fa-times"></i></td>
+                      <td class="m365t-cross"><i class="fas fa-times"></i></td>
+                      <td class="m365t-check"><i class="fas fa-check"></i></td>
+                      <td class="m365t-cross"><i class="fas fa-times"></i></td>
+                      <td class="m365t-check"><i class="fas fa-check"></i></td>
+                    </tr>
+                    <tr>
+                      <td>Anti-phishing avanzado</td>
+                      <td class="m365t-cross"><i class="fas fa-times"></i></td>
+                      <td class="m365t-cross"><i class="fas fa-times"></i></td>
+                      <td class="m365t-check"><i class="fas fa-check"></i></td>
+                      <td class="m365t-cross"><i class="fas fa-times"></i></td>
+                      <td class="m365t-check"><i class="fas fa-check"></i></td>
+                    </tr>
+                    <tr>
+                      <td>Attack Simulation Training</td>
+                      <td class="m365t-cross"><i class="fas fa-times"></i></td>
+                      <td class="m365t-cross"><i class="fas fa-times"></i></td>
+                      <td class="m365t-cross"><i class="fas fa-times"></i></td>
+                      <td class="m365t-cross"><i class="fas fa-times"></i></td>
+                      <td class="m365t-check"><i class="fas fa-check"></i></td>
+                    </tr>
+                    <tr class="m365t-subheader"><td colspan="6">Defender for Endpoint</td></tr>
+                    <tr>
+                      <td>Plan incluido</td>
+                      <td class="m365t-cross"><i class="fas fa-times"></i></td>
+                      <td class="m365t-cross"><i class="fas fa-times"></i></td>
+                      <td class="m365t-check">Plan 1</td>
+                      <td class="m365t-check">Plan 1</td>
+                      <td class="m365t-check">Plan 2</td>
+                    </tr>
+                    <tr>
+                      <td>Protección de próxima generación</td>
+                      <td class="m365t-cross"><i class="fas fa-times"></i></td>
+                      <td class="m365t-cross"><i class="fas fa-times"></i></td>
                       <td class="m365t-check"><i class="fas fa-check"></i></td>
                       <td class="m365t-check"><i class="fas fa-check"></i></td>
                       <td class="m365t-check"><i class="fas fa-check"></i></td>
                     </tr>
                     <tr>
-                      <td>Conectores estándar (SharePoint, Outlook, Teams, OneDrive, Excel...)</td>
+                      <td>Attack Surface Reduction</td>
+                      <td class="m365t-cross"><i class="fas fa-times"></i></td>
+                      <td class="m365t-cross"><i class="fas fa-times"></i></td>
                       <td class="m365t-check"><i class="fas fa-check"></i></td>
                       <td class="m365t-check"><i class="fas fa-check"></i></td>
                       <td class="m365t-check"><i class="fas fa-check"></i></td>
                     </tr>
                     <tr>
-                      <td>Canvas apps con datos de M365</td>
+                      <td>EDR (Endpoint Detection & Response)</td>
+                      <td class="m365t-cross"><i class="fas fa-times"></i></td>
+                      <td class="m365t-cross"><i class="fas fa-times"></i></td>
+                      <td class="m365t-cross"><i class="fas fa-times"></i></td>
+                      <td class="m365t-cross"><i class="fas fa-times"></i></td>
+                      <td class="m365t-check"><i class="fas fa-check"></i></td>
+                    </tr>
+                    <tr>
+                      <td>Threat Hunting</td>
+                      <td class="m365t-cross"><i class="fas fa-times"></i></td>
+                      <td class="m365t-cross"><i class="fas fa-times"></i></td>
+                      <td class="m365t-cross"><i class="fas fa-times"></i></td>
+                      <td class="m365t-cross"><i class="fas fa-times"></i></td>
+                      <td class="m365t-check"><i class="fas fa-check"></i></td>
+                    </tr>
+                    <tr>
+                      <td>Automated Investigation & Response</td>
+                      <td class="m365t-cross"><i class="fas fa-times"></i></td>
+                      <td class="m365t-cross"><i class="fas fa-times"></i></td>
+                      <td class="m365t-cross"><i class="fas fa-times"></i></td>
+                      <td class="m365t-cross"><i class="fas fa-times"></i></td>
+                      <td class="m365t-check"><i class="fas fa-check"></i></td>
+                    </tr>
+                    <tr class="m365t-subheader"><td colspan="6">Defender for Identity</td></tr>
+                    <tr>
+                      <td>Incluido</td>
+                      <td class="m365t-cross"><i class="fas fa-times"></i></td>
+                      <td class="m365t-cross"><i class="fas fa-times"></i></td>
+                      <td class="m365t-cross"><i class="fas fa-times"></i></td>
+                      <td class="m365t-cross"><i class="fas fa-times"></i></td>
+                      <td class="m365t-check"><i class="fas fa-check"></i></td>
+                    </tr>
+                    <tr>
+                      <td>Detección de amenazas en Active Directory</td>
+                      <td class="m365t-cross"><i class="fas fa-times"></i></td>
+                      <td class="m365t-cross"><i class="fas fa-times"></i></td>
+                      <td class="m365t-cross"><i class="fas fa-times"></i></td>
+                      <td class="m365t-cross"><i class="fas fa-times"></i></td>
+                      <td class="m365t-check"><i class="fas fa-check"></i></td>
+                    </tr>
+                    <tr>
+                      <td>Detección de movimiento lateral</td>
+                      <td class="m365t-cross"><i class="fas fa-times"></i></td>
+                      <td class="m365t-cross"><i class="fas fa-times"></i></td>
+                      <td class="m365t-cross"><i class="fas fa-times"></i></td>
+                      <td class="m365t-cross"><i class="fas fa-times"></i></td>
+                      <td class="m365t-check"><i class="fas fa-check"></i></td>
+                    </tr>
+                    <tr>
+                      <td>Monitoreo de credenciales comprometidas</td>
+                      <td class="m365t-cross"><i class="fas fa-times"></i></td>
+                      <td class="m365t-cross"><i class="fas fa-times"></i></td>
+                      <td class="m365t-cross"><i class="fas fa-times"></i></td>
+                      <td class="m365t-cross"><i class="fas fa-times"></i></td>
+                      <td class="m365t-check"><i class="fas fa-check"></i></td>
+                    </tr>
+                    <tr class="m365t-subheader"><td colspan="6">Defender Vulnerability Management</td></tr>
+                    <tr>
+                      <td>Incluido</td>
+                      <td class="m365t-cross"><i class="fas fa-times"></i></td>
+                      <td class="m365t-cross"><i class="fas fa-times"></i></td>
+                      <td class="m365t-cross"><i class="fas fa-times"></i></td>
+                      <td class="m365t-cross"><i class="fas fa-times"></i></td>
+                      <td class="m365t-check"><i class="fas fa-check"></i></td>
+                    </tr>
+                    <tr>
+                      <td>Inventario de software y vulnerabilidades</td>
+                      <td class="m365t-cross"><i class="fas fa-times"></i></td>
+                      <td class="m365t-cross"><i class="fas fa-times"></i></td>
+                      <td class="m365t-cross"><i class="fas fa-times"></i></td>
+                      <td class="m365t-cross"><i class="fas fa-times"></i></td>
+                      <td class="m365t-check"><i class="fas fa-check"></i></td>
+                    </tr>
+                    <tr>
+                      <td>Recomendaciones de seguridad priorizadas</td>
+                      <td class="m365t-cross"><i class="fas fa-times"></i></td>
+                      <td class="m365t-cross"><i class="fas fa-times"></i></td>
+                      <td class="m365t-cross"><i class="fas fa-times"></i></td>
+                      <td class="m365t-cross"><i class="fas fa-times"></i></td>
+                      <td class="m365t-check"><i class="fas fa-check"></i></td>
+                    </tr>
+                    <tr>
+                      <td>Evaluación de configuraciones de seguridad</td>
+                      <td class="m365t-cross"><i class="fas fa-times"></i></td>
+                      <td class="m365t-cross"><i class="fas fa-times"></i></td>
+                      <td class="m365t-cross"><i class="fas fa-times"></i></td>
+                      <td class="m365t-cross"><i class="fas fa-times"></i></td>
+                      <td class="m365t-check"><i class="fas fa-check"></i></td>
+                    </tr>
+                    <tr class="m365t-subheader"><td colspan="6">Defender for Cloud Apps</td></tr>
+                    <tr>
+                      <td>Incluido</td>
+                      <td class="m365t-cross"><i class="fas fa-times"></i></td>
+                      <td class="m365t-cross"><i class="fas fa-times"></i></td>
+                      <td class="m365t-cross"><i class="fas fa-times"></i></td>
+                      <td class="m365t-partial">Discovery</td>
+                      <td class="m365t-check">Completo</td>
+                    </tr>
+                    <tr>
+                      <td>Cloud App Discovery</td>
+                      <td class="m365t-cross"><i class="fas fa-times"></i></td>
+                      <td class="m365t-cross"><i class="fas fa-times"></i></td>
+                      <td class="m365t-cross"><i class="fas fa-times"></i></td>
+                      <td class="m365t-partial"><i class="fas fa-check"></i> discovery</td>
+                      <td class="m365t-check"><i class="fas fa-check"></i></td>
+                    </tr>
+                    <tr>
+                      <td>CASB — Control de apps SaaS</td>
+                      <td class="m365t-cross"><i class="fas fa-times"></i></td>
+                      <td class="m365t-cross"><i class="fas fa-times"></i></td>
+                      <td class="m365t-cross"><i class="fas fa-times"></i></td>
+                      <td class="m365t-cross"><i class="fas fa-times"></i></td>
+                      <td class="m365t-check"><i class="fas fa-check"></i></td>
+                    </tr>
+                    <tr>
+                      <td>Session & Access Policies</td>
+                      <td class="m365t-cross"><i class="fas fa-times"></i></td>
+                      <td class="m365t-cross"><i class="fas fa-times"></i></td>
+                      <td class="m365t-cross"><i class="fas fa-times"></i></td>
+                      <td class="m365t-cross"><i class="fas fa-times"></i></td>
+                      <td class="m365t-check"><i class="fas fa-check"></i></td>
+                    </tr>
+                    <tr class="m365t-subheader"><td colspan="6">Microsoft 365 Defender XDR</td></tr>
+                    <tr>
+                      <td>Incluido</td>
+                      <td class="m365t-cross"><i class="fas fa-times"></i></td>
+                      <td class="m365t-cross"><i class="fas fa-times"></i></td>
+                      <td class="m365t-partial">Parcial</td>
+                      <td class="m365t-partial">Parcial</td>
+                      <td class="m365t-check">Completo</td>
+                    </tr>
+                    <tr>
+                      <td>Portal unificado de seguridad</td>
+                      <td class="m365t-cross"><i class="fas fa-times"></i></td>
+                      <td class="m365t-cross"><i class="fas fa-times"></i></td>
+                      <td class="m365t-partial"><i class="fas fa-check"></i> parcial</td>
+                      <td class="m365t-partial"><i class="fas fa-check"></i> parcial</td>
+                      <td class="m365t-check"><i class="fas fa-check"></i> completo</td>
+                    </tr>
+                    <tr>
+                      <td>Correlación de incidentes cross-product</td>
+                      <td class="m365t-cross"><i class="fas fa-times"></i></td>
+                      <td class="m365t-cross"><i class="fas fa-times"></i></td>
+                      <td class="m365t-cross"><i class="fas fa-times"></i></td>
+                      <td class="m365t-cross"><i class="fas fa-times"></i></td>
+                      <td class="m365t-check"><i class="fas fa-check"></i></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <div class="m365t-note">
+                <strong>Nota:</strong> Business Premium incluye Defender for Office 365 Plan 1 y Defender for Endpoint Plan 1, pero no los componentes Plan 2 ni Identity/Cloud Apps. E3 incluye Endpoint Plan 1 pero no Defender for Office 365. E5 incluye el Defender Suite completo con XDR.
+              </div>
+            </div>
+
+            <!-- Slide 4: Cumplimiento (Purview) -->
+            <div class="swiper-slide">
+              <h3 class="m365t-slide-title"><i class="fas fa-gavel"></i> Cumplimiento (Purview)</h3>
+              <div class="m365t-table-wrap">
+                <table class="m365t-table">
+                  <thead>
+                    <tr>
+                      <th>Capacidad</th>
+                      <th>Business Basic</th>
+                      <th>Business Standard</th>
+                      <th>Business Premium</th>
+                      <th>E3</th>
+                      <th>E5</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr class="m365t-subheader"><td colspan="6">Protección de Información</td></tr>
+                    <tr>
+                      <td>Sensitivity Labels manuales</td>
+                      <td class="m365t-cross"><i class="fas fa-times"></i></td>
+                      <td class="m365t-cross"><i class="fas fa-times"></i></td>
                       <td class="m365t-check"><i class="fas fa-check"></i></td>
                       <td class="m365t-check"><i class="fas fa-check"></i></td>
                       <td class="m365t-check"><i class="fas fa-check"></i></td>
                     </tr>
                     <tr>
-                      <td>Conectores premium (SQL, Dataverse, Salesforce, HTTP...)</td>
+                      <td>Sensitivity Labels automáticas (auto-labeling)</td>
                       <td class="m365t-cross"><i class="fas fa-times"></i></td>
                       <td class="m365t-cross"><i class="fas fa-times"></i></td>
                       <td class="m365t-cross"><i class="fas fa-times"></i></td>
+                      <td class="m365t-cross"><i class="fas fa-times"></i></td>
+                      <td class="m365t-check"><i class="fas fa-check"></i></td>
                     </tr>
                     <tr>
-                      <td>Desktop flows / RPA (Automatización Robótica de Procesos)</td>
+                      <td>DLP — Exchange/SharePoint/OneDrive</td>
                       <td class="m365t-cross"><i class="fas fa-times"></i></td>
                       <td class="m365t-cross"><i class="fas fa-times"></i></td>
-                      <td class="m365t-cross"><i class="fas fa-times"></i></td>
+                      <td class="m365t-check"><i class="fas fa-check"></i></td>
+                      <td class="m365t-check"><i class="fas fa-check"></i></td>
+                      <td class="m365t-check"><i class="fas fa-check"></i></td>
                     </tr>
                     <tr>
-                      <td>AI Builder</td>
+                      <td>DLP — Teams y Endpoints</td>
                       <td class="m365t-cross"><i class="fas fa-times"></i></td>
                       <td class="m365t-cross"><i class="fas fa-times"></i></td>
                       <td class="m365t-cross"><i class="fas fa-times"></i></td>
+                      <td class="m365t-cross"><i class="fas fa-times"></i></td>
+                      <td class="m365t-check"><i class="fas fa-check"></i></td>
                     </tr>
                     <tr>
-                      <td>Dataverse para apps y flows personalizados</td>
+                      <td>Message Encryption</td>
                       <td class="m365t-cross"><i class="fas fa-times"></i></td>
                       <td class="m365t-cross"><i class="fas fa-times"></i></td>
-                      <td class="m365t-cross"><i class="fas fa-times"></i></td>
+                      <td class="m365t-check"><i class="fas fa-check"></i></td>
+                      <td class="m365t-check"><i class="fas fa-check"></i></td>
+                      <td class="m365t-check"><i class="fas fa-check"></i></td>
                     </tr>
                     <tr>
-                      <td>Model-driven apps</td>
+                      <td>Advanced Message Encryption</td>
                       <td class="m365t-cross"><i class="fas fa-times"></i></td>
                       <td class="m365t-cross"><i class="fas fa-times"></i></td>
                       <td class="m365t-cross"><i class="fas fa-times"></i></td>
+                      <td class="m365t-cross"><i class="fas fa-times"></i></td>
+                      <td class="m365t-check"><i class="fas fa-check"></i></td>
                     </tr>
                     <tr>
-                      <td>Power Automate Desktop (local, sin compartir)</td>
-                      <td class="m365t-partial"><i class="fas fa-check"></i> limitado*</td>
-                      <td class="m365t-partial"><i class="fas fa-check"></i> limitado*</td>
-                      <td class="m365t-partial"><i class="fas fa-check"></i> limitado*</td>
+                      <td>Customer Key (encryption at rest)</td>
+                      <td class="m365t-cross"><i class="fas fa-times"></i></td>
+                      <td class="m365t-cross"><i class="fas fa-times"></i></td>
+                      <td class="m365t-cross"><i class="fas fa-times"></i></td>
+                      <td class="m365t-cross"><i class="fas fa-times"></i></td>
+                      <td class="m365t-check"><i class="fas fa-check"></i></td>
+                    </tr>
+                    <tr class="m365t-subheader"><td colspan="6">Gobernanza de Datos</td></tr>
+                    <tr>
+                      <td>Retention Policies manuales</td>
+                      <td class="m365t-check"><i class="fas fa-check"></i></td>
+                      <td class="m365t-check"><i class="fas fa-check"></i></td>
+                      <td class="m365t-check"><i class="fas fa-check"></i></td>
+                      <td class="m365t-check"><i class="fas fa-check"></i></td>
+                      <td class="m365t-check"><i class="fas fa-check"></i></td>
                     </tr>
                     <tr>
-                      <td>Process Mining</td>
+                      <td>Retention Labels automáticas</td>
                       <td class="m365t-cross"><i class="fas fa-times"></i></td>
                       <td class="m365t-cross"><i class="fas fa-times"></i></td>
                       <td class="m365t-cross"><i class="fas fa-times"></i></td>
+                      <td class="m365t-cross"><i class="fas fa-times"></i></td>
+                      <td class="m365t-check"><i class="fas fa-check"></i></td>
+                    </tr>
+                    <tr>
+                      <td>Records Management</td>
+                      <td class="m365t-cross"><i class="fas fa-times"></i></td>
+                      <td class="m365t-cross"><i class="fas fa-times"></i></td>
+                      <td class="m365t-cross"><i class="fas fa-times"></i></td>
+                      <td class="m365t-cross"><i class="fas fa-times"></i></td>
+                      <td class="m365t-check"><i class="fas fa-check"></i></td>
+                    </tr>
+                    <tr class="m365t-subheader"><td colspan="6">Auditoría y Riesgos</td></tr>
+                    <tr>
+                      <td>Audit log básico — 90 días</td>
+                      <td class="m365t-check"><i class="fas fa-check"></i></td>
+                      <td class="m365t-check"><i class="fas fa-check"></i></td>
+                      <td class="m365t-check"><i class="fas fa-check"></i></td>
+                      <td class="m365t-check"><i class="fas fa-check"></i></td>
+                      <td class="m365t-check"><i class="fas fa-check"></i></td>
+                    </tr>
+                    <tr>
+                      <td>Audit Premium — 1 año</td>
+                      <td class="m365t-cross"><i class="fas fa-times"></i></td>
+                      <td class="m365t-cross"><i class="fas fa-times"></i></td>
+                      <td class="m365t-warn"><i class="fas fa-exclamation-triangle"></i> Add-on</td>
+                      <td class="m365t-cross"><i class="fas fa-times"></i></td>
+                      <td class="m365t-check"><i class="fas fa-check"></i></td>
+                    </tr>
+                    <tr>
+                      <td>eDiscovery Standard</td>
+                      <td class="m365t-cross"><i class="fas fa-times"></i></td>
+                      <td class="m365t-cross"><i class="fas fa-times"></i></td>
+                      <td class="m365t-partial"><i class="fas fa-check"></i> básico</td>
+                      <td class="m365t-check"><i class="fas fa-check"></i></td>
+                      <td class="m365t-check"><i class="fas fa-check"></i></td>
+                    </tr>
+                    <tr>
+                      <td>eDiscovery Premium</td>
+                      <td class="m365t-cross"><i class="fas fa-times"></i></td>
+                      <td class="m365t-cross"><i class="fas fa-times"></i></td>
+                      <td class="m365t-cross"><i class="fas fa-times"></i></td>
+                      <td class="m365t-cross"><i class="fas fa-times"></i></td>
+                      <td class="m365t-check"><i class="fas fa-check"></i></td>
+                    </tr>
+                    <tr>
+                      <td>Insider Risk Management</td>
+                      <td class="m365t-cross"><i class="fas fa-times"></i></td>
+                      <td class="m365t-cross"><i class="fas fa-times"></i></td>
+                      <td class="m365t-cross"><i class="fas fa-times"></i></td>
+                      <td class="m365t-cross"><i class="fas fa-times"></i></td>
+                      <td class="m365t-check"><i class="fas fa-check"></i></td>
+                    </tr>
+                    <tr>
+                      <td>Communication Compliance</td>
+                      <td class="m365t-cross"><i class="fas fa-times"></i></td>
+                      <td class="m365t-cross"><i class="fas fa-times"></i></td>
+                      <td class="m365t-cross"><i class="fas fa-times"></i></td>
+                      <td class="m365t-cross"><i class="fas fa-times"></i></td>
+                      <td class="m365t-check"><i class="fas fa-check"></i></td>
+                    </tr>
+                    <tr>
+                      <td>Information Barriers</td>
+                      <td class="m365t-cross"><i class="fas fa-times"></i></td>
+                      <td class="m365t-cross"><i class="fas fa-times"></i></td>
+                      <td class="m365t-cross"><i class="fas fa-times"></i></td>
+                      <td class="m365t-cross"><i class="fas fa-times"></i></td>
+                      <td class="m365t-check"><i class="fas fa-check"></i></td>
+                    </tr>
+                    <tr>
+                      <td>Customer Lockbox</td>
+                      <td class="m365t-cross"><i class="fas fa-times"></i></td>
+                      <td class="m365t-cross"><i class="fas fa-times"></i></td>
+                      <td class="m365t-cross"><i class="fas fa-times"></i></td>
+                      <td class="m365t-cross"><i class="fas fa-times"></i></td>
+                      <td class="m365t-check"><i class="fas fa-check"></i></td>
                     </tr>
                   </tbody>
                 </table>
@@ -871,19 +1441,25 @@
                       <th>Business Basic</th>
                       <th>Business Standard</th>
                       <th>Business Premium</th>
+                      <th>E3</th>
+                      <th>E5</th>
                     </tr>
                   </thead>
                   <tbody>
-                    <tr class="m365t-subheader"><td colspan="4">OneDrive for Business</td></tr>
+                    <tr class="m365t-subheader"><td colspan="6">OneDrive for Business</td></tr>
                     <tr>
                       <td>Por usuario</td>
                       <td>1 TB</td>
                       <td>1 TB</td>
                       <td>1 TB</td>
+                      <td>1 TB (hasta 5 TB)</td>
+                      <td>1 TB (hasta 5 TB)</td>
                     </tr>
-                    <tr class="m365t-subheader"><td colspan="4">SharePoint Online (Pool del Tenant)</td></tr>
+                    <tr class="m365t-subheader"><td colspan="6">SharePoint Online (Pool del Tenant)</td></tr>
                     <tr>
                       <td>Base del tenant</td>
+                      <td>1 TB</td>
+                      <td>1 TB</td>
                       <td>1 TB</td>
                       <td>1 TB</td>
                       <td>1 TB</td>
@@ -893,50 +1469,52 @@
                       <td>+ 10 GB / usuario</td>
                       <td>+ 10 GB / usuario</td>
                       <td>+ 10 GB / usuario</td>
+                      <td>+ 10 GB / usuario</td>
+                      <td>+ 10 GB / usuario</td>
                     </tr>
-                    <tr>
-                      <td>Tamaño máx. por archivo</td>
-                      <td>250 GB</td>
-                      <td>250 GB</td>
-                      <td>250 GB</td>
-                    </tr>
-                    <tr class="m365t-subheader"><td colspan="4">Exchange Online (Correo)</td></tr>
+                    <tr class="m365t-subheader"><td colspan="6">Exchange Online (Correo)</td></tr>
                     <tr>
                       <td>Buzón principal</td>
                       <td>50 GB</td>
                       <td>50 GB</td>
                       <td>50 GB</td>
+                      <td>100 GB</td>
+                      <td>100 GB</td>
                     </tr>
                     <tr>
-                      <td>Buzón de archivo (In-Place Archive)</td>
+                      <td>Buzón de archivo</td>
                       <td>Add-on</td>
                       <td>Add-on</td>
-                      <td class="m365t-partial"><i class="fas fa-check"></i> 50 GB incluido</td>
+                      <td class="m365t-partial"><i class="fas fa-check"></i> 50 GB</td>
+                      <td class="m365t-check"><i class="fas fa-check"></i> 1,5 TB</td>
+                      <td class="m365t-check"><i class="fas fa-check"></i> 1,5 TB</td>
                     </tr>
                     <tr>
                       <td>Auto-expanding archive</td>
-                      <td>No</td>
-                      <td>No</td>
+                      <td class="m365t-cross"><i class="fas fa-times"></i></td>
+                      <td class="m365t-cross"><i class="fas fa-times"></i></td>
                       <td class="m365t-partial"><i class="fas fa-check"></i> Hasta 1,5 TB</td>
+                      <td class="m365t-check"><i class="fas fa-check"></i></td>
+                      <td class="m365t-check"><i class="fas fa-check"></i></td>
                     </tr>
-                    <tr class="m365t-subheader"><td colspan="4">Microsoft Teams</td></tr>
+                    <tr class="m365t-subheader"><td colspan="6">Microsoft Teams</td></tr>
                     <tr>
                       <td>Archivos en canales</td>
-                      <td colspan="3" style="text-align: center">SharePoint del tenant (consume el pool)</td>
+                      <td colspan="5" style="text-align: center">SharePoint del tenant (consume el pool)</td>
                     </tr>
                     <tr>
                       <td>Archivos en chats</td>
-                      <td colspan="3" style="text-align: center">OneDrive del usuario (consume el 1 TB)</td>
+                      <td colspan="5" style="text-align: center">OneDrive del usuario (consume su cuota)</td>
                     </tr>
                     <tr>
                       <td>Grabaciones de reuniones</td>
-                      <td colspan="3" style="text-align: center">OneDrive del organizador</td>
+                      <td colspan="5" style="text-align: center">OneDrive del organizador</td>
                     </tr>
                   </tbody>
                 </table>
               </div>
               <div class="m365t-note">
-                <strong>Nota sobre el archivo en Business Premium:</strong> El buzón de archivo viene incluido pero <strong>no se activa por defecto</strong> — el administrador debe habilitarlo desde el Exchange Admin Center (EAC). El auto-expanding archive también requiere activación manual vía PowerShell y expande el archivo hasta 1,5 TB automáticamente.
+                <strong>Nota:</strong> En Business Premium, el buzón de archivo (50 GB) debe habilitarse desde el EAC. En E3/E5, el archivo auto-expandible (hasta 1,5 TB) se activa vía PowerShell. OneDrive en E3/E5 puede expandirse de 1 TB a 5 TB bajo solicitud.
               </div>
             </div>
 
@@ -950,8 +1528,11 @@
       </div>
       <!-- /panel m365-guide -->
 
+      </main>
+      <!-- /app-main -->
+
     </div>
-    <!-- /dt-container -->
+    <!-- /app-shell -->
 
     <!-- Footer -->
     <footer class="footer-enhanced">
