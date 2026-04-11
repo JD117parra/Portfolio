@@ -386,8 +386,9 @@ body {
 }
 
 .services-hub-card {
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(10, 14, 26, 0.7);
+  border: 2px solid rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(8px);
   border-radius: var(--radius-section);
   padding: 2rem 1.75rem;
   text-align: center;
@@ -434,22 +435,24 @@ body {
 
 /* Dev variant */
 .services-hub-card--dev {
-  border-color: rgba(0, 212, 255, 0.15);
+  border-color: rgba(0, 212, 255, 0.5);
+  border-top: 3px solid rgb(0, 212, 255);
 }
 .services-hub-card--dev:hover {
-  border-color: rgba(0, 212, 255, 0.4);
-  box-shadow: 0 12px 40px rgba(0, 212, 255, 0.1);
+  border-color: rgba(0, 212, 255, 0.8);
+  box-shadow: 0 12px 40px rgba(0, 212, 255, 0.2);
 }
 .services-hub-card--dev .services-hub-card__icon { color: var(--accent); }
 .services-hub-card--dev .services-hub-card__cta { color: var(--accent); }
 
 /* Microsoft variant */
 .services-hub-card--microsoft {
-  border-color: rgba(96, 165, 250, 0.15);
+  border-color: rgba(96, 165, 250, 0.5);
+  border-top: 3px solid rgb(96, 165, 250);
 }
 .services-hub-card--microsoft:hover {
-  border-color: rgba(96, 165, 250, 0.4);
-  box-shadow: 0 12px 40px rgba(96, 165, 250, 0.1);
+  border-color: rgba(96, 165, 250, 0.8);
+  box-shadow: 0 12px 40px rgba(96, 165, 250, 0.2);
 }
 .services-hub-card--microsoft .services-hub-card__icon { color: var(--color-azure); }
 .services-hub-card--microsoft .services-hub-card__cta { color: var(--color-azure); }
@@ -515,8 +518,8 @@ body {
 .section-card {
   background: var(--bg-section);
   border-radius: var(--radius-section);
-  padding: 4rem 2rem;
-  margin: 2rem 0;
+  padding: 2rem 1.5rem;
+  margin: 0rem;
   box-shadow: 0 10px 30px var(--shadow-lg);
   border: 1px solid var(--section-border);
 }
@@ -572,7 +575,7 @@ body {
   font-size: 1.1rem;
   font-weight: 700;
   max-width: 600px;
-  margin: 0 auto 3rem;
+  margin: 0 auto 1rem;
 }
 
 
@@ -695,14 +698,23 @@ body {
   justify-items: center;
 }
 
+.skills-grid--4col,
 .skills-grid--certs {
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(2, 1fr);
+  grid-auto-rows: 1fr;
   justify-items: stretch;
+}
+
+@media (min-width: 1280px) {
+  .skills-grid--4col,
+  .skills-grid--certs {
+    grid-template-columns: repeat(4, 1fr);
+  }
 }
 
 .skill-category {
   text-align: center;
-  padding: 2rem;
+  padding: 1rem;
   border-radius: var(--radius-card);
 }
 
@@ -728,6 +740,7 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  text-align: center;
   min-height: 220px;
   cursor: pointer;
   text-decoration: none;
@@ -806,7 +819,8 @@ body {
   color: var(--accent);
   font-size: 0.85rem;
   font-weight: 600;
-  margin-top: 0.75rem;
+  margin-top: auto;
+  padding-top: 0.75rem;
 }
 
 .skill-list {
@@ -833,6 +847,7 @@ body {
 .projects-grid {
   display: grid;
   grid-template-columns: 1fr;
+  grid-auto-rows: 1fr;
   gap: 2rem;
   margin-top: 2rem;
 }
@@ -845,17 +860,22 @@ body {
 
 @media (min-width: 1024px) {
   .projects-grid {
-    grid-template-columns: repeat(4, 1fr);
-  }
-  /* Servicios: 6 tarjetas en 3 columnas */
-  #services .projects-grid {
     grid-template-columns: repeat(3, 1fr);
+  }
+  .projects-grid--4col {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1280px) {
+  .projects-grid--4col {
+    grid-template-columns: repeat(4, 1fr);
   }
 }
 
 .project-card {
   border-radius: var(--radius-card);
-  padding: 1.5rem;
+  padding: 1rem;
   color: var(--text-primary);
   position: relative;
   overflow: hidden;
@@ -1056,8 +1076,25 @@ body {
 }
 
 .service-icon {
-  font-size: 3rem;
-  margin-bottom: 1rem;
+  font-size: 1.8rem;
+  margin-bottom: 0;
+  align-self: center;
+}
+
+.projects-grid .project-card:has(.service-icon) {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  column-gap: 0.75rem;
+}
+
+.projects-grid .project-card:has(.service-icon) h3 {
+  margin-bottom: 0;
+  align-self: center;
+}
+
+.projects-grid .project-card:has(.service-icon) p,
+.projects-grid .project-card:has(.service-icon) .skill-list {
+  grid-column: 1 / -1;
 }
 
 /* Colores de iconos por tarjeta */
@@ -1177,6 +1214,7 @@ body {
   color: var(--text-primary);
   line-height: 1.6;
   margin-bottom: 1.5rem;
+  text-align: center;
 }
 
 .footer-section ul {
@@ -1253,7 +1291,7 @@ body {
 .footer-bottom {
   background: var(--shadow-sm);
   padding: 1.2rem 2rem;
-  margin-top: 3rem;
+  margin-top: 1rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -1262,6 +1300,7 @@ body {
 .footer-bottom p {
   color: var(--text-faint);
   margin: 0;
+  font-size: 0.8rem;
 }
 
 .footer-links {
@@ -1378,7 +1417,7 @@ body {
 
 .faq-card h3 {
   margin-bottom: 1rem;
-  font-size: clamp(1rem, 3vw, 1.6rem);
+  font-size: clamp(1.1rem, 3vw, 1.6rem);
   font-weight: 700;
   color: var(--accent);
 }
@@ -1386,7 +1425,7 @@ body {
 .faq-card p {
   color: var(--text-muted);
   line-height: 1.6;
-  font-size: clamp(0.8rem, 2vw, 1rem);
+  font-size: clamp(1rem, 2vw, 1rem);
 }
 
 .faq-card:hover {
@@ -1784,7 +1823,7 @@ body {
   }
 
   .skills.section-card {
-    padding: 0.5rem;
+    padding: 0rem;
     margin: 0;
   }
 
@@ -1804,6 +1843,7 @@ body {
   .section-title {
     font-size: 1.5rem;
     margin-bottom: 1rem;
+    margin-top: 1rem;
   }
 
   .skills {
@@ -1890,6 +1930,11 @@ body {
   .skills-grid--certs {
     grid-template-columns: repeat(2, 1fr);
     gap: 0.75rem;
+  }
+
+  .cert-card {
+    min-height: 160px;
+    padding: 1rem;
   }
 
   .cert-card h3 {
@@ -3647,6 +3692,11 @@ body.app-page {
   margin-top: 3rem;
 }
 
+.bio-companies-section .section-title {
+  margin-bottom: 0;
+}
+
+
 .bio-grid {
   display: grid;
   grid-template-columns: 1.2fr 1fr;
@@ -3668,6 +3718,7 @@ body.app-page {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+  color: transparent;
 }
 
 .bio-description {
