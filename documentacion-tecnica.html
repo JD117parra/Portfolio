@@ -1,0 +1,1040 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Documentación técnica y guías de referencia de servicios Microsoft Azure, M365 y Power Platform por J.D. Parra."
+    />
+    <meta name="author" content="J.D. Parra" />
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:title"
+      content="J.D. Parra - Documentación Técnica"
+    />
+    <meta
+      property="og:description"
+      content="Guías de referencia y arquitecturas de servicios Microsoft por J.D. Parra."
+    />
+    <meta
+      property="og:image"
+      content="https://jd117parra.github.io/Portfolio/Images/Profile-Picture-2.jpg"
+    />
+    <meta
+      property="og:url"
+      content="https://jd117parra.github.io/Portfolio/documentacion-tecnica.html"
+    />
+    <title>J.D. Parra - Documentación Técnica</title>
+    <link rel="icon" href="favicon.ico" />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      rel="canonical"
+      href="https://jd117parra.github.io/Portfolio/documentacion-tecnica.html"
+    />
+  </head>
+  <body>
+    <!-- Navigation -->
+    <nav class="navbar" aria-label="Navegación principal">
+      <div class="nav-container">
+        <div class="logo"><a href="profile.html">JD Parra</a></div>
+        <ul class="nav-links">
+          <li><a href="index.html">Servicios</a></li>
+          <li><a href="casos.html">Casos Técnicos</a></li>
+          <li><a href="recursos-tecnicos.html">Recursos Técnicos</a></li>
+          <li>
+            <a href="documentacion-tecnica.html" class="nav-link--active"
+              >Documentación</a
+            >
+          </li>
+          <li><a href="profile.html">Sobre mí</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="dt-hero">
+      <h1>Documentación <span>Técnica</span></h1>
+      <p>Guías de referencia y arquitecturas de servicios Microsoft — desde la ingesta de datos hasta el consumo analítico.</p>
+    </section>
+
+    <!-- Content -->
+    <div class="dt-container">
+
+      <!-- Tabs -->
+      <div class="dt-tabs">
+        <button class="dt-tab dt-tab--active" data-doc="azure-data" type="button">
+          <i class="fas fa-database"></i> Herramientas de Datos
+        </button>
+        <button class="dt-tab" data-doc="azure-rbac" type="button">
+          <i class="fas fa-shield-alt"></i> RBAC y Ámbitos
+        </button>
+        <button class="dt-tab" data-doc="azure-arch" type="button">
+          <i class="fas fa-project-diagram"></i> Arquitecturas
+        </button>
+        <button class="dt-tab" data-doc="m365-guide" type="button">
+          <i class="fas fa-envelope-open-text"></i> Guía M365
+        </button>
+        <button class="dt-tab" disabled type="button">
+          <i class="fas fa-cogs"></i> Power Platform
+          <span class="dt-tab__badge">Pronto</span>
+        </button>
+      </div>
+
+      <!-- ═══════════════════════════════════════
+           PANEL: Herramientas Azure para Datos
+      ═══════════════════════════════════════ -->
+      <div class="dt-panel" id="doc-azure-data">
+
+        <div class="dt-panel__header">
+          <h2 class="dt-panel__title">Herramientas Azure para Gestión de Datos</h2>
+          <p class="dt-panel__desc">Clasificación de servicios según su rol en la Arquitectura Medallion: desde la ingesta de datos crudos hasta el consumo analítico.</p>
+        </div>
+
+        <!-- Pipeline -->
+        <div class="dt-pipeline">
+          <span class="dt-pipeline-badge dt-pipeline-badge--bronze">BRONCE — Datos Crudos</span>
+          <span class="dt-pipeline-arrow">→</span>
+          <span class="dt-pipeline-badge dt-pipeline-badge--silver">PLATA — Datos Limpios</span>
+          <span class="dt-pipeline-arrow">→</span>
+          <span class="dt-pipeline-badge dt-pipeline-badge--gold">ORO — Datos Listos</span>
+        </div>
+
+        <!-- BRONCE -->
+        <div class="dt-section">
+          <div class="dt-section-header">
+            <div class="dt-medal dt-medal--bronze">
+              <i class="fas fa-layer-group"></i>
+            </div>
+            <div>
+              <div class="dt-section-title dt-section-title--bronze">BRONCE — Ingesta y Almacenamiento Crudo</div>
+              <div class="dt-section-desc">Captura y almacena datos tal como llegan, sin transformación</div>
+            </div>
+          </div>
+          <hr class="dt-divider dt-divider--bronze" />
+          <div class="dt-cards">
+            <div class="dt-card dt-card--bronze">
+              <div class="dt-card__icon"><i class="fas fa-industry"></i></div>
+              <div class="dt-card__name">Azure Data Factory</div>
+              <span class="dt-card__role dt-card__role--bronze">Orquestador ETL</span>
+              <p class="dt-card__desc">Extrae datos automáticamente desde múltiples fuentes (bases de datos, APIs, archivos) y los mueve hacia el Data Lake. Es el punto de entrada principal de datos.</p>
+            </div>
+            <div class="dt-card dt-card--bronze">
+              <div class="dt-card__icon"><i class="fas fa-satellite-dish"></i></div>
+              <div class="dt-card__name">Azure Event Hubs / IoT Hub</div>
+              <span class="dt-card__role dt-card__role--bronze">Ingesta en Tiempo Real</span>
+              <p class="dt-card__desc">Captura datos de alta frecuencia en tiempo real: sensores, telemetría, streams. Ideal para datos que llegan continuamente como oleaje, viento o movimiento de naves.</p>
+            </div>
+            <div class="dt-card dt-card--bronze">
+              <div class="dt-card__icon"><i class="fas fa-server"></i></div>
+              <div class="dt-card__name">Azure Data Lake Storage Gen2</div>
+              <span class="dt-card__role dt-card__role--bronze">Repositorio Principal</span>
+              <p class="dt-card__desc">Almacén centralizado de todos los datos: crudos (Bronce) y semi-procesados (Plata). Gran escala, bajo costo, compatible con Spark y Hadoop.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- PLATA -->
+        <div class="dt-section">
+          <div class="dt-section-header">
+            <div class="dt-medal dt-medal--silver">
+              <i class="fas fa-filter"></i>
+            </div>
+            <div>
+              <div class="dt-section-title dt-section-title--silver">PLATA — Procesamiento y Transformación</div>
+              <div class="dt-section-desc">Limpia, transforma y estandariza los datos crudos</div>
+            </div>
+          </div>
+          <hr class="dt-divider dt-divider--silver" />
+          <div class="dt-cards">
+            <div class="dt-card dt-card--silver">
+              <div class="dt-card__icon"><i class="fas fa-bolt"></i></div>
+              <div class="dt-card__name">Azure Databricks</div>
+              <span class="dt-card__role dt-card__role--silver">Motor de Análisis y ETL</span>
+              <p class="dt-card__desc">Plataforma avanzada de análisis basada en Apache Spark. Limpia datos, aplica reglas de calidad, hace transformaciones complejas y prepara datasets para modelos de Machine Learning.</p>
+            </div>
+            <div class="dt-card dt-card--silver">
+              <div class="dt-card__icon"><i class="fas fa-water"></i></div>
+              <div class="dt-card__name">Azure Stream Analytics</div>
+              <span class="dt-card__role dt-card__role--silver">Procesamiento Streaming</span>
+              <p class="dt-card__desc">Procesa datos en tiempo real con latencia de milisegundos. Detecta patrones al vuelo, dispara alertas automáticas y transforma streams de sensores antes de almacenarlos.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- ORO -->
+        <div class="dt-section">
+          <div class="dt-section-header">
+            <div class="dt-medal dt-medal--gold">
+              <i class="fas fa-trophy"></i>
+            </div>
+            <div>
+              <div class="dt-section-title dt-section-title--gold">ORO — Modelado y Consumo</div>
+              <div class="dt-section-desc">Datos listos para análisis, reportes y modelos predictivos</div>
+            </div>
+          </div>
+          <hr class="dt-divider dt-divider--gold" />
+          <div class="dt-cards">
+            <div class="dt-card dt-card--gold">
+              <div class="dt-card__icon"><i class="fas fa-landmark"></i></div>
+              <div class="dt-card__name">Azure Synapse Analytics</div>
+              <span class="dt-card__role dt-card__role--gold">Data Warehouse + Big Data</span>
+              <p class="dt-card__desc">Plataforma unificada que combina Data Warehouse (SQL) con Big Data (Spark). Aquí se construyen los modelos analíticos y Data Marts listos para consumo por Power BI o Machine Learning.</p>
+            </div>
+            <div class="dt-card dt-card--gold">
+              <div class="dt-card__icon"><i class="fas fa-robot"></i></div>
+              <div class="dt-card__name">Azure Machine Learning</div>
+              <span class="dt-card__role dt-card__role--gold">Modelos Predictivos e IA</span>
+              <p class="dt-card__desc">Gestiona el ciclo completo de ML: entrenamiento, versionado y despliegue de modelos. Expone los modelos como endpoints (APIs) para que otras aplicaciones los consuman.</p>
+            </div>
+            <div class="dt-card dt-card--gold">
+              <div class="dt-card__icon"><i class="fas fa-chart-bar"></i></div>
+              <div class="dt-card__name">Power BI</div>
+              <span class="dt-card__role dt-card__role--gold">Visualización y Reportes</span>
+              <p class="dt-card__desc">Herramienta de Business Intelligence que consume datos de la capa Oro para generar dashboards, reportes automáticos e indicadores operacionales para las áreas del negocio.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- TRANSVERSAL -->
+        <div class="dt-section">
+          <div class="dt-section-header">
+            <div class="dt-medal dt-medal--neutral">
+              <i class="fas fa-shield-alt"></i>
+            </div>
+            <div>
+              <div class="dt-section-title dt-section-title--neutral">TRANSVERSAL — Gobernanza, Seguridad y Automatización</div>
+              <div class="dt-section-desc">Servicios que operan en todas las capas simultáneamente</div>
+            </div>
+          </div>
+          <hr class="dt-divider dt-divider--neutral" />
+          <div class="dt-cards">
+            <div class="dt-card dt-card--neutral">
+              <div class="dt-card__icon"><i class="fas fa-clipboard-list"></i></div>
+              <div class="dt-card__name">Microsoft Purview</div>
+              <span class="dt-card__role dt-card__role--neutral">Gobernanza de Datos</span>
+              <p class="dt-card__desc">Catálogo central de datos: qué existe, dónde está, quién lo usa. Gestiona el linaje (trazabilidad de origen a destino), calidad y clasificación por sensibilidad.</p>
+            </div>
+            <div class="dt-card dt-card--neutral">
+              <div class="dt-card__icon"><i class="fas fa-key"></i></div>
+              <div class="dt-card__name">Azure Key Vault</div>
+              <span class="dt-card__role dt-card__role--neutral">Seguridad</span>
+              <p class="dt-card__desc">Almacena de forma segura credenciales, contraseñas, claves de cifrado y certificados. Ningún servicio guarda sus propias contraseñas: todas vienen de aquí.</p>
+            </div>
+            <div class="dt-card dt-card--neutral">
+              <div class="dt-card__icon"><i class="fas fa-chart-line"></i></div>
+              <div class="dt-card__name">Azure Monitor</div>
+              <span class="dt-card__role dt-card__role--neutral">Monitoreo</span>
+              <p class="dt-card__desc">Observabilidad de toda la plataforma: métricas, logs y alertas de rendimiento. Supervisa pipelines, APIs y recursos de cómputo en tiempo real.</p>
+            </div>
+            <div class="dt-card dt-card--neutral">
+              <div class="dt-card__icon"><i class="fas fa-link"></i></div>
+              <div class="dt-card__name">Azure Logic Apps</div>
+              <span class="dt-card__role dt-card__role--neutral">Automatización Low-Code</span>
+              <p class="dt-card__desc">Crea flujos de trabajo automáticos sin código: enviar alertas por Teams/email, disparar acciones cuando un modelo detecta una anomalía, notificar a operaciones.</p>
+            </div>
+            <div class="dt-card dt-card--neutral">
+              <div class="dt-card__icon"><i class="fas fa-cog"></i></div>
+              <div class="dt-card__name">Azure Functions</div>
+              <span class="dt-card__role dt-card__role--neutral">Cómputo Serverless</span>
+              <p class="dt-card__desc">Ejecuta pequeñas piezas de código bajo demanda sin gestionar servidores. Ideal para auditorías, notificaciones automáticas y micro-tareas disparadas por eventos.</p>
+            </div>
+            <div class="dt-card dt-card--neutral">
+              <div class="dt-card__icon"><i class="fas fa-globe"></i></div>
+              <div class="dt-card__name">Azure API Management</div>
+              <span class="dt-card__role dt-card__role--neutral">Gestión de APIs</span>
+              <p class="dt-card__desc">Puerta de entrada controlada para exponer modelos y datos a aplicaciones internas o externas. Gestiona seguridad, límites de uso (throttling) y documentación de APIs.</p>
+            </div>
+            <div class="dt-card dt-card--neutral">
+              <div class="dt-card__icon"><i class="fas fa-id-badge"></i></div>
+              <div class="dt-card__name">Azure Active Directory (Entra ID)</div>
+              <span class="dt-card__role dt-card__role--neutral">Identidad y Acceso</span>
+              <p class="dt-card__desc">Controla quién puede acceder a qué: usuarios, roles y permisos sobre Power BI, APIs, Data Lake y modelos. Es la capa de identidad de toda la plataforma.</p>
+            </div>
+            <div class="dt-card dt-card--neutral">
+              <div class="dt-card__icon"><i class="fas fa-box"></i></div>
+              <div class="dt-card__name">Azure Container Apps</div>
+              <span class="dt-card__role dt-card__role--neutral">Despliegue de Modelos</span>
+              <p class="dt-card__desc">Ejecuta microservicios y modelos de ML empaquetados como contenedores. Es el backend operacional que expone las predicciones como APIs listas para consumir.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- ETL -->
+        <div class="dt-section">
+          <div class="dt-section-header">
+            <div class="dt-medal dt-medal--neutral">
+              <i class="fas fa-sync-alt"></i>
+            </div>
+            <div>
+              <div class="dt-section-title dt-section-title--neutral">El proceso ETL — ¿Cómo fluyen los datos entre capas?</div>
+              <div class="dt-section-desc">Extract (Extraer) → Transform (Transformar) → Load (Cargar)</div>
+            </div>
+          </div>
+          <hr class="dt-divider dt-divider--neutral" />
+          <div class="dt-etl-flow">
+            <div class="dt-etl-step">
+              <div class="dt-etl-box">
+                <div class="dt-etl-letter">E</div>
+                <div class="dt-etl-word">Extract</div>
+              </div>
+              <div class="dt-etl-desc">Extrae datos desde fuentes: sensores, bases de datos, APIs, archivos</div>
+            </div>
+            <div class="dt-etl-arrow">→</div>
+            <div class="dt-etl-step">
+              <div class="dt-etl-box">
+                <div class="dt-etl-letter">T</div>
+                <div class="dt-etl-word">Transform</div>
+              </div>
+              <div class="dt-etl-desc">Limpia, estandariza, valida y enriquece los datos</div>
+            </div>
+            <div class="dt-etl-arrow">→</div>
+            <div class="dt-etl-step">
+              <div class="dt-etl-box">
+                <div class="dt-etl-letter">L</div>
+                <div class="dt-etl-word">Load</div>
+              </div>
+              <div class="dt-etl-desc">Carga los datos transformados al destino (Data Lake o Data Warehouse)</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <!-- /panel azure-data -->
+
+      <!-- ═══════════════════════════════════════
+           PANEL: Azure RBAC y Ámbitos
+      ═══════════════════════════════════════ -->
+      <div class="dt-panel dt-panel--hidden" id="doc-azure-rbac">
+
+        <div class="dt-panel__header">
+          <h2 class="dt-panel__title">Azure RBAC — Jerarquía de Ámbitos</h2>
+          <p class="dt-panel__desc">Haz clic en cada nivel del árbol para ver su alcance de acceso. Los roles asignados en un nivel se heredan hacia abajo.</p>
+        </div>
+
+        <!-- Radio controls (hidden, siblings of .rbac-wrap for CSS selectors) -->
+        <input type="radio" name="scope" id="rbac-s1" class="rbac-radios" checked />
+        <input type="radio" name="scope" id="rbac-s2" class="rbac-radios" />
+        <input type="radio" name="scope" id="rbac-s3" class="rbac-radios" />
+        <input type="radio" name="scope" id="rbac-s3b" class="rbac-radios" />
+        <input type="radio" name="scope" id="rbac-s4" class="rbac-radios" />
+        <input type="radio" name="scope" id="rbac-s5" class="rbac-radios" />
+        <input type="radio" name="scope" id="rbac-s6" class="rbac-radios" />
+
+        <div class="rbac-wrap">
+
+          <!-- Grid: Tree + Detail -->
+          <div class="rbac-grid">
+
+            <!-- Tree -->
+            <div class="rbac-panel">
+              <div class="rbac-panel-label">Estructura de Jerarquía</div>
+
+              <label for="rbac-s1" class="rbac-node rbac-n1 rbac-c1">
+                <span><i class="fas fa-globe"></i></span><span>Tenant (Inquilino raíz)</span>
+                <span class="rbac-badge">Nivel 1</span>
+              </label>
+              <label for="rbac-s2" class="rbac-node rbac-n2 rbac-c2">
+                <span><i class="fas fa-landmark"></i></span><span>Grupo de Admin. raíz</span>
+                <span class="rbac-badge">Nivel 2</span>
+              </label>
+              <label for="rbac-s3" class="rbac-node rbac-n3 rbac-c3">
+                <span><i class="fas fa-folder"></i></span><span>Grupos de Admin. anidados</span>
+                <span class="rbac-badge">Nivel 3</span>
+              </label>
+              <label for="rbac-s3b" class="rbac-node rbac-n3b rbac-c3b">
+                <span><i class="fas fa-folder-open"></i></span><span>Sub-grupo de Admin.</span>
+                <span class="rbac-badge">hasta x6</span>
+              </label>
+              <label for="rbac-s4" class="rbac-node rbac-n4 rbac-c4">
+                <span><i class="fas fa-box"></i></span><span>Suscripción</span>
+                <span class="rbac-badge">Nivel 4</span>
+              </label>
+              <label for="rbac-s5" class="rbac-node rbac-n5 rbac-c5">
+                <span><i class="fas fa-layer-group"></i></span><span>Grupo de Recursos</span>
+                <span class="rbac-badge">Nivel 5</span>
+              </label>
+              <label for="rbac-s6" class="rbac-node rbac-n5 rbac-c6">
+                <span><i class="fas fa-cog"></i></span><span>Recurso Individual</span>
+                <span class="rbac-badge">Nivel 6</span>
+              </label>
+            </div>
+
+            <!-- Detail -->
+            <div class="rbac-panel rbac-detail-panel">
+              <div class="rbac-panel-label">Detalle del Ámbito</div>
+
+              <!-- Tenant -->
+              <div class="rbac-detail-card rbac-d1">
+                <div class="rbac-detail-header">
+                  <div class="rbac-d-icon"><i class="fas fa-globe"></i></div>
+                  <div class="rbac-d-name">Tenant (Inquilino raíz)</div>
+                </div>
+                <div class="rbac-d-box">
+                  <div class="rbac-d-box-label">Alcance del Rol</div>
+                  <div class="rbac-d-box-text">El nivel más alto de toda la jerarquía. Es el inquilino de Microsoft Entra ID que contiene todo — identidades, suscripciones y recursos de la organización.</div>
+                </div>
+                <div class="rbac-d-example">
+                  <div class="rbac-d-example-label">Ejemplo</div>
+                  <div class="rbac-d-example-text">contoso.onmicrosoft.com es el tenant. Todo lo que existe en Azure de Contoso vive dentro de este tenant.</div>
+                </div>
+                <div class="rbac-d-note">No se asignan roles RBAC directamente al tenant. Se usa el Grupo de Administración raíz para eso.</div>
+                <div class="rbac-inherit-note"><i class="fas fa-arrow-down"></i> <span>La herencia fluye hacia <strong>abajo</strong>, nunca hacia los lados</span></div>
+              </div>
+
+              <!-- Grupo Admin raíz -->
+              <div class="rbac-detail-card rbac-d2">
+                <div class="rbac-detail-header">
+                  <div class="rbac-d-icon"><i class="fas fa-landmark"></i></div>
+                  <div class="rbac-d-name">Grupo de Administración Raíz</div>
+                </div>
+                <div class="rbac-d-box">
+                  <div class="rbac-d-box-label">Alcance del Rol</div>
+                  <div class="rbac-d-box-text">Existe uno solo por tenant. Un rol asignado aquí se hereda por TODAS las suscripciones y recursos del tenant sin excepción.</div>
+                </div>
+                <div class="rbac-d-example">
+                  <div class="rbac-d-example-label">Ejemplo</div>
+                  <div class="rbac-d-example-text">Asignar Lector aquí = puede ver absolutamente todos los recursos de todas las suscripciones del tenant.</div>
+                </div>
+                <div class="rbac-d-note">Usar con extrema precaución — el acceso se propaga a todo el tenant.</div>
+                <div class="rbac-inherit-note"><i class="fas fa-arrow-down"></i> <span>La herencia fluye hacia <strong>abajo</strong>, nunca hacia los lados</span></div>
+              </div>
+
+              <!-- Grupos Admin anidados -->
+              <div class="rbac-detail-card rbac-d3">
+                <div class="rbac-detail-header">
+                  <div class="rbac-d-icon"><i class="fas fa-folder"></i></div>
+                  <div class="rbac-d-name">Grupos de Administración Anidados</div>
+                </div>
+                <div class="rbac-d-box">
+                  <div class="rbac-d-box-label">Alcance del Rol</div>
+                  <div class="rbac-d-box-text">Permiten organizar suscripciones en jerarquías. Un rol asignado aquí se hereda por todas las suscripciones y recursos dentro de ese grupo.</div>
+                </div>
+                <div class="rbac-d-example">
+                  <div class="rbac-d-example-label">Ejemplo</div>
+                  <div class="rbac-d-example-text">Grupo Admin "América Latina" contiene suscripciones de Colombia, México y Argentina. Contribuyente aquí = accede a las tres.</div>
+                </div>
+                <div class="rbac-d-note">Máximo 6 niveles de anidamiento y 10,000 grupos por tenant.</div>
+                <div class="rbac-inherit-note"><i class="fas fa-arrow-down"></i> <span>La herencia fluye hacia <strong>abajo</strong>, nunca hacia los lados</span></div>
+              </div>
+
+              <!-- Sub-grupo -->
+              <div class="rbac-detail-card rbac-d3b">
+                <div class="rbac-detail-header">
+                  <div class="rbac-d-icon"><i class="fas fa-folder-open"></i></div>
+                  <div class="rbac-d-name">Sub-grupo de Administración</div>
+                </div>
+                <div class="rbac-d-box">
+                  <div class="rbac-d-box-label">Alcance del Rol</div>
+                  <div class="rbac-d-box-text">Los grupos de administración pueden anidarse hasta 6 niveles. Cada sub-grupo hereda las políticas y roles del grupo padre, y los propaga hacia abajo.</div>
+                </div>
+                <div class="rbac-d-example">
+                  <div class="rbac-d-example-label">Ejemplo de jerarquía real</div>
+                  <div class="rbac-d-example-text">Contoso Global → América Latina → Colombia → Producción Colombia → Suscripción Prod-COL</div>
+                </div>
+                <div class="rbac-d-note">Útil para empresas multinacionales con estructuras complejas por región o unidad de negocio.</div>
+                <div class="rbac-inherit-note"><i class="fas fa-arrow-down"></i> <span>La herencia fluye hacia <strong>abajo</strong>, nunca hacia los lados</span></div>
+              </div>
+
+              <!-- Suscripción -->
+              <div class="rbac-detail-card rbac-d4">
+                <div class="rbac-detail-header">
+                  <div class="rbac-d-icon"><i class="fas fa-box"></i></div>
+                  <div class="rbac-d-name">Suscripción</div>
+                </div>
+                <div class="rbac-d-box">
+                  <div class="rbac-d-box-label">Alcance del Rol</div>
+                  <div class="rbac-d-box-text">Acceso a todos los grupos de recursos y recursos dentro de ESTA suscripción únicamente. Otras suscripciones del tenant no se ven afectadas.</div>
+                </div>
+                <div class="rbac-d-example">
+                  <div class="rbac-d-example-label">Ejemplo</div>
+                  <div class="rbac-d-example-text">Asignar Lector aquí = puede ver todo en esta suscripción, pero NO tiene acceso a otras suscripciones del mismo tenant.</div>
+                </div>
+                <div class="rbac-inherit-note"><i class="fas fa-arrow-down"></i> <span>La herencia fluye hacia <strong>abajo</strong>, nunca hacia los lados</span></div>
+              </div>
+
+              <!-- Grupo de Recursos -->
+              <div class="rbac-detail-card rbac-d5">
+                <div class="rbac-detail-header">
+                  <div class="rbac-d-icon"><i class="fas fa-layer-group"></i></div>
+                  <div class="rbac-d-name">Grupo de Recursos</div>
+                </div>
+                <div class="rbac-d-box">
+                  <div class="rbac-d-box-label">Alcance del Rol</div>
+                  <div class="rbac-d-box-text">Acceso únicamente a los recursos contenidos en este grupo. Otros grupos de la misma suscripción no se ven afectados.</div>
+                </div>
+                <div class="rbac-d-example">
+                  <div class="rbac-d-example-label">Ejemplo</div>
+                  <div class="rbac-d-example-text">Asignar Contribuyente en "RG-Marketing" = gestiona VMs y Storage de ese grupo, sin tocar "RG-Finanzas" ni otros grupos.</div>
+                </div>
+                <div class="rbac-inherit-note"><i class="fas fa-arrow-down"></i> <span>La herencia fluye hacia <strong>abajo</strong>, nunca hacia los lados</span></div>
+              </div>
+
+              <!-- Recurso Individual -->
+              <div class="rbac-detail-card rbac-d6">
+                <div class="rbac-detail-header">
+                  <div class="rbac-d-icon"><i class="fas fa-cog"></i></div>
+                  <div class="rbac-d-name">Recurso Individual</div>
+                </div>
+                <div class="rbac-d-box">
+                  <div class="rbac-d-box-label">Alcance del Rol</div>
+                  <div class="rbac-d-box-text">Acceso únicamente a ESTE recurso específico. Es el nivel más granular y el que mejor cumple el principio de privilegios mínimos.</div>
+                </div>
+                <div class="rbac-d-example">
+                  <div class="rbac-d-example-label">Ejemplo</div>
+                  <div class="rbac-d-example-text">Asignar Colaborador SMB en "fileshare2" = solo accede a ese fileshare, no a otros recursos de la misma cuenta de almacenamiento.</div>
+                </div>
+                <div class="rbac-d-note">Nivel recomendado cuando se aplica el principio de privilegios mínimos.</div>
+                <div class="rbac-inherit-note"><i class="fas fa-arrow-down"></i> <span>Nivel más bajo — no hay más herencia debajo</span></div>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- Roles table -->
+          <div class="rbac-roles">
+            <h3>Roles Comunes y sus Permisos</h3>
+            <table class="rbac-table">
+              <thead>
+                <tr>
+                  <th>Rol</th>
+                  <th>Leer</th>
+                  <th>Crear/Modificar</th>
+                  <th>Eliminar</th>
+                  <th>Gestionar Acceso</th>
+                  <th>Descripción</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="rbac-role-name"><i class="fas fa-crown" style="color: #f59e0b"></i> Propietario</td>
+                  <td class="rbac-check"><i class="fas fa-check"></i></td>
+                  <td class="rbac-check"><i class="fas fa-check"></i></td>
+                  <td class="rbac-check"><i class="fas fa-check"></i></td>
+                  <td class="rbac-check"><i class="fas fa-check"></i></td>
+                  <td>Control total incluyendo asignar roles a otros</td>
+                </tr>
+                <tr>
+                  <td class="rbac-role-name"><i class="fas fa-wrench" style="color: #3b82f6"></i> Contribuyente</td>
+                  <td class="rbac-check"><i class="fas fa-check"></i></td>
+                  <td class="rbac-check"><i class="fas fa-check"></i></td>
+                  <td class="rbac-check"><i class="fas fa-check"></i></td>
+                  <td class="rbac-cross"><i class="fas fa-times"></i></td>
+                  <td>Gestiona recursos pero no puede asignar roles</td>
+                </tr>
+                <tr>
+                  <td class="rbac-role-name"><i class="fas fa-eye" style="color: #10b981"></i> Lector</td>
+                  <td class="rbac-check"><i class="fas fa-check"></i></td>
+                  <td class="rbac-cross"><i class="fas fa-times"></i></td>
+                  <td class="rbac-cross"><i class="fas fa-times"></i></td>
+                  <td class="rbac-cross"><i class="fas fa-times"></i></td>
+                  <td>Solo puede ver recursos, sin modificar nada</td>
+                </tr>
+                <tr>
+                  <td class="rbac-role-name"><i class="fas fa-user-shield" style="color: #a855f7"></i> Admin. acceso</td>
+                  <td class="rbac-check"><i class="fas fa-check"></i></td>
+                  <td class="rbac-cross"><i class="fas fa-times"></i></td>
+                  <td class="rbac-cross"><i class="fas fa-times"></i></td>
+                  <td class="rbac-check"><i class="fas fa-check"></i></td>
+                  <td>Solo gestiona el acceso de otros usuarios</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+        </div>
+        <!-- /rbac-wrap -->
+
+      </div>
+      <!-- /panel azure-rbac -->
+
+      <!-- ═══════════════════════════════════════
+           PANEL: Arquitecturas Azure
+      ═══════════════════════════════════════ -->
+      <div class="dt-panel dt-panel--hidden" id="doc-azure-arch">
+
+        <div class="dt-panel__header">
+          <h2 class="dt-panel__title">Arquitecturas Azure</h2>
+          <p class="dt-panel__desc">Diagramas de referencia de arquitecturas comunes en Azure para casos reales de clientes.</p>
+        </div>
+
+        <!-- Load Balancer -->
+        <div class="dt-section">
+          <div class="dt-section-header">
+            <div class="dt-medal dt-medal--neutral">
+              <i class="fas fa-balance-scale"></i>
+            </div>
+            <div>
+              <div class="dt-section-title dt-section-title--neutral">Azure Standard Load Balancer</div>
+              <div class="dt-section-desc">Arquitectura de componentes — caso cliente</div>
+            </div>
+          </div>
+          <hr class="dt-divider dt-divider--neutral" />
+
+          <!-- Diagram -->
+          <div class="arch-diagram">
+            <!-- Usuario -->
+            <div class="arch-node">
+              <div class="arch-box arch-box--user">
+                <span class="arch-box-icon"><i class="fas fa-user"></i></span>
+                <div class="arch-box-label">Usuario</div>
+                <div class="arch-box-sub">Internet</div>
+              </div>
+            </div>
+
+            <!-- Arrow 1 -->
+            <div class="arch-arrow">
+              <svg viewBox="0 0 60 20"><line x1="0" y1="10" x2="52" y2="10" stroke="#37474f" stroke-width="1.5"/><polygon points="52,6 60,10 52,14" fill="#37474f"/></svg>
+              <div class="arch-arrow-label">tráfico entrante</div>
+            </div>
+
+            <!-- Frontend IP -->
+            <div class="arch-node">
+              <div class="arch-box arch-box--frontend">
+                <span class="arch-box-icon"><i class="fas fa-globe"></i></span>
+                <div class="arch-box-label">Frontend IP</div>
+                <div class="arch-box-sub">IP Pública</div>
+              </div>
+            </div>
+
+            <!-- Arrow 2 -->
+            <div class="arch-arrow">
+              <svg viewBox="0 0 60 20"><line x1="0" y1="10" x2="52" y2="10" stroke="#0077b6" stroke-width="1.5"/><polygon points="52,6 60,10 52,14" fill="#0077b6"/></svg>
+              <div class="arch-arrow-label">reglas de balanceo</div>
+            </div>
+
+            <!-- Load Balancer -->
+            <div class="arch-node">
+              <div class="arch-box arch-box--lb">
+                <span class="arch-box-icon"><i class="fas fa-balance-scale"></i></span>
+                <div class="arch-box-label">Standard Load Balancer</div>
+                <div class="arch-box-sub">Capa 4 · TCP / UDP</div>
+              </div>
+            </div>
+
+            <!-- Arrow 3 -->
+            <div class="arch-arrow">
+              <svg viewBox="0 0 60 20"><line x1="0" y1="10" x2="52" y2="10" stroke="#1b5e20" stroke-width="1.5"/><polygon points="52,6 60,10 52,14" fill="#1b5e20"/></svg>
+              <div class="arch-arrow-label">distribuye tráfico</div>
+            </div>
+
+            <!-- Backend Pool -->
+            <div class="arch-node">
+              <div class="arch-box arch-box--pool">
+                <span class="arch-box-icon"><i class="fas fa-server"></i></span>
+                <div class="arch-box-label">Backend Pool</div>
+                <div class="arch-box-sub">VMSS · 2 instancias</div>
+                <div class="arch-vms">
+                  <div class="arch-vm-card">
+                    <i class="fab fa-linux"></i>
+                    VM 1<br/>D2s v3
+                  </div>
+                  <div class="arch-vm-card">
+                    <i class="fab fa-linux"></i>
+                    VM 2<br/>D2s v3
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Health Probe -->
+          <div class="arch-probe">
+            <div class="arch-probe-inner">
+              <div class="arch-probe-line"></div>
+              <div class="arch-probe-box">
+                <i class="fas fa-heartbeat"></i> Health Probe · verifica cada VM cada ~5 seg<br/>
+                <small>si una VM falla → el LB deja de enviarle tráfico</small>
+              </div>
+            </div>
+          </div>
+
+          <!-- Legend -->
+          <div class="arch-legend">
+            <div class="arch-legend-item">
+              <div class="arch-legend-tag">01</div>
+              <div class="arch-legend-title" style="color: #4fc3f7">Frontend IP</div>
+              <div class="arch-legend-desc">Punto de entrada del tráfico. IP pública que reciben los usuarios. Es lo único que está expuesto a internet.</div>
+            </div>
+            <div class="arch-legend-item">
+              <div class="arch-legend-tag">02</div>
+              <div class="arch-legend-title" style="color: #00b4d8">Load Balancer Rules</div>
+              <div class="arch-legend-desc">Definen cómo distribuir el tráfico (por puerto, protocolo). Las primeras 5 están incluidas en el precio base.</div>
+            </div>
+            <div class="arch-legend-item">
+              <div class="arch-legend-tag">03</div>
+              <div class="arch-legend-title" style="color: #66bb6a">Backend Pool</div>
+              <div class="arch-legend-desc">Tus servidores de producción. En este caso, las 2 VMs Linux D2s v3 dentro del VMSS (Virtual Machine Scale Set).</div>
+            </div>
+            <div class="arch-legend-item">
+              <div class="arch-legend-tag">04</div>
+              <div class="arch-legend-title" style="color: #ffb74d">Health Probe</div>
+              <div class="arch-legend-desc">Monitorea cada VM constantemente. Si una falla, el tráfico se redirige automáticamente a las VMs sanas.</div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+      <!-- /panel azure-arch -->
+
+      <!-- ═══════════════════════════════════════
+           PANEL: Guía M365 — Tablas Comparativas
+      ═══════════════════════════════════════ -->
+      <div class="dt-panel dt-panel--hidden" id="doc-m365-guide">
+
+        <div class="dt-panel__header">
+          <h2 class="dt-panel__title">Comparativa de Licencias M365 Business</h2>
+          <p class="dt-panel__desc">Diferencias clave entre Business Basic, Standard y Premium organizadas por categoría. Desliza para ver cada tabla.</p>
+        </div>
+
+        <div class="swiper m365t-swiper">
+          <div class="swiper-wrapper">
+
+            <!-- Slide 1: Seguridad y Cumplimiento -->
+            <div class="swiper-slide">
+              <h3 class="m365t-slide-title"><i class="fas fa-shield-alt"></i> Seguridad y Cumplimiento</h3>
+              <div class="m365t-table-wrap">
+                <table class="m365t-table">
+                  <thead>
+                    <tr>
+                      <th>Capacidad</th>
+                      <th>Business Basic</th>
+                      <th>Business Standard</th>
+                      <th>Business Premium</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>Revocar acceso manualmente</td>
+                      <td class="m365t-check"><i class="fas fa-check"></i></td>
+                      <td class="m365t-check"><i class="fas fa-check"></i></td>
+                      <td class="m365t-check"><i class="fas fa-check"></i></td>
+                    </tr>
+                    <tr>
+                      <td>Audit log básico — 90 días</td>
+                      <td class="m365t-check"><i class="fas fa-check"></i></td>
+                      <td class="m365t-check"><i class="fas fa-check"></i></td>
+                      <td class="m365t-check"><i class="fas fa-check"></i></td>
+                    </tr>
+                    <tr>
+                      <td>Audit log extendido — 1 año</td>
+                      <td class="m365t-cross"><i class="fas fa-times"></i></td>
+                      <td class="m365t-cross"><i class="fas fa-times"></i></td>
+                      <td class="m365t-warn"><i class="fas fa-exclamation-triangle"></i> Add-on*</td>
+                    </tr>
+                    <tr>
+                      <td>Ver si alguien descargó un archivo</td>
+                      <td class="m365t-cross"><i class="fas fa-times"></i></td>
+                      <td class="m365t-cross"><i class="fas fa-times"></i></td>
+                      <td class="m365t-check"><i class="fas fa-check"></i></td>
+                    </tr>
+                    <tr>
+                      <td>DLP (Data Loss Prevention) básico — Exchange/SharePoint/OneDrive</td>
+                      <td class="m365t-cross"><i class="fas fa-times"></i></td>
+                      <td class="m365t-cross"><i class="fas fa-times"></i></td>
+                      <td class="m365t-check"><i class="fas fa-check"></i></td>
+                    </tr>
+                    <tr>
+                      <td>Sensitivity Labels manuales</td>
+                      <td class="m365t-cross"><i class="fas fa-times"></i></td>
+                      <td class="m365t-cross"><i class="fas fa-times"></i></td>
+                      <td class="m365t-check"><i class="fas fa-check"></i></td>
+                    </tr>
+                    <tr>
+                      <td>Sensitivity Labels automáticas (auto-labeling)</td>
+                      <td class="m365t-cross"><i class="fas fa-times"></i></td>
+                      <td class="m365t-cross"><i class="fas fa-times"></i></td>
+                      <td><span class="m365t-cross"><i class="fas fa-times"></i></span> (requiere E5)</td>
+                    </tr>
+                    <tr>
+                      <td>Proteger copias fuera del tenant</td>
+                      <td class="m365t-cross"><i class="fas fa-times"></i></td>
+                      <td class="m365t-cross"><i class="fas fa-times"></i></td>
+                      <td class="m365t-partial"><i class="fas fa-check"></i> básico</td>
+                    </tr>
+                    <tr>
+                      <td>eDiscovery</td>
+                      <td class="m365t-cross"><i class="fas fa-times"></i></td>
+                      <td class="m365t-cross"><i class="fas fa-times"></i></td>
+                      <td class="m365t-partial"><i class="fas fa-check"></i> básico</td>
+                    </tr>
+                    <tr>
+                      <td>Microsoft Purview completo</td>
+                      <td class="m365t-cross"><i class="fas fa-times"></i></td>
+                      <td class="m365t-cross"><i class="fas fa-times"></i></td>
+                      <td class="m365t-warn"><i class="fas fa-exclamation-triangle"></i> Add-on*</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <!-- Slide 2: Power Automate y Power Apps -->
+            <div class="swiper-slide">
+              <h3 class="m365t-slide-title"><i class="fas fa-bolt"></i> Power Automate y Power Apps</h3>
+              <div class="m365t-table-wrap">
+                <table class="m365t-table">
+                  <thead>
+                    <tr>
+                      <th>Capacidad</th>
+                      <th>Business Basic</th>
+                      <th>Business Standard</th>
+                      <th>Business Premium</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>Cloud flows (automatizados, programados, de botón)</td>
+                      <td class="m365t-check"><i class="fas fa-check"></i></td>
+                      <td class="m365t-check"><i class="fas fa-check"></i></td>
+                      <td class="m365t-check"><i class="fas fa-check"></i></td>
+                    </tr>
+                    <tr>
+                      <td>Conectores estándar (SharePoint, Outlook, Teams, OneDrive, Excel...)</td>
+                      <td class="m365t-check"><i class="fas fa-check"></i></td>
+                      <td class="m365t-check"><i class="fas fa-check"></i></td>
+                      <td class="m365t-check"><i class="fas fa-check"></i></td>
+                    </tr>
+                    <tr>
+                      <td>Canvas apps con datos de M365</td>
+                      <td class="m365t-check"><i class="fas fa-check"></i></td>
+                      <td class="m365t-check"><i class="fas fa-check"></i></td>
+                      <td class="m365t-check"><i class="fas fa-check"></i></td>
+                    </tr>
+                    <tr>
+                      <td>Conectores premium (SQL, Dataverse, Salesforce, HTTP...)</td>
+                      <td class="m365t-cross"><i class="fas fa-times"></i></td>
+                      <td class="m365t-cross"><i class="fas fa-times"></i></td>
+                      <td class="m365t-cross"><i class="fas fa-times"></i></td>
+                    </tr>
+                    <tr>
+                      <td>Desktop flows / RPA (Automatización Robótica de Procesos)</td>
+                      <td class="m365t-cross"><i class="fas fa-times"></i></td>
+                      <td class="m365t-cross"><i class="fas fa-times"></i></td>
+                      <td class="m365t-cross"><i class="fas fa-times"></i></td>
+                    </tr>
+                    <tr>
+                      <td>AI Builder</td>
+                      <td class="m365t-cross"><i class="fas fa-times"></i></td>
+                      <td class="m365t-cross"><i class="fas fa-times"></i></td>
+                      <td class="m365t-cross"><i class="fas fa-times"></i></td>
+                    </tr>
+                    <tr>
+                      <td>Dataverse para apps y flows personalizados</td>
+                      <td class="m365t-cross"><i class="fas fa-times"></i></td>
+                      <td class="m365t-cross"><i class="fas fa-times"></i></td>
+                      <td class="m365t-cross"><i class="fas fa-times"></i></td>
+                    </tr>
+                    <tr>
+                      <td>Model-driven apps</td>
+                      <td class="m365t-cross"><i class="fas fa-times"></i></td>
+                      <td class="m365t-cross"><i class="fas fa-times"></i></td>
+                      <td class="m365t-cross"><i class="fas fa-times"></i></td>
+                    </tr>
+                    <tr>
+                      <td>Power Automate Desktop (local, sin compartir)</td>
+                      <td class="m365t-partial"><i class="fas fa-check"></i> limitado*</td>
+                      <td class="m365t-partial"><i class="fas fa-check"></i> limitado*</td>
+                      <td class="m365t-partial"><i class="fas fa-check"></i> limitado*</td>
+                    </tr>
+                    <tr>
+                      <td>Process Mining</td>
+                      <td class="m365t-cross"><i class="fas fa-times"></i></td>
+                      <td class="m365t-cross"><i class="fas fa-times"></i></td>
+                      <td class="m365t-cross"><i class="fas fa-times"></i></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <!-- Slide 3: Almacenamiento -->
+            <div class="swiper-slide">
+              <h3 class="m365t-slide-title"><i class="fas fa-hdd"></i> Almacenamiento</h3>
+              <div class="m365t-table-wrap">
+                <table class="m365t-table">
+                  <thead>
+                    <tr>
+                      <th>Almacenamiento</th>
+                      <th>Business Basic</th>
+                      <th>Business Standard</th>
+                      <th>Business Premium</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr class="m365t-subheader"><td colspan="4">OneDrive for Business</td></tr>
+                    <tr>
+                      <td>Por usuario</td>
+                      <td>1 TB</td>
+                      <td>1 TB</td>
+                      <td>1 TB</td>
+                    </tr>
+                    <tr class="m365t-subheader"><td colspan="4">SharePoint Online (Pool del Tenant)</td></tr>
+                    <tr>
+                      <td>Base del tenant</td>
+                      <td>1 TB</td>
+                      <td>1 TB</td>
+                      <td>1 TB</td>
+                    </tr>
+                    <tr>
+                      <td>Adicional por licencia</td>
+                      <td>+ 10 GB / usuario</td>
+                      <td>+ 10 GB / usuario</td>
+                      <td>+ 10 GB / usuario</td>
+                    </tr>
+                    <tr>
+                      <td>Tamaño máx. por archivo</td>
+                      <td>250 GB</td>
+                      <td>250 GB</td>
+                      <td>250 GB</td>
+                    </tr>
+                    <tr class="m365t-subheader"><td colspan="4">Exchange Online (Correo)</td></tr>
+                    <tr>
+                      <td>Buzón principal</td>
+                      <td>50 GB</td>
+                      <td>50 GB</td>
+                      <td>50 GB</td>
+                    </tr>
+                    <tr>
+                      <td>Buzón de archivo (In-Place Archive)</td>
+                      <td>Add-on</td>
+                      <td>Add-on</td>
+                      <td class="m365t-partial"><i class="fas fa-check"></i> 50 GB incluido</td>
+                    </tr>
+                    <tr>
+                      <td>Auto-expanding archive</td>
+                      <td>No</td>
+                      <td>No</td>
+                      <td class="m365t-partial"><i class="fas fa-check"></i> Hasta 1,5 TB</td>
+                    </tr>
+                    <tr class="m365t-subheader"><td colspan="4">Microsoft Teams</td></tr>
+                    <tr>
+                      <td>Archivos en canales</td>
+                      <td colspan="3" style="text-align: center">SharePoint del tenant (consume el pool)</td>
+                    </tr>
+                    <tr>
+                      <td>Archivos en chats</td>
+                      <td colspan="3" style="text-align: center">OneDrive del usuario (consume el 1 TB)</td>
+                    </tr>
+                    <tr>
+                      <td>Grabaciones de reuniones</td>
+                      <td colspan="3" style="text-align: center">OneDrive del organizador</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <div class="m365t-note">
+                <strong>Nota sobre el archivo en Business Premium:</strong> El buzón de archivo viene incluido pero <strong>no se activa por defecto</strong> — el administrador debe habilitarlo desde el Exchange Admin Center (EAC). El auto-expanding archive también requiere activación manual vía PowerShell y expande el archivo hasta 1,5 TB automáticamente.
+              </div>
+            </div>
+
+          </div>
+          <!-- Swiper nav -->
+          <div class="swiper-button-prev"></div>
+          <div class="swiper-button-next"></div>
+          <div class="swiper-pagination"></div>
+        </div>
+
+      </div>
+      <!-- /panel m365-guide -->
+
+    </div>
+    <!-- /dt-container -->
+
+    <!-- Footer -->
+    <footer class="footer-enhanced">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3>J.D. Parra</h3>
+          <p>Creando Experiencias Digitales que Importan</p>
+          <div class="social-links">
+            <a
+              href="https://github.com/JD117parra"
+              class="flex-center"
+              aria-label="GitHub"
+              target="_blank"
+              rel="noopener noreferrer"
+              ><i class="fab fa-github"></i
+            ></a>
+            <a
+              href="https://www.linkedin.com/in/juan-parra-2358b428b"
+              class="flex-center"
+              aria-label="LinkedIn"
+              target="_blank"
+              rel="noopener noreferrer"
+              ><i class="fab fa-linkedin"></i
+            ></a>
+            <a
+              href="mailto:JD117parra@outlook.com"
+              class="flex-center"
+              aria-label="Email"
+              ><i class="fas fa-envelope"></i
+            ></a>
+          </div>
+        </div>
+        <div class="footer-section">
+          <details>
+            <summary>Servicios</summary>
+            <ul>
+              <li><a href="index.html">Servicios</a></li>
+              <li><a href="casos.html">Casos Técnicos</a></li>
+              <li><a href="recursos-tecnicos.html">Recursos Técnicos</a></li>
+              <li><a href="documentacion-tecnica.html">Documentación</a></li>
+            </ul>
+          </details>
+        </div>
+        <div class="footer-section">
+          <details>
+            <summary>Enlaces</summary>
+            <ul>
+              <li><a href="profile.html">Inicio</a></li>
+              <li><a href="profile.html#projects">Proyectos</a></li>
+              <li><a href="#contact">Contacto</a></li>
+            </ul>
+          </details>
+        </div>
+        <div class="footer-section">
+          <details>
+            <summary>Contacto</summary>
+            <div class="contact-info">
+              <p>
+                <i class="fas fa-envelope"></i
+                ><a href="mailto:JD117parra@outlook.com"
+                  >JD117parra@outlook.com</a
+                >
+              </p>
+              <p>
+                <i class="fab fa-linkedin"></i
+                ><a
+                  href="https://www.linkedin.com/in/juan-parra-2358b428b"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >LinkedIn</a
+                >
+              </p>
+            </div>
+          </details>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 J.D. Parra. Todos los derechos reservados.</p>
+      </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="script.js"></script>
+    <script src="documentacion-tecnica.js"></script>
+  </body>
+</html>

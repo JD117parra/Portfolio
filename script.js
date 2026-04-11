@@ -91,15 +91,16 @@ document.addEventListener('DOMContentLoaded', function() {
     // === EFECTO DE SCROLL EN NAVBAR ===
     const navbarElement = document.querySelector('.navbar');
     
-   window.addEventListener('scroll', function() {
-  const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-  
-  if (scrollTop > 100) {
-    navbarElement.classList.add('scrolled');
-  } else {
-    navbarElement.classList.remove('scrolled');
-  }
-});
+    let scrollTicking = false;
+    window.addEventListener('scroll', function() {
+        if (!scrollTicking) {
+            requestAnimationFrame(function() {
+                navbarElement.classList.toggle('scrolled', window.scrollY > 100);
+                scrollTicking = false;
+            });
+            scrollTicking = true;
+        }
+    }, { passive: true });
 
     // === ANIMACIONES DE ENTRADA ===
     // Configurar el Intersection Observer para animaciones
@@ -112,12 +113,13 @@ document.addEventListener('DOMContentLoaded', function() {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 entry.target.classList.add('animate-in');
+                observer.unobserve(entry.target);
             }
         });
     }, observerOptions);
     
     // Observar elementos que necesitan animación
-    const animatedElements = document.querySelectorAll('.skill-category, .project-card, .about, .contact');
+    const animatedElements = document.querySelectorAll('.skill-category, .project-card, .contact');
     animatedElements.forEach(el => {
         el.classList.add('animate-on-scroll');
         observer.observe(el);
@@ -143,18 +145,22 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     
     // Iniciar el efecto de escritura después de un pequeño delay
-    setTimeout(() => {
-    if (heroTitle) {
-        const titleText = heroTitle.textContent;
-        createTypingEffect(heroTitle, titleText, 150);
-    }
-    if (heroSubtitle) {
-        const subtitleText = heroSubtitle.textContent;
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    if (!prefersReducedMotion) {
         setTimeout(() => {
-            createTypingEffect(heroSubtitle, subtitleText, 80);
-        }, 2000);
+            if (heroTitle) {
+                const titleText = heroTitle.textContent;
+                createTypingEffect(heroTitle, titleText, 150);
+            }
+            if (heroSubtitle) {
+                const subtitleText = heroSubtitle.textContent;
+                setTimeout(() => {
+                    createTypingEffect(heroSubtitle, subtitleText, 80);
+                }, 2000);
+            }
+        }, 500);
     }
-    }, 500);
 
     // === EASTER EGG ===
     // Agregar un pequeño easter egg
@@ -213,11 +219,11 @@ document.addEventListener('DOMContentLoaded', function() {
 
 // === FOOTER DETAILS: abrir en desktop, acordeón en móvil ===
 (function () {
-  var details = document.querySelectorAll('.footer-section details');
+  const details = document.querySelectorAll('.footer-section details');
   if (!details.length) return;
 
   function toggle() {
-    var desktop = window.innerWidth > 768;
+    const desktop = window.innerWidth > 768;
     details.forEach(function (d) {
       if (desktop) d.setAttribute('open', '');
       else d.removeAttribute('open');
