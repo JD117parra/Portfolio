@@ -3257,33 +3257,39 @@ body.app-page {
   gap: 0.4rem;
   flex-wrap: wrap;
   align-items: center;
+  margin-bottom: 1.25rem;
 }
 
 .tbl-col-toggle {
   display: flex;
   align-items: center;
   gap: 0.35rem;
-  padding: 0.3rem 0.75rem;
+  padding: 0.4rem 0.85rem;
   border-radius: 99px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.02);
   color: var(--text-faint);
-  font-size: 0.74rem;
+  font-size: 0.78rem;
   font-weight: 500;
   font-family: inherit;
   cursor: pointer;
   transition: all 0.15s;
   user-select: none;
-  opacity: 0.55;
+  opacity: 0.7;
+  text-decoration: line-through;
 }
 
-.tbl-col-toggle:hover { opacity: 0.85; }
+.tbl-col-toggle:hover {
+  opacity: 0.9;
+  border-color: rgba(255, 255, 255, 0.15);
+}
 
 .tbl-col-toggle--active {
-  border-color: rgba(255, 255, 255, 0.18) !important;
-  background: rgba(255, 255, 255, 0.055) !important;
-  color: var(--text-muted) !important;
-  opacity: 1 !important;
+  border-color: rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.06);
+  color: var(--text-primary);
+  opacity: 1;
+  text-decoration: none;
 }
 
 .tbl-col-toggle__dot {
@@ -3291,6 +3297,71 @@ body.app-page {
   height: 6px;
   border-radius: 50%;
   flex-shrink: 0;
+}
+
+/* M365 column hide rules */
+.m365t-hide-F1 .m365t-table [data-plan="F1"],
+.m365t-hide-F3 .m365t-table [data-plan="F3"],
+.m365t-hide-BB .m365t-table [data-plan="BB"],
+.m365t-hide-BS .m365t-table [data-plan="BS"],
+.m365t-hide-BP .m365t-table [data-plan="BP"],
+.m365t-hide-E3 .m365t-table [data-plan="E3"],
+.m365t-hide-E5 .m365t-table [data-plan="E5"] {
+  display: none;
+}
+
+/* M365 feature info button */
+.m365t-info-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  border: none;
+  color: var(--accent);
+  opacity: 0.45;
+  cursor: pointer;
+  font-size: 0.8rem;
+  margin-left: 0.4rem;
+  padding: 0;
+  vertical-align: middle;
+  transition: opacity 0.2s, color 0.2s;
+}
+
+.m365t-info-btn:hover,
+.m365t-info-btn--active {
+  opacity: 1;
+}
+
+.m365t-info-btn--active {
+  color: var(--accent);
+}
+
+/* M365 feature description row */
+.m365t-desc-row {
+  overflow: hidden;
+}
+
+.m365t-desc-cell {
+  padding: 0 1rem !important;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.25s ease, padding 0.25s ease;
+  background: rgba(0, 212, 255, 0.04);
+  border-left: 3px solid var(--accent);
+  color: var(--text-secondary, #b0bec5);
+  font-size: 0.82rem;
+  line-height: 1.5;
+}
+
+.m365t-desc-row--open .m365t-desc-cell {
+  max-height: 250px;
+  padding: 0.7rem 1rem !important;
+}
+
+.m365t-desc-icon {
+  color: var(--accent);
+  opacity: 0.7;
+  margin-right: 0.3rem;
 }
 
 /* ── Table ─────────────────────────────────────────── */
@@ -4826,7 +4897,9 @@ body.app-page {
 
 .m365t-swiper {
   position: relative;
-  padding: 0 2.5rem 2.5rem;
+  margin: 0 2.5rem;
+  padding-bottom: 2.5rem;
+  overflow: hidden;
 }
 
 .m365t-swiper .swiper-wrapper {
@@ -4844,9 +4917,10 @@ body.app-page {
 }
 
 .m365t-slide-title {
-  font-size: 1.1rem;
-  font-weight: 700;
-  color: var(--color-m365);
+  font-size: 1.3rem;
+  font-weight: 800;
+  color: var(--accent);
+  text-shadow: 0 0 12px var(--accent-glow-strong);
   margin-bottom: 1.25rem;
   text-align: center;
 }
@@ -4861,14 +4935,13 @@ body.app-page {
   border-radius: var(--radius-card);
   overflow-x: auto;
   -webkit-overflow-scrolling: touch;
-  width: fit-content;
-  max-width: 100%;
+  width: 100%;
   margin: 0 auto;
 }
 
 .m365t-table {
-  width: auto;
-  margin: 0 auto;
+  width: 100%;
+  table-layout: fixed;
   border-collapse: collapse;
   font-size: 0.9rem;
 }
@@ -4879,13 +4952,19 @@ body.app-page {
   color: #fff;
   font-size: 0.85rem;
   font-weight: 700;
-  border-bottom: 2px solid rgba(0, 212, 255, 0.2);
+  border-bottom: 2px solid rgba(0, 212, 255, 0.25);
+  border-right: 1px solid rgba(255, 255, 255, 0.1);
   white-space: nowrap;
   position: sticky;
   top: 0;
   background: rgba(10, 14, 26, 0.98);
   z-index: 2;
 }
+
+.m365t-table thead th:last-child {
+  border-right: none;
+}
+
 
 .m365t-table thead th:first-child {
   text-align: left;
@@ -4894,27 +4973,17 @@ body.app-page {
 }
 
 /* Column tints by plan */
-.m365t-table tbody td:nth-child(2),
-.m365t-table thead th:nth-child(2) { /* Business Basic */ }
-.m365t-table tbody td:nth-child(3),
-.m365t-table thead th:nth-child(3) { /* Business Standard */ }
-.m365t-table tbody td:nth-child(4),
-.m365t-table thead th:nth-child(4) { /* Business Premium */
-  border-left: 1px solid rgba(0, 212, 255, 0.08);
-}
-.m365t-table tbody td:nth-child(5),
-.m365t-table thead th:nth-child(5) { /* E3 */
-  border-left: 1px solid rgba(96, 165, 250, 0.08);
+.m365t-table [data-plan="E3"] {
   background: rgba(96, 165, 250, 0.03);
 }
-.m365t-table tbody td:nth-child(6),
-.m365t-table thead th:nth-child(6) { /* E5 */
+.m365t-table [data-plan="E5"] {
   background: rgba(74, 222, 128, 0.03);
 }
 
 .m365t-table tbody td {
   padding: 0.75rem 0.75rem;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+  border-right: 1px solid rgba(255, 255, 255, 0.08);
   color: var(--text-primary);
   vertical-align: middle;
   text-align: center;
@@ -4922,14 +4991,23 @@ body.app-page {
   line-height: 1.5;
 }
 
+.m365t-table tbody td:last-child {
+  border-right: none;
+}
+
 /* Zebra striping */
 .m365t-table tbody tr:nth-child(even):not(.m365t-subheader) td {
   background-color: rgba(255, 255, 255, 0.025);
 }
 
+.m365t-table thead th:first-child,
+.m365t-table tbody td:first-child {
+  width: 30%;
+}
+
 .m365t-table thead th:not(:first-child),
 .m365t-table tbody td:not(:first-child) {
-  width: 120px;
+  width: 10%;
 }
 
 .m365t-table tbody td:first-child {
@@ -5041,7 +5119,8 @@ body.app-page {
 /* M365 Tables Responsive */
 @media (max-width: 768px) {
   .m365t-swiper {
-    padding: 0 0.5rem 2.5rem;
+    margin: 0 0.5rem;
+    padding-bottom: 2.5rem;
   }
   .m365t-swiper .swiper-button-prev,
   .m365t-swiper .swiper-button-next {
