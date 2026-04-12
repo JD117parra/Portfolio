@@ -350,4 +350,271 @@
       }
     });
   }
+
+  // === COMPARADOR DE LICENCIAS M365 ===
+  (function initComparador() {
+    var cmpQuestion = document.getElementById('cmpQuestion');
+    if (!cmpQuestion) return;
+
+    var QUESTIONS = [
+      {
+        id: 'q1_size',
+        text: '¿Cuántos usuarios tiene la organización?',
+        options: [
+          { label: '1 – 10 usuarios',     value: 'micro',  icon: 'fa-user' },
+          { label: '11 – 50 usuarios',    value: 'small',  icon: 'fa-user-friends' },
+          { label: '51 – 300 usuarios',   value: 'medium', icon: 'fa-users' },
+          { label: 'Más de 300 usuarios', value: 'large',  icon: 'fa-city' }
+        ]
+      },
+      {
+        id: 'q2_desktop',
+        text: '¿Los usuarios necesitan Office instalado en su PC o Mac?',
+        options: [
+          { label: 'Sí, todos necesitan Office instalado',  value: 'yes',      icon: 'fa-laptop' },
+          { label: 'No, solo usan la versión web y móvil', value: 'web_only', icon: 'fa-globe' },
+          { label: 'Algunos sí, otros no',                  value: 'mixed',    icon: 'fa-random' }
+        ]
+      },
+      {
+        id: 'q3_mdm',
+        text: '¿Necesitas gestión centralizada de dispositivos (Intune / MDM)?',
+        options: [
+          { label: 'Sí, quiero controlar los equipos corporativos', value: 'yes',     icon: 'fa-lock' },
+          { label: 'No es necesario por ahora',                      value: 'no',      icon: 'fa-unlock' },
+          { label: 'No lo sé todavía',                               value: 'unknown', icon: 'fa-question' }
+        ]
+      },
+      {
+        id: 'q4_regulated',
+        text: '¿El sector maneja datos sensibles o está regulado?',
+        options: [
+          { label: 'Sí — finanzas, salud, legal u otro sector regulado', value: 'yes', icon: 'fa-balance-scale' },
+          { label: 'No, es una empresa estándar',                         value: 'no',  icon: 'fa-building' }
+        ]
+      },
+      {
+        id: 'q5_frontline',
+        text: '¿Hay usuarios sin PC fija (campo, almacén, tienda)?',
+        options: [
+          { label: 'Sí, hay trabajadores de primera línea', value: 'yes', icon: 'fa-hard-hat' },
+          { label: 'No, todos trabajan desde PC o Mac',      value: 'no',  icon: 'fa-desktop' }
+        ]
+      },
+      {
+        id: 'q6_compliance',
+        text: '¿Necesitas cumplimiento avanzado, eDiscovery o retención legal?',
+        options: [
+          { label: 'Sí, para toda la organización',                     value: 'all',  icon: 'fa-shield-alt' },
+          { label: 'Solo para algunos roles (legal, RRHH, dirección)',  value: 'some', icon: 'fa-user-tie' },
+          { label: 'No tenemos esos requisitos',                         value: 'no',   icon: 'fa-times-circle' }
+        ]
+      }
+    ];
+
+    var PLANS_DATA = {
+      F1:               { label: 'M365 F1',           color: '#38bdf8', tag: 'Primera línea' },
+      F3:               { label: 'M365 F3',           color: '#34d399', tag: 'Primera línea' },
+      BusinessBasic:    { label: 'Business Basic',    color: '#94a3b8', tag: 'PYME · hasta 300 usuarios' },
+      BusinessStandard: { label: 'Business Standard', color: '#60a5fa', tag: 'PYME · hasta 300 usuarios' },
+      BusinessPremium:  { label: 'Business Premium',  color: '#c084fc', tag: 'PYME · hasta 300 usuarios' },
+      E3:               { label: 'M365 E3',           color: '#fb923c', tag: 'Enterprise' },
+      E5:               { label: 'M365 E5',           color: '#f472b6', tag: 'Enterprise' }
+    };
+
+    var RECOMMENDATIONS = {
+      E5: {
+        subtitle: 'Cumplimiento avanzado y seguridad de nivel enterprise para toda la organización',
+        why: 'E5 es el plan más completo de Microsoft 365. Incluye Defender for Office 365 Plan 2, Microsoft Entra ID P2 (PIM, Identity Protection), eDiscovery Premium y Microsoft Purview completo. Es el plan indicado cuando la organización requiere cumplimiento avanzado en toda su estructura.',
+        whyNot: 'E3 no incluye Defender Plan 2 ni Entra ID P2 de forma nativa. Los planes Business están limitados a 300 usuarios y no incluyen las herramientas de cumplimiento avanzado que E5 provee.'
+      },
+      E3: {
+        subtitle: 'Enterprise sin límite de usuarios, con Intune y Entra ID P1 incluidos',
+        why: 'E3 es el plan Enterprise de referencia. Incluye Office instalado en 5 dispositivos, Exchange Online con buzón de 100 GB y archivo ilimitado, Intune para gestión de dispositivos, Entra ID P1 (acceso condicional) y eDiscovery estándar.',
+        whyNot: 'Los planes Business tienen un tope de 300 licencias. E5 agrega Defender Plan 2 y Entra ID P2, pero solo se justifica cuando se requieren sus capacidades específicas de cumplimiento avanzado.',
+        addon: { label: 'Defender for Office 365 Plan 1', icon: 'fa-shield-alt', why: 'E3 no incluye Defender for Office 365 de forma nativa — requiere add-on. Para sectores regulados es prácticamente obligatorio: cubre Safe Links, Safe Attachments y protección avanzada contra phishing.' }
+      },
+      BusinessPremium: {
+        subtitle: 'El plan más completo para PYMEs: Intune + Defender P1 + Entra ID P1 incluidos',
+        why: 'Business Premium incluye todo lo de Business Standard más Microsoft Intune, Entra ID P1 (acceso condicional, MFA avanzado) y Defender for Office 365 Plan 1. Es el plan más elegido para sectores regulados dentro del límite de 300 usuarios.',
+        whyNot: 'Business Standard no incluye Intune ni Defender for Office 365 Plan 1, lo que lo hace insuficiente para sectores regulados. E3 ofrece capacidades similares pero sin el tope de 300 usuarios y con Exchange Plan 2 incluido.'
+      },
+      BusinessStandard: {
+        subtitle: 'Office instalado + colaboración completa sin necesidad de MDM',
+        why: 'Business Standard incluye Office instalado en hasta 5 dispositivos por usuario, Teams, SharePoint, Exchange Online con 50 GB de buzón y OneDrive con 1 TB. Es el equilibrio entre funcionalidad y costo para organizaciones sin requisitos de MDM.',
+        whyNot: 'Business Basic no incluye Office instalado. Business Premium agrega Intune y Defender P1 con un costo adicional que solo se justifica si hay requisitos de MDM o sector regulado.'
+      },
+      BusinessBasic: {
+        subtitle: 'Colaboración cloud completa sin Office instalado',
+        why: 'Business Basic cubre Teams, SharePoint, Exchange Online con 50 GB y OneDrive con 1 TB. Incluye las versiones web de Office, suficientes para la mayoría de tareas de oficina.',
+        whyNot: 'Business Standard agrega Office instalado, necesario para archivos complejos o macros. Business Premium añade Intune y Defender P1 para organizaciones con requisitos de seguridad más estrictos.'
+      },
+      BusinessBasic_F1: {
+        subtitle: 'Modelo mixto: M365 F1 para primera línea + Business Basic para trabajadores del conocimiento',
+        why: 'Tu organización tiene dos perfiles de usuario. M365 F1 cubre a los trabajadores de primera línea (sin PC fija) con Teams y acceso móvil a un costo menor. Business Basic cubre al resto con colaboración cloud completa.',
+        whyNot: 'Asignar Business Basic a toda la organización sobrelicenciaría a los trabajadores de primera línea. F3 es alternativa a F1 si esos usuarios necesitan crear documentos con Office web.'
+      },
+      BusinessStandard_F3: {
+        subtitle: 'Modelo mixto: M365 F3 para primera línea + Business Standard para trabajadores del conocimiento',
+        why: 'M365 F3 cubre a los trabajadores de primera línea con Office Web Apps completo y 1 TB en OneDrive. Business Standard cubre al resto con Office instalado y colaboración completa.',
+        whyNot: 'F1 no incluye Office Web Apps completo. Asignar Business Standard a todos sería sobrelicenciar a usuarios sin PC fija.'
+      }
+    };
+
+    var cmpState = {
+      currentStep:    0,
+      answers:        {},
+      recommendation: null
+    };
+
+    var questionEl   = cmpQuestion;
+    var progressFill = document.getElementById('cmpProgressFill');
+    var progressBar  = document.getElementById('cmpProgressBar');
+    var stepsEl      = document.getElementById('cmpSteps');
+    var resultEl     = document.getElementById('cmpResult');
+    var planBadgeEl  = document.getElementById('cmpPlanBadge');
+    var planSubtitle = document.getElementById('cmpPlanSubtitle');
+    var justifEl     = document.getElementById('cmpJustification');
+    var addonsEl     = document.getElementById('cmpAddons');
+
+    function buildStepDots() {
+      stepsEl.innerHTML = QUESTIONS.map(function (_, i) {
+        return '<div class="cmp-step-dot" id="cmpDot' + i + '" aria-label="Paso ' + (i + 1) + '">' + (i + 1) + '</div>';
+      }).join('');
+    }
+
+    function updateStepDots(active) {
+      QUESTIONS.forEach(function (_, i) {
+        var dot = document.getElementById('cmpDot' + i);
+        dot.className = 'cmp-step-dot';
+        if (i < active)   dot.classList.add('cmp-step-dot--done');
+        if (i === active) dot.classList.add('cmp-step-dot--active');
+      });
+    }
+
+    function updateProgress(step) {
+      progressFill.style.width = (step / QUESTIONS.length * 100) + '%';
+      progressBar.setAttribute('aria-valuenow', step);
+    }
+
+    function renderStep(stepIndex, direction) {
+      direction = direction || 'forward';
+      cmpState.currentStep = stepIndex;
+      var q          = QUESTIONS[stepIndex];
+      var exitClass  = direction === 'forward' ? 'cmp-question--exit-left'  : 'cmp-question--exit-right';
+      var enterClass = direction === 'forward' ? 'cmp-question--enter-right' : 'cmp-question--enter-left';
+
+      questionEl.classList.remove('cmp-question--visible');
+      questionEl.classList.add(exitClass);
+
+      setTimeout(function () {
+        questionEl.innerHTML = buildQuestionHTML(q, stepIndex);
+        questionEl.classList.remove(exitClass);
+        questionEl.classList.add(enterClass);
+        requestAnimationFrame(function () {
+          requestAnimationFrame(function () {
+            questionEl.classList.remove(enterClass);
+            questionEl.classList.add('cmp-question--visible');
+          });
+        });
+        questionEl.querySelectorAll('.cmp-option').forEach(function (btn) {
+          btn.addEventListener('click', function () { handleOptionClick(q.id, this.dataset.value); });
+        });
+        var backBtn = questionEl.querySelector('#cmpBack');
+        if (backBtn) backBtn.addEventListener('click', function () { renderStep(stepIndex - 1, 'back'); });
+        updateStepDots(stepIndex);
+        updateProgress(stepIndex);
+      }, 220);
+    }
+
+    function buildQuestionHTML(q, stepIndex) {
+      var options = q.options.map(function (opt) {
+        return '<button class="cmp-option" data-value="' + opt.value + '" type="button">' +
+          '<span class="cmp-option-icon"><i class="fas ' + opt.icon + '"></i></span>' +
+          '<span class="cmp-option-label">' + opt.label + '</span>' +
+          '</button>';
+      }).join('');
+      var backBtn = stepIndex > 0
+        ? '<button class="cmp-back-btn" id="cmpBack" type="button"><i class="fas fa-arrow-left"></i> Anterior</button>'
+        : '';
+      return '<p class="cmp-question-num">Pregunta ' + (stepIndex + 1) + ' de ' + QUESTIONS.length + '</p>' +
+        '<h2 class="cmp-question-text">' + q.text + '</h2>' +
+        '<div class="cmp-options" role="group" aria-label="' + q.text + '">' + options + '</div>' +
+        '<div class="cmp-nav-row">' + backBtn + '</div>';
+    }
+
+    function handleOptionClick(questionId, value) {
+      cmpState.answers[questionId] = value;
+      if (cmpState.currentStep < QUESTIONS.length - 1) {
+        renderStep(cmpState.currentStep + 1, 'forward');
+      } else {
+        updateProgress(QUESTIONS.length);
+        updateStepDots(QUESTIONS.length);
+        computeAndShowResult();
+      }
+    }
+
+    function computeRecommendation(a) {
+      if (a.q1_size === 'large' || a.q6_compliance === 'all') {
+        return a.q6_compliance === 'all' ? 'E5' : 'E3';
+      }
+      if (a.q4_regulated === 'yes' || a.q3_mdm === 'yes') {
+        return a.q6_compliance === 'some' ? 'E3' : 'BusinessPremium';
+      }
+      if (a.q6_compliance === 'some') return 'BusinessPremium';
+      if (a.q2_desktop === 'yes' || a.q2_desktop === 'mixed') {
+        return a.q5_frontline === 'yes' ? 'BusinessStandard_F3' : 'BusinessStandard';
+      }
+      return a.q5_frontline === 'yes' ? 'BusinessBasic_F1' : 'BusinessBasic';
+    }
+
+    function computeAndShowResult() {
+      var recKey = computeRecommendation(cmpState.answers);
+      cmpState.recommendation = recKey;
+      var rec   = RECOMMENDATIONS[recKey];
+      var parts = recKey.split('_');
+      var plan  = PLANS_DATA[parts[0]];
+
+      var badgeHTML = '<span style="background:linear-gradient(135deg,' + plan.color + '22,' + plan.color + '44);color:' + plan.color + ';border:1px solid ' + plan.color + '55">' + plan.label + '</span>';
+      if (parts[1]) {
+        var plan2 = PLANS_DATA[parts[1]];
+        badgeHTML += '<span class="cmp-plus">+</span><span style="background:linear-gradient(135deg,' + plan2.color + '22,' + plan2.color + '44);color:' + plan2.color + ';border:1px solid ' + plan2.color + '55">' + plan2.label + '</span>';
+      }
+      planBadgeEl.innerHTML = badgeHTML;
+      planSubtitle.textContent = rec.subtitle;
+
+      justifEl.innerHTML =
+        '<div class="cmp-just-block"><p class="cmp-just-title"><i class="fas fa-check-circle" style="color:var(--accent)"></i> Por qué este plan</p><p>' + rec.why + '</p></div>' +
+        '<div class="cmp-just-block"><p class="cmp-just-title"><i class="fas fa-times-circle" style="color:#f472b6"></i> Por qué no los otros</p><p>' + rec.whyNot + '</p></div>';
+
+      if (rec.addon) {
+        addonsEl.innerHTML =
+          '<p class="cmp-addons-title"><i class="fas fa-puzzle-piece"></i> Add-on recomendado</p>' +
+          '<div class="cmp-addon-card"><div class="cmp-addon-icon"><i class="fas ' + rec.addon.icon + '"></i></div><div><p class="cmp-addon-name">' + rec.addon.label + '</p><p class="cmp-addon-why">' + rec.addon.why + '</p></div></div>';
+        addonsEl.style.display = 'block';
+      } else {
+        addonsEl.style.display = 'none';
+      }
+
+      resultEl.removeAttribute('hidden');
+    }
+
+    function restart() {
+      cmpState.currentStep = 0;
+      cmpState.answers = {};
+      cmpState.recommendation = null;
+      resultEl.setAttribute('hidden', '');
+      renderStep(0);
+      updateProgress(0);
+      updateStepDots(0);
+    }
+
+    buildStepDots();
+    renderStep(0);
+    document.getElementById('cmpRestart').addEventListener('click', restart);
+    document.getElementById('cmpGoToTable').addEventListener('click', function () {
+      switchDoc('m365-guide');
+    });
+  })();
+
 })();
