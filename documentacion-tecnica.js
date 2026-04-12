@@ -24,6 +24,17 @@
     });
   });
 
+  // === EXPANDABLE CARDS ===
+  document.querySelectorAll('.dt-card[data-expandable]').forEach(function (card) {
+    card.addEventListener('click', function () {
+      card.classList.toggle('dt-card--expanded');
+      var label = card.querySelector('.dt-card__toggle');
+      if (label) {
+        label.lastChild.textContent = card.classList.contains('dt-card--expanded') ? ' Ocultar detalles' : ' Ver detalles';
+      }
+    });
+  });
+
   // === M365 COLUMN TOGGLES ===
   const M365_PLANS = [
     { key: 'F1', label: 'F1', color: '#38bdf8' },

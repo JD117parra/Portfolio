@@ -4150,8 +4150,7 @@ body.app-page {
 /* #region Documentación Técnica */
 
 /* ── Variables ─────────────────────────────────────── */
-.dt-hero,
-.dt-container {
+.app-page {
   --dt-bronze: #cd7f32;
   --dt-bronze-bg: rgba(205, 127, 50, 0.10);
   --dt-silver: #94a3b8;
@@ -4486,21 +4485,27 @@ body.app-page {
 }
 
 .dt-card--bronze::before { background: linear-gradient(90deg, var(--dt-bronze), transparent); }
-.dt-card--bronze:hover   { border-color: rgba(205, 127, 50, 0.35); box-shadow: 0 10px 30px rgba(205, 127, 50, 0.08); }
+.dt-card--bronze:hover   { border-color: rgba(205, 127, 50, 0.45); box-shadow: 0 4px 20px rgba(205, 127, 50, 0.15), 0 0 40px rgba(205, 127, 50, 0.06); }
 
 .dt-card--silver::before { background: linear-gradient(90deg, var(--dt-silver), transparent); }
-.dt-card--silver:hover   { border-color: rgba(148, 163, 184, 0.35); box-shadow: 0 10px 30px rgba(148, 163, 184, 0.08); }
+.dt-card--silver:hover   { border-color: rgba(148, 163, 184, 0.45); box-shadow: 0 4px 20px rgba(148, 163, 184, 0.15), 0 0 40px rgba(148, 163, 184, 0.06); }
 
 .dt-card--gold::before   { background: linear-gradient(90deg, var(--dt-gold), transparent); }
-.dt-card--gold:hover     { border-color: rgba(251, 191, 36, 0.35); box-shadow: 0 10px 30px rgba(251, 191, 36, 0.08); }
+.dt-card--gold:hover     { border-color: rgba(251, 191, 36, 0.45); box-shadow: 0 4px 20px rgba(251, 191, 36, 0.15), 0 0 40px rgba(251, 191, 36, 0.06); }
 
 .dt-card--neutral::before { background: linear-gradient(90deg, var(--dt-neutral), transparent); }
-.dt-card--neutral:hover   { border-color: rgba(0, 212, 255, 0.35); box-shadow: 0 10px 30px rgba(0, 212, 255, 0.08); }
+.dt-card--neutral:hover   { border-color: rgba(0, 212, 255, 0.45); box-shadow: 0 4px 20px rgba(0, 212, 255, 0.15), 0 0 40px rgba(0, 212, 255, 0.06); }
 
 .dt-card__icon {
   font-size: 1.5rem;
   margin-bottom: 0.75rem;
+  transition: transform 0.3s ease, filter 0.3s ease;
 }
+.dt-card--bronze .dt-card__icon { color: var(--dt-bronze); filter: drop-shadow(0 0 4px rgba(205, 127, 50, 0.3)); }
+.dt-card--silver .dt-card__icon { color: var(--dt-silver); filter: drop-shadow(0 0 4px rgba(148, 163, 184, 0.3)); }
+.dt-card--gold   .dt-card__icon { color: var(--dt-gold);   filter: drop-shadow(0 0 4px rgba(251, 191, 36, 0.3)); }
+.dt-card--neutral .dt-card__icon { color: var(--dt-neutral); filter: drop-shadow(0 0 4px rgba(0, 212, 255, 0.3)); }
+.dt-card:hover .dt-card__icon { transform: scale(1.15); }
 
 .dt-card__name {
   font-size: 0.95rem;
@@ -4531,6 +4536,108 @@ body.app-page {
   color: var(--text-muted);
   line-height: 1.6;
 }
+
+/* ── Expandable card details ─────────────────────── */
+.dt-card[data-expandable] { cursor: pointer; }
+.dt-card__toggle {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin-top: 0.75rem;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  opacity: 0.5;
+  transition: opacity 0.2s ease;
+}
+.dt-card:hover .dt-card__toggle { opacity: 0.85; }
+.dt-card__toggle i {
+  font-size: 0.6rem;
+  transition: transform 0.3s ease;
+}
+.dt-card--expanded .dt-card__toggle i { transform: rotate(180deg); }
+
+.dt-card__extra {
+  display: none;
+  margin-top: 0.75rem;
+}
+.dt-card--expanded .dt-card__extra {
+  display: block;
+}
+.dt-card__detail-section {
+  padding-top: 0.75rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+.dt-card__detail-section + .dt-card__detail-section {
+  margin-top: 0.6rem;
+}
+.dt-card__detail-label {
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 0.35rem;
+}
+.dt-card--bronze .dt-card__detail-label,
+.dt-card--bronze .dt-card__toggle { color: var(--dt-bronze); }
+.dt-card--silver .dt-card__detail-label,
+.dt-card--silver .dt-card__toggle { color: var(--dt-silver); }
+.dt-card--gold .dt-card__detail-label,
+.dt-card--gold .dt-card__toggle { color: var(--dt-gold); }
+.dt-card--neutral .dt-card__detail-label,
+.dt-card--neutral .dt-card__toggle { color: var(--dt-neutral); }
+
+.dt-card__detail-text {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  line-height: 1.55;
+}
+.dt-card__detail-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+}
+.dt-card__detail-tag {
+  font-size: 0.65rem;
+  padding: 0.15rem 0.55rem;
+  border-radius: 99px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  color: var(--text-muted);
+  font-weight: 500;
+}
+
+/* ── Pipeline animation ──────────────────────────── */
+.dt-pipeline-arrow {
+  position: relative;
+  overflow: hidden;
+}
+.dt-pipeline-arrow::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: -100%;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.5), transparent);
+  animation: dt-pulse-flow 2.5s ease-in-out infinite;
+}
+@keyframes dt-pulse-flow {
+  0%   { left: -100%; opacity: 0; }
+  30%  { opacity: 1; }
+  70%  { opacity: 1; }
+  100% { left: 100%; opacity: 0; }
+}
+.dt-pipeline-badge {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.dt-pipeline-badge:hover {
+  transform: scale(1.05);
+}
+.dt-pipeline-badge--bronze:hover { box-shadow: 0 0 15px rgba(205, 127, 50, 0.25); }
+.dt-pipeline-badge--silver:hover { box-shadow: 0 0 15px rgba(148, 163, 184, 0.25); }
+.dt-pipeline-badge--gold:hover   { box-shadow: 0 0 15px rgba(251, 191, 36, 0.25); }
 
 /* ── ETL Flow ──────────────────────────────────────── */
 .dt-etl-flow {

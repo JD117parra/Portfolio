@@ -132,23 +132,70 @@
           </div>
           <hr class="dt-divider dt-divider--bronze" />
           <div class="dt-cards">
-            <div class="dt-card dt-card--bronze">
+            <div class="dt-card dt-card--bronze" data-expandable>
               <div class="dt-card__icon"><i class="fas fa-industry"></i></div>
               <div class="dt-card__name">Azure Data Factory</div>
               <span class="dt-card__role dt-card__role--bronze">Orquestador ETL</span>
               <p class="dt-card__desc">Extrae datos automáticamente desde múltiples fuentes (bases de datos, APIs, archivos) y los mueve hacia el Data Lake. Es el punto de entrada principal de datos.</p>
+              <div class="dt-card__toggle"><i class="fas fa-chevron-down"></i> Ver detalles</div>
+              <div class="dt-card__extra"><div class="dt-card__extra-inner">
+                <div class="dt-card__detail-section">
+                  <div class="dt-card__detail-label">Casos de uso</div>
+                  <div class="dt-card__detail-text">Migración de datos on-premise a Azure, sincronización entre bases de datos, carga incremental diaria a Data Lake, orquestación de pipelines complejos con dependencias.</div>
+                </div>
+                <div class="dt-card__detail-section">
+                  <div class="dt-card__detail-label">Se conecta con</div>
+                  <div class="dt-card__detail-tags">
+                    <span class="dt-card__detail-tag">Data Lake Gen2</span>
+                    <span class="dt-card__detail-tag">Databricks</span>
+                    <span class="dt-card__detail-tag">Synapse</span>
+                    <span class="dt-card__detail-tag">SQL Database</span>
+                  </div>
+                </div>
+              </div></div>
             </div>
-            <div class="dt-card dt-card--bronze">
+            <div class="dt-card dt-card--bronze" data-expandable>
               <div class="dt-card__icon"><i class="fas fa-satellite-dish"></i></div>
               <div class="dt-card__name">Azure Event Hubs / IoT Hub</div>
               <span class="dt-card__role dt-card__role--bronze">Ingesta en Tiempo Real</span>
               <p class="dt-card__desc">Captura datos de alta frecuencia en tiempo real: sensores, telemetría, streams. Ideal para datos que llegan continuamente como oleaje, viento o movimiento de naves.</p>
+              <div class="dt-card__toggle"><i class="fas fa-chevron-down"></i> Ver detalles</div>
+              <div class="dt-card__extra"><div class="dt-card__extra-inner">
+                <div class="dt-card__detail-section">
+                  <div class="dt-card__detail-label">Casos de uso</div>
+                  <div class="dt-card__detail-text">Telemetría IoT de sensores industriales, ingestión de logs de aplicaciones, streaming de eventos de clickstream, procesamiento de datos GPS en tiempo real.</div>
+                </div>
+                <div class="dt-card__detail-section">
+                  <div class="dt-card__detail-label">Se conecta con</div>
+                  <div class="dt-card__detail-tags">
+                    <span class="dt-card__detail-tag">Stream Analytics</span>
+                    <span class="dt-card__detail-tag">Data Lake Gen2</span>
+                    <span class="dt-card__detail-tag">Functions</span>
+                  </div>
+                </div>
+              </div></div>
             </div>
-            <div class="dt-card dt-card--bronze">
+            <div class="dt-card dt-card--bronze" data-expandable>
               <div class="dt-card__icon"><i class="fas fa-server"></i></div>
               <div class="dt-card__name">Azure Data Lake Storage Gen2</div>
               <span class="dt-card__role dt-card__role--bronze">Repositorio Principal</span>
               <p class="dt-card__desc">Almacén centralizado de todos los datos: crudos (Bronce) y semi-procesados (Plata). Gran escala, bajo costo, compatible con Spark y Hadoop.</p>
+              <div class="dt-card__toggle"><i class="fas fa-chevron-down"></i> Ver detalles</div>
+              <div class="dt-card__extra"><div class="dt-card__extra-inner">
+                <div class="dt-card__detail-section">
+                  <div class="dt-card__detail-label">Casos de uso</div>
+                  <div class="dt-card__detail-text">Almacenamiento centralizado de datos crudos y procesados, data lake corporativo para analytics, almacén de archivos Parquet/Delta para Spark, backup de datos transaccionales.</div>
+                </div>
+                <div class="dt-card__detail-section">
+                  <div class="dt-card__detail-label">Se conecta con</div>
+                  <div class="dt-card__detail-tags">
+                    <span class="dt-card__detail-tag">Data Factory</span>
+                    <span class="dt-card__detail-tag">Databricks</span>
+                    <span class="dt-card__detail-tag">Synapse</span>
+                    <span class="dt-card__detail-tag">Purview</span>
+                  </div>
+                </div>
+              </div></div>
             </div>
           </div>
         </div>
@@ -166,17 +213,49 @@
           </div>
           <hr class="dt-divider dt-divider--silver" />
           <div class="dt-cards">
-            <div class="dt-card dt-card--silver">
+            <div class="dt-card dt-card--silver" data-expandable>
               <div class="dt-card__icon"><i class="fas fa-bolt"></i></div>
               <div class="dt-card__name">Azure Databricks</div>
               <span class="dt-card__role dt-card__role--silver">Motor de Análisis y ETL</span>
               <p class="dt-card__desc">Plataforma avanzada de análisis basada en Apache Spark. Limpia datos, aplica reglas de calidad, hace transformaciones complejas y prepara datasets para modelos de Machine Learning.</p>
+              <div class="dt-card__toggle"><i class="fas fa-chevron-down"></i> Ver detalles</div>
+              <div class="dt-card__extra"><div class="dt-card__extra-inner">
+                <div class="dt-card__detail-section">
+                  <div class="dt-card__detail-label">Casos de uso</div>
+                  <div class="dt-card__detail-text">Limpieza y normalización de datos a escala, feature engineering para ML, procesamiento batch/streaming con Delta Lake, análisis exploratorio colaborativo en notebooks.</div>
+                </div>
+                <div class="dt-card__detail-section">
+                  <div class="dt-card__detail-label">Se conecta con</div>
+                  <div class="dt-card__detail-tags">
+                    <span class="dt-card__detail-tag">Data Lake Gen2</span>
+                    <span class="dt-card__detail-tag">Data Factory</span>
+                    <span class="dt-card__detail-tag">Synapse</span>
+                    <span class="dt-card__detail-tag">Machine Learning</span>
+                  </div>
+                </div>
+              </div></div>
             </div>
-            <div class="dt-card dt-card--silver">
+            <div class="dt-card dt-card--silver" data-expandable>
               <div class="dt-card__icon"><i class="fas fa-water"></i></div>
               <div class="dt-card__name">Azure Stream Analytics</div>
               <span class="dt-card__role dt-card__role--silver">Procesamiento Streaming</span>
               <p class="dt-card__desc">Procesa datos en tiempo real con latencia de milisegundos. Detecta patrones al vuelo, dispara alertas automáticas y transforma streams de sensores antes de almacenarlos.</p>
+              <div class="dt-card__toggle"><i class="fas fa-chevron-down"></i> Ver detalles</div>
+              <div class="dt-card__extra"><div class="dt-card__extra-inner">
+                <div class="dt-card__detail-section">
+                  <div class="dt-card__detail-label">Casos de uso</div>
+                  <div class="dt-card__detail-text">Detección de anomalías en tiempo real, dashboards operacionales live, alertas automáticas por umbrales, transformación de streams IoT antes de persistirlos.</div>
+                </div>
+                <div class="dt-card__detail-section">
+                  <div class="dt-card__detail-label">Se conecta con</div>
+                  <div class="dt-card__detail-tags">
+                    <span class="dt-card__detail-tag">Event Hubs</span>
+                    <span class="dt-card__detail-tag">Data Lake Gen2</span>
+                    <span class="dt-card__detail-tag">Power BI</span>
+                    <span class="dt-card__detail-tag">Functions</span>
+                  </div>
+                </div>
+              </div></div>
             </div>
           </div>
         </div>
@@ -194,23 +273,71 @@
           </div>
           <hr class="dt-divider dt-divider--gold" />
           <div class="dt-cards">
-            <div class="dt-card dt-card--gold">
+            <div class="dt-card dt-card--gold" data-expandable>
               <div class="dt-card__icon"><i class="fas fa-landmark"></i></div>
               <div class="dt-card__name">Azure Synapse Analytics</div>
               <span class="dt-card__role dt-card__role--gold">Data Warehouse + Big Data</span>
               <p class="dt-card__desc">Plataforma unificada que combina Data Warehouse (SQL) con Big Data (Spark). Aquí se construyen los modelos analíticos y Data Marts listos para consumo por Power BI o Machine Learning.</p>
+              <div class="dt-card__toggle"><i class="fas fa-chevron-down"></i> Ver detalles</div>
+              <div class="dt-card__extra"><div class="dt-card__extra-inner">
+                <div class="dt-card__detail-section">
+                  <div class="dt-card__detail-label">Casos de uso</div>
+                  <div class="dt-card__detail-text">Data warehouse empresarial, creación de Data Marts por área de negocio, consultas SQL a escala de petabytes, integración directa con Power BI para reportes en tiempo real.</div>
+                </div>
+                <div class="dt-card__detail-section">
+                  <div class="dt-card__detail-label">Se conecta con</div>
+                  <div class="dt-card__detail-tags">
+                    <span class="dt-card__detail-tag">Data Lake Gen2</span>
+                    <span class="dt-card__detail-tag">Databricks</span>
+                    <span class="dt-card__detail-tag">Power BI</span>
+                    <span class="dt-card__detail-tag">Purview</span>
+                  </div>
+                </div>
+              </div></div>
             </div>
-            <div class="dt-card dt-card--gold">
+            <div class="dt-card dt-card--gold" data-expandable>
               <div class="dt-card__icon"><i class="fas fa-robot"></i></div>
               <div class="dt-card__name">Azure Machine Learning</div>
               <span class="dt-card__role dt-card__role--gold">Modelos Predictivos e IA</span>
               <p class="dt-card__desc">Gestiona el ciclo completo de ML: entrenamiento, versionado y despliegue de modelos. Expone los modelos como endpoints (APIs) para que otras aplicaciones los consuman.</p>
+              <div class="dt-card__toggle"><i class="fas fa-chevron-down"></i> Ver detalles</div>
+              <div class="dt-card__extra"><div class="dt-card__extra-inner">
+                <div class="dt-card__detail-section">
+                  <div class="dt-card__detail-label">Casos de uso</div>
+                  <div class="dt-card__detail-text">Modelos de predicción de demanda, detección de fraude, clasificación de documentos, análisis de sentimiento, MLOps con versionado y despliegue automatizado.</div>
+                </div>
+                <div class="dt-card__detail-section">
+                  <div class="dt-card__detail-label">Se conecta con</div>
+                  <div class="dt-card__detail-tags">
+                    <span class="dt-card__detail-tag">Databricks</span>
+                    <span class="dt-card__detail-tag">Container Apps</span>
+                    <span class="dt-card__detail-tag">API Management</span>
+                    <span class="dt-card__detail-tag">Synapse</span>
+                  </div>
+                </div>
+              </div></div>
             </div>
-            <div class="dt-card dt-card--gold">
+            <div class="dt-card dt-card--gold" data-expandable>
               <div class="dt-card__icon"><i class="fas fa-chart-bar"></i></div>
               <div class="dt-card__name">Power BI</div>
               <span class="dt-card__role dt-card__role--gold">Visualización y Reportes</span>
               <p class="dt-card__desc">Herramienta de Business Intelligence que consume datos de la capa Oro para generar dashboards, reportes automáticos e indicadores operacionales para las áreas del negocio.</p>
+              <div class="dt-card__toggle"><i class="fas fa-chevron-down"></i> Ver detalles</div>
+              <div class="dt-card__extra"><div class="dt-card__extra-inner">
+                <div class="dt-card__detail-section">
+                  <div class="dt-card__detail-label">Casos de uso</div>
+                  <div class="dt-card__detail-text">Dashboards ejecutivos, reportes operacionales automatizados, KPIs en tiempo real, análisis self-service para usuarios de negocio, informes embebidos en aplicaciones.</div>
+                </div>
+                <div class="dt-card__detail-section">
+                  <div class="dt-card__detail-label">Se conecta con</div>
+                  <div class="dt-card__detail-tags">
+                    <span class="dt-card__detail-tag">Synapse</span>
+                    <span class="dt-card__detail-tag">Databricks</span>
+                    <span class="dt-card__detail-tag">Stream Analytics</span>
+                    <span class="dt-card__detail-tag">Entra ID</span>
+                  </div>
+                </div>
+              </div></div>
             </div>
           </div>
         </div>
@@ -228,53 +355,179 @@
           </div>
           <hr class="dt-divider dt-divider--neutral" />
           <div class="dt-cards">
-            <div class="dt-card dt-card--neutral">
+            <div class="dt-card dt-card--neutral" data-expandable>
               <div class="dt-card__icon"><i class="fas fa-clipboard-list"></i></div>
               <div class="dt-card__name">Microsoft Purview</div>
               <span class="dt-card__role dt-card__role--neutral">Gobernanza de Datos</span>
               <p class="dt-card__desc">Catálogo central de datos: qué existe, dónde está, quién lo usa. Gestiona el linaje (trazabilidad de origen a destino), calidad y clasificación por sensibilidad.</p>
+              <div class="dt-card__toggle"><i class="fas fa-chevron-down"></i> Ver detalles</div>
+              <div class="dt-card__extra"><div class="dt-card__extra-inner">
+                <div class="dt-card__detail-section">
+                  <div class="dt-card__detail-label">Casos de uso</div>
+                  <div class="dt-card__detail-text">Catálogo de activos de datos empresarial, trazabilidad end-to-end de pipelines, clasificación automática de datos sensibles (PII, financieros), cumplimiento normativo.</div>
+                </div>
+                <div class="dt-card__detail-section">
+                  <div class="dt-card__detail-label">Se conecta con</div>
+                  <div class="dt-card__detail-tags">
+                    <span class="dt-card__detail-tag">Data Lake Gen2</span>
+                    <span class="dt-card__detail-tag">Synapse</span>
+                    <span class="dt-card__detail-tag">Data Factory</span>
+                    <span class="dt-card__detail-tag">Power BI</span>
+                  </div>
+                </div>
+              </div></div>
             </div>
-            <div class="dt-card dt-card--neutral">
+            <div class="dt-card dt-card--neutral" data-expandable>
               <div class="dt-card__icon"><i class="fas fa-key"></i></div>
               <div class="dt-card__name">Azure Key Vault</div>
               <span class="dt-card__role dt-card__role--neutral">Seguridad</span>
               <p class="dt-card__desc">Almacena de forma segura credenciales, contraseñas, claves de cifrado y certificados. Ningún servicio guarda sus propias contraseñas: todas vienen de aquí.</p>
+              <div class="dt-card__toggle"><i class="fas fa-chevron-down"></i> Ver detalles</div>
+              <div class="dt-card__extra"><div class="dt-card__extra-inner">
+                <div class="dt-card__detail-section">
+                  <div class="dt-card__detail-label">Casos de uso</div>
+                  <div class="dt-card__detail-text">Rotación automática de secretos, almacenamiento de connection strings, certificados TLS para APIs, claves de cifrado para datos en reposo y tránsito.</div>
+                </div>
+                <div class="dt-card__detail-section">
+                  <div class="dt-card__detail-label">Se conecta con</div>
+                  <div class="dt-card__detail-tags">
+                    <span class="dt-card__detail-tag">Data Factory</span>
+                    <span class="dt-card__detail-tag">Functions</span>
+                    <span class="dt-card__detail-tag">API Management</span>
+                    <span class="dt-card__detail-tag">Container Apps</span>
+                  </div>
+                </div>
+              </div></div>
             </div>
-            <div class="dt-card dt-card--neutral">
+            <div class="dt-card dt-card--neutral" data-expandable>
               <div class="dt-card__icon"><i class="fas fa-chart-line"></i></div>
               <div class="dt-card__name">Azure Monitor</div>
               <span class="dt-card__role dt-card__role--neutral">Monitoreo</span>
               <p class="dt-card__desc">Observabilidad de toda la plataforma: métricas, logs y alertas de rendimiento. Supervisa pipelines, APIs y recursos de cómputo en tiempo real.</p>
+              <div class="dt-card__toggle"><i class="fas fa-chevron-down"></i> Ver detalles</div>
+              <div class="dt-card__extra"><div class="dt-card__extra-inner">
+                <div class="dt-card__detail-section">
+                  <div class="dt-card__detail-label">Casos de uso</div>
+                  <div class="dt-card__detail-text">Alertas por fallos en pipelines ETL, monitoreo de latencia de APIs, dashboards de salud de infraestructura, diagnóstico de cuellos de botella en Spark jobs.</div>
+                </div>
+                <div class="dt-card__detail-section">
+                  <div class="dt-card__detail-label">Se conecta con</div>
+                  <div class="dt-card__detail-tags">
+                    <span class="dt-card__detail-tag">Todos los servicios</span>
+                    <span class="dt-card__detail-tag">Logic Apps</span>
+                    <span class="dt-card__detail-tag">Functions</span>
+                  </div>
+                </div>
+              </div></div>
             </div>
-            <div class="dt-card dt-card--neutral">
+            <div class="dt-card dt-card--neutral" data-expandable>
               <div class="dt-card__icon"><i class="fas fa-link"></i></div>
               <div class="dt-card__name">Azure Logic Apps</div>
               <span class="dt-card__role dt-card__role--neutral">Automatización Low-Code</span>
               <p class="dt-card__desc">Crea flujos de trabajo automáticos sin código: enviar alertas por Teams/email, disparar acciones cuando un modelo detecta una anomalía, notificar a operaciones.</p>
+              <div class="dt-card__toggle"><i class="fas fa-chevron-down"></i> Ver detalles</div>
+              <div class="dt-card__extra"><div class="dt-card__extra-inner">
+                <div class="dt-card__detail-section">
+                  <div class="dt-card__detail-label">Casos de uso</div>
+                  <div class="dt-card__detail-text">Notificaciones automáticas por Teams al fallar un pipeline, sincronización de datos entre SaaS, aprobaciones automatizadas, integración con SharePoint y Outlook.</div>
+                </div>
+                <div class="dt-card__detail-section">
+                  <div class="dt-card__detail-label">Se conecta con</div>
+                  <div class="dt-card__detail-tags">
+                    <span class="dt-card__detail-tag">Monitor</span>
+                    <span class="dt-card__detail-tag">Data Factory</span>
+                    <span class="dt-card__detail-tag">Teams</span>
+                    <span class="dt-card__detail-tag">Outlook</span>
+                  </div>
+                </div>
+              </div></div>
             </div>
-            <div class="dt-card dt-card--neutral">
+            <div class="dt-card dt-card--neutral" data-expandable>
               <div class="dt-card__icon"><i class="fas fa-cog"></i></div>
               <div class="dt-card__name">Azure Functions</div>
               <span class="dt-card__role dt-card__role--neutral">Cómputo Serverless</span>
               <p class="dt-card__desc">Ejecuta pequeñas piezas de código bajo demanda sin gestionar servidores. Ideal para auditorías, notificaciones automáticas y micro-tareas disparadas por eventos.</p>
+              <div class="dt-card__toggle"><i class="fas fa-chevron-down"></i> Ver detalles</div>
+              <div class="dt-card__extra"><div class="dt-card__extra-inner">
+                <div class="dt-card__detail-section">
+                  <div class="dt-card__detail-label">Casos de uso</div>
+                  <div class="dt-card__detail-text">Procesamiento de archivos al subirse al blob, webhooks para integraciones externas, tareas programadas de limpieza, validación de datos en tiempo real.</div>
+                </div>
+                <div class="dt-card__detail-section">
+                  <div class="dt-card__detail-label">Se conecta con</div>
+                  <div class="dt-card__detail-tags">
+                    <span class="dt-card__detail-tag">Event Hubs</span>
+                    <span class="dt-card__detail-tag">Data Lake Gen2</span>
+                    <span class="dt-card__detail-tag">Key Vault</span>
+                    <span class="dt-card__detail-tag">Monitor</span>
+                  </div>
+                </div>
+              </div></div>
             </div>
-            <div class="dt-card dt-card--neutral">
+            <div class="dt-card dt-card--neutral" data-expandable>
               <div class="dt-card__icon"><i class="fas fa-globe"></i></div>
               <div class="dt-card__name">Azure API Management</div>
               <span class="dt-card__role dt-card__role--neutral">Gestión de APIs</span>
               <p class="dt-card__desc">Puerta de entrada controlada para exponer modelos y datos a aplicaciones internas o externas. Gestiona seguridad, límites de uso (throttling) y documentación de APIs.</p>
+              <div class="dt-card__toggle"><i class="fas fa-chevron-down"></i> Ver detalles</div>
+              <div class="dt-card__extra"><div class="dt-card__extra-inner">
+                <div class="dt-card__detail-section">
+                  <div class="dt-card__detail-label">Casos de uso</div>
+                  <div class="dt-card__detail-text">Exposición segura de modelos ML como APIs, rate limiting para consumidores externos, portal de documentación para desarrolladores, monetización de datos como servicio.</div>
+                </div>
+                <div class="dt-card__detail-section">
+                  <div class="dt-card__detail-label">Se conecta con</div>
+                  <div class="dt-card__detail-tags">
+                    <span class="dt-card__detail-tag">Container Apps</span>
+                    <span class="dt-card__detail-tag">Functions</span>
+                    <span class="dt-card__detail-tag">Entra ID</span>
+                    <span class="dt-card__detail-tag">Key Vault</span>
+                  </div>
+                </div>
+              </div></div>
             </div>
-            <div class="dt-card dt-card--neutral">
+            <div class="dt-card dt-card--neutral" data-expandable>
               <div class="dt-card__icon"><i class="fas fa-id-badge"></i></div>
               <div class="dt-card__name">Azure Active Directory (Entra ID)</div>
               <span class="dt-card__role dt-card__role--neutral">Identidad y Acceso</span>
               <p class="dt-card__desc">Controla quién puede acceder a qué: usuarios, roles y permisos sobre Power BI, APIs, Data Lake y modelos. Es la capa de identidad de toda la plataforma.</p>
+              <div class="dt-card__toggle"><i class="fas fa-chevron-down"></i> Ver detalles</div>
+              <div class="dt-card__extra"><div class="dt-card__extra-inner">
+                <div class="dt-card__detail-section">
+                  <div class="dt-card__detail-label">Casos de uso</div>
+                  <div class="dt-card__detail-text">SSO corporativo para Power BI y Synapse, Conditional Access para APIs sensibles, Service Principals para pipelines automatizados, RBAC sobre Data Lake.</div>
+                </div>
+                <div class="dt-card__detail-section">
+                  <div class="dt-card__detail-label">Se conecta con</div>
+                  <div class="dt-card__detail-tags">
+                    <span class="dt-card__detail-tag">Todos los servicios</span>
+                    <span class="dt-card__detail-tag">API Management</span>
+                    <span class="dt-card__detail-tag">Power BI</span>
+                  </div>
+                </div>
+              </div></div>
             </div>
-            <div class="dt-card dt-card--neutral">
+            <div class="dt-card dt-card--neutral" data-expandable>
               <div class="dt-card__icon"><i class="fas fa-box"></i></div>
               <div class="dt-card__name">Azure Container Apps</div>
               <span class="dt-card__role dt-card__role--neutral">Despliegue de Modelos</span>
               <p class="dt-card__desc">Ejecuta microservicios y modelos de ML empaquetados como contenedores. Es el backend operacional que expone las predicciones como APIs listas para consumir.</p>
+              <div class="dt-card__toggle"><i class="fas fa-chevron-down"></i> Ver detalles</div>
+              <div class="dt-card__extra"><div class="dt-card__extra-inner">
+                <div class="dt-card__detail-section">
+                  <div class="dt-card__detail-label">Casos de uso</div>
+                  <div class="dt-card__detail-text">Hosting de modelos ML como microservicios, APIs de inferencia en tiempo real, backends escalables automáticamente, procesamiento asíncrono con colas.</div>
+                </div>
+                <div class="dt-card__detail-section">
+                  <div class="dt-card__detail-label">Se conecta con</div>
+                  <div class="dt-card__detail-tags">
+                    <span class="dt-card__detail-tag">Machine Learning</span>
+                    <span class="dt-card__detail-tag">API Management</span>
+                    <span class="dt-card__detail-tag">Key Vault</span>
+                    <span class="dt-card__detail-tag">Monitor</span>
+                  </div>
+                </div>
+              </div></div>
             </div>
           </div>
         </div>
