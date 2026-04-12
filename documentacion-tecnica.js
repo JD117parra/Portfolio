@@ -1,25 +1,27 @@
-// === DOCUMENTACIÓN TÉCNICA — Tab switching ===
+// === DOCUMENTACIÓN TÉCNICA — Sidebar navigation ===
 (function () {
   'use strict';
 
-  var tabs = document.querySelectorAll('.dt-tab:not([disabled])');
-  var panels = document.querySelectorAll('.dt-panel');
+  const sidebarItems = document.querySelectorAll('.sidebar-item:not([disabled])');
+  const panels = document.querySelectorAll('.dt-panel');
 
-  if (!tabs.length) return;
+  if (!sidebarItems.length) return;
 
   function switchDoc(docId) {
+    // Ocultar todos los paneles
     panels.forEach(function (p) { p.classList.add('dt-panel--hidden'); });
-    var target = document.getElementById('doc-' + docId);
+    const target = document.getElementById('doc-' + docId);
     if (target) target.classList.remove('dt-panel--hidden');
 
-    tabs.forEach(function (t) { t.classList.remove('dt-tab--active'); });
-    var btn = document.querySelector('.dt-tab[data-doc="' + docId + '"]');
-    if (btn) btn.classList.add('dt-tab--active');
+    // Actualizar sidebar activa
+    sidebarItems.forEach(function (s) { s.classList.remove('sidebar-item--active'); });
+    const btn = document.querySelector('.sidebar-item[data-doc="' + docId + '"]');
+    if (btn) btn.classList.add('sidebar-item--active');
   }
 
-  tabs.forEach(function (tab) {
-    tab.addEventListener('click', function () {
-      switchDoc(tab.dataset.doc);
+  sidebarItems.forEach(function (item) {
+    item.addEventListener('click', function () {
+      switchDoc(item.dataset.doc);
     });
   });
 
