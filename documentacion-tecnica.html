@@ -979,7 +979,35 @@
             </div>
           </div>
 
-          <div class="lb-hint">haz clic en cualquier componente para ver detalles en el panel lateral</div>
+          <div class="lb-hint">haz clic en cualquier componente para ver detalles</div>
+
+          <!-- Inline detail cards -->
+          <div class="lb-detail-section" id="lbDetailPanel">
+            <div class="lb-detail-section__head">
+              <div class="lb-detail-section__identity">
+                <span class="lb-detail-icon" id="lbDetailIcon"></span>
+                <div>
+                  <div class="lb-detail-title" id="lbDetailTitle"></div>
+                  <span class="lb-detail-badge" id="lbDetailBadge"></span>
+                </div>
+              </div>
+              <button class="lb-detail-close" id="lbDetailClose"><i class="fas fa-times"></i></button>
+            </div>
+            <div class="lb-detail-grid">
+              <div class="lb-detail-grid__card">
+                <div class="lb-detail-grid__label"><i class="fas fa-info-circle"></i> Overview</div>
+                <div id="lb-tc-ov"></div>
+              </div>
+              <div class="lb-detail-grid__card">
+                <div class="lb-detail-grid__label"><i class="fas fa-sliders-h"></i> Configuración</div>
+                <div id="lb-tc-cf"></div>
+              </div>
+              <div class="lb-detail-grid__card">
+                <div class="lb-detail-grid__label"><i class="fas fa-briefcase"></i> Casos de uso</div>
+                <div id="lb-tc-uc"></div>
+              </div>
+            </div>
+          </div>
         </div>
 
         <!-- === VIEW: CONFIGURACIÓN === -->
@@ -1005,28 +1033,6 @@
           </table>
         </div>
 
-        <!-- === DETAIL PANEL (side panel for node clicks) === -->
-        <div class="lb-detail-panel" id="lbDetailPanel">
-          <div class="lb-detail-inner">
-            <div class="lb-detail-head">
-              <div>
-                <span class="lb-detail-icon" id="lbDetailIcon"></span>
-                <div class="lb-detail-title" id="lbDetailTitle"></div>
-                <span class="lb-detail-badge" id="lbDetailBadge"></span>
-              </div>
-              <button class="lb-detail-close" id="lbDetailClose"><i class="fas fa-times"></i></button>
-            </div>
-            <div class="lb-detail-tabs">
-              <button class="lb-dtab lb-dtab--active" data-lb-tab="ov">Overview</button>
-              <button class="lb-dtab" data-lb-tab="cf">Config</button>
-              <button class="lb-dtab" data-lb-tab="uc">Casos de uso</button>
-            </div>
-            <div class="lb-tab-content lb-tab-content--active" id="lb-tc-ov"></div>
-            <div class="lb-tab-content" id="lb-tc-cf"></div>
-            <div class="lb-tab-content" id="lb-tc-uc"></div>
-          </div>
-        </div>
-
       </div>
       <!-- /panel azure-arch -->
 
@@ -1040,96 +1046,103 @@
           <p class="dt-panel__desc">Modelo de capas que define qué gestiona tu organización y qué gestiona Microsoft según el tipo de servicio cloud.</p>
         </div>
 
-        <div class="dt-section">
-          <div class="dt-section-header">
-            <div class="dt-medal dt-medal--neutral">
-              <i class="fas fa-layer-group"></i>
-            </div>
-            <div>
-              <div class="dt-section-title dt-section-title--neutral">IaaS vs PaaS en Azure</div>
-              <div class="dt-section-desc">Comparación de capas de responsabilidad entre Infrastructure as a Service y Platform as a Service</div>
-            </div>
+        <!-- Shared Responsibility Matrix -->
+        <div class="srm">
+          <!-- Column headers -->
+          <div class="srm-head">
+            <div class="srm-head__layers">Capas</div>
+            <div class="srm-head__col srm-head__col--iaas">IaaS</div>
+            <div class="srm-head__col srm-head__col--paas">PaaS</div>
+            <div class="srm-head__col srm-head__col--saas">SaaS</div>
           </div>
-          <hr class="dt-divider dt-divider--neutral" />
 
-          <div style="max-width: 600px; margin: 0 auto;">
-            <svg viewBox="0 0 540 348" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" font-family="Inter, system-ui, sans-serif" style="width:100%; height:auto;">
-              <rect width="540" height="348" fill="#0f1629" rx="10"/>
-              <text x="270" y="23" text-anchor="middle" fill="#e2e8f0" font-size="12" font-weight="700">Responsabilidad Compartida</text>
-              <text x="270" y="38" text-anchor="middle" fill="#64748b" font-size="9.5">IaaS vs PaaS en Azure</text>
-              <line x1="20" y1="47" x2="520" y2="47" stroke="rgba(255,255,255,0.06)" stroke-width="1"/>
-              <rect x="20" y="51" width="238" height="22" fill="rgba(96,165,250,0.12)" rx="4"/>
-              <text x="139" y="66.5" text-anchor="middle" fill="#60a5fa" font-size="11" font-weight="700">IaaS</text>
-              <rect x="282" y="51" width="238" height="22" fill="rgba(0,212,255,0.08)" rx="4"/>
-              <text x="401" y="66.5" text-anchor="middle" fill="#00d4ff" font-size="11" font-weight="700">PaaS</text>
-              <line x1="261" y1="51" x2="261" y2="308" stroke="rgba(255,255,255,0.05)" stroke-width="1"/>
-              <!-- L1 Aplicaciones -->
-              <rect x="20" y="77" width="238" height="26" fill="rgba(22,40,64,0.95)" rx="4" stroke="#60a5fa" stroke-width="0.5" stroke-opacity="0.55"/>
-              <text x="139" y="94" text-anchor="middle" fill="#93c5fd" font-size="10">Aplicaciones</text>
-              <rect x="282" y="77" width="238" height="26" fill="rgba(22,40,64,0.95)" rx="4" stroke="#60a5fa" stroke-width="0.5" stroke-opacity="0.55"/>
-              <text x="401" y="94" text-anchor="middle" fill="#93c5fd" font-size="10">Aplicaciones</text>
-              <!-- L2 Datos -->
-              <rect x="20" y="106" width="238" height="26" fill="rgba(22,40,64,0.85)" rx="4" stroke="#60a5fa" stroke-width="0.5" stroke-opacity="0.45"/>
-              <text x="139" y="123" text-anchor="middle" fill="#93c5fd" font-size="10">Datos</text>
-              <rect x="282" y="106" width="238" height="26" fill="rgba(22,40,64,0.85)" rx="4" stroke="#60a5fa" stroke-width="0.5" stroke-opacity="0.45"/>
-              <text x="401" y="123" text-anchor="middle" fill="#93c5fd" font-size="10">Datos</text>
-              <!-- Límite PaaS -->
-              <line x1="282" y1="133" x2="520" y2="133" stroke="#00d4ff" stroke-width="1" stroke-dasharray="3,2" opacity="0.35"/>
-              <!-- L3 Runtime -->
-              <rect x="20" y="135" width="238" height="26" fill="rgba(22,40,64,0.75)" rx="4" stroke="#60a5fa" stroke-width="0.5" stroke-opacity="0.35"/>
-              <text x="139" y="152" text-anchor="middle" fill="#93c5fd" font-size="10">Runtime</text>
-              <rect x="282" y="135" width="238" height="26" fill="rgba(13,21,37,0.98)" rx="4" stroke="rgba(255,255,255,0.05)" stroke-width="0.5"/>
-              <text x="401" y="152" text-anchor="middle" fill="#3a5270" font-size="10">Runtime</text>
-              <!-- L4 Middleware -->
-              <rect x="20" y="164" width="238" height="26" fill="rgba(22,40,64,0.70)" rx="4" stroke="#60a5fa" stroke-width="0.5" stroke-opacity="0.30"/>
-              <text x="139" y="181" text-anchor="middle" fill="#93c5fd" font-size="10">Middleware</text>
-              <rect x="282" y="164" width="238" height="26" fill="rgba(13,21,37,0.98)" rx="4" stroke="rgba(255,255,255,0.05)" stroke-width="0.5"/>
-              <text x="401" y="181" text-anchor="middle" fill="#3a5270" font-size="10">Middleware</text>
-              <!-- L5 Sistema Operativo -->
-              <rect x="20" y="193" width="238" height="26" fill="rgba(22,40,64,0.65)" rx="4" stroke="#60a5fa" stroke-width="0.5" stroke-opacity="0.25"/>
-              <text x="139" y="210" text-anchor="middle" fill="#93c5fd" font-size="10">Sistema Operativo</text>
-              <rect x="282" y="193" width="238" height="26" fill="rgba(13,21,37,0.98)" rx="4" stroke="rgba(255,255,255,0.05)" stroke-width="0.5"/>
-              <text x="401" y="210" text-anchor="middle" fill="#3a5270" font-size="10">Sistema Operativo</text>
-              <!-- Límite IaaS -->
-              <line x1="20" y1="220" x2="258" y2="220" stroke="#60a5fa" stroke-width="1" stroke-dasharray="3,2" opacity="0.35"/>
-              <!-- L6 Virtualización -->
-              <rect x="20" y="222" width="238" height="26" fill="rgba(13,21,37,0.98)" rx="4" stroke="rgba(255,255,255,0.05)" stroke-width="0.5"/>
-              <text x="139" y="239" text-anchor="middle" fill="#3a5270" font-size="10">Virtualización</text>
-              <rect x="282" y="222" width="238" height="26" fill="rgba(13,21,37,0.98)" rx="4" stroke="rgba(255,255,255,0.05)" stroke-width="0.5"/>
-              <text x="401" y="239" text-anchor="middle" fill="#3a5270" font-size="10">Virtualización</text>
-              <!-- L7 Servidores -->
-              <rect x="20" y="251" width="238" height="26" fill="rgba(13,21,37,0.98)" rx="4" stroke="rgba(255,255,255,0.05)" stroke-width="0.5"/>
-              <text x="139" y="268" text-anchor="middle" fill="#3a5270" font-size="9.5">Servidores · Almacenamiento</text>
-              <rect x="282" y="251" width="238" height="26" fill="rgba(13,21,37,0.98)" rx="4" stroke="rgba(255,255,255,0.05)" stroke-width="0.5"/>
-              <text x="401" y="268" text-anchor="middle" fill="#3a5270" font-size="9.5">Servidores · Almacenamiento</text>
-              <!-- L8 Redes -->
-              <rect x="20" y="280" width="238" height="26" fill="rgba(13,21,37,0.98)" rx="4" stroke="rgba(255,255,255,0.05)" stroke-width="0.5"/>
-              <text x="139" y="297" text-anchor="middle" fill="#3a5270" font-size="10">Redes</text>
-              <rect x="282" y="280" width="238" height="26" fill="rgba(13,21,37,0.98)" rx="4" stroke="rgba(255,255,255,0.05)" stroke-width="0.5"/>
-              <text x="401" y="297" text-anchor="middle" fill="#3a5270" font-size="10">Redes</text>
-              <!-- Leyenda -->
-              <line x1="20" y1="315" x2="520" y2="315" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
-              <rect x="20" y="323" width="10" height="10" fill="rgba(22,40,64,0.95)" rx="2" stroke="#60a5fa" stroke-width="0.5" stroke-opacity="0.55"/>
-              <text x="36" y="332" fill="#94a3b8" font-size="9">Tu responsabilidad</text>
-              <rect x="178" y="323" width="10" height="10" fill="rgba(13,21,37,0.98)" rx="2" stroke="rgba(255,255,255,0.08)" stroke-width="0.5"/>
-              <text x="194" y="332" fill="#94a3b8" font-size="9">Gestionado por Microsoft Azure</text>
-            </svg>
+          <!-- Rows -->
+          <div class="srm-row">
+            <div class="srm-row__label">Aplicaciones</div>
+            <div class="srm-row__cell srm-cell--you">Tu responsabilidad</div>
+            <div class="srm-row__cell srm-cell--you">Tu responsabilidad</div>
+            <div class="srm-row__cell srm-cell--ms">Microsoft</div>
+          </div>
+          <div class="srm-row">
+            <div class="srm-row__label">Datos</div>
+            <div class="srm-row__cell srm-cell--you">Tu responsabilidad</div>
+            <div class="srm-row__cell srm-cell--you">Tu responsabilidad</div>
+            <div class="srm-row__cell srm-cell--shared">Compartida</div>
+          </div>
+          <div class="srm-row">
+            <div class="srm-row__label">Runtime</div>
+            <div class="srm-row__cell srm-cell--you">Tu responsabilidad</div>
+            <div class="srm-row__cell srm-cell--ms">Microsoft</div>
+            <div class="srm-row__cell srm-cell--ms">Microsoft</div>
+          </div>
+          <div class="srm-row">
+            <div class="srm-row__label">Middleware</div>
+            <div class="srm-row__cell srm-cell--you">Tu responsabilidad</div>
+            <div class="srm-row__cell srm-cell--ms">Microsoft</div>
+            <div class="srm-row__cell srm-cell--ms">Microsoft</div>
+          </div>
+          <div class="srm-row">
+            <div class="srm-row__label">Sistema Operativo</div>
+            <div class="srm-row__cell srm-cell--you">Tu responsabilidad</div>
+            <div class="srm-row__cell srm-cell--ms">Microsoft</div>
+            <div class="srm-row__cell srm-cell--ms">Microsoft</div>
+          </div>
+          <div class="srm-row">
+            <div class="srm-row__label">Virtualización</div>
+            <div class="srm-row__cell srm-cell--ms">Microsoft</div>
+            <div class="srm-row__cell srm-cell--ms">Microsoft</div>
+            <div class="srm-row__cell srm-cell--ms">Microsoft</div>
+          </div>
+          <div class="srm-row">
+            <div class="srm-row__label">Servidores / Almacenamiento</div>
+            <div class="srm-row__cell srm-cell--ms">Microsoft</div>
+            <div class="srm-row__cell srm-cell--ms">Microsoft</div>
+            <div class="srm-row__cell srm-cell--ms">Microsoft</div>
+          </div>
+          <div class="srm-row">
+            <div class="srm-row__label">Redes</div>
+            <div class="srm-row__cell srm-cell--ms">Microsoft</div>
+            <div class="srm-row__cell srm-cell--ms">Microsoft</div>
+            <div class="srm-row__cell srm-cell--ms">Microsoft</div>
           </div>
 
           <!-- Legend -->
-          <div class="arch-legend">
-            <div class="arch-legend-item">
-              <div class="arch-legend-tag">01</div>
-              <div class="arch-legend-title" style="color: #60a5fa">IaaS (Infrastructure as a Service)</div>
-              <div class="arch-legend-desc">Tú gestionas desde el sistema operativo hacia arriba (apps, datos, runtime, middleware, SO). Microsoft gestiona virtualización, servidores, almacenamiento y redes.</div>
-            </div>
-            <div class="arch-legend-item">
-              <div class="arch-legend-tag">02</div>
-              <div class="arch-legend-title" style="color: #00d4ff">PaaS (Platform as a Service)</div>
-              <div class="arch-legend-desc">Solo gestionas aplicaciones y datos. Microsoft gestiona todo lo demás: runtime, middleware, SO, virtualización, servidores y redes.</div>
-            </div>
+          <div class="srm-legend">
+            <div class="srm-legend__item"><span class="srm-legend__dot srm-legend__dot--you"></span> Tu responsabilidad</div>
+            <div class="srm-legend__item"><span class="srm-legend__dot srm-legend__dot--shared"></span> Responsabilidad compartida</div>
+            <div class="srm-legend__item"><span class="srm-legend__dot srm-legend__dot--ms"></span> Gestionado por Microsoft</div>
           </div>
+        </div>
 
+        <!-- Info cards -->
+        <div class="srm-cards">
+          <div class="srm-card srm-card--iaas">
+            <div class="srm-card__head">
+              <i class="fas fa-server"></i>
+              <div class="srm-card__title">IaaS</div>
+            </div>
+            <div class="srm-card__subtitle">Infrastructure as a Service</div>
+            <div class="srm-card__desc">Tú gestionas desde el sistema operativo hacia arriba: apps, datos, runtime, middleware y SO. Microsoft gestiona virtualización, servidores, almacenamiento y redes.</div>
+            <div class="srm-card__example"><strong>Ejemplo:</strong> Virtual Machines, VMSS, Azure Disk Storage</div>
+          </div>
+          <div class="srm-card srm-card--paas">
+            <div class="srm-card__head">
+              <i class="fas fa-cubes"></i>
+              <div class="srm-card__title">PaaS</div>
+            </div>
+            <div class="srm-card__subtitle">Platform as a Service</div>
+            <div class="srm-card__desc">Solo gestionas aplicaciones y datos. Microsoft gestiona todo lo demás: runtime, middleware, SO, virtualización, servidores y redes.</div>
+            <div class="srm-card__example"><strong>Ejemplo:</strong> App Service, Azure SQL, Azure Functions</div>
+          </div>
+          <div class="srm-card srm-card--saas">
+            <div class="srm-card__head">
+              <i class="fas fa-cloud"></i>
+              <div class="srm-card__title">SaaS</div>
+            </div>
+            <div class="srm-card__subtitle">Software as a Service</div>
+            <div class="srm-card__desc">Microsoft gestiona toda la infraestructura y la aplicación. Tú gestionas la configuración, los datos del usuario y el control de acceso.</div>
+            <div class="srm-card__example"><strong>Ejemplo:</strong> Microsoft 365, Dynamics 365, Power BI</div>
+          </div>
         </div>
 
       </div>

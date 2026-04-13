@@ -855,10 +855,10 @@
       }).join('');
 
       panel.classList.add('lb-detail--open');
-      switchLbTab('ov');
+      panel.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
     }
 
-    // Close detail panel
+    // Close detail section
     function closeLbPanel() {
       panel.classList.remove('lb-detail--open');
       document.querySelectorAll('.lb-node, .lb-rule').forEach(function (n) {
@@ -867,20 +867,6 @@
     }
 
     closeBtn.addEventListener('click', closeLbPanel);
-
-    // Detail panel tabs
-    function switchLbTab(t) {
-      document.querySelectorAll('.lb-dtab').forEach(function (b) { b.classList.remove('lb-dtab--active'); });
-      document.querySelectorAll('.lb-tab-content').forEach(function (c) { c.classList.remove('lb-tab-content--active'); });
-      document.querySelector('.lb-dtab[data-lb-tab="' + t + '"]').classList.add('lb-dtab--active');
-      document.getElementById('lb-tc-' + t).classList.add('lb-tab-content--active');
-    }
-
-    document.querySelectorAll('.lb-dtab').forEach(function (tab) {
-      tab.addEventListener('click', function () {
-        switchLbTab(tab.getAttribute('data-lb-tab'));
-      });
-    });
 
     // Node click handlers
     document.querySelectorAll('[data-lb-node]').forEach(function (el) {
