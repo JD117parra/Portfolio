@@ -79,7 +79,10 @@
             <i class="fas fa-shield-alt"></i> RBAC y Ámbitos
           </button>
           <button class="sidebar-item" data-doc="azure-arch" type="button">
-            <i class="fas fa-project-diagram"></i> Arquitecturas
+            <i class="fas fa-balance-scale"></i> Azure Load Balancer
+          </button>
+          <button class="sidebar-item" data-doc="azure-shared" type="button">
+            <i class="fas fa-layer-group"></i> Responsabilidad Compartida
           </button>
 
           <p class="sidebar-section-label">Microsoft 365</p>
@@ -132,23 +135,70 @@
           </div>
           <hr class="dt-divider dt-divider--bronze" />
           <div class="dt-cards">
-            <div class="dt-card dt-card--bronze">
+            <div class="dt-card dt-card--bronze" data-expandable>
               <div class="dt-card__icon"><i class="fas fa-industry"></i></div>
               <div class="dt-card__name">Azure Data Factory</div>
               <span class="dt-card__role dt-card__role--bronze">Orquestador ETL</span>
               <p class="dt-card__desc">Extrae datos automáticamente desde múltiples fuentes (bases de datos, APIs, archivos) y los mueve hacia el Data Lake. Es el punto de entrada principal de datos.</p>
+              <div class="dt-card__toggle"><i class="fas fa-chevron-down"></i> Ver detalles</div>
+              <div class="dt-card__extra"><div class="dt-card__extra-inner">
+                <div class="dt-card__detail-section">
+                  <div class="dt-card__detail-label">Casos de uso</div>
+                  <div class="dt-card__detail-text">Migración de datos on-premise a Azure, sincronización entre bases de datos, carga incremental diaria a Data Lake, orquestación de pipelines complejos con dependencias.</div>
+                </div>
+                <div class="dt-card__detail-section">
+                  <div class="dt-card__detail-label">Se conecta con</div>
+                  <div class="dt-card__detail-tags">
+                    <span class="dt-card__detail-tag">Data Lake Gen2</span>
+                    <span class="dt-card__detail-tag">Databricks</span>
+                    <span class="dt-card__detail-tag">Synapse</span>
+                    <span class="dt-card__detail-tag">SQL Database</span>
+                  </div>
+                </div>
+              </div></div>
             </div>
-            <div class="dt-card dt-card--bronze">
+            <div class="dt-card dt-card--bronze" data-expandable>
               <div class="dt-card__icon"><i class="fas fa-satellite-dish"></i></div>
               <div class="dt-card__name">Azure Event Hubs / IoT Hub</div>
               <span class="dt-card__role dt-card__role--bronze">Ingesta en Tiempo Real</span>
               <p class="dt-card__desc">Captura datos de alta frecuencia en tiempo real: sensores, telemetría, streams. Ideal para datos que llegan continuamente como oleaje, viento o movimiento de naves.</p>
+              <div class="dt-card__toggle"><i class="fas fa-chevron-down"></i> Ver detalles</div>
+              <div class="dt-card__extra"><div class="dt-card__extra-inner">
+                <div class="dt-card__detail-section">
+                  <div class="dt-card__detail-label">Casos de uso</div>
+                  <div class="dt-card__detail-text">Telemetría IoT de sensores industriales, ingestión de logs de aplicaciones, streaming de eventos de clickstream, procesamiento de datos GPS en tiempo real.</div>
+                </div>
+                <div class="dt-card__detail-section">
+                  <div class="dt-card__detail-label">Se conecta con</div>
+                  <div class="dt-card__detail-tags">
+                    <span class="dt-card__detail-tag">Stream Analytics</span>
+                    <span class="dt-card__detail-tag">Data Lake Gen2</span>
+                    <span class="dt-card__detail-tag">Functions</span>
+                  </div>
+                </div>
+              </div></div>
             </div>
-            <div class="dt-card dt-card--bronze">
+            <div class="dt-card dt-card--bronze" data-expandable>
               <div class="dt-card__icon"><i class="fas fa-server"></i></div>
               <div class="dt-card__name">Azure Data Lake Storage Gen2</div>
               <span class="dt-card__role dt-card__role--bronze">Repositorio Principal</span>
               <p class="dt-card__desc">Almacén centralizado de todos los datos: crudos (Bronce) y semi-procesados (Plata). Gran escala, bajo costo, compatible con Spark y Hadoop.</p>
+              <div class="dt-card__toggle"><i class="fas fa-chevron-down"></i> Ver detalles</div>
+              <div class="dt-card__extra"><div class="dt-card__extra-inner">
+                <div class="dt-card__detail-section">
+                  <div class="dt-card__detail-label">Casos de uso</div>
+                  <div class="dt-card__detail-text">Almacenamiento centralizado de datos crudos y procesados, data lake corporativo para analytics, almacén de archivos Parquet/Delta para Spark, backup de datos transaccionales.</div>
+                </div>
+                <div class="dt-card__detail-section">
+                  <div class="dt-card__detail-label">Se conecta con</div>
+                  <div class="dt-card__detail-tags">
+                    <span class="dt-card__detail-tag">Data Factory</span>
+                    <span class="dt-card__detail-tag">Databricks</span>
+                    <span class="dt-card__detail-tag">Synapse</span>
+                    <span class="dt-card__detail-tag">Purview</span>
+                  </div>
+                </div>
+              </div></div>
             </div>
           </div>
         </div>
@@ -166,17 +216,49 @@
           </div>
           <hr class="dt-divider dt-divider--silver" />
           <div class="dt-cards">
-            <div class="dt-card dt-card--silver">
+            <div class="dt-card dt-card--silver" data-expandable>
               <div class="dt-card__icon"><i class="fas fa-bolt"></i></div>
               <div class="dt-card__name">Azure Databricks</div>
               <span class="dt-card__role dt-card__role--silver">Motor de Análisis y ETL</span>
               <p class="dt-card__desc">Plataforma avanzada de análisis basada en Apache Spark. Limpia datos, aplica reglas de calidad, hace transformaciones complejas y prepara datasets para modelos de Machine Learning.</p>
+              <div class="dt-card__toggle"><i class="fas fa-chevron-down"></i> Ver detalles</div>
+              <div class="dt-card__extra"><div class="dt-card__extra-inner">
+                <div class="dt-card__detail-section">
+                  <div class="dt-card__detail-label">Casos de uso</div>
+                  <div class="dt-card__detail-text">Limpieza y normalización de datos a escala, feature engineering para ML, procesamiento batch/streaming con Delta Lake, análisis exploratorio colaborativo en notebooks.</div>
+                </div>
+                <div class="dt-card__detail-section">
+                  <div class="dt-card__detail-label">Se conecta con</div>
+                  <div class="dt-card__detail-tags">
+                    <span class="dt-card__detail-tag">Data Lake Gen2</span>
+                    <span class="dt-card__detail-tag">Data Factory</span>
+                    <span class="dt-card__detail-tag">Synapse</span>
+                    <span class="dt-card__detail-tag">Machine Learning</span>
+                  </div>
+                </div>
+              </div></div>
             </div>
-            <div class="dt-card dt-card--silver">
+            <div class="dt-card dt-card--silver" data-expandable>
               <div class="dt-card__icon"><i class="fas fa-water"></i></div>
               <div class="dt-card__name">Azure Stream Analytics</div>
               <span class="dt-card__role dt-card__role--silver">Procesamiento Streaming</span>
               <p class="dt-card__desc">Procesa datos en tiempo real con latencia de milisegundos. Detecta patrones al vuelo, dispara alertas automáticas y transforma streams de sensores antes de almacenarlos.</p>
+              <div class="dt-card__toggle"><i class="fas fa-chevron-down"></i> Ver detalles</div>
+              <div class="dt-card__extra"><div class="dt-card__extra-inner">
+                <div class="dt-card__detail-section">
+                  <div class="dt-card__detail-label">Casos de uso</div>
+                  <div class="dt-card__detail-text">Detección de anomalías en tiempo real, dashboards operacionales live, alertas automáticas por umbrales, transformación de streams IoT antes de persistirlos.</div>
+                </div>
+                <div class="dt-card__detail-section">
+                  <div class="dt-card__detail-label">Se conecta con</div>
+                  <div class="dt-card__detail-tags">
+                    <span class="dt-card__detail-tag">Event Hubs</span>
+                    <span class="dt-card__detail-tag">Data Lake Gen2</span>
+                    <span class="dt-card__detail-tag">Power BI</span>
+                    <span class="dt-card__detail-tag">Functions</span>
+                  </div>
+                </div>
+              </div></div>
             </div>
           </div>
         </div>
@@ -194,23 +276,71 @@
           </div>
           <hr class="dt-divider dt-divider--gold" />
           <div class="dt-cards">
-            <div class="dt-card dt-card--gold">
+            <div class="dt-card dt-card--gold" data-expandable>
               <div class="dt-card__icon"><i class="fas fa-landmark"></i></div>
               <div class="dt-card__name">Azure Synapse Analytics</div>
               <span class="dt-card__role dt-card__role--gold">Data Warehouse + Big Data</span>
               <p class="dt-card__desc">Plataforma unificada que combina Data Warehouse (SQL) con Big Data (Spark). Aquí se construyen los modelos analíticos y Data Marts listos para consumo por Power BI o Machine Learning.</p>
+              <div class="dt-card__toggle"><i class="fas fa-chevron-down"></i> Ver detalles</div>
+              <div class="dt-card__extra"><div class="dt-card__extra-inner">
+                <div class="dt-card__detail-section">
+                  <div class="dt-card__detail-label">Casos de uso</div>
+                  <div class="dt-card__detail-text">Data warehouse empresarial, creación de Data Marts por área de negocio, consultas SQL a escala de petabytes, integración directa con Power BI para reportes en tiempo real.</div>
+                </div>
+                <div class="dt-card__detail-section">
+                  <div class="dt-card__detail-label">Se conecta con</div>
+                  <div class="dt-card__detail-tags">
+                    <span class="dt-card__detail-tag">Data Lake Gen2</span>
+                    <span class="dt-card__detail-tag">Databricks</span>
+                    <span class="dt-card__detail-tag">Power BI</span>
+                    <span class="dt-card__detail-tag">Purview</span>
+                  </div>
+                </div>
+              </div></div>
             </div>
-            <div class="dt-card dt-card--gold">
+            <div class="dt-card dt-card--gold" data-expandable>
               <div class="dt-card__icon"><i class="fas fa-robot"></i></div>
               <div class="dt-card__name">Azure Machine Learning</div>
               <span class="dt-card__role dt-card__role--gold">Modelos Predictivos e IA</span>
               <p class="dt-card__desc">Gestiona el ciclo completo de ML: entrenamiento, versionado y despliegue de modelos. Expone los modelos como endpoints (APIs) para que otras aplicaciones los consuman.</p>
+              <div class="dt-card__toggle"><i class="fas fa-chevron-down"></i> Ver detalles</div>
+              <div class="dt-card__extra"><div class="dt-card__extra-inner">
+                <div class="dt-card__detail-section">
+                  <div class="dt-card__detail-label">Casos de uso</div>
+                  <div class="dt-card__detail-text">Modelos de predicción de demanda, detección de fraude, clasificación de documentos, análisis de sentimiento, MLOps con versionado y despliegue automatizado.</div>
+                </div>
+                <div class="dt-card__detail-section">
+                  <div class="dt-card__detail-label">Se conecta con</div>
+                  <div class="dt-card__detail-tags">
+                    <span class="dt-card__detail-tag">Databricks</span>
+                    <span class="dt-card__detail-tag">Container Apps</span>
+                    <span class="dt-card__detail-tag">API Management</span>
+                    <span class="dt-card__detail-tag">Synapse</span>
+                  </div>
+                </div>
+              </div></div>
             </div>
-            <div class="dt-card dt-card--gold">
+            <div class="dt-card dt-card--gold" data-expandable>
               <div class="dt-card__icon"><i class="fas fa-chart-bar"></i></div>
               <div class="dt-card__name">Power BI</div>
               <span class="dt-card__role dt-card__role--gold">Visualización y Reportes</span>
               <p class="dt-card__desc">Herramienta de Business Intelligence que consume datos de la capa Oro para generar dashboards, reportes automáticos e indicadores operacionales para las áreas del negocio.</p>
+              <div class="dt-card__toggle"><i class="fas fa-chevron-down"></i> Ver detalles</div>
+              <div class="dt-card__extra"><div class="dt-card__extra-inner">
+                <div class="dt-card__detail-section">
+                  <div class="dt-card__detail-label">Casos de uso</div>
+                  <div class="dt-card__detail-text">Dashboards ejecutivos, reportes operacionales automatizados, KPIs en tiempo real, análisis self-service para usuarios de negocio, informes embebidos en aplicaciones.</div>
+                </div>
+                <div class="dt-card__detail-section">
+                  <div class="dt-card__detail-label">Se conecta con</div>
+                  <div class="dt-card__detail-tags">
+                    <span class="dt-card__detail-tag">Synapse</span>
+                    <span class="dt-card__detail-tag">Databricks</span>
+                    <span class="dt-card__detail-tag">Stream Analytics</span>
+                    <span class="dt-card__detail-tag">Entra ID</span>
+                  </div>
+                </div>
+              </div></div>
             </div>
           </div>
         </div>
@@ -228,53 +358,179 @@
           </div>
           <hr class="dt-divider dt-divider--neutral" />
           <div class="dt-cards">
-            <div class="dt-card dt-card--neutral">
+            <div class="dt-card dt-card--neutral" data-expandable>
               <div class="dt-card__icon"><i class="fas fa-clipboard-list"></i></div>
               <div class="dt-card__name">Microsoft Purview</div>
               <span class="dt-card__role dt-card__role--neutral">Gobernanza de Datos</span>
               <p class="dt-card__desc">Catálogo central de datos: qué existe, dónde está, quién lo usa. Gestiona el linaje (trazabilidad de origen a destino), calidad y clasificación por sensibilidad.</p>
+              <div class="dt-card__toggle"><i class="fas fa-chevron-down"></i> Ver detalles</div>
+              <div class="dt-card__extra"><div class="dt-card__extra-inner">
+                <div class="dt-card__detail-section">
+                  <div class="dt-card__detail-label">Casos de uso</div>
+                  <div class="dt-card__detail-text">Catálogo de activos de datos empresarial, trazabilidad end-to-end de pipelines, clasificación automática de datos sensibles (PII, financieros), cumplimiento normativo.</div>
+                </div>
+                <div class="dt-card__detail-section">
+                  <div class="dt-card__detail-label">Se conecta con</div>
+                  <div class="dt-card__detail-tags">
+                    <span class="dt-card__detail-tag">Data Lake Gen2</span>
+                    <span class="dt-card__detail-tag">Synapse</span>
+                    <span class="dt-card__detail-tag">Data Factory</span>
+                    <span class="dt-card__detail-tag">Power BI</span>
+                  </div>
+                </div>
+              </div></div>
             </div>
-            <div class="dt-card dt-card--neutral">
+            <div class="dt-card dt-card--neutral" data-expandable>
               <div class="dt-card__icon"><i class="fas fa-key"></i></div>
               <div class="dt-card__name">Azure Key Vault</div>
               <span class="dt-card__role dt-card__role--neutral">Seguridad</span>
               <p class="dt-card__desc">Almacena de forma segura credenciales, contraseñas, claves de cifrado y certificados. Ningún servicio guarda sus propias contraseñas: todas vienen de aquí.</p>
+              <div class="dt-card__toggle"><i class="fas fa-chevron-down"></i> Ver detalles</div>
+              <div class="dt-card__extra"><div class="dt-card__extra-inner">
+                <div class="dt-card__detail-section">
+                  <div class="dt-card__detail-label">Casos de uso</div>
+                  <div class="dt-card__detail-text">Rotación automática de secretos, almacenamiento de connection strings, certificados TLS para APIs, claves de cifrado para datos en reposo y tránsito.</div>
+                </div>
+                <div class="dt-card__detail-section">
+                  <div class="dt-card__detail-label">Se conecta con</div>
+                  <div class="dt-card__detail-tags">
+                    <span class="dt-card__detail-tag">Data Factory</span>
+                    <span class="dt-card__detail-tag">Functions</span>
+                    <span class="dt-card__detail-tag">API Management</span>
+                    <span class="dt-card__detail-tag">Container Apps</span>
+                  </div>
+                </div>
+              </div></div>
             </div>
-            <div class="dt-card dt-card--neutral">
+            <div class="dt-card dt-card--neutral" data-expandable>
               <div class="dt-card__icon"><i class="fas fa-chart-line"></i></div>
               <div class="dt-card__name">Azure Monitor</div>
               <span class="dt-card__role dt-card__role--neutral">Monitoreo</span>
               <p class="dt-card__desc">Observabilidad de toda la plataforma: métricas, logs y alertas de rendimiento. Supervisa pipelines, APIs y recursos de cómputo en tiempo real.</p>
+              <div class="dt-card__toggle"><i class="fas fa-chevron-down"></i> Ver detalles</div>
+              <div class="dt-card__extra"><div class="dt-card__extra-inner">
+                <div class="dt-card__detail-section">
+                  <div class="dt-card__detail-label">Casos de uso</div>
+                  <div class="dt-card__detail-text">Alertas por fallos en pipelines ETL, monitoreo de latencia de APIs, dashboards de salud de infraestructura, diagnóstico de cuellos de botella en Spark jobs.</div>
+                </div>
+                <div class="dt-card__detail-section">
+                  <div class="dt-card__detail-label">Se conecta con</div>
+                  <div class="dt-card__detail-tags">
+                    <span class="dt-card__detail-tag">Todos los servicios</span>
+                    <span class="dt-card__detail-tag">Logic Apps</span>
+                    <span class="dt-card__detail-tag">Functions</span>
+                  </div>
+                </div>
+              </div></div>
             </div>
-            <div class="dt-card dt-card--neutral">
+            <div class="dt-card dt-card--neutral" data-expandable>
               <div class="dt-card__icon"><i class="fas fa-link"></i></div>
               <div class="dt-card__name">Azure Logic Apps</div>
               <span class="dt-card__role dt-card__role--neutral">Automatización Low-Code</span>
               <p class="dt-card__desc">Crea flujos de trabajo automáticos sin código: enviar alertas por Teams/email, disparar acciones cuando un modelo detecta una anomalía, notificar a operaciones.</p>
+              <div class="dt-card__toggle"><i class="fas fa-chevron-down"></i> Ver detalles</div>
+              <div class="dt-card__extra"><div class="dt-card__extra-inner">
+                <div class="dt-card__detail-section">
+                  <div class="dt-card__detail-label">Casos de uso</div>
+                  <div class="dt-card__detail-text">Notificaciones automáticas por Teams al fallar un pipeline, sincronización de datos entre SaaS, aprobaciones automatizadas, integración con SharePoint y Outlook.</div>
+                </div>
+                <div class="dt-card__detail-section">
+                  <div class="dt-card__detail-label">Se conecta con</div>
+                  <div class="dt-card__detail-tags">
+                    <span class="dt-card__detail-tag">Monitor</span>
+                    <span class="dt-card__detail-tag">Data Factory</span>
+                    <span class="dt-card__detail-tag">Teams</span>
+                    <span class="dt-card__detail-tag">Outlook</span>
+                  </div>
+                </div>
+              </div></div>
             </div>
-            <div class="dt-card dt-card--neutral">
+            <div class="dt-card dt-card--neutral" data-expandable>
               <div class="dt-card__icon"><i class="fas fa-cog"></i></div>
               <div class="dt-card__name">Azure Functions</div>
               <span class="dt-card__role dt-card__role--neutral">Cómputo Serverless</span>
               <p class="dt-card__desc">Ejecuta pequeñas piezas de código bajo demanda sin gestionar servidores. Ideal para auditorías, notificaciones automáticas y micro-tareas disparadas por eventos.</p>
+              <div class="dt-card__toggle"><i class="fas fa-chevron-down"></i> Ver detalles</div>
+              <div class="dt-card__extra"><div class="dt-card__extra-inner">
+                <div class="dt-card__detail-section">
+                  <div class="dt-card__detail-label">Casos de uso</div>
+                  <div class="dt-card__detail-text">Procesamiento de archivos al subirse al blob, webhooks para integraciones externas, tareas programadas de limpieza, validación de datos en tiempo real.</div>
+                </div>
+                <div class="dt-card__detail-section">
+                  <div class="dt-card__detail-label">Se conecta con</div>
+                  <div class="dt-card__detail-tags">
+                    <span class="dt-card__detail-tag">Event Hubs</span>
+                    <span class="dt-card__detail-tag">Data Lake Gen2</span>
+                    <span class="dt-card__detail-tag">Key Vault</span>
+                    <span class="dt-card__detail-tag">Monitor</span>
+                  </div>
+                </div>
+              </div></div>
             </div>
-            <div class="dt-card dt-card--neutral">
+            <div class="dt-card dt-card--neutral" data-expandable>
               <div class="dt-card__icon"><i class="fas fa-globe"></i></div>
               <div class="dt-card__name">Azure API Management</div>
               <span class="dt-card__role dt-card__role--neutral">Gestión de APIs</span>
               <p class="dt-card__desc">Puerta de entrada controlada para exponer modelos y datos a aplicaciones internas o externas. Gestiona seguridad, límites de uso (throttling) y documentación de APIs.</p>
+              <div class="dt-card__toggle"><i class="fas fa-chevron-down"></i> Ver detalles</div>
+              <div class="dt-card__extra"><div class="dt-card__extra-inner">
+                <div class="dt-card__detail-section">
+                  <div class="dt-card__detail-label">Casos de uso</div>
+                  <div class="dt-card__detail-text">Exposición segura de modelos ML como APIs, rate limiting para consumidores externos, portal de documentación para desarrolladores, monetización de datos como servicio.</div>
+                </div>
+                <div class="dt-card__detail-section">
+                  <div class="dt-card__detail-label">Se conecta con</div>
+                  <div class="dt-card__detail-tags">
+                    <span class="dt-card__detail-tag">Container Apps</span>
+                    <span class="dt-card__detail-tag">Functions</span>
+                    <span class="dt-card__detail-tag">Entra ID</span>
+                    <span class="dt-card__detail-tag">Key Vault</span>
+                  </div>
+                </div>
+              </div></div>
             </div>
-            <div class="dt-card dt-card--neutral">
+            <div class="dt-card dt-card--neutral" data-expandable>
               <div class="dt-card__icon"><i class="fas fa-id-badge"></i></div>
               <div class="dt-card__name">Azure Active Directory (Entra ID)</div>
               <span class="dt-card__role dt-card__role--neutral">Identidad y Acceso</span>
               <p class="dt-card__desc">Controla quién puede acceder a qué: usuarios, roles y permisos sobre Power BI, APIs, Data Lake y modelos. Es la capa de identidad de toda la plataforma.</p>
+              <div class="dt-card__toggle"><i class="fas fa-chevron-down"></i> Ver detalles</div>
+              <div class="dt-card__extra"><div class="dt-card__extra-inner">
+                <div class="dt-card__detail-section">
+                  <div class="dt-card__detail-label">Casos de uso</div>
+                  <div class="dt-card__detail-text">SSO corporativo para Power BI y Synapse, Conditional Access para APIs sensibles, Service Principals para pipelines automatizados, RBAC sobre Data Lake.</div>
+                </div>
+                <div class="dt-card__detail-section">
+                  <div class="dt-card__detail-label">Se conecta con</div>
+                  <div class="dt-card__detail-tags">
+                    <span class="dt-card__detail-tag">Todos los servicios</span>
+                    <span class="dt-card__detail-tag">API Management</span>
+                    <span class="dt-card__detail-tag">Power BI</span>
+                  </div>
+                </div>
+              </div></div>
             </div>
-            <div class="dt-card dt-card--neutral">
+            <div class="dt-card dt-card--neutral" data-expandable>
               <div class="dt-card__icon"><i class="fas fa-box"></i></div>
               <div class="dt-card__name">Azure Container Apps</div>
               <span class="dt-card__role dt-card__role--neutral">Despliegue de Modelos</span>
               <p class="dt-card__desc">Ejecuta microservicios y modelos de ML empaquetados como contenedores. Es el backend operacional que expone las predicciones como APIs listas para consumir.</p>
+              <div class="dt-card__toggle"><i class="fas fa-chevron-down"></i> Ver detalles</div>
+              <div class="dt-card__extra"><div class="dt-card__extra-inner">
+                <div class="dt-card__detail-section">
+                  <div class="dt-card__detail-label">Casos de uso</div>
+                  <div class="dt-card__detail-text">Hosting de modelos ML como microservicios, APIs de inferencia en tiempo real, backends escalables automáticamente, procesamiento asíncrono con colas.</div>
+                </div>
+                <div class="dt-card__detail-section">
+                  <div class="dt-card__detail-label">Se conecta con</div>
+                  <div class="dt-card__detail-tags">
+                    <span class="dt-card__detail-tag">Machine Learning</span>
+                    <span class="dt-card__detail-tag">API Management</span>
+                    <span class="dt-card__detail-tag">Key Vault</span>
+                    <span class="dt-card__detail-tag">Monitor</span>
+                  </div>
+                </div>
+              </div></div>
             </div>
           </div>
         </div>
@@ -573,222 +829,324 @@
       <div class="dt-panel dt-panel--hidden" id="doc-azure-arch">
 
         <div class="dt-panel__header">
-          <h2 class="dt-panel__title">Arquitecturas Azure</h2>
-          <p class="dt-panel__desc">Diagramas de referencia de arquitecturas comunes en Azure para casos reales de clientes.</p>
+          <h2 class="dt-panel__title">Azure Standard Load Balancer</h2>
+          <p class="dt-panel__desc">Arquitectura interactiva de componentes — haz clic en cualquier nodo para ver detalles técnicos.</p>
         </div>
 
-        <!-- Load Balancer -->
-        <div class="dt-section">
-          <div class="dt-section-header">
-            <div class="dt-medal dt-medal--neutral">
-              <i class="fas fa-balance-scale"></i>
-            </div>
-            <div>
-              <div class="dt-section-title dt-section-title--neutral">Azure Standard Load Balancer</div>
-              <div class="dt-section-desc">Arquitectura de componentes — caso cliente</div>
-            </div>
-          </div>
-          <hr class="dt-divider dt-divider--neutral" />
+        <!-- View tabs: Diagrama / Configuración -->
+        <div class="lb-view-tabs">
+          <button class="lb-vtab lb-vtab--active" data-lb-view="diag">Diagrama</button>
+          <button class="lb-vtab" data-lb-view="cfg">Configuración</button>
+        </div>
 
-          <!-- Diagram -->
-          <div class="arch-diagram">
-            <!-- Usuario -->
-            <div class="arch-node">
-              <div class="arch-box arch-box--user">
-                <span class="arch-box-icon"><i class="fas fa-user"></i></span>
-                <div class="arch-box-label">Usuario</div>
-                <div class="arch-box-sub">Internet</div>
-              </div>
-            </div>
+        <!-- === VIEW: DIAGRAMA === -->
+        <div class="lb-view lb-view--active" id="lb-view-diag">
 
-            <!-- Arrow 1 -->
-            <div class="arch-arrow">
-              <svg viewBox="0 0 60 20"><line x1="0" y1="10" x2="52" y2="10" stroke="#37474f" stroke-width="1.5"/><polygon points="52,6 60,10 52,14" fill="#37474f"/></svg>
-              <div class="arch-arrow-label">tráfico entrante</div>
-            </div>
+          <!-- Availability Zones wrapper -->
+          <div class="lb-az-wrap">
+            <span class="lb-az-label">Availability Zones — Zona 1 · Zona 2 · Zona 3</span>
 
-            <!-- Frontend IP -->
-            <div class="arch-node">
-              <div class="arch-box arch-box--frontend">
-                <span class="arch-box-icon"><i class="fas fa-globe"></i></span>
-                <div class="arch-box-label">Frontend IP</div>
-                <div class="arch-box-sub">IP Pública</div>
-              </div>
-            </div>
+            <!-- NSG wrapper -->
+            <div class="lb-nsg-wrap">
+              <span class="lb-nsg-label" data-lb-node="nsg">NSG — Network Security Group</span>
 
-            <!-- Arrow 2 -->
-            <div class="arch-arrow">
-              <svg viewBox="0 0 60 20"><line x1="0" y1="10" x2="52" y2="10" stroke="#0077b6" stroke-width="1.5"/><polygon points="52,6 60,10 52,14" fill="#0077b6"/></svg>
-              <div class="arch-arrow-label">reglas de balanceo</div>
-            </div>
-
-            <!-- Load Balancer -->
-            <div class="arch-node">
-              <div class="arch-box arch-box--lb">
-                <span class="arch-box-icon"><i class="fas fa-balance-scale"></i></span>
-                <div class="arch-box-label">Standard Load Balancer</div>
-                <div class="arch-box-sub">Capa 4 · TCP / UDP</div>
-              </div>
-            </div>
-
-            <!-- Arrow 3 -->
-            <div class="arch-arrow">
-              <svg viewBox="0 0 60 20"><line x1="0" y1="10" x2="52" y2="10" stroke="#1b5e20" stroke-width="1.5"/><polygon points="52,6 60,10 52,14" fill="#1b5e20"/></svg>
-              <div class="arch-arrow-label">distribuye tráfico</div>
-            </div>
-
-            <!-- Backend Pool -->
-            <div class="arch-node">
-              <div class="arch-box arch-box--pool">
-                <span class="arch-box-icon"><i class="fas fa-server"></i></span>
-                <div class="arch-box-label">Backend Pool</div>
-                <div class="arch-box-sub">VMSS · 2 instancias</div>
-                <div class="arch-vms">
-                  <div class="arch-vm-card">
-                    <i class="fab fa-linux"></i>
-                    VM 1<br/>D2s v3
+              <!-- Flow: nodes + arrows -->
+              <div class="lb-flow">
+                <!-- Users -->
+                <div class="lb-node lb-node--user" data-lb-node="users">
+                  <div class="lb-tooltip">Tráfico entrante desde internet</div>
+                  <div class="lb-node-box">
+                    <span class="lb-node-icon"><i class="fas fa-user"></i></span>
+                    <div class="lb-node-label">Usuarios</div>
+                    <div class="lb-node-sub">Internet</div>
                   </div>
-                  <div class="arch-vm-card">
-                    <i class="fab fa-linux"></i>
-                    VM 2<br/>D2s v3
+                </div>
+
+                <!-- Arrow -->
+                <div class="lb-arrow">
+                  <div class="lb-arrow-track">
+                    <svg class="lb-arrow-svg" viewBox="0 0 50 18"><line x1="0" y1="9" x2="43" y2="9" stroke="#1c2e3e" stroke-width="1"/><polygon points="43,6 50,9 43,12" fill="#1c2e3e"/></svg>
+                    <div class="lb-pkt lb-pkt--blue" style="animation-delay:0s"></div>
+                    <div class="lb-pkt lb-pkt--blue" style="animation-delay:.9s"></div>
+                  </div>
+                  <span class="lb-arrow-label">HTTP/S</span>
+                </div>
+
+                <!-- NSG node -->
+                <div class="lb-node lb-node--nsg" data-lb-node="nsg">
+                  <div class="lb-tooltip">Filtrado — obligatorio en Standard SKU</div>
+                  <div class="lb-node-box">
+                    <span class="lb-node-icon"><i class="fas fa-shield-alt"></i></span>
+                    <div class="lb-node-label">NSG</div>
+                    <div class="lb-node-sub">Reglas de red</div>
+                  </div>
+                </div>
+
+                <!-- Arrow -->
+                <div class="lb-arrow">
+                  <div class="lb-arrow-track">
+                    <svg class="lb-arrow-svg" viewBox="0 0 50 18"><line x1="0" y1="9" x2="43" y2="9" stroke="#1c2e3e" stroke-width="1"/><polygon points="43,6 50,9 43,12" fill="#1c2e3e"/></svg>
+                    <div class="lb-pkt lb-pkt--red" style="animation-delay:.5s"></div>
+                  </div>
+                  <span class="lb-arrow-label">permitido</span>
+                </div>
+
+                <!-- Frontend IP -->
+                <div class="lb-node lb-node--fip" data-lb-node="fip">
+                  <div class="lb-tooltip">IP pública estática · punto de entrada</div>
+                  <div class="lb-node-box">
+                    <span class="lb-node-icon"><i class="fas fa-globe"></i></span>
+                    <div class="lb-node-label">Frontend IP</div>
+                    <div class="lb-node-sub">IP Pública</div>
+                  </div>
+                </div>
+
+                <!-- Arrow -->
+                <div class="lb-arrow">
+                  <div class="lb-arrow-track">
+                    <svg class="lb-arrow-svg" viewBox="0 0 50 18"><line x1="0" y1="9" x2="43" y2="9" stroke="#084a8a" stroke-width="1.2"/><polygon points="43,6 50,9 43,12" fill="#084a8a"/></svg>
+                    <div class="lb-pkt lb-pkt--lightblue" style="animation-delay:.25s"></div>
+                  </div>
+                  <span class="lb-arrow-label">reglas LB</span>
+                </div>
+
+                <!-- Load Balancer -->
+                <div class="lb-node lb-node--lb" data-lb-node="lb">
+                  <div class="lb-tooltip">Balanceo Capa 4 · hash 5-tuplas</div>
+                  <div class="lb-node-box">
+                    <span class="lb-node-icon"><i class="fas fa-balance-scale"></i></span>
+                    <div class="lb-node-label">Standard LB</div>
+                    <div class="lb-node-sub">Capa 4 · TCP/UDP</div>
+                  </div>
+                </div>
+
+                <!-- Arrow -->
+                <div class="lb-arrow">
+                  <div class="lb-arrow-track">
+                    <svg class="lb-arrow-svg" viewBox="0 0 50 18"><line x1="0" y1="9" x2="43" y2="9" stroke="#0e4a0e" stroke-width="1.2"/><polygon points="43,6 50,9 43,12" fill="#0e4a0e"/></svg>
+                    <div class="lb-pkt lb-pkt--green" style="animation-delay:.1s"></div>
+                    <div class="lb-pkt lb-pkt--green" style="animation-delay:1s"></div>
+                  </div>
+                  <span class="lb-arrow-label">distribuye</span>
+                </div>
+
+                <!-- Backend Pool -->
+                <div class="lb-node lb-node--pool" data-lb-node="pool">
+                  <div class="lb-tooltip">VMs Linux D2s v3 · VMSS · auto-scale</div>
+                  <div class="lb-node-box">
+                    <span class="lb-node-icon"><i class="fas fa-server"></i></span>
+                    <div class="lb-node-label">Backend Pool</div>
+                    <div class="lb-node-sub">VMSS · 2 instancias</div>
+                    <div class="lb-vms">
+                      <div class="lb-vm"><i class="fab fa-linux"></i> VM-1</div>
+                      <div class="lb-vm"><i class="fab fa-linux"></i> VM-2</div>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
 
-          <!-- Health Probe -->
-          <div class="arch-probe">
-            <div class="arch-probe-inner">
-              <div class="arch-probe-line"></div>
-              <div class="arch-probe-box">
-                <i class="fas fa-heartbeat"></i> Health Probe · verifica cada VM cada ~5 seg<br/>
-                <small>si una VM falla → el LB deja de enviarle tráfico</small>
+          <!-- Rules row -->
+          <div class="lb-rules-row">
+            <div class="lb-rule lb-rule--nat" data-lb-node="nat">
+              <div class="lb-tooltip">Mapeo directo a VM específica por puerto</div>
+              <div class="lb-rule-box">
+                <span class="lb-rule-icon"><i class="fas fa-random"></i></span>
+                <div class="lb-rule-label">NAT Rules</div>
+              </div>
+            </div>
+            <div class="lb-rule lb-rule--lbr" data-lb-node="lbr">
+              <div class="lb-tooltip">Distribuye tráfico por puerto/protocolo</div>
+              <div class="lb-rule-box">
+                <span class="lb-rule-icon"><i class="fas fa-cog"></i></span>
+                <div class="lb-rule-label">LB Rules</div>
+              </div>
+            </div>
+            <div class="lb-rule lb-rule--out" data-lb-node="out">
+              <div class="lb-tooltip">Tráfico saliente de VMs — SNAT</div>
+              <div class="lb-rule-box">
+                <span class="lb-rule-icon"><i class="fas fa-sign-out-alt"></i></span>
+                <div class="lb-rule-label">Outbound Rules</div>
+              </div>
+            </div>
+            <div class="lb-rule lb-rule--prb" data-lb-node="prb">
+              <div class="lb-tooltip">Verifica salud de cada VM cada 5s</div>
+              <div class="lb-rule-box">
+                <span class="lb-rule-icon lb-probe-pulse"><i class="fas fa-heartbeat"></i></span>
+                <div class="lb-rule-label">Health Probe</div>
               </div>
             </div>
           </div>
 
-          <!-- Legend -->
-          <div class="arch-legend">
-            <div class="arch-legend-item">
-              <div class="arch-legend-tag">01</div>
-              <div class="arch-legend-title" style="color: #4fc3f7">Frontend IP</div>
-              <div class="arch-legend-desc">Punto de entrada del tráfico. IP pública que reciben los usuarios. Es lo único que está expuesto a internet.</div>
+          <div class="lb-hint">haz clic en cualquier componente para ver detalles</div>
+
+          <!-- Inline detail cards -->
+          <div class="lb-detail-section" id="lbDetailPanel">
+            <div class="lb-detail-section__head">
+              <div class="lb-detail-section__identity">
+                <span class="lb-detail-icon" id="lbDetailIcon"></span>
+                <div>
+                  <div class="lb-detail-title" id="lbDetailTitle"></div>
+                  <span class="lb-detail-badge" id="lbDetailBadge"></span>
+                </div>
+              </div>
+              <button class="lb-detail-close" id="lbDetailClose"><i class="fas fa-times"></i></button>
             </div>
-            <div class="arch-legend-item">
-              <div class="arch-legend-tag">02</div>
-              <div class="arch-legend-title" style="color: #00b4d8">Load Balancer Rules</div>
-              <div class="arch-legend-desc">Definen cómo distribuir el tráfico (por puerto, protocolo). Las primeras 5 están incluidas en el precio base.</div>
-            </div>
-            <div class="arch-legend-item">
-              <div class="arch-legend-tag">03</div>
-              <div class="arch-legend-title" style="color: #66bb6a">Backend Pool</div>
-              <div class="arch-legend-desc">Tus servidores de producción. En este caso, las 2 VMs Linux D2s v3 dentro del VMSS (Virtual Machine Scale Set).</div>
-            </div>
-            <div class="arch-legend-item">
-              <div class="arch-legend-tag">04</div>
-              <div class="arch-legend-title" style="color: #ffb74d">Health Probe</div>
-              <div class="arch-legend-desc">Monitorea cada VM constantemente. Si una falla, el tráfico se redirige automáticamente a las VMs sanas.</div>
+            <div class="lb-detail-grid">
+              <div class="lb-detail-grid__card">
+                <div class="lb-detail-grid__label"><i class="fas fa-info-circle"></i> Overview</div>
+                <div id="lb-tc-ov"></div>
+              </div>
+              <div class="lb-detail-grid__card">
+                <div class="lb-detail-grid__label"><i class="fas fa-sliders-h"></i> Configuración</div>
+                <div id="lb-tc-cf"></div>
+              </div>
+              <div class="lb-detail-grid__card">
+                <div class="lb-detail-grid__label"><i class="fas fa-briefcase"></i> Casos de uso</div>
+                <div id="lb-tc-uc"></div>
+              </div>
             </div>
           </div>
-
         </div>
 
-        <!-- IaaS vs PaaS -->
-        <div class="dt-section">
-          <div class="dt-section-header">
-            <div class="dt-medal dt-medal--neutral">
-              <i class="fas fa-layer-group"></i>
-            </div>
-            <div>
-              <div class="dt-section-title dt-section-title--neutral">IaaS vs PaaS en Azure</div>
-              <div class="dt-section-desc">Responsabilidad compartida — modelo de capas</div>
-            </div>
-          </div>
-          <hr class="dt-divider dt-divider--neutral" />
-
-          <div style="max-width: 600px; margin: 0 auto;">
-            <svg viewBox="0 0 540 348" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" font-family="Inter, system-ui, sans-serif" style="width:100%; height:auto;">
-              <rect width="540" height="348" fill="#0f1629" rx="10"/>
-              <text x="270" y="23" text-anchor="middle" fill="#e2e8f0" font-size="12" font-weight="700">Responsabilidad Compartida</text>
-              <text x="270" y="38" text-anchor="middle" fill="#64748b" font-size="9.5">IaaS vs PaaS en Azure</text>
-              <line x1="20" y1="47" x2="520" y2="47" stroke="rgba(255,255,255,0.06)" stroke-width="1"/>
-              <rect x="20" y="51" width="238" height="22" fill="rgba(96,165,250,0.12)" rx="4"/>
-              <text x="139" y="66.5" text-anchor="middle" fill="#60a5fa" font-size="11" font-weight="700">IaaS</text>
-              <rect x="282" y="51" width="238" height="22" fill="rgba(0,212,255,0.08)" rx="4"/>
-              <text x="401" y="66.5" text-anchor="middle" fill="#00d4ff" font-size="11" font-weight="700">PaaS</text>
-              <line x1="261" y1="51" x2="261" y2="308" stroke="rgba(255,255,255,0.05)" stroke-width="1"/>
-              <!-- L1 Aplicaciones -->
-              <rect x="20" y="77" width="238" height="26" fill="rgba(22,40,64,0.95)" rx="4" stroke="#60a5fa" stroke-width="0.5" stroke-opacity="0.55"/>
-              <text x="139" y="94" text-anchor="middle" fill="#93c5fd" font-size="10">Aplicaciones</text>
-              <rect x="282" y="77" width="238" height="26" fill="rgba(22,40,64,0.95)" rx="4" stroke="#60a5fa" stroke-width="0.5" stroke-opacity="0.55"/>
-              <text x="401" y="94" text-anchor="middle" fill="#93c5fd" font-size="10">Aplicaciones</text>
-              <!-- L2 Datos -->
-              <rect x="20" y="106" width="238" height="26" fill="rgba(22,40,64,0.85)" rx="4" stroke="#60a5fa" stroke-width="0.5" stroke-opacity="0.45"/>
-              <text x="139" y="123" text-anchor="middle" fill="#93c5fd" font-size="10">Datos</text>
-              <rect x="282" y="106" width="238" height="26" fill="rgba(22,40,64,0.85)" rx="4" stroke="#60a5fa" stroke-width="0.5" stroke-opacity="0.45"/>
-              <text x="401" y="123" text-anchor="middle" fill="#93c5fd" font-size="10">Datos</text>
-              <!-- Límite PaaS -->
-              <line x1="282" y1="133" x2="520" y2="133" stroke="#00d4ff" stroke-width="1" stroke-dasharray="3,2" opacity="0.35"/>
-              <!-- L3 Runtime -->
-              <rect x="20" y="135" width="238" height="26" fill="rgba(22,40,64,0.75)" rx="4" stroke="#60a5fa" stroke-width="0.5" stroke-opacity="0.35"/>
-              <text x="139" y="152" text-anchor="middle" fill="#93c5fd" font-size="10">Runtime</text>
-              <rect x="282" y="135" width="238" height="26" fill="rgba(13,21,37,0.98)" rx="4" stroke="rgba(255,255,255,0.05)" stroke-width="0.5"/>
-              <text x="401" y="152" text-anchor="middle" fill="#3a5270" font-size="10">Runtime</text>
-              <!-- L4 Middleware -->
-              <rect x="20" y="164" width="238" height="26" fill="rgba(22,40,64,0.70)" rx="4" stroke="#60a5fa" stroke-width="0.5" stroke-opacity="0.30"/>
-              <text x="139" y="181" text-anchor="middle" fill="#93c5fd" font-size="10">Middleware</text>
-              <rect x="282" y="164" width="238" height="26" fill="rgba(13,21,37,0.98)" rx="4" stroke="rgba(255,255,255,0.05)" stroke-width="0.5"/>
-              <text x="401" y="181" text-anchor="middle" fill="#3a5270" font-size="10">Middleware</text>
-              <!-- L5 Sistema Operativo -->
-              <rect x="20" y="193" width="238" height="26" fill="rgba(22,40,64,0.65)" rx="4" stroke="#60a5fa" stroke-width="0.5" stroke-opacity="0.25"/>
-              <text x="139" y="210" text-anchor="middle" fill="#93c5fd" font-size="10">Sistema Operativo</text>
-              <rect x="282" y="193" width="238" height="26" fill="rgba(13,21,37,0.98)" rx="4" stroke="rgba(255,255,255,0.05)" stroke-width="0.5"/>
-              <text x="401" y="210" text-anchor="middle" fill="#3a5270" font-size="10">Sistema Operativo</text>
-              <!-- Límite IaaS -->
-              <line x1="20" y1="220" x2="258" y2="220" stroke="#60a5fa" stroke-width="1" stroke-dasharray="3,2" opacity="0.35"/>
-              <!-- L6 Virtualización -->
-              <rect x="20" y="222" width="238" height="26" fill="rgba(13,21,37,0.98)" rx="4" stroke="rgba(255,255,255,0.05)" stroke-width="0.5"/>
-              <text x="139" y="239" text-anchor="middle" fill="#3a5270" font-size="10">Virtualización</text>
-              <rect x="282" y="222" width="238" height="26" fill="rgba(13,21,37,0.98)" rx="4" stroke="rgba(255,255,255,0.05)" stroke-width="0.5"/>
-              <text x="401" y="239" text-anchor="middle" fill="#3a5270" font-size="10">Virtualización</text>
-              <!-- L7 Servidores -->
-              <rect x="20" y="251" width="238" height="26" fill="rgba(13,21,37,0.98)" rx="4" stroke="rgba(255,255,255,0.05)" stroke-width="0.5"/>
-              <text x="139" y="268" text-anchor="middle" fill="#3a5270" font-size="9.5">Servidores · Almacenamiento</text>
-              <rect x="282" y="251" width="238" height="26" fill="rgba(13,21,37,0.98)" rx="4" stroke="rgba(255,255,255,0.05)" stroke-width="0.5"/>
-              <text x="401" y="268" text-anchor="middle" fill="#3a5270" font-size="9.5">Servidores · Almacenamiento</text>
-              <!-- L8 Redes -->
-              <rect x="20" y="280" width="238" height="26" fill="rgba(13,21,37,0.98)" rx="4" stroke="rgba(255,255,255,0.05)" stroke-width="0.5"/>
-              <text x="139" y="297" text-anchor="middle" fill="#3a5270" font-size="10">Redes</text>
-              <rect x="282" y="280" width="238" height="26" fill="rgba(13,21,37,0.98)" rx="4" stroke="rgba(255,255,255,0.05)" stroke-width="0.5"/>
-              <text x="401" y="297" text-anchor="middle" fill="#3a5270" font-size="10">Redes</text>
-              <!-- Leyenda -->
-              <line x1="20" y1="315" x2="520" y2="315" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
-              <rect x="20" y="323" width="10" height="10" fill="rgba(22,40,64,0.95)" rx="2" stroke="#60a5fa" stroke-width="0.5" stroke-opacity="0.55"/>
-              <text x="36" y="332" fill="#94a3b8" font-size="9">Tu responsabilidad</text>
-              <rect x="178" y="323" width="10" height="10" fill="rgba(13,21,37,0.98)" rx="2" stroke="rgba(255,255,255,0.08)" stroke-width="0.5"/>
-              <text x="194" y="332" fill="#94a3b8" font-size="9">Gestionado por Microsoft Azure</text>
-            </svg>
-          </div>
-
-          <!-- Legend -->
-          <div class="arch-legend">
-            <div class="arch-legend-item">
-              <div class="arch-legend-tag">01</div>
-              <div class="arch-legend-title" style="color: #60a5fa">IaaS (Infrastructure as a Service)</div>
-              <div class="arch-legend-desc">Tú gestionas desde el sistema operativo hacia arriba (apps, datos, runtime, middleware, SO). Microsoft gestiona virtualización, servidores, almacenamiento y redes.</div>
-            </div>
-            <div class="arch-legend-item">
-              <div class="arch-legend-tag">02</div>
-              <div class="arch-legend-title" style="color: #00d4ff">PaaS (Platform as a Service)</div>
-              <div class="arch-legend-desc">Solo gestionas aplicaciones y datos. Microsoft gestiona todo lo demás: runtime, middleware, SO, virtualización, servidores y redes.</div>
-            </div>
-          </div>
-
+        <!-- === VIEW: CONFIGURACIÓN === -->
+        <div class="lb-view" id="lb-view-cfg">
+          <p class="lb-cfg-intro">// parámetros de despliegue típicos</p>
+          <table class="lb-cfg-table">
+            <thead><tr><th>Parámetro</th><th>Valor</th><th>Notas</th></tr></thead>
+            <tbody>
+              <tr><td>SKU</td><td class="lb-hl">Standard</td><td>Zonal · SLA 99.99%</td></tr>
+              <tr><td>Tipo</td><td>Público</td><td>IP pública estática</td></tr>
+              <tr><td>Backend</td><td class="lb-hl--green">2 × D2s v3</td><td>VMSS Linux Ubuntu</td></tr>
+              <tr><td>Algoritmo</td><td>5-tuple hash</td><td>IP src/dst · Puerto · Proto</td></tr>
+              <tr><td>Health Probe</td><td>TCP / HTTP</td><td>Intervalo: 5s · Umbral: 2</td></tr>
+              <tr><td>Idle Timeout</td><td>4 min</td><td>Configurable 4–30 min</td></tr>
+              <tr><td>LB Rules incluidas</td><td class="lb-hl">5 sin costo</td><td>~$18/mes precio base</td></tr>
+              <tr><td>NAT Rules</td><td>Por VM</td><td>SSH/RDP sin IP individual</td></tr>
+              <tr><td>Availability Zones</td><td class="lb-hl--green">Zona 1, 2, 3</td><td>Zone-redundant</td></tr>
+              <tr><td>NSG</td><td class="lb-hl--amber">Requerido</td><td>Obligatorio Standard SKU</td></tr>
+              <tr><td>Outbound SNAT</td><td>Explícito</td><td>64.512 puertos por IP</td></tr>
+              <tr><td>Max backend pool</td><td class="lb-hl">1.000 instancias</td><td>vs 300 en Basic SKU</td></tr>
+              <tr><td>Regla LB adicional</td><td class="lb-hl--amber">$0.008/hora</td><td>Después de las 5 incluidas</td></tr>
+            </tbody>
+          </table>
         </div>
 
       </div>
       <!-- /panel azure-arch -->
+
+      <!-- ═══════════════════════════════════════
+           PANEL: Responsabilidad Compartida
+      ═══════════════════════════════════════ -->
+      <div class="dt-panel dt-panel--hidden" id="doc-azure-shared">
+
+        <div class="dt-panel__header">
+          <h2 class="dt-panel__title">Responsabilidad Compartida en Azure</h2>
+          <p class="dt-panel__desc">Modelo de capas que define qué gestiona tu organización y qué gestiona Microsoft según el tipo de servicio cloud.</p>
+        </div>
+
+        <!-- Shared Responsibility Matrix -->
+        <div class="srm">
+          <!-- Column headers -->
+          <div class="srm-head">
+            <div class="srm-head__layers">Capas</div>
+            <div class="srm-head__col srm-head__col--iaas">IaaS</div>
+            <div class="srm-head__col srm-head__col--paas">PaaS</div>
+            <div class="srm-head__col srm-head__col--saas">SaaS</div>
+          </div>
+
+          <!-- Rows -->
+          <div class="srm-row">
+            <div class="srm-row__label">Aplicaciones</div>
+            <div class="srm-row__cell srm-cell--you">Tu responsabilidad</div>
+            <div class="srm-row__cell srm-cell--you">Tu responsabilidad</div>
+            <div class="srm-row__cell srm-cell--ms">Microsoft</div>
+          </div>
+          <div class="srm-row">
+            <div class="srm-row__label">Datos</div>
+            <div class="srm-row__cell srm-cell--you">Tu responsabilidad</div>
+            <div class="srm-row__cell srm-cell--you">Tu responsabilidad</div>
+            <div class="srm-row__cell srm-cell--shared">Compartida</div>
+          </div>
+          <div class="srm-row">
+            <div class="srm-row__label">Runtime</div>
+            <div class="srm-row__cell srm-cell--you">Tu responsabilidad</div>
+            <div class="srm-row__cell srm-cell--ms">Microsoft</div>
+            <div class="srm-row__cell srm-cell--ms">Microsoft</div>
+          </div>
+          <div class="srm-row">
+            <div class="srm-row__label">Middleware</div>
+            <div class="srm-row__cell srm-cell--you">Tu responsabilidad</div>
+            <div class="srm-row__cell srm-cell--ms">Microsoft</div>
+            <div class="srm-row__cell srm-cell--ms">Microsoft</div>
+          </div>
+          <div class="srm-row">
+            <div class="srm-row__label">Sistema Operativo</div>
+            <div class="srm-row__cell srm-cell--you">Tu responsabilidad</div>
+            <div class="srm-row__cell srm-cell--ms">Microsoft</div>
+            <div class="srm-row__cell srm-cell--ms">Microsoft</div>
+          </div>
+          <div class="srm-row">
+            <div class="srm-row__label">Virtualización</div>
+            <div class="srm-row__cell srm-cell--ms">Microsoft</div>
+            <div class="srm-row__cell srm-cell--ms">Microsoft</div>
+            <div class="srm-row__cell srm-cell--ms">Microsoft</div>
+          </div>
+          <div class="srm-row">
+            <div class="srm-row__label">Servidores / Almacenamiento</div>
+            <div class="srm-row__cell srm-cell--ms">Microsoft</div>
+            <div class="srm-row__cell srm-cell--ms">Microsoft</div>
+            <div class="srm-row__cell srm-cell--ms">Microsoft</div>
+          </div>
+          <div class="srm-row">
+            <div class="srm-row__label">Redes</div>
+            <div class="srm-row__cell srm-cell--ms">Microsoft</div>
+            <div class="srm-row__cell srm-cell--ms">Microsoft</div>
+            <div class="srm-row__cell srm-cell--ms">Microsoft</div>
+          </div>
+
+          <!-- Legend -->
+          <div class="srm-legend">
+            <div class="srm-legend__item"><span class="srm-legend__dot srm-legend__dot--you"></span> Tu responsabilidad</div>
+            <div class="srm-legend__item"><span class="srm-legend__dot srm-legend__dot--shared"></span> Responsabilidad compartida</div>
+            <div class="srm-legend__item"><span class="srm-legend__dot srm-legend__dot--ms"></span> Gestionado por Microsoft</div>
+          </div>
+        </div>
+
+        <!-- Info cards -->
+        <div class="srm-cards">
+          <div class="srm-card srm-card--iaas">
+            <div class="srm-card__head">
+              <i class="fas fa-server"></i>
+              <div class="srm-card__title">IaaS</div>
+            </div>
+            <div class="srm-card__subtitle">Infrastructure as a Service</div>
+            <div class="srm-card__desc">Tú gestionas desde el sistema operativo hacia arriba: apps, datos, runtime, middleware y SO. Microsoft gestiona virtualización, servidores, almacenamiento y redes.</div>
+            <div class="srm-card__example"><strong>Ejemplo:</strong> Virtual Machines, VMSS, Azure Disk Storage</div>
+          </div>
+          <div class="srm-card srm-card--paas">
+            <div class="srm-card__head">
+              <i class="fas fa-cubes"></i>
+              <div class="srm-card__title">PaaS</div>
+            </div>
+            <div class="srm-card__subtitle">Platform as a Service</div>
+            <div class="srm-card__desc">Solo gestionas aplicaciones y datos. Microsoft gestiona todo lo demás: runtime, middleware, SO, virtualización, servidores y redes.</div>
+            <div class="srm-card__example"><strong>Ejemplo:</strong> App Service, Azure SQL, Azure Functions</div>
+          </div>
+          <div class="srm-card srm-card--saas">
+            <div class="srm-card__head">
+              <i class="fas fa-cloud"></i>
+              <div class="srm-card__title">SaaS</div>
+            </div>
+            <div class="srm-card__subtitle">Software as a Service</div>
+            <div class="srm-card__desc">Microsoft gestiona toda la infraestructura y la aplicación. Tú gestionas la configuración, los datos del usuario y el control de acceso.</div>
+            <div class="srm-card__example"><strong>Ejemplo:</strong> Microsoft 365, Dynamics 365, Power BI</div>
+          </div>
+        </div>
+
+      </div>
+      <!-- /panel azure-shared -->
 
       <!-- ═══════════════════════════════════════
            PANEL: Comparador de Licencias M365
