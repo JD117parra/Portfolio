@@ -24,13 +24,26 @@
     });
   });
 
-  // === EXPANDABLE CARDS ===
-  document.querySelectorAll('.dt-card[data-expandable]').forEach(function (card) {
+  // === EXPANDABLE CARDS (accordion — one at a time) ===
+  var expandableCards = document.querySelectorAll('.dt-card[data-expandable]');
+  expandableCards.forEach(function (card) {
     card.addEventListener('click', function () {
-      card.classList.toggle('dt-card--expanded');
+      var wasExpanded = card.classList.contains('dt-card--expanded');
+
+      // Close all other cards
+      expandableCards.forEach(function (other) {
+        if (other !== card && other.classList.contains('dt-card--expanded')) {
+          other.classList.remove('dt-card--expanded');
+          var otherLabel = other.querySelector('.dt-card__toggle');
+          if (otherLabel) otherLabel.lastChild.textContent = ' Ver detalles';
+        }
+      });
+
+      // Toggle clicked card
+      card.classList.toggle('dt-card--expanded', !wasExpanded);
       var label = card.querySelector('.dt-card__toggle');
       if (label) {
-        label.lastChild.textContent = card.classList.contains('dt-card--expanded') ? ' Ocultar detalles' : ' Ver detalles';
+        label.lastChild.textContent = !wasExpanded ? ' Ocultar detalles' : ' Ver detalles';
       }
     });
   });
