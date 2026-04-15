@@ -1,0 +1,241 @@
+      <div class="dt-panel dt-panel--hidden" id="doc-azure-rbac">
+
+        <div class="dt-panel__header">
+          <h2 class="dt-panel__title">Azure RBAC — Jerarquía de Ámbitos</h2>
+          <p class="dt-panel__desc">Haz clic en cada nivel del árbol para ver su alcance de acceso. Los roles asignados en un nivel se heredan hacia abajo.</p>
+        </div>
+
+        <!-- Radio controls (hidden, siblings of .rbac-wrap for CSS selectors) -->
+        <input type="radio" name="scope" id="rbac-s1" class="rbac-radios" checked />
+        <input type="radio" name="scope" id="rbac-s2" class="rbac-radios" />
+        <input type="radio" name="scope" id="rbac-s3" class="rbac-radios" />
+        <input type="radio" name="scope" id="rbac-s3b" class="rbac-radios" />
+        <input type="radio" name="scope" id="rbac-s4" class="rbac-radios" />
+        <input type="radio" name="scope" id="rbac-s5" class="rbac-radios" />
+        <input type="radio" name="scope" id="rbac-s6" class="rbac-radios" />
+
+        <div class="rbac-wrap">
+
+          <!-- Grid: Tree + Detail -->
+          <div class="rbac-grid">
+
+            <!-- Tree -->
+            <div class="rbac-panel">
+              <div class="rbac-panel-label">Estructura de Jerarquía</div>
+
+              <label for="rbac-s1" class="rbac-node rbac-n1 rbac-c1">
+                <span><i class="fas fa-globe"></i></span><span>Tenant (Inquilino raíz)</span>
+                <span class="rbac-badge">Nivel 1</span>
+              </label>
+              <label for="rbac-s2" class="rbac-node rbac-n2 rbac-c2">
+                <span><i class="fas fa-landmark"></i></span><span>Grupo de Admin. raíz</span>
+                <span class="rbac-badge">Nivel 2</span>
+              </label>
+              <label for="rbac-s3" class="rbac-node rbac-n3 rbac-c3">
+                <span><i class="fas fa-folder"></i></span><span>Grupos de Admin. anidados</span>
+                <span class="rbac-badge">Nivel 3</span>
+              </label>
+              <label for="rbac-s3b" class="rbac-node rbac-n3b rbac-c3b">
+                <span><i class="fas fa-folder-open"></i></span><span>Sub-grupo de Admin.</span>
+                <span class="rbac-badge">hasta x6</span>
+              </label>
+              <label for="rbac-s4" class="rbac-node rbac-n4 rbac-c4">
+                <span><i class="fas fa-box"></i></span><span>Suscripción</span>
+                <span class="rbac-badge">Nivel 4</span>
+              </label>
+              <label for="rbac-s5" class="rbac-node rbac-n5 rbac-c5">
+                <span><i class="fas fa-layer-group"></i></span><span>Grupo de Recursos</span>
+                <span class="rbac-badge">Nivel 5</span>
+              </label>
+              <label for="rbac-s6" class="rbac-node rbac-n5 rbac-c6">
+                <span><i class="fas fa-cog"></i></span><span>Recurso Individual</span>
+                <span class="rbac-badge">Nivel 6</span>
+              </label>
+            </div>
+
+            <!-- Detail -->
+            <div class="rbac-panel rbac-detail-panel">
+              <div class="rbac-panel-label">Detalle del Ámbito</div>
+
+              <!-- Tenant -->
+              <div class="rbac-detail-card rbac-d1">
+                <div class="rbac-detail-header">
+                  <div class="rbac-d-icon"><i class="fas fa-globe"></i></div>
+                  <div class="rbac-d-name">Tenant (Inquilino raíz)</div>
+                </div>
+                <div class="rbac-d-box">
+                  <div class="rbac-d-box-label">Alcance del Rol</div>
+                  <div class="rbac-d-box-text">El nivel más alto de toda la jerarquía. Es el inquilino de Microsoft Entra ID que contiene todo — identidades, suscripciones y recursos de la organización.</div>
+                </div>
+                <div class="rbac-d-example">
+                  <div class="rbac-d-example-label">Ejemplo</div>
+                  <div class="rbac-d-example-text">contoso.onmicrosoft.com es el tenant. Todo lo que existe en Azure de Contoso vive dentro de este tenant.</div>
+                </div>
+                <div class="rbac-d-note">No se asignan roles RBAC directamente al tenant. Se usa el Grupo de Administración raíz para eso.</div>
+                <div class="rbac-inherit-note"><i class="fas fa-arrow-down"></i> <span>La herencia fluye hacia <strong>abajo</strong>, nunca hacia los lados</span></div>
+              </div>
+
+              <!-- Grupo Admin raíz -->
+              <div class="rbac-detail-card rbac-d2">
+                <div class="rbac-detail-header">
+                  <div class="rbac-d-icon"><i class="fas fa-landmark"></i></div>
+                  <div class="rbac-d-name">Grupo de Administración Raíz</div>
+                </div>
+                <div class="rbac-d-box">
+                  <div class="rbac-d-box-label">Alcance del Rol</div>
+                  <div class="rbac-d-box-text">Existe uno solo por tenant. Un rol asignado aquí se hereda por TODAS las suscripciones y recursos del tenant sin excepción.</div>
+                </div>
+                <div class="rbac-d-example">
+                  <div class="rbac-d-example-label">Ejemplo</div>
+                  <div class="rbac-d-example-text">Asignar Lector aquí = puede ver absolutamente todos los recursos de todas las suscripciones del tenant.</div>
+                </div>
+                <div class="rbac-d-note">Usar con extrema precaución — el acceso se propaga a todo el tenant.</div>
+                <div class="rbac-inherit-note"><i class="fas fa-arrow-down"></i> <span>La herencia fluye hacia <strong>abajo</strong>, nunca hacia los lados</span></div>
+              </div>
+
+              <!-- Grupos Admin anidados -->
+              <div class="rbac-detail-card rbac-d3">
+                <div class="rbac-detail-header">
+                  <div class="rbac-d-icon"><i class="fas fa-folder"></i></div>
+                  <div class="rbac-d-name">Grupos de Administración Anidados</div>
+                </div>
+                <div class="rbac-d-box">
+                  <div class="rbac-d-box-label">Alcance del Rol</div>
+                  <div class="rbac-d-box-text">Permiten organizar suscripciones en jerarquías. Un rol asignado aquí se hereda por todas las suscripciones y recursos dentro de ese grupo.</div>
+                </div>
+                <div class="rbac-d-example">
+                  <div class="rbac-d-example-label">Ejemplo</div>
+                  <div class="rbac-d-example-text">Grupo Admin "América Latina" contiene suscripciones de Colombia, México y Argentina. Contribuyente aquí = accede a las tres.</div>
+                </div>
+                <div class="rbac-d-note">Máximo 6 niveles de anidamiento y 10,000 grupos por tenant.</div>
+                <div class="rbac-inherit-note"><i class="fas fa-arrow-down"></i> <span>La herencia fluye hacia <strong>abajo</strong>, nunca hacia los lados</span></div>
+              </div>
+
+              <!-- Sub-grupo -->
+              <div class="rbac-detail-card rbac-d3b">
+                <div class="rbac-detail-header">
+                  <div class="rbac-d-icon"><i class="fas fa-folder-open"></i></div>
+                  <div class="rbac-d-name">Sub-grupo de Administración</div>
+                </div>
+                <div class="rbac-d-box">
+                  <div class="rbac-d-box-label">Alcance del Rol</div>
+                  <div class="rbac-d-box-text">Los grupos de administración pueden anidarse hasta 6 niveles. Cada sub-grupo hereda las políticas y roles del grupo padre, y los propaga hacia abajo.</div>
+                </div>
+                <div class="rbac-d-example">
+                  <div class="rbac-d-example-label">Ejemplo de jerarquía real</div>
+                  <div class="rbac-d-example-text">Contoso Global → América Latina → Colombia → Producción Colombia → Suscripción Prod-COL</div>
+                </div>
+                <div class="rbac-d-note">Útil para empresas multinacionales con estructuras complejas por región o unidad de negocio.</div>
+                <div class="rbac-inherit-note"><i class="fas fa-arrow-down"></i> <span>La herencia fluye hacia <strong>abajo</strong>, nunca hacia los lados</span></div>
+              </div>
+
+              <!-- Suscripción -->
+              <div class="rbac-detail-card rbac-d4">
+                <div class="rbac-detail-header">
+                  <div class="rbac-d-icon"><i class="fas fa-box"></i></div>
+                  <div class="rbac-d-name">Suscripción</div>
+                </div>
+                <div class="rbac-d-box">
+                  <div class="rbac-d-box-label">Alcance del Rol</div>
+                  <div class="rbac-d-box-text">Acceso a todos los grupos de recursos y recursos dentro de ESTA suscripción únicamente. Otras suscripciones del tenant no se ven afectadas.</div>
+                </div>
+                <div class="rbac-d-example">
+                  <div class="rbac-d-example-label">Ejemplo</div>
+                  <div class="rbac-d-example-text">Asignar Lector aquí = puede ver todo en esta suscripción, pero NO tiene acceso a otras suscripciones del mismo tenant.</div>
+                </div>
+                <div class="rbac-inherit-note"><i class="fas fa-arrow-down"></i> <span>La herencia fluye hacia <strong>abajo</strong>, nunca hacia los lados</span></div>
+              </div>
+
+              <!-- Grupo de Recursos -->
+              <div class="rbac-detail-card rbac-d5">
+                <div class="rbac-detail-header">
+                  <div class="rbac-d-icon"><i class="fas fa-layer-group"></i></div>
+                  <div class="rbac-d-name">Grupo de Recursos</div>
+                </div>
+                <div class="rbac-d-box">
+                  <div class="rbac-d-box-label">Alcance del Rol</div>
+                  <div class="rbac-d-box-text">Acceso únicamente a los recursos contenidos en este grupo. Otros grupos de la misma suscripción no se ven afectados.</div>
+                </div>
+                <div class="rbac-d-example">
+                  <div class="rbac-d-example-label">Ejemplo</div>
+                  <div class="rbac-d-example-text">Asignar Contribuyente en "RG-Marketing" = gestiona VMs y Storage de ese grupo, sin tocar "RG-Finanzas" ni otros grupos.</div>
+                </div>
+                <div class="rbac-inherit-note"><i class="fas fa-arrow-down"></i> <span>La herencia fluye hacia <strong>abajo</strong>, nunca hacia los lados</span></div>
+              </div>
+
+              <!-- Recurso Individual -->
+              <div class="rbac-detail-card rbac-d6">
+                <div class="rbac-detail-header">
+                  <div class="rbac-d-icon"><i class="fas fa-cog"></i></div>
+                  <div class="rbac-d-name">Recurso Individual</div>
+                </div>
+                <div class="rbac-d-box">
+                  <div class="rbac-d-box-label">Alcance del Rol</div>
+                  <div class="rbac-d-box-text">Acceso únicamente a ESTE recurso específico. Es el nivel más granular y el que mejor cumple el principio de privilegios mínimos.</div>
+                </div>
+                <div class="rbac-d-example">
+                  <div class="rbac-d-example-label">Ejemplo</div>
+                  <div class="rbac-d-example-text">Asignar Colaborador SMB en "fileshare2" = solo accede a ese fileshare, no a otros recursos de la misma cuenta de almacenamiento.</div>
+                </div>
+                <div class="rbac-d-note">Nivel recomendado cuando se aplica el principio de privilegios mínimos.</div>
+                <div class="rbac-inherit-note"><i class="fas fa-arrow-down"></i> <span>Nivel más bajo — no hay más herencia debajo</span></div>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- Roles table -->
+          <div class="rbac-roles">
+            <h3>Roles Comunes y sus Permisos</h3>
+            <table class="rbac-table">
+              <thead>
+                <tr>
+                  <th>Rol</th>
+                  <th>Leer</th>
+                  <th>Crear/Modificar</th>
+                  <th>Eliminar</th>
+                  <th>Gestionar Acceso</th>
+                  <th>Descripción</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="rbac-role-name"><i class="fas fa-crown" style="color: #f59e0b"></i> Propietario</td>
+                  <td class="rbac-check"><i class="fas fa-check"></i></td>
+                  <td class="rbac-check"><i class="fas fa-check"></i></td>
+                  <td class="rbac-check"><i class="fas fa-check"></i></td>
+                  <td class="rbac-check"><i class="fas fa-check"></i></td>
+                  <td>Control total incluyendo asignar roles a otros</td>
+                </tr>
+                <tr>
+                  <td class="rbac-role-name"><i class="fas fa-wrench" style="color: #3b82f6"></i> Contribuyente</td>
+                  <td class="rbac-check"><i class="fas fa-check"></i></td>
+                  <td class="rbac-check"><i class="fas fa-check"></i></td>
+                  <td class="rbac-check"><i class="fas fa-check"></i></td>
+                  <td class="rbac-cross"><i class="fas fa-times"></i></td>
+                  <td>Gestiona recursos pero no puede asignar roles</td>
+                </tr>
+                <tr>
+                  <td class="rbac-role-name"><i class="fas fa-eye" style="color: #10b981"></i> Lector</td>
+                  <td class="rbac-check"><i class="fas fa-check"></i></td>
+                  <td class="rbac-cross"><i class="fas fa-times"></i></td>
+                  <td class="rbac-cross"><i class="fas fa-times"></i></td>
+                  <td class="rbac-cross"><i class="fas fa-times"></i></td>
+                  <td>Solo puede ver recursos, sin modificar nada</td>
+                </tr>
+                <tr>
+                  <td class="rbac-role-name"><i class="fas fa-user-shield" style="color: #a855f7"></i> Admin. acceso</td>
+                  <td class="rbac-check"><i class="fas fa-check"></i></td>
+                  <td class="rbac-cross"><i class="fas fa-times"></i></td>
+                  <td class="rbac-cross"><i class="fas fa-times"></i></td>
+                  <td class="rbac-check"><i class="fas fa-check"></i></td>
+                  <td>Solo gestiona el acceso de otros usuarios</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+        </div>
+        <!-- /rbac-wrap -->
+
+      </div>

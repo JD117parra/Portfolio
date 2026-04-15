@@ -1255,6 +1255,20 @@ body.app-page {
   display: none;
 }
 
+.dt-panel-slot {
+  min-height: 200px;
+}
+
+.dt-panel-loader {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  padding: 4rem 2rem;
+  font-size: 1.1rem;
+  color: var(--text-muted);
+}
+
 .dt-panel__header {
   margin-bottom: 2rem;
 }

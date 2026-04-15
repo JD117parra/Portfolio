@@ -1,0 +1,208 @@
+      <div class="dt-panel dt-panel--hidden" id="doc-azure-arch">
+
+        <div class="dt-panel__header">
+          <h2 class="dt-panel__title">Azure Standard Load Balancer</h2>
+          <p class="dt-panel__desc">Arquitectura interactiva de componentes — haz clic en cualquier nodo para ver detalles técnicos.</p>
+        </div>
+
+        <!-- View tabs: Diagrama / Configuración -->
+        <div class="lb-view-tabs">
+          <button class="lb-vtab lb-vtab--active" data-lb-view="diag">Diagrama</button>
+          <button class="lb-vtab" data-lb-view="cfg">Configuración</button>
+        </div>
+
+        <!-- === VIEW: DIAGRAMA === -->
+        <div class="lb-view lb-view--active" id="lb-view-diag">
+
+          <!-- Availability Zones wrapper -->
+          <div class="lb-az-wrap">
+            <span class="lb-az-label">Availability Zones — Zona 1 · Zona 2 · Zona 3</span>
+
+            <!-- NSG wrapper -->
+            <div class="lb-nsg-wrap">
+              <span class="lb-nsg-label" data-lb-node="nsg">NSG — Network Security Group</span>
+
+              <!-- Flow: nodes + arrows -->
+              <div class="lb-flow">
+                <!-- Users -->
+                <div class="lb-node lb-node--user" data-lb-node="users">
+                  <div class="lb-tooltip">Tráfico entrante desde internet</div>
+                  <div class="lb-node-box">
+                    <span class="lb-node-icon"><i class="fas fa-user"></i></span>
+                    <div class="lb-node-label">Usuarios</div>
+                    <div class="lb-node-sub">Internet</div>
+                  </div>
+                </div>
+
+                <!-- Arrow -->
+                <div class="lb-arrow">
+                  <div class="lb-arrow-track">
+                    <svg class="lb-arrow-svg" viewBox="0 0 50 18"><line x1="0" y1="9" x2="43" y2="9" stroke="#1c2e3e" stroke-width="1"/><polygon points="43,6 50,9 43,12" fill="#1c2e3e"/></svg>
+                    <div class="lb-pkt lb-pkt--blue" style="animation-delay:0s"></div>
+                    <div class="lb-pkt lb-pkt--blue" style="animation-delay:.9s"></div>
+                  </div>
+                  <span class="lb-arrow-label">HTTP/S</span>
+                </div>
+
+                <!-- NSG node -->
+                <div class="lb-node lb-node--nsg" data-lb-node="nsg">
+                  <div class="lb-tooltip">Filtrado — obligatorio en Standard SKU</div>
+                  <div class="lb-node-box">
+                    <span class="lb-node-icon"><i class="fas fa-shield-alt"></i></span>
+                    <div class="lb-node-label">NSG</div>
+                    <div class="lb-node-sub">Reglas de red</div>
+                  </div>
+                </div>
+
+                <!-- Arrow -->
+                <div class="lb-arrow">
+                  <div class="lb-arrow-track">
+                    <svg class="lb-arrow-svg" viewBox="0 0 50 18"><line x1="0" y1="9" x2="43" y2="9" stroke="#1c2e3e" stroke-width="1"/><polygon points="43,6 50,9 43,12" fill="#1c2e3e"/></svg>
+                    <div class="lb-pkt lb-pkt--red" style="animation-delay:.5s"></div>
+                  </div>
+                  <span class="lb-arrow-label">permitido</span>
+                </div>
+
+                <!-- Frontend IP -->
+                <div class="lb-node lb-node--fip" data-lb-node="fip">
+                  <div class="lb-tooltip">IP pública estática · punto de entrada</div>
+                  <div class="lb-node-box">
+                    <span class="lb-node-icon"><i class="fas fa-globe"></i></span>
+                    <div class="lb-node-label">Frontend IP</div>
+                    <div class="lb-node-sub">IP Pública</div>
+                  </div>
+                </div>
+
+                <!-- Arrow -->
+                <div class="lb-arrow">
+                  <div class="lb-arrow-track">
+                    <svg class="lb-arrow-svg" viewBox="0 0 50 18"><line x1="0" y1="9" x2="43" y2="9" stroke="#084a8a" stroke-width="1.2"/><polygon points="43,6 50,9 43,12" fill="#084a8a"/></svg>
+                    <div class="lb-pkt lb-pkt--lightblue" style="animation-delay:.25s"></div>
+                  </div>
+                  <span class="lb-arrow-label">reglas LB</span>
+                </div>
+
+                <!-- Load Balancer -->
+                <div class="lb-node lb-node--lb" data-lb-node="lb">
+                  <div class="lb-tooltip">Balanceo Capa 4 · hash 5-tuplas</div>
+                  <div class="lb-node-box">
+                    <span class="lb-node-icon"><i class="fas fa-balance-scale"></i></span>
+                    <div class="lb-node-label">Standard LB</div>
+                    <div class="lb-node-sub">Capa 4 · TCP/UDP</div>
+                  </div>
+                </div>
+
+                <!-- Arrow -->
+                <div class="lb-arrow">
+                  <div class="lb-arrow-track">
+                    <svg class="lb-arrow-svg" viewBox="0 0 50 18"><line x1="0" y1="9" x2="43" y2="9" stroke="#0e4a0e" stroke-width="1.2"/><polygon points="43,6 50,9 43,12" fill="#0e4a0e"/></svg>
+                    <div class="lb-pkt lb-pkt--green" style="animation-delay:.1s"></div>
+                    <div class="lb-pkt lb-pkt--green" style="animation-delay:1s"></div>
+                  </div>
+                  <span class="lb-arrow-label">distribuye</span>
+                </div>
+
+                <!-- Backend Pool -->
+                <div class="lb-node lb-node--pool" data-lb-node="pool">
+                  <div class="lb-tooltip">VMs Linux D2s v3 · VMSS · auto-scale</div>
+                  <div class="lb-node-box">
+                    <span class="lb-node-icon"><i class="fas fa-server"></i></span>
+                    <div class="lb-node-label">Backend Pool</div>
+                    <div class="lb-node-sub">VMSS · 2 instancias</div>
+                    <div class="lb-vms">
+                      <div class="lb-vm"><i class="fab fa-linux"></i> VM-1</div>
+                      <div class="lb-vm"><i class="fab fa-linux"></i> VM-2</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Rules row -->
+          <div class="lb-rules-row">
+            <div class="lb-rule lb-rule--nat" data-lb-node="nat">
+              <div class="lb-tooltip">Mapeo directo a VM específica por puerto</div>
+              <div class="lb-rule-box">
+                <span class="lb-rule-icon"><i class="fas fa-random"></i></span>
+                <div class="lb-rule-label">NAT Rules</div>
+              </div>
+            </div>
+            <div class="lb-rule lb-rule--lbr" data-lb-node="lbr">
+              <div class="lb-tooltip">Distribuye tráfico por puerto/protocolo</div>
+              <div class="lb-rule-box">
+                <span class="lb-rule-icon"><i class="fas fa-cog"></i></span>
+                <div class="lb-rule-label">LB Rules</div>
+              </div>
+            </div>
+            <div class="lb-rule lb-rule--out" data-lb-node="out">
+              <div class="lb-tooltip">Tráfico saliente de VMs — SNAT</div>
+              <div class="lb-rule-box">
+                <span class="lb-rule-icon"><i class="fas fa-sign-out-alt"></i></span>
+                <div class="lb-rule-label">Outbound Rules</div>
+              </div>
+            </div>
+            <div class="lb-rule lb-rule--prb" data-lb-node="prb">
+              <div class="lb-tooltip">Verifica salud de cada VM cada 5s</div>
+              <div class="lb-rule-box">
+                <span class="lb-rule-icon lb-probe-pulse"><i class="fas fa-heartbeat"></i></span>
+                <div class="lb-rule-label">Health Probe</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="lb-hint">haz clic en cualquier componente para ver detalles</div>
+
+          <!-- Inline detail cards -->
+          <div class="lb-detail-section" id="lbDetailPanel">
+            <div class="lb-detail-section__head">
+              <div class="lb-detail-section__identity">
+                <span class="lb-detail-icon" id="lbDetailIcon"></span>
+                <div>
+                  <div class="lb-detail-title" id="lbDetailTitle"></div>
+                  <span class="lb-detail-badge" id="lbDetailBadge"></span>
+                </div>
+              </div>
+              <button class="lb-detail-close" id="lbDetailClose"><i class="fas fa-times"></i></button>
+            </div>
+            <div class="lb-detail-grid">
+              <div class="lb-detail-grid__card">
+                <div class="lb-detail-grid__label"><i class="fas fa-info-circle"></i> Overview</div>
+                <div id="lb-tc-ov"></div>
+              </div>
+              <div class="lb-detail-grid__card">
+                <div class="lb-detail-grid__label"><i class="fas fa-sliders-h"></i> Configuración</div>
+                <div id="lb-tc-cf"></div>
+              </div>
+              <div class="lb-detail-grid__card">
+                <div class="lb-detail-grid__label"><i class="fas fa-briefcase"></i> Casos de uso</div>
+                <div id="lb-tc-uc"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- === VIEW: CONFIGURACIÓN === -->
+        <div class="lb-view" id="lb-view-cfg">
+          <p class="lb-cfg-intro">// parámetros de despliegue típicos</p>
+          <table class="lb-cfg-table">
+            <thead><tr><th>Parámetro</th><th>Valor</th><th>Notas</th></tr></thead>
+            <tbody>
+              <tr><td>SKU</td><td class="lb-hl">Standard</td><td>Zonal · SLA 99.99%</td></tr>
+              <tr><td>Tipo</td><td>Público</td><td>IP pública estática</td></tr>
+              <tr><td>Backend</td><td class="lb-hl--green">2 × D2s v3</td><td>VMSS Linux Ubuntu</td></tr>
+              <tr><td>Algoritmo</td><td>5-tuple hash</td><td>IP src/dst · Puerto · Proto</td></tr>
+              <tr><td>Health Probe</td><td>TCP / HTTP</td><td>Intervalo: 5s · Umbral: 2</td></tr>
+              <tr><td>Idle Timeout</td><td>4 min</td><td>Configurable 4–30 min</td></tr>
+              <tr><td>LB Rules incluidas</td><td class="lb-hl">5 sin costo</td><td>~$18/mes precio base</td></tr>
+              <tr><td>NAT Rules</td><td>Por VM</td><td>SSH/RDP sin IP individual</td></tr>
+              <tr><td>Availability Zones</td><td class="lb-hl--green">Zona 1, 2, 3</td><td>Zone-redundant</td></tr>
+              <tr><td>NSG</td><td class="lb-hl--amber">Requerido</td><td>Obligatorio Standard SKU</td></tr>
+              <tr><td>Outbound SNAT</td><td>Explícito</td><td>64.512 puertos por IP</td></tr>
+              <tr><td>Max backend pool</td><td class="lb-hl">1.000 instancias</td><td>vs 300 en Basic SKU</td></tr>
+              <tr><td>Regla LB adicional</td><td class="lb-hl--amber">$0.008/hora</td><td>Después de las 5 incluidas</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+      </div>

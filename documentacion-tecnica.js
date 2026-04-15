@@ -1,21 +1,58 @@
-// === DOCUMENTACIÓN TÉCNICA — Sidebar navigation + Column toggles ===
+// === DOCUMENTACIÓN TÉCNICA — Sidebar navigation + Lazy-loaded panels ===
 (function () {
   'use strict';
 
   // === SIDEBAR NAVIGATION ===
-  const sidebarItems = document.querySelectorAll('.sidebar-item:not([disabled])');
-  const panels = document.querySelectorAll('.dt-panel');
-
+  var sidebarItems = document.querySelectorAll('.sidebar-item:not([disabled])');
   if (!sidebarItems.length) return;
 
-  function switchDoc(docId) {
-    panels.forEach(function (p) { p.classList.add('dt-panel--hidden'); });
-    const target = document.getElementById('doc-' + docId);
-    if (target) target.classList.remove('dt-panel--hidden');
+  // Cache de paneles cargados: 'azure-data' ya está inline
+  var loaded = { 'azure-data': true };
 
+  // Registry de funciones init por panel
+  var PANEL_INIT = {
+    'azure-data':      initExpandableCards,
+    'azure-rbac':      initExpandableCards,
+    'azure-shared':    initExpandableCards,
+    'azure-arch':      initLoadBalancer,
+    'm365-comparador': initComparador,
+    'm365-guide':      initM365Guide
+  };
+
+  function switchDoc(docId) {
+    // Ocultar todos los slots
+    document.querySelectorAll('.dt-panel-slot').forEach(function (s) {
+      s.classList.add('dt-panel--hidden');
+    });
+
+    // Actualizar sidebar
     sidebarItems.forEach(function (s) { s.classList.remove('sidebar-item--active'); });
-    const btn = document.querySelector('.sidebar-item[data-doc="' + docId + '"]');
+    var btn = document.querySelector('.sidebar-item[data-doc="' + docId + '"]');
     if (btn) btn.classList.add('sidebar-item--active');
+
+    var slot = document.getElementById('slot-' + docId);
+    if (!slot) return;
+    slot.classList.remove('dt-panel--hidden');
+
+    // Cargar partial si no se ha cargado
+    if (!loaded[docId]) {
+      loaded[docId] = 'loading';
+      fetch(slot.getAttribute('data-partial'))
+        .then(function (res) { return res.text(); })
+        .then(function (html) {
+          slot.innerHTML = html;
+          loaded[docId] = true;
+          // Quitar clase hidden del panel interior
+          var innerPanel = slot.querySelector('.dt-panel');
+          if (innerPanel) innerPanel.classList.remove('dt-panel--hidden');
+          var initFn = PANEL_INIT[docId];
+          if (initFn) initFn(slot);
+        })
+        .catch(function () {
+          loaded[docId] = false;
+          slot.innerHTML = '<div class="dt-panel-loader" style="color:#f472b6"><i class="fas fa-exclamation-triangle"></i> Error al cargar el contenido.</div>';
+        });
+    }
   }
 
   sidebarItems.forEach(function (item) {
@@ -24,87 +61,108 @@
     });
   });
 
-  // === EXPANDABLE CARDS (accordion — one at a time) ===
-  var expandableCards = document.querySelectorAll('.dt-card[data-expandable]');
-  expandableCards.forEach(function (card) {
-    card.addEventListener('click', function () {
-      var wasExpanded = card.classList.contains('dt-card--expanded');
+  // === INIT: EXPANDABLE CARDS (accordion — one at a time) ===
+  function initExpandableCards(container) {
+    var expandableCards = container.querySelectorAll('.dt-card[data-expandable]');
+    expandableCards.forEach(function (card) {
+      card.addEventListener('click', function () {
+        var wasExpanded = card.classList.contains('dt-card--expanded');
 
-      // Close all other cards
-      expandableCards.forEach(function (other) {
-        if (other !== card && other.classList.contains('dt-card--expanded')) {
-          other.classList.remove('dt-card--expanded');
-          var otherLabel = other.querySelector('.dt-card__toggle');
-          if (otherLabel) otherLabel.lastChild.textContent = ' Ver detalles';
+        // Close all other cards in this container
+        expandableCards.forEach(function (other) {
+          if (other !== card && other.classList.contains('dt-card--expanded')) {
+            other.classList.remove('dt-card--expanded');
+            var otherLabel = other.querySelector('.dt-card__toggle');
+            if (otherLabel) otherLabel.lastChild.textContent = ' Ver detalles';
+          }
+        });
+
+        // Toggle clicked card
+        card.classList.toggle('dt-card--expanded', !wasExpanded);
+        var label = card.querySelector('.dt-card__toggle');
+        if (label) {
+          label.lastChild.textContent = !wasExpanded ? ' Ocultar detalles' : ' Ver detalles';
         }
       });
+    });
+  }
 
-      // Toggle clicked card
-      card.classList.toggle('dt-card--expanded', !wasExpanded);
-      var label = card.querySelector('.dt-card__toggle');
-      if (label) {
-        label.lastChild.textContent = !wasExpanded ? ' Ocultar detalles' : ' Ver detalles';
+  // === INIT: M365 GUIDE (column toggles + feature descriptions + swiper) ===
+  function initM365Guide(container) {
+    var M365_PLANS = [
+      { key: 'F1', label: 'F1', color: '#38bdf8' },
+      { key: 'F3', label: 'F3', color: '#34d399' },
+      { key: 'BB', label: 'Business Basic', color: '#94a3b8' },
+      { key: 'BS', label: 'Business Standard', color: '#60a5fa' },
+      { key: 'BP', label: 'Business Premium', color: '#c084fc' },
+      { key: 'E3', label: 'E3', color: '#fb923c' },
+      { key: 'E5', label: 'E5', color: '#f472b6' }
+    ];
+
+    var m365Panel = container.querySelector('.dt-panel') || container;
+    var toggleContainer = container.querySelector('#m365tToggles') || document.getElementById('m365tToggles');
+
+    if (toggleContainer && m365Panel) {
+      M365_PLANS.forEach(function (plan) {
+        var btn = document.createElement('button');
+        btn.type = 'button';
+        btn.className = 'tbl-col-toggle tbl-col-toggle--active';
+        btn.dataset.plan = plan.key;
+        btn.innerHTML = '<span class="tbl-col-toggle__dot" style="background:' + plan.color + '"></span>' + plan.label;
+
+        btn.addEventListener('click', function () {
+          var isActive = this.classList.toggle('tbl-col-toggle--active');
+          if (isActive) {
+            m365Panel.classList.remove('m365t-hide-' + plan.key);
+          } else {
+            m365Panel.classList.add('m365t-hide-' + plan.key);
+          }
+          updateSubheaderColspans();
+        });
+
+        toggleContainer.appendChild(btn);
+      });
+
+      function updateSubheaderColspans() {
+        var visibleCount = 1 + toggleContainer.querySelectorAll('.tbl-col-toggle--active').length;
+        m365Panel.querySelectorAll('.m365t-subheader td[colspan]').forEach(function (td) {
+          td.setAttribute('colspan', visibleCount);
+        });
       }
-    });
-  });
+    }
 
-  // === M365 COLUMN TOGGLES ===
-  const M365_PLANS = [
-    { key: 'F1', label: 'F1', color: '#38bdf8' },
-    { key: 'F3', label: 'F3', color: '#34d399' },
-    { key: 'BB', label: 'Business Basic', color: '#94a3b8' },
-    { key: 'BS', label: 'Business Standard', color: '#60a5fa' },
-    { key: 'BP', label: 'Business Premium', color: '#c084fc' },
-    { key: 'E3', label: 'E3', color: '#fb923c' },
-    { key: 'E5', label: 'E5', color: '#f472b6' }
-  ];
-
-  const toggleContainer = document.getElementById('m365tToggles');
-  const m365Panel = document.getElementById('doc-m365-guide');
-
-  if (toggleContainer && m365Panel) {
-    M365_PLANS.forEach(function (plan) {
-      var btn = document.createElement('button');
-      btn.type = 'button';
-      btn.className = 'tbl-col-toggle tbl-col-toggle--active';
-      btn.dataset.plan = plan.key;
-      btn.innerHTML = '<span class="tbl-col-toggle__dot" style="background:' + plan.color + '"></span>' + plan.label;
-
-      btn.addEventListener('click', function () {
-        var isActive = this.classList.toggle('tbl-col-toggle--active');
-        if (isActive) {
-          m365Panel.classList.remove('m365t-hide-' + plan.key);
-        } else {
-          m365Panel.classList.add('m365t-hide-' + plan.key);
-        }
-        updateSubheaderColspans();
+    // Feature descriptions
+    fetch('data/feature-descriptions.json')
+      .then(function (res) { return res.json(); })
+      .then(function (data) {
+        initFeatureDescriptions(m365Panel, data.featureDescriptions, data.defenderIncluded);
       });
 
-      toggleContainer.appendChild(btn);
-    });
-
-    function updateSubheaderColspans() {
-      var visibleCount = 1 + toggleContainer.querySelectorAll('.tbl-col-toggle--active').length;
-      m365Panel.querySelectorAll('.m365t-subheader td[colspan]').forEach(function (td) {
-        td.setAttribute('colspan', visibleCount);
-      });
+    // Swiper
+    if (typeof Swiper !== 'undefined') {
+      var swiperEl = container.querySelector('.m365t-swiper');
+      if (swiperEl) {
+        new Swiper(swiperEl, {
+          slidesPerView: 1,
+          spaceBetween: 24,
+          navigation: {
+            nextEl: swiperEl.querySelector('.swiper-button-next'),
+            prevEl: swiperEl.querySelector('.swiper-button-prev')
+          },
+          pagination: {
+            el: swiperEl.querySelector('.swiper-pagination'),
+            clickable: true
+          }
+        });
+      }
     }
   }
 
-  // === FEATURE DESCRIPTIONS (info accordion) ===
-  fetch('data/feature-descriptions.json')
-    .then(function (res) { return res.json(); })
-    .then(function (data) {
-      initFeatureDescriptions(data.featureDescriptions, data.defenderIncluded);
-    });
-
-  function initFeatureDescriptions(FEATURE_DESC, DEFENDER_INCLUDED) {
+  function initFeatureDescriptions(m365Panel, FEATURE_DESC, DEFENDER_INCLUDED) {
     var tables = m365Panel ? m365Panel.querySelectorAll('.m365t-table') : [];
     tables.forEach(function (table) {
-      var rows = table.querySelectorAll('tbody tr:not(.m365t-subheader)');
-      var currentSubheader = '';
-
       // Walk all rows including subheaders to track context
+      var currentSubheader = '';
       var allRows = table.querySelectorAll('tbody tr');
       allRows.forEach(function (row) {
         if (row.classList.contains('m365t-subheader')) {
@@ -181,25 +239,9 @@
     });
   }
 
-  // === SWIPER — M365 comparison tables ===
-  if (typeof Swiper !== 'undefined' && document.querySelector('.m365t-swiper')) {
-    new Swiper('.m365t-swiper', {
-      slidesPerView: 1,
-      spaceBetween: 24,
-      navigation: {
-        nextEl: '.m365t-swiper .swiper-button-next',
-        prevEl: '.m365t-swiper .swiper-button-prev'
-      },
-      pagination: {
-        el: '.m365t-swiper .swiper-pagination',
-        clickable: true
-      }
-    });
-  }
-
-  // === COMPARADOR DE LICENCIAS M365 ===
-  (function initComparador() {
-    var cmpQuestion = document.getElementById('cmpQuestion');
+  // === INIT: COMPARADOR DE LICENCIAS M365 ===
+  function initComparador(container) {
+    var cmpQuestion = container.querySelector('#cmpQuestion') || document.getElementById('cmpQuestion');
     if (!cmpQuestion) return;
 
     var QUESTIONS = [
@@ -314,14 +356,14 @@
     };
 
     var questionEl   = cmpQuestion;
-    var progressFill = document.getElementById('cmpProgressFill');
-    var progressBar  = document.getElementById('cmpProgressBar');
-    var stepsEl      = document.getElementById('cmpSteps');
-    var resultEl     = document.getElementById('cmpResult');
-    var planBadgeEl  = document.getElementById('cmpPlanBadge');
-    var planSubtitle = document.getElementById('cmpPlanSubtitle');
-    var justifEl     = document.getElementById('cmpJustification');
-    var addonsEl     = document.getElementById('cmpAddons');
+    var progressFill = container.querySelector('#cmpProgressFill') || document.getElementById('cmpProgressFill');
+    var progressBar  = container.querySelector('#cmpProgressBar') || document.getElementById('cmpProgressBar');
+    var stepsEl      = container.querySelector('#cmpSteps') || document.getElementById('cmpSteps');
+    var resultEl     = container.querySelector('#cmpResult') || document.getElementById('cmpResult');
+    var planBadgeEl  = container.querySelector('#cmpPlanBadge') || document.getElementById('cmpPlanBadge');
+    var planSubtitle = container.querySelector('#cmpPlanSubtitle') || document.getElementById('cmpPlanSubtitle');
+    var justifEl     = container.querySelector('#cmpJustification') || document.getElementById('cmpJustification');
+    var addonsEl     = container.querySelector('#cmpAddons') || document.getElementById('cmpAddons');
 
     function buildStepDots() {
       stepsEl.innerHTML = QUESTIONS.map(function (_, i) {
@@ -457,14 +499,16 @@
 
     buildStepDots();
     renderStep(0);
-    document.getElementById('cmpRestart').addEventListener('click', restart);
-    document.getElementById('cmpGoToTable').addEventListener('click', function () {
+    var restartBtn = container.querySelector('#cmpRestart') || document.getElementById('cmpRestart');
+    var goToTableBtn = container.querySelector('#cmpGoToTable') || document.getElementById('cmpGoToTable');
+    if (restartBtn) restartBtn.addEventListener('click', restart);
+    if (goToTableBtn) goToTableBtn.addEventListener('click', function () {
       switchDoc('m365-guide');
     });
-  })();
+  }
 
-  // === INTERACTIVE LOAD BALANCER ===
-  (function () {
+  // === INIT: INTERACTIVE LOAD BALANCER ===
+  function initLoadBalancer(container) {
     var LB_DATA = {
       users: {
         icon: '<i class="fas fa-user"></i>',
@@ -639,19 +683,19 @@
       }
     };
 
-    var panel = document.getElementById('lbDetailPanel');
+    var panel = container.querySelector('#lbDetailPanel') || document.getElementById('lbDetailPanel');
     if (!panel) return;
 
-    var closeBtn = document.getElementById('lbDetailClose');
+    var closeBtn = container.querySelector('#lbDetailClose') || document.getElementById('lbDetailClose');
 
     // View tabs (Diagrama / Configuración)
-    document.querySelectorAll('.lb-vtab').forEach(function (tab) {
+    container.querySelectorAll('.lb-vtab').forEach(function (tab) {
       tab.addEventListener('click', function () {
         var viewId = tab.getAttribute('data-lb-view');
-        document.querySelectorAll('.lb-vtab').forEach(function (t) { t.classList.remove('lb-vtab--active'); });
-        document.querySelectorAll('.lb-view').forEach(function (v) { v.classList.remove('lb-view--active'); });
+        container.querySelectorAll('.lb-vtab').forEach(function (t) { t.classList.remove('lb-vtab--active'); });
+        container.querySelectorAll('.lb-view').forEach(function (v) { v.classList.remove('lb-view--active'); });
         tab.classList.add('lb-vtab--active');
-        var target = document.getElementById('lb-view-' + viewId);
+        var target = container.querySelector('#lb-view-' + viewId) || document.getElementById('lb-view-' + viewId);
         if (target) target.classList.add('lb-view--active');
       });
     });
@@ -662,30 +706,36 @@
       if (!d) return;
 
       // Deselect all nodes
-      document.querySelectorAll('.lb-node, .lb-rule').forEach(function (n) {
+      container.querySelectorAll('.lb-node, .lb-rule').forEach(function (n) {
         n.classList.remove('lb-node--selected');
       });
 
       // Select clicked node
-      document.querySelectorAll('[data-lb-node="' + key + '"]').forEach(function (el) {
+      container.querySelectorAll('[data-lb-node="' + key + '"]').forEach(function (el) {
         el.classList.add('lb-node--selected');
       });
 
       // Fill panel content
-      document.getElementById('lbDetailIcon').innerHTML = d.icon;
-      document.getElementById('lbDetailTitle').textContent = d.title;
-      document.getElementById('lbDetailBadge').textContent = d.badge;
+      var iconEl = container.querySelector('#lbDetailIcon') || document.getElementById('lbDetailIcon');
+      var titleEl = container.querySelector('#lbDetailTitle') || document.getElementById('lbDetailTitle');
+      var badgeEl = container.querySelector('#lbDetailBadge') || document.getElementById('lbDetailBadge');
+      iconEl.innerHTML = d.icon;
+      titleEl.textContent = d.title;
+      badgeEl.textContent = d.badge;
 
       // Overview tab
-      document.getElementById('lb-tc-ov').innerHTML = d.ov;
+      var ovEl = container.querySelector('#lb-tc-ov') || document.getElementById('lb-tc-ov');
+      ovEl.innerHTML = d.ov;
 
       // Config tab
-      document.getElementById('lb-tc-cf').innerHTML = d.cf.map(function (i) {
+      var cfEl = container.querySelector('#lb-tc-cf') || document.getElementById('lb-tc-cf');
+      cfEl.innerHTML = d.cf.map(function (i) {
         return '<div class="lb-ci"><span class="lb-ck">' + i.k + '</span><span class="lb-cv' + (i.hl ? ' lb-hl' : '') + '">' + i.v + '</span></div>';
       }).join('');
 
       // Use cases tab
-      document.getElementById('lb-tc-uc').innerHTML = d.uc.map(function (i) {
+      var ucEl = container.querySelector('#lb-tc-uc') || document.getElementById('lb-tc-uc');
+      ucEl.innerHTML = d.uc.map(function (i) {
         return '<div class="lb-uci"><div class="lb-uct">' + i.t + '</div><div class="lb-ucd">' + i.d + '</div></div>';
       }).join('');
 
@@ -696,7 +746,7 @@
     // Close detail section
     function closeLbPanel() {
       panel.classList.remove('lb-detail--open');
-      document.querySelectorAll('.lb-node, .lb-rule').forEach(function (n) {
+      container.querySelectorAll('.lb-node, .lb-rule').forEach(function (n) {
         n.classList.remove('lb-node--selected');
       });
     }
@@ -704,11 +754,14 @@
     closeBtn.addEventListener('click', closeLbPanel);
 
     // Node click handlers
-    document.querySelectorAll('[data-lb-node]').forEach(function (el) {
+    container.querySelectorAll('[data-lb-node]').forEach(function (el) {
       el.addEventListener('click', function () {
         openLbPanel(el.getAttribute('data-lb-node'));
       });
     });
-  })();
+  }
+
+  // === INICIALIZAR PANEL POR DEFECTO (azure-data, ya inline) ===
+  initExpandableCards(document.getElementById('slot-azure-data'));
 
 })();
