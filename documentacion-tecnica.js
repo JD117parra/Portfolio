@@ -17,7 +17,8 @@
     'azure-arch':      initLoadBalancer,
     'm365-comparador': initComparador,
     'm365-guide':      initM365Guide,
-    'pp-guide':        initPPGuide
+    'pp-guide':        initPPGuide,
+    'azure-compare':   initAzureCompare
   };
 
   function switchDoc(docId) {
@@ -249,6 +250,37 @@
       .then(function (res) { return res.json(); })
       .then(function (data) {
         initFeatureDescriptions(ppPanel, data.featureDescriptions, {});
+      });
+
+    // Swiper
+    if (typeof Swiper !== 'undefined') {
+      var swiperEl = container.querySelector('.m365t-swiper');
+      if (swiperEl) {
+        new Swiper(swiperEl, {
+          slidesPerView: 1,
+          spaceBetween: 24,
+          navigation: {
+            nextEl: swiperEl.querySelector('.swiper-button-next'),
+            prevEl: swiperEl.querySelector('.swiper-button-prev')
+          },
+          pagination: {
+            el: swiperEl.querySelector('.swiper-pagination'),
+            clickable: true
+          }
+        });
+      }
+    }
+  }
+
+  // === INIT: AZURE COMPARE (feature descriptions + swiper) ===
+  function initAzureCompare(container) {
+    var azPanel = container.querySelector('.dt-panel') || container;
+
+    // Feature descriptions
+    fetch('data/azure-feature-descriptions.json')
+      .then(function (res) { return res.json(); })
+      .then(function (data) {
+        initFeatureDescriptions(azPanel, data.featureDescriptions, {});
       });
 
     // Swiper

@@ -1,0 +1,931 @@
+<div class="dt-panel dt-panel--hidden" id="doc-azure-compare">
+  <div class="dt-panel__header">
+    <h2 class="dt-panel__title">Comparativa de Servicios Azure por Categoría</h2>
+    <p class="dt-panel__desc">
+      Productos de Azure organizados por función: redes, cómputo, bases de datos,
+      analítica, seguridad y almacenamiento. Navega entre categorías con las flechas laterales.
+    </p>
+  </div>
+
+  <div class="swiper m365t-swiper">
+    <div class="swiper-wrapper">
+
+      <!-- ═══════════════════════════════════════════════════════
+           SLIDE 1: REDES
+           ═══════════════════════════════════════════════════════ -->
+      <div class="swiper-slide">
+        <h3 class="m365t-slide-title">
+          <i class="fas fa-network-wired"></i> Redes
+        </h3>
+        <div class="m365t-table-wrap">
+          <table class="m365t-table">
+            <thead>
+              <tr>
+                <th>Característica</th>
+                <th>Load Balancer</th>
+                <th>Application Gateway</th>
+                <th>Front Door</th>
+                <th>VPN Gateway</th>
+                <th>ExpressRoute</th>
+                <th>Azure Firewall</th>
+              </tr>
+            </thead>
+            <tbody>
+
+              <tr class="m365t-subheader"><td colspan="7">Tipo y alcance</td></tr>
+              <tr>
+                <td>Capa OSI</td>
+                <td class="m365t-partial">Capa 4 (Transporte)</td>
+                <td class="m365t-partial">Capa 7 (Aplicación)</td>
+                <td class="m365t-partial">Capa 7 (Aplicación)</td>
+                <td class="m365t-partial">Capa 3 (Red)</td>
+                <td class="m365t-partial">Capa 3 (Red)</td>
+                <td class="m365t-partial">Capa 3–7</td>
+              </tr>
+              <tr>
+                <td>Alcance</td>
+                <td class="m365t-partial">Regional</td>
+                <td class="m365t-partial">Regional</td>
+                <td class="m365t-partial">Global</td>
+                <td class="m365t-partial">Regional</td>
+                <td class="m365t-partial">Regional/Global</td>
+                <td class="m365t-partial">Regional</td>
+              </tr>
+              <tr>
+                <td>Caso de uso principal</td>
+                <td class="m365t-partial">Distribuir tráfico TCP/UDP entre VMs</td>
+                <td class="m365t-partial">Balanceo web, SSL offload, ruteo por ruta</td>
+                <td class="m365t-partial">CDN + balanceo global HTTP(S)</td>
+                <td class="m365t-partial">Túneles VPN cifrados site-to-site / point-to-site</td>
+                <td class="m365t-partial">Conectividad privada on-premises a Azure</td>
+                <td class="m365t-partial">Firewall centralizado, filtrado de tráfico</td>
+              </tr>
+
+              <tr class="m365t-subheader"><td colspan="7">Capacidades</td></tr>
+              <tr>
+                <td>Health probes</td>
+                <td class="m365t-partial">HTTP, HTTPS, TCP</td>
+                <td class="m365t-partial">HTTP, HTTPS (custom)</td>
+                <td class="m365t-partial">HTTP, HTTPS</td>
+                <td class="m365t-cross"><i class="fas fa-times"></i></td>
+                <td class="m365t-cross"><i class="fas fa-times"></i></td>
+                <td class="m365t-cross"><i class="fas fa-times"></i></td>
+              </tr>
+              <tr>
+                <td>Balanceo de carga</td>
+                <td class="m365t-check"><i class="fas fa-check"></i></td>
+                <td class="m365t-check"><i class="fas fa-check"></i></td>
+                <td class="m365t-check"><i class="fas fa-check"></i></td>
+                <td class="m365t-cross"><i class="fas fa-times"></i></td>
+                <td class="m365t-cross"><i class="fas fa-times"></i></td>
+                <td class="m365t-cross"><i class="fas fa-times"></i></td>
+              </tr>
+              <tr>
+                <td>WAF (Web Application Firewall)</td>
+                <td class="m365t-cross"><i class="fas fa-times"></i></td>
+                <td class="m365t-check"><i class="fas fa-check"></i></td>
+                <td class="m365t-check"><i class="fas fa-check"></i></td>
+                <td class="m365t-cross"><i class="fas fa-times"></i></td>
+                <td class="m365t-cross"><i class="fas fa-times"></i></td>
+                <td class="m365t-cross"><i class="fas fa-times"></i></td>
+              </tr>
+              <tr>
+                <td>Terminación SSL/TLS</td>
+                <td class="m365t-cross"><i class="fas fa-times"></i></td>
+                <td class="m365t-check"><i class="fas fa-check"></i></td>
+                <td class="m365t-check"><i class="fas fa-check"></i></td>
+                <td class="m365t-partial">VPN encryption</td>
+                <td class="m365t-partial">N/A (circuito privado)</td>
+                <td class="m365t-cross"><i class="fas fa-times"></i></td>
+              </tr>
+              <tr>
+                <td>Protocolos soportados</td>
+                <td class="m365t-partial">TCP, UDP</td>
+                <td class="m365t-partial">HTTP/S, WebSocket, TCP/TLS</td>
+                <td class="m365t-partial">HTTP/S, HTTP/2</td>
+                <td class="m365t-partial">IPsec/IKE, SSTP, OpenVPN</td>
+                <td class="m365t-partial">BGP, cualquier protocolo (L3)</td>
+                <td class="m365t-partial">TCP, UDP, ICMP, HTTP/S, FQDN</td>
+              </tr>
+              <tr>
+                <td>Session affinity</td>
+                <td class="m365t-partial">Source IP (2/3-tuple)</td>
+                <td class="m365t-partial">Cookie-based</td>
+                <td class="m365t-partial">Cookie-based</td>
+                <td class="m365t-partial">N/A</td>
+                <td class="m365t-partial">N/A</td>
+                <td class="m365t-partial">N/A</td>
+              </tr>
+              <tr>
+                <td>Ruteo por URL/ruta</td>
+                <td class="m365t-cross"><i class="fas fa-times"></i></td>
+                <td class="m365t-check"><i class="fas fa-check"></i></td>
+                <td class="m365t-check"><i class="fas fa-check"></i></td>
+                <td class="m365t-cross"><i class="fas fa-times"></i></td>
+                <td class="m365t-cross"><i class="fas fa-times"></i></td>
+                <td class="m365t-cross"><i class="fas fa-times"></i></td>
+              </tr>
+              <tr>
+                <td>Auto-scaling</td>
+                <td class="m365t-partial">Auto-handles flows</td>
+                <td class="m365t-partial">v2 nativo</td>
+                <td class="m365t-partial">Global nativo</td>
+                <td class="m365t-partial">Manual (resize SKU)</td>
+                <td class="m365t-partial">Manual (circuito)</td>
+                <td class="m365t-check"><i class="fas fa-check"></i></td>
+              </tr>
+              <tr>
+                <td>Zone redundancy</td>
+                <td class="m365t-check"><i class="fas fa-check"></i></td>
+                <td class="m365t-partial">v2</td>
+                <td class="m365t-partial">Global (inherente)</td>
+                <td class="m365t-partial">SKUs AZ</td>
+                <td class="m365t-partial">SKUs ErGw*AZ</td>
+                <td class="m365t-check"><i class="fas fa-check"></i></td>
+              </tr>
+
+              <tr class="m365t-subheader"><td colspan="7">SLA y precio</td></tr>
+              <tr>
+                <td>SLA</td>
+                <td class="m365t-partial">99.99%</td>
+                <td class="m365t-partial">99.95%</td>
+                <td class="m365t-partial">99.99%</td>
+                <td class="m365t-partial">99.95%</td>
+                <td class="m365t-partial">99.95%</td>
+                <td class="m365t-partial">99.95%</td>
+              </tr>
+              <tr>
+                <td>Modelo de cobro</td>
+                <td class="m365t-partial">Por regla + GB procesado</td>
+                <td class="m365t-partial">Por hora + capacity unit</td>
+                <td class="m365t-partial">Base + por request + GB</td>
+                <td class="m365t-partial">Por hora + GB transferido</td>
+                <td class="m365t-partial">Por circuito/mes</td>
+                <td class="m365t-partial">Por hora + GB procesado</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="m365t-note">
+          <strong>Nota:</strong> Load Balancer con Availability Zones alcanza 99.99% SLA. Azure Firewall con AZ puede alcanzar 99.99%.
+          ExpressRoute ofrece Global Reach como add-on para conectar circuitos entre regiones.
+        </div>
+      </div>
+
+      <!-- ═══════════════════════════════════════════════════════
+           SLIDE 2: CÓMPUTO
+           ═══════════════════════════════════════════════════════ -->
+      <div class="swiper-slide">
+        <h3 class="m365t-slide-title">
+          <i class="fas fa-server"></i> Cómputo
+        </h3>
+        <div class="m365t-table-wrap">
+          <table class="m365t-table">
+            <thead>
+              <tr>
+                <th>Característica</th>
+                <th>Virtual Machines</th>
+                <th>App Service</th>
+                <th>AKS</th>
+                <th>Container Instances</th>
+                <th>Functions</th>
+                <th>Container Apps</th>
+              </tr>
+            </thead>
+            <tbody>
+
+              <tr class="m365t-subheader"><td colspan="7">Tipo y caso de uso</td></tr>
+              <tr>
+                <td>Tipo de servicio</td>
+                <td class="m365t-partial">IaaS</td>
+                <td class="m365t-partial">PaaS</td>
+                <td class="m365t-partial">PaaS/IaaS (Kubernetes)</td>
+                <td class="m365t-partial">CaaS</td>
+                <td class="m365t-partial">FaaS (Serverless)</td>
+                <td class="m365t-partial">PaaS (Serverless containers)</td>
+              </tr>
+              <tr>
+                <td>Caso de uso principal</td>
+                <td class="m365t-partial">Control total del OS, lift-and-shift</td>
+                <td class="m365t-partial">Web apps, APIs, backends</td>
+                <td class="m365t-partial">Orquestación de contenedores a escala</td>
+                <td class="m365t-partial">Contenedores simples y efímeros</td>
+                <td class="m365t-partial">Funciones event-driven de corta duración</td>
+                <td class="m365t-partial">Microservicios sin gestionar Kubernetes</td>
+              </tr>
+
+              <tr class="m365t-subheader"><td colspan="7">Capacidades</td></tr>
+              <tr>
+                <td>Soporte OS</td>
+                <td class="m365t-partial">Windows + Linux</td>
+                <td class="m365t-partial">Windows + Linux</td>
+                <td class="m365t-partial">Linux (Windows node pools disponibles)</td>
+                <td class="m365t-partial">Windows + Linux</td>
+                <td class="m365t-partial">Windows + Linux</td>
+                <td class="m365t-partial">Linux</td>
+              </tr>
+              <tr>
+                <td>Auto-scaling</td>
+                <td class="m365t-partial">Via VM Scale Sets</td>
+                <td class="m365t-check"><i class="fas fa-check"></i></td>
+                <td class="m365t-check"><i class="fas fa-check"></i></td>
+                <td class="m365t-cross"><i class="fas fa-times"></i></td>
+                <td class="m365t-check"><i class="fas fa-check"></i></td>
+                <td class="m365t-check"><i class="fas fa-check"></i></td>
+              </tr>
+              <tr>
+                <td>Soporte de contenedores</td>
+                <td class="m365t-partial">Docker sobre VM</td>
+                <td class="m365t-check"><i class="fas fa-check"></i></td>
+                <td class="m365t-check"><i class="fas fa-check"></i></td>
+                <td class="m365t-check"><i class="fas fa-check"></i></td>
+                <td class="m365t-check"><i class="fas fa-check"></i></td>
+                <td class="m365t-check"><i class="fas fa-check"></i></td>
+              </tr>
+              <tr>
+                <td>Opción serverless</td>
+                <td class="m365t-cross"><i class="fas fa-times"></i></td>
+                <td class="m365t-cross"><i class="fas fa-times"></i></td>
+                <td class="m365t-cross"><i class="fas fa-times"></i></td>
+                <td class="m365t-check"><i class="fas fa-check"></i></td>
+                <td class="m365t-check"><i class="fas fa-check"></i></td>
+                <td class="m365t-check"><i class="fas fa-check"></i></td>
+              </tr>
+              <tr>
+                <td>Runtime personalizado</td>
+                <td class="m365t-check"><i class="fas fa-check"></i></td>
+                <td class="m365t-partial">Stacks soportados + contenedores</td>
+                <td class="m365t-check"><i class="fas fa-check"></i></td>
+                <td class="m365t-check"><i class="fas fa-check"></i></td>
+                <td class="m365t-partial">Runtimes soportados + contenedores</td>
+                <td class="m365t-check"><i class="fas fa-check"></i></td>
+              </tr>
+              <tr>
+                <td>Escala a cero</td>
+                <td class="m365t-cross"><i class="fas fa-times"></i></td>
+                <td class="m365t-cross"><i class="fas fa-times"></i></td>
+                <td class="m365t-cross"><i class="fas fa-times"></i></td>
+                <td class="m365t-cross"><i class="fas fa-times"></i></td>
+                <td class="m365t-check"><i class="fas fa-check"></i></td>
+                <td class="m365t-check"><i class="fas fa-check"></i></td>
+              </tr>
+              <tr>
+                <td>GPU support</td>
+                <td class="m365t-partial">NC, ND, NV series</td>
+                <td class="m365t-cross"><i class="fas fa-times"></i></td>
+                <td class="m365t-partial">GPU node pools</td>
+                <td class="m365t-partial">Regiones limitadas</td>
+                <td class="m365t-cross"><i class="fas fa-times"></i></td>
+                <td class="m365t-cross"><i class="fas fa-times"></i></td>
+              </tr>
+              <tr>
+                <td>VNet integration</td>
+                <td class="m365t-partial">Nativo (deploy en subnet)</td>
+                <td class="m365t-partial">Regional VNet + Private Endpoints</td>
+                <td class="m365t-partial">Azure CNI / kubenet</td>
+                <td class="m365t-partial">Deploy en subnet</td>
+                <td class="m365t-partial">Premium / Dedicated</td>
+                <td class="m365t-partial">Custom VNet environment</td>
+              </tr>
+              <tr>
+                <td>Deployment slots</td>
+                <td class="m365t-cross"><i class="fas fa-times"></i></td>
+                <td class="m365t-partial">Hasta 20 slots (Standard+)</td>
+                <td class="m365t-partial">Rolling / canary (K8s)</td>
+                <td class="m365t-cross"><i class="fas fa-times"></i></td>
+                <td class="m365t-partial">Premium / Dedicated</td>
+                <td class="m365t-partial">Revision traffic splitting</td>
+              </tr>
+              <tr>
+                <td>Managed Identity</td>
+                <td class="m365t-check"><i class="fas fa-check"></i></td>
+                <td class="m365t-check"><i class="fas fa-check"></i></td>
+                <td class="m365t-check"><i class="fas fa-check"></i></td>
+                <td class="m365t-check"><i class="fas fa-check"></i></td>
+                <td class="m365t-check"><i class="fas fa-check"></i></td>
+                <td class="m365t-check"><i class="fas fa-check"></i></td>
+              </tr>
+
+              <tr class="m365t-subheader"><td colspan="7">SLA y precio</td></tr>
+              <tr>
+                <td>SLA</td>
+                <td class="m365t-partial">99.95% (AS) / 99.99% (AZ)</td>
+                <td class="m365t-partial">99.95%</td>
+                <td class="m365t-partial">99.95% (Standard + AZ)</td>
+                <td class="m365t-partial">99.9%</td>
+                <td class="m365t-partial">99.95%</td>
+                <td class="m365t-partial">99.95%</td>
+              </tr>
+              <tr>
+                <td>Modelo de cobro</td>
+                <td class="m365t-partial">Por VM/hora (Reserved, Spot)</td>
+                <td class="m365t-partial">Por plan (Free a Isolated)</td>
+                <td class="m365t-partial">Free (gestión) + VMs de nodos</td>
+                <td class="m365t-partial">Por vCPU-seg + GB-seg</td>
+                <td class="m365t-partial">Por ejecución + GB-seg</td>
+                <td class="m365t-partial">Por vCPU-seg + GB-seg</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="m365t-note">
+          <strong>Nota:</strong> AKS no cobra por la gestión del cluster (Free tier); solo se pagan los nodos.
+          Functions y Container Apps con plan Consumption escalan a cero (sin costo cuando no hay tráfico).
+        </div>
+      </div>
+
+      <!-- ═══════════════════════════════════════════════════════
+           SLIDE 3: BASES DE DATOS
+           ═══════════════════════════════════════════════════════ -->
+      <div class="swiper-slide">
+        <h3 class="m365t-slide-title">
+          <i class="fas fa-database"></i> Bases de Datos
+        </h3>
+        <div class="m365t-table-wrap">
+          <table class="m365t-table">
+            <thead>
+              <tr>
+                <th>Característica</th>
+                <th>SQL Database</th>
+                <th>Cosmos DB</th>
+                <th>MySQL Flexible</th>
+                <th>PostgreSQL Flexible</th>
+                <th>SQL Managed Instance</th>
+              </tr>
+            </thead>
+            <tbody>
+
+              <tr class="m365t-subheader"><td colspan="6">Motor y modelo</td></tr>
+              <tr>
+                <td>Motor</td>
+                <td class="m365t-partial">SQL Server</td>
+                <td class="m365t-partial">NoSQL distribuido (propietario)</td>
+                <td class="m365t-partial">MySQL Community</td>
+                <td class="m365t-partial">PostgreSQL Community</td>
+                <td class="m365t-partial">SQL Server (compatibilidad ~100%)</td>
+              </tr>
+              <tr>
+                <td>Modelo de datos</td>
+                <td class="m365t-partial">Relacional (+ JSON, Graph)</td>
+                <td class="m365t-partial">Documento, Key-value, Graph, Column-family</td>
+                <td class="m365t-partial">Relacional</td>
+                <td class="m365t-partial">Relacional</td>
+                <td class="m365t-partial">Relacional (+ JSON, Graph)</td>
+              </tr>
+              <tr>
+                <td>Caso de uso principal</td>
+                <td class="m365t-partial">Apps OLTP modernas, SaaS</td>
+                <td class="m365t-partial">Apps globales de baja latencia, IoT, gaming</td>
+                <td class="m365t-partial">Cargas MySQL open-source</td>
+                <td class="m365t-partial">Cargas PostgreSQL enterprise</td>
+                <td class="m365t-partial">Migración de SQL Server a la nube</td>
+              </tr>
+
+              <tr class="m365t-subheader"><td colspan="6">Disponibilidad y seguridad</td></tr>
+              <tr>
+                <td>Cifrado en reposo</td>
+                <td class="m365t-partial">TDE (por defecto)</td>
+                <td class="m365t-partial">SSE AES-256 (automático)</td>
+                <td class="m365t-partial">SSE AES-256 (por defecto)</td>
+                <td class="m365t-partial">SSE AES-256 (por defecto)</td>
+                <td class="m365t-partial">TDE (por defecto)</td>
+              </tr>
+              <tr>
+                <td>Alta disponibilidad</td>
+                <td class="m365t-partial">Zone-redundant + failover groups</td>
+                <td class="m365t-partial">Multi-región + auto-failover</td>
+                <td class="m365t-partial">Zone-redundant HA</td>
+                <td class="m365t-partial">Zone-redundant HA</td>
+                <td class="m365t-partial">Always On AG + failover groups</td>
+              </tr>
+
+              <tr class="m365t-subheader"><td colspan="6">Capacidades</td></tr>
+              <tr>
+                <td>Almacenamiento máximo</td>
+                <td class="m365t-partial">128 TB (Hyperscale)</td>
+                <td class="m365t-partial">Ilimitado (petabytes)</td>
+                <td class="m365t-partial">16 TB</td>
+                <td class="m365t-partial">64 TB</td>
+                <td class="m365t-partial">32 TB (Next-gen GP)</td>
+              </tr>
+              <tr>
+                <td>Geo-replicación</td>
+                <td class="m365t-check"><i class="fas fa-check"></i></td>
+                <td class="m365t-check"><i class="fas fa-check"></i></td>
+                <td class="m365t-partial">Read replicas</td>
+                <td class="m365t-partial">Read replicas</td>
+                <td class="m365t-check"><i class="fas fa-check"></i></td>
+              </tr>
+              <tr>
+                <td>Opción serverless</td>
+                <td class="m365t-check"><i class="fas fa-check"></i></td>
+                <td class="m365t-check"><i class="fas fa-check"></i></td>
+                <td class="m365t-cross"><i class="fas fa-times"></i></td>
+                <td class="m365t-cross"><i class="fas fa-times"></i></td>
+                <td class="m365t-cross"><i class="fas fa-times"></i></td>
+              </tr>
+              <tr>
+                <td>Backups automáticos</td>
+                <td class="m365t-partial">PITR hasta 35 días + LTR 10 años</td>
+                <td class="m365t-partial">Continuo + PITR entre regiones</td>
+                <td class="m365t-partial">PITR hasta 35 días</td>
+                <td class="m365t-partial">PITR hasta 35 días</td>
+                <td class="m365t-partial">PITR hasta 35 días + LTR</td>
+              </tr>
+              <tr>
+                <td>Multi-región escritura</td>
+                <td class="m365t-cross"><i class="fas fa-times"></i></td>
+                <td class="m365t-check"><i class="fas fa-check"></i></td>
+                <td class="m365t-cross"><i class="fas fa-times"></i></td>
+                <td class="m365t-cross"><i class="fas fa-times"></i></td>
+                <td class="m365t-cross"><i class="fas fa-times"></i></td>
+              </tr>
+              <tr>
+                <td>Elastic pools</td>
+                <td class="m365t-partial">DTU/vCore compartido entre DBs</td>
+                <td class="m365t-partial">Throughput compartido por DB</td>
+                <td class="m365t-cross"><i class="fas fa-times"></i></td>
+                <td class="m365t-cross"><i class="fas fa-times"></i></td>
+                <td class="m365t-partial">Instance pools (preview)</td>
+              </tr>
+              <tr>
+                <td>Change Data Capture</td>
+                <td class="m365t-check"><i class="fas fa-check"></i></td>
+                <td class="m365t-partial">Change Feed</td>
+                <td class="m365t-partial">Binlog replication</td>
+                <td class="m365t-partial">Logical decoding / Debezium</td>
+                <td class="m365t-check"><i class="fas fa-check"></i></td>
+              </tr>
+              <tr>
+                <td>Auto-tuning</td>
+                <td class="m365t-partial">Indexes, force plans, Insights</td>
+                <td class="m365t-partial">Autoscale RU</td>
+                <td class="m365t-partial">Query Performance Insight</td>
+                <td class="m365t-partial">Query Performance Insight</td>
+                <td class="m365t-partial">Force plans, Insights</td>
+              </tr>
+
+              <tr class="m365t-subheader"><td colspan="6">SLA y precio</td></tr>
+              <tr>
+                <td>SLA</td>
+                <td class="m365t-partial">99.99% / 99.995% (BC + AZ)</td>
+                <td class="m365t-partial">99.999% (multi-región)</td>
+                <td class="m365t-partial">99.99% (AZ)</td>
+                <td class="m365t-partial">99.99% (AZ)</td>
+                <td class="m365t-partial">99.99% (AZ)</td>
+              </tr>
+              <tr>
+                <td>Modelo de cobro</td>
+                <td class="m365t-partial">vCore o DTU</td>
+                <td class="m365t-partial">RU/s + GB almacenado</td>
+                <td class="m365t-partial">vCore (Burstable, GP, BC)</td>
+                <td class="m365t-partial">vCore (Burstable, GP, MO)</td>
+                <td class="m365t-partial">vCore (GP, BC, Next-gen)</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="m365t-note">
+          <strong>Nota:</strong> Cosmos DB es el único servicio con escritura multi-región nativa y SLA de 99.999%.
+          SQL Database Hyperscale soporta hasta 128 TB con escalado rápido de lectura.
+          SQL Managed Instance ofrece compatibilidad casi total con SQL Server on-premises para migraciones.
+        </div>
+      </div>
+
+      <!-- ═══════════════════════════════════════════════════════
+           SLIDE 4: ANALÍTICA Y DATOS
+           ═══════════════════════════════════════════════════════ -->
+      <div class="swiper-slide">
+        <h3 class="m365t-slide-title">
+          <i class="fas fa-chart-line"></i> Analítica y Datos
+        </h3>
+        <div class="m365t-table-wrap">
+          <table class="m365t-table">
+            <thead>
+              <tr>
+                <th>Característica</th>
+                <th>Data Factory</th>
+                <th>Databricks</th>
+                <th>Synapse Analytics</th>
+                <th>Stream Analytics</th>
+                <th>Microsoft Fabric</th>
+              </tr>
+            </thead>
+            <tbody>
+
+              <tr class="m365t-subheader"><td colspan="6">Tipo y caso de uso</td></tr>
+              <tr>
+                <td>Tipo de servicio</td>
+                <td class="m365t-partial">PaaS — Orquestación ETL</td>
+                <td class="m365t-partial">PaaS — Plataforma Spark</td>
+                <td class="m365t-partial">PaaS — SQL + Spark integrado</td>
+                <td class="m365t-partial">PaaS — Procesamiento streaming</td>
+                <td class="m365t-partial">SaaS — Plataforma unificada</td>
+              </tr>
+              <tr>
+                <td>Caso de uso principal</td>
+                <td class="m365t-partial">Mover y orquestar datos entre fuentes</td>
+                <td class="m365t-partial">Data engineering, data science, ML, lakehouse</td>
+                <td class="m365t-partial">Data warehouse + big data en un solo workspace</td>
+                <td class="m365t-partial">Análisis en tiempo real, IoT, dashboards streaming</td>
+                <td class="m365t-partial">Todo-en-uno: ingesta, warehouse, BI, data science</td>
+              </tr>
+
+              <tr class="m365t-subheader"><td colspan="6">Procesamiento</td></tr>
+              <tr>
+                <td>Procesamiento batch</td>
+                <td class="m365t-check"><i class="fas fa-check"></i></td>
+                <td class="m365t-check"><i class="fas fa-check"></i></td>
+                <td class="m365t-check"><i class="fas fa-check"></i></td>
+                <td class="m365t-cross"><i class="fas fa-times"></i></td>
+                <td class="m365t-check"><i class="fas fa-check"></i></td>
+              </tr>
+              <tr>
+                <td>Procesamiento en tiempo real</td>
+                <td class="m365t-cross"><i class="fas fa-times"></i></td>
+                <td class="m365t-partial">Spark Structured Streaming</td>
+                <td class="m365t-partial">Spark Structured Streaming</td>
+                <td class="m365t-check"><i class="fas fa-check"></i></td>
+                <td class="m365t-check"><i class="fas fa-check"></i></td>
+              </tr>
+              <tr>
+                <td>Lenguajes soportados</td>
+                <td class="m365t-partial">Visual (drag-and-drop), Data Flows</td>
+                <td class="m365t-partial">SQL, Python, R, Scala, Java</td>
+                <td class="m365t-partial">T-SQL, Python, Scala, .NET</td>
+                <td class="m365t-partial">SAQL, JavaScript UDFs</td>
+                <td class="m365t-partial">SQL, KQL, Python, Scala, R, DAX</td>
+              </tr>
+
+              <tr class="m365t-subheader"><td colspan="6">Herramientas y entorno</td></tr>
+              <tr>
+                <td>Notebooks</td>
+                <td class="m365t-cross"><i class="fas fa-times"></i></td>
+                <td class="m365t-partial">Python, Scala, SQL, R</td>
+                <td class="m365t-partial">Spark (Python, Scala, SQL, .NET)</td>
+                <td class="m365t-cross"><i class="fas fa-times"></i></td>
+                <td class="m365t-partial">Spark (Python, Scala, SQL, R)</td>
+              </tr>
+              <tr>
+                <td>Git integration</td>
+                <td class="m365t-partial">Azure DevOps + GitHub</td>
+                <td class="m365t-partial">Repos (DevOps + GitHub)</td>
+                <td class="m365t-partial">Synapse Studio (DevOps + GitHub)</td>
+                <td class="m365t-partial">Limitado (ARM export)</td>
+                <td class="m365t-partial">Workspace-level (DevOps + GitHub)</td>
+              </tr>
+              <tr>
+                <td>Delta Lake / Lakehouse</td>
+                <td class="m365t-cross"><i class="fas fa-times"></i></td>
+                <td class="m365t-partial">Formato por defecto</td>
+                <td class="m365t-check"><i class="fas fa-check"></i></td>
+                <td class="m365t-cross"><i class="fas fa-times"></i></td>
+                <td class="m365t-partial">OneLake (Delta/Parquet default)</td>
+              </tr>
+
+              <tr class="m365t-subheader"><td colspan="6">Capacidades</td></tr>
+              <tr>
+                <td>Opción serverless</td>
+                <td class="m365t-check"><i class="fas fa-check"></i></td>
+                <td class="m365t-cross"><i class="fas fa-times"></i></td>
+                <td class="m365t-check"><i class="fas fa-check"></i></td>
+                <td class="m365t-check"><i class="fas fa-check"></i></td>
+                <td class="m365t-check"><i class="fas fa-check"></i></td>
+              </tr>
+              <tr>
+                <td>Integración con Power BI</td>
+                <td class="m365t-partial">Indirecta (via destinos)</td>
+                <td class="m365t-check"><i class="fas fa-check"></i></td>
+                <td class="m365t-check"><i class="fas fa-check"></i></td>
+                <td class="m365t-check"><i class="fas fa-check"></i></td>
+                <td class="m365t-check"><i class="fas fa-check"></i></td>
+              </tr>
+              <tr>
+                <td>Purview integration</td>
+                <td class="m365t-partial">Lineage, scanning</td>
+                <td class="m365t-partial">Unity Catalog + conector</td>
+                <td class="m365t-check"><i class="fas fa-check"></i></td>
+                <td class="m365t-partial">Limitada</td>
+                <td class="m365t-partial">Nativa (OneLake)</td>
+              </tr>
+              <tr>
+                <td>ML/AI integrado</td>
+                <td class="m365t-cross"><i class="fas fa-times"></i></td>
+                <td class="m365t-partial">MLflow, AutoML, Mosaic AI</td>
+                <td class="m365t-partial">Synapse ML, PREDICT (T-SQL)</td>
+                <td class="m365t-partial">Anomaly detection</td>
+                <td class="m365t-partial">MLflow, PREDICT, Spark ML</td>
+              </tr>
+
+              <tr class="m365t-subheader"><td colspan="6">Precio</td></tr>
+              <tr>
+                <td>Modelo de cobro</td>
+                <td class="m365t-partial">Por actividad + DIU/hora + Data Flow/hora</td>
+                <td class="m365t-partial">Por DBU/hora (por tipo de cluster)</td>
+                <td class="m365t-partial">Por DWU/hora o TB procesado</td>
+                <td class="m365t-partial">Por Streaming Unit/hora</td>
+                <td class="m365t-partial">Por Capacity Unit/hora (F-SKU)</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="m365t-note">
+          <strong>Nota:</strong> Microsoft Fabric integra Data Factory, Data Engineering, Data Warehouse, Data Science,
+          Real-Time Intelligence y Power BI bajo una sola capacidad. Stream Analytics es el único servicio
+          diseñado exclusivamente para procesamiento en tiempo real con latencia sub-100ms.
+        </div>
+      </div>
+
+      <!-- ═══════════════════════════════════════════════════════
+           SLIDE 5: SEGURIDAD E IDENTIDAD
+           ═══════════════════════════════════════════════════════ -->
+      <div class="swiper-slide">
+        <h3 class="m365t-slide-title">
+          <i class="fas fa-shield-alt"></i> Seguridad e Identidad
+        </h3>
+        <div class="m365t-table-wrap">
+          <table class="m365t-table">
+            <thead>
+              <tr>
+                <th>Característica</th>
+                <th>Microsoft Entra ID</th>
+                <th>Azure Key Vault</th>
+                <th>Defender for Cloud</th>
+                <th>Microsoft Sentinel</th>
+              </tr>
+            </thead>
+            <tbody>
+
+              <tr class="m365t-subheader"><td colspan="5">Tipo y caso de uso</td></tr>
+              <tr>
+                <td>Tipo de servicio</td>
+                <td class="m365t-partial">Identity &amp; Access (IDaaS)</td>
+                <td class="m365t-partial">Gestión de secretos y claves</td>
+                <td class="m365t-partial">CSPM + CWPP</td>
+                <td class="m365t-partial">SIEM + SOAR nativo en la nube</td>
+              </tr>
+              <tr>
+                <td>Caso de uso principal</td>
+                <td class="m365t-partial">Autenticación, SSO, acceso condicional</td>
+                <td class="m365t-partial">Almacenar secretos, claves y certificados</td>
+                <td class="m365t-partial">Postura de seguridad y protección de workloads</td>
+                <td class="m365t-partial">Detección de amenazas e investigación</td>
+              </tr>
+
+              <tr class="m365t-subheader"><td colspan="5">Funciones core</td></tr>
+              <tr>
+                <td>SSO (Single Sign-On)</td>
+                <td class="m365t-check"><i class="fas fa-check"></i></td>
+                <td class="m365t-partial">N/A</td>
+                <td class="m365t-partial">N/A</td>
+                <td class="m365t-partial">N/A</td>
+              </tr>
+              <tr>
+                <td>Gestión de certificados</td>
+                <td class="m365t-partial">App registrations</td>
+                <td class="m365t-partial">Lifecycle completo (crear, renovar, rotar)</td>
+                <td class="m365t-cross"><i class="fas fa-times"></i></td>
+                <td class="m365t-cross"><i class="fas fa-times"></i></td>
+              </tr>
+              <tr>
+                <td>KQL queries</td>
+                <td class="m365t-partial">Limitado (Entra logs)</td>
+                <td class="m365t-cross"><i class="fas fa-times"></i></td>
+                <td class="m365t-partial">Alertas, custom queries</td>
+                <td class="m365t-check"><i class="fas fa-check"></i></td>
+              </tr>
+
+              <tr class="m365t-subheader"><td colspan="5">Capacidades clave</td></tr>
+              <tr>
+                <td>Tier gratuito</td>
+                <td class="m365t-check"><i class="fas fa-check"></i></td>
+                <td class="m365t-cross"><i class="fas fa-times"></i></td>
+                <td class="m365t-partial">CSPM Foundational gratis</td>
+                <td class="m365t-partial">31 días de prueba</td>
+              </tr>
+              <tr>
+                <td>MFA</td>
+                <td class="m365t-check"><i class="fas fa-check"></i></td>
+                <td class="m365t-partial">N/A</td>
+                <td class="m365t-partial">N/A</td>
+                <td class="m365t-partial">N/A</td>
+              </tr>
+              <tr>
+                <td>Acceso condicional</td>
+                <td class="m365t-partial">P1 ($6/usuario/mes)</td>
+                <td class="m365t-partial">N/A</td>
+                <td class="m365t-partial">N/A</td>
+                <td class="m365t-partial">N/A</td>
+              </tr>
+              <tr>
+                <td>Identity Protection / PIM</td>
+                <td class="m365t-partial">P2 ($9/usuario/mes)</td>
+                <td class="m365t-partial">N/A</td>
+                <td class="m365t-partial">N/A</td>
+                <td class="m365t-partial">N/A</td>
+              </tr>
+              <tr>
+                <td>Gestión de secretos y claves</td>
+                <td class="m365t-cross"><i class="fas fa-times"></i></td>
+                <td class="m365t-check"><i class="fas fa-check"></i></td>
+                <td class="m365t-cross"><i class="fas fa-times"></i></td>
+                <td class="m365t-cross"><i class="fas fa-times"></i></td>
+              </tr>
+              <tr>
+                <td>HSM-backed keys</td>
+                <td class="m365t-cross"><i class="fas fa-times"></i></td>
+                <td class="m365t-partial">Tier Premium (FIPS 140-3 Level 3)</td>
+                <td class="m365t-cross"><i class="fas fa-times"></i></td>
+                <td class="m365t-cross"><i class="fas fa-times"></i></td>
+              </tr>
+              <tr>
+                <td>Secure Score / CSPM</td>
+                <td class="m365t-cross"><i class="fas fa-times"></i></td>
+                <td class="m365t-cross"><i class="fas fa-times"></i></td>
+                <td class="m365t-check"><i class="fas fa-check"></i></td>
+                <td class="m365t-cross"><i class="fas fa-times"></i></td>
+              </tr>
+              <tr>
+                <td>Detección de amenazas (SIEM)</td>
+                <td class="m365t-cross"><i class="fas fa-times"></i></td>
+                <td class="m365t-cross"><i class="fas fa-times"></i></td>
+                <td class="m365t-partial">Alertas por workload</td>
+                <td class="m365t-check"><i class="fas fa-check"></i></td>
+              </tr>
+              <tr>
+                <td>SOAR (respuesta automatizada)</td>
+                <td class="m365t-cross"><i class="fas fa-times"></i></td>
+                <td class="m365t-cross"><i class="fas fa-times"></i></td>
+                <td class="m365t-cross"><i class="fas fa-times"></i></td>
+                <td class="m365t-check"><i class="fas fa-check"></i></td>
+              </tr>
+              <tr>
+                <td>Multi-cloud (Azure, AWS, GCP)</td>
+                <td class="m365t-cross"><i class="fas fa-times"></i></td>
+                <td class="m365t-cross"><i class="fas fa-times"></i></td>
+                <td class="m365t-check"><i class="fas fa-check"></i></td>
+                <td class="m365t-check"><i class="fas fa-check"></i></td>
+              </tr>
+
+              <tr class="m365t-subheader"><td colspan="5">Precio</td></tr>
+              <tr>
+                <td>Modelo de cobro</td>
+                <td class="m365t-partial">Free / P1 $6/u/mes / P2 $9/u/mes</td>
+                <td class="m365t-partial">Por operación + por clave/certificado</td>
+                <td class="m365t-partial">CSPM gratis; CWPP por recurso/mes</td>
+                <td class="m365t-partial">Por GB ingestado/día (commitment tiers disponibles)</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="m365t-note">
+          <strong>Nota:</strong> Entra ID Free incluye SSO, MFA con defaults de seguridad y gestión de usuarios.
+          Defender for Cloud cubre Azure, AWS y GCP. Sentinel ofrece hasta 52% de descuento con commitment tiers
+          y los primeros 10 GB/día son gratis con beneficio M365 E5.
+        </div>
+      </div>
+
+      <!-- ═══════════════════════════════════════════════════════
+           SLIDE 6: ALMACENAMIENTO
+           ═══════════════════════════════════════════════════════ -->
+      <div class="swiper-slide">
+        <h3 class="m365t-slide-title">
+          <i class="fas fa-hdd"></i> Almacenamiento
+        </h3>
+        <div class="m365t-table-wrap">
+          <table class="m365t-table">
+            <thead>
+              <tr>
+                <th>Característica</th>
+                <th>Blob Storage</th>
+                <th>Azure Files</th>
+                <th>Data Lake Gen2</th>
+                <th>Managed Disks</th>
+                <th>Queue Storage</th>
+              </tr>
+            </thead>
+            <tbody>
+
+              <tr class="m365t-subheader"><td colspan="6">Tipo y caso de uso</td></tr>
+              <tr>
+                <td>Tipo de almacenamiento</td>
+                <td class="m365t-partial">Objetos (no estructurado)</td>
+                <td class="m365t-partial">File shares (SMB/NFS)</td>
+                <td class="m365t-partial">Objetos jerárquico (big data)</td>
+                <td class="m365t-partial">Bloques (VHDs para VMs)</td>
+                <td class="m365t-partial">Colas de mensajes</td>
+              </tr>
+              <tr>
+                <td>Caso de uso principal</td>
+                <td class="m365t-partial">Streaming, archiving, backup, media</td>
+                <td class="m365t-partial">File shares, configuración, lift-and-shift</td>
+                <td class="m365t-partial">Big data analytics, Hadoop/Spark</td>
+                <td class="m365t-partial">Discos persistentes para Azure VMs</td>
+                <td class="m365t-partial">Mensajería asíncrona entre componentes</td>
+              </tr>
+
+              <tr class="m365t-subheader"><td colspan="6">Seguridad y protección</td></tr>
+              <tr>
+                <td>Cifrado en reposo</td>
+                <td class="m365t-partial">SSE (por defecto, CMK opcional)</td>
+                <td class="m365t-partial">SSE (por defecto, CMK opcional)</td>
+                <td class="m365t-partial">SSE (por defecto, CMK opcional)</td>
+                <td class="m365t-partial">SSE (Disk Encryption Sets)</td>
+                <td class="m365t-partial">SSE (por defecto)</td>
+              </tr>
+              <tr>
+                <td>Soft delete</td>
+                <td class="m365t-partial">Blobs + containers</td>
+                <td class="m365t-partial">Shares</td>
+                <td class="m365t-partial">Via Blob</td>
+                <td class="m365t-cross"><i class="fas fa-times"></i></td>
+                <td class="m365t-cross"><i class="fas fa-times"></i></td>
+              </tr>
+              <tr>
+                <td>Immutable storage (WORM)</td>
+                <td class="m365t-partial">Time-based + legal hold</td>
+                <td class="m365t-cross"><i class="fas fa-times"></i></td>
+                <td class="m365t-partial">Via Blob</td>
+                <td class="m365t-cross"><i class="fas fa-times"></i></td>
+                <td class="m365t-cross"><i class="fas fa-times"></i></td>
+              </tr>
+
+              <tr class="m365t-subheader"><td colspan="6">Acceso y protocolos</td></tr>
+              <tr>
+                <td>Protocolos</td>
+                <td class="m365t-partial">REST, NFS 3.0, SFTP</td>
+                <td class="m365t-partial">SMB 3.x, NFS 4.1, REST</td>
+                <td class="m365t-partial">REST, ABFS (Hadoop), NFS, SFTP</td>
+                <td class="m365t-partial">REST</td>
+                <td class="m365t-partial">REST</td>
+              </tr>
+              <tr>
+                <td>Access tiers</td>
+                <td class="m365t-partial">Hot, Cool, Cold, Archive</td>
+                <td class="m365t-partial">Premium, Transaction Opt., Hot, Cool</td>
+                <td class="m365t-partial">Hot, Cool, Cold, Archive</td>
+                <td class="m365t-partial">Ultra, Premium SSD, Standard SSD/HDD</td>
+                <td class="m365t-partial">N/A (tier único)</td>
+              </tr>
+
+              <tr class="m365t-subheader"><td colspan="6">Capacidad y gestión</td></tr>
+              <tr>
+                <td>Lifecycle management</td>
+                <td class="m365t-partial">Tier transitions + auto-delete</td>
+                <td class="m365t-cross"><i class="fas fa-times"></i></td>
+                <td class="m365t-partial">Tier transitions + auto-delete</td>
+                <td class="m365t-cross"><i class="fas fa-times"></i></td>
+                <td class="m365t-cross"><i class="fas fa-times"></i></td>
+              </tr>
+              <tr>
+                <td>Snapshots</td>
+                <td class="m365t-check"><i class="fas fa-check"></i></td>
+                <td class="m365t-partial">Share snapshots</td>
+                <td class="m365t-partial">Via Blob</td>
+                <td class="m365t-partial">Incremental</td>
+                <td class="m365t-cross"><i class="fas fa-times"></i></td>
+              </tr>
+              <tr>
+                <td>Capacidad máxima</td>
+                <td class="m365t-partial">5 PiB por cuenta</td>
+                <td class="m365t-partial">100 TiB por share</td>
+                <td class="m365t-partial">Petabytes (misma cuenta Blob)</td>
+                <td class="m365t-partial">64 TiB por disco</td>
+                <td class="m365t-partial">500 TiB por cuenta</td>
+              </tr>
+              <tr>
+                <td>Redundancia</td>
+                <td class="m365t-partial">LRS, ZRS, GRS, RA-GRS, GZRS, RA-GZRS</td>
+                <td class="m365t-partial">LRS, ZRS, GRS, GZRS</td>
+                <td class="m365t-partial">LRS, ZRS, GRS, RA-GRS, GZRS, RA-GZRS</td>
+                <td class="m365t-partial">LRS, ZRS</td>
+                <td class="m365t-partial">LRS, ZRS, GRS, RA-GRS, GZRS, RA-GZRS</td>
+              </tr>
+
+              <tr class="m365t-subheader"><td colspan="6">Precio</td></tr>
+              <tr>
+                <td>Modelo de cobro</td>
+                <td class="m365t-partial">Por GB/mes + operaciones + egress</td>
+                <td class="m365t-partial">Por GiB provisionado (Premium) o almacenado</td>
+                <td class="m365t-partial">Por GB/mes + operaciones</td>
+                <td class="m365t-partial">Por disco/mes (tipo, tamaño, IOPS)</td>
+                <td class="m365t-partial">Por GB/mes + operaciones</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="m365t-note">
+          <strong>Nota:</strong> Data Lake Gen2 se construye sobre Blob Storage con namespace jerárquico habilitado.
+          Azure Files no soporta RA-GRS ni RA-GZRS. Managed Disks solo soporta LRS y ZRS.
+          Blob Storage soporta hasta 190 PiB por cuenta bajo solicitud especial.
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Swiper navigation -->
+    <div class="swiper-button-prev"></div>
+    <div class="swiper-button-next"></div>
+    <div class="swiper-pagination"></div>
+  </div>
+</div>

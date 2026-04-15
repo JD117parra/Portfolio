@@ -2007,8 +2007,8 @@ body.app-page {
   color: #fff;
   font-size: 0.85rem;
   font-weight: 700;
-  border-bottom: 2px solid rgba(0, 212, 255, 0.25);
-  border-right: 1px solid rgba(255, 255, 255, 0.1);
+  border-bottom: 2px solid rgba(0, 212, 255, 0.45);
+  border-right: 1px solid rgba(255, 255, 255, 0.25);
   white-space: nowrap;
   position: sticky;
   top: 0;
@@ -2037,8 +2037,8 @@ body.app-page {
 
 .m365t-table tbody td {
   padding: 0.75rem 0.75rem;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
-  border-right: 1px solid rgba(255, 255, 255, 0.08);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.28);
+  border-right: 1px solid rgba(255, 255, 255, 0.22);
   color: var(--text-primary);
   vertical-align: middle;
   text-align: center;
@@ -2083,16 +2083,18 @@ body.app-page {
 }
 
 /* Sub-headers inside tables */
-.m365t-table .m365t-subheader td {
-  font-size: 0.7rem;
-  font-weight: 700;
-  letter-spacing: 0.15em;
+.m365t-table tbody tr.m365t-subheader td {
+  font-size: 0.82rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: var(--accent);
+  color: #fff;
   text-align: left;
-  padding-top: 1.25rem;
-  border-bottom: 1px solid rgba(0, 212, 255, 0.15);
-  background: rgba(0, 212, 255, 0.04);
+  padding: 0.7rem 1rem;
+  border-bottom: none;
+  border-right: none;
+  background: linear-gradient(135deg, rgba(0, 212, 255, 0.25) 0%, rgba(100, 60, 255, 0.2) 100%);
+  box-shadow: inset 0 -1px 0 rgba(0, 212, 255, 0.3), 0 1px 4px rgba(0, 0, 0, 0.2);
 }
 
 /* Status icons */
