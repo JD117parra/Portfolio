@@ -89,9 +89,9 @@ body.app-page {
   color: var(--text-primary);
 }
 
-.sidebar-item--active {
-  background: rgba(0, 212, 255, 0.1) !important;
-  color: var(--accent) !important;
+.app-sidebar .sidebar-item--active {
+  background: rgba(0, 212, 255, 0.1);
+  color: var(--accent);
 }
 
 .sidebar-item--soon {
@@ -644,8 +644,8 @@ body.app-page {
   overflow: hidden;
 }
 
-.m365t-desc-cell {
-  padding: 0 1rem !important;
+.m365t-desc-row .m365t-desc-cell {
+  padding: 0 1rem;
   max-height: 0;
   overflow: hidden;
   transition: max-height 0.25s ease, padding 0.25s ease;
@@ -656,9 +656,9 @@ body.app-page {
   line-height: 1.5;
 }
 
-.m365t-desc-row--open .m365t-desc-cell {
+.m365t-desc-row.m365t-desc-row--open .m365t-desc-cell {
   max-height: 250px;
-  padding: 0.7rem 1rem !important;
+  padding: 0.7rem 1rem;
 }
 
 .m365t-desc-icon {
@@ -709,17 +709,17 @@ body.app-page {
   width: 210px;
 }
 
-.tbl-feature-label {
+.cmp-table td.tbl-feature-label {
   position: sticky;
   left: 0;
   z-index: 1;
   background: rgba(6, 9, 18, 0.97);
-  text-align: left !important;
-  font-size: 0.82rem !important;
-  color: var(--text-primary) !important;
-  font-weight: 500 !important;
-  padding: 0.6rem 0.9rem !important;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.035) !important;
+  text-align: left;
+  font-size: 0.82rem;
+  color: var(--text-primary);
+  font-weight: 500;
+  padding: 0.6rem 0.9rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.035);
 }
 
 .cmp-table td {
@@ -733,31 +733,31 @@ body.app-page {
 .cmp-table tbody tr:hover td { background: rgba(255, 255, 255, 0.022); }
 .cmp-table tbody tr:hover .tbl-feature-label { background: rgba(12, 16, 30, 0.99); }
 
-.cmp-col--rec {
-  background: rgba(0, 212, 255, 0.04) !important;
+.cmp-table td.cmp-col--rec {
+  background: rgba(0, 212, 255, 0.04);
   border-left:  1px solid rgba(0, 212, 255, 0.09);
   border-right: 1px solid rgba(0, 212, 255, 0.09);
 }
 
-.cmp-th--rec {
-  background: rgba(0, 212, 255, 0.07) !important;
-  border-left:  1px solid rgba(0, 212, 255, 0.18) !important;
-  border-right: 1px solid rgba(0, 212, 255, 0.18) !important;
+.cmp-table th.cmp-th--rec {
+  background: rgba(0, 212, 255, 0.07);
+  border-left:  1px solid rgba(0, 212, 255, 0.18);
+  border-right: 1px solid rgba(0, 212, 255, 0.18);
 }
 
-.cmp-cat-row td {
-  background: rgba(0, 212, 255, 0.03) !important;
-  font-size: 0.68rem !important;
-  font-weight: 700 !important;
-  text-transform: uppercase !important;
-  letter-spacing: 0.09em !important;
-  color: var(--text-faint) !important;
+.cmp-table .cmp-cat-row td {
+  background: rgba(0, 212, 255, 0.03);
+  font-size: 0.68rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.09em;
+  color: var(--text-faint);
   cursor: pointer;
   user-select: none;
-  position: static !important;
+  position: static;
 }
 
-.cmp-cat-row:hover td { background: rgba(0, 212, 255, 0.055) !important; }
+.cmp-table .cmp-cat-row:hover td { background: rgba(0, 212, 255, 0.055); }
 
 .cmp-cat-row-inner {
   display: flex;
@@ -780,13 +780,13 @@ body.app-page {
 .cmp-partial { color: var(--icon-yellow); font-size: 0.75rem; font-weight: 600; }
 .cmp-text    { color: var(--text-muted); font-size: 0.75rem; }
 
-.tbl-no-results {
+.cmp-table .tbl-no-results {
   text-align: center;
   padding: 3.5rem;
   color: var(--text-faint);
   font-size: 0.875rem;
-  position: static !important;
-  background: transparent !important;
+  position: static;
+  background: transparent;
 }
 
 .cmp-table-note {
@@ -1971,6 +1971,19 @@ body.app-page {
   margin-right: 0.4rem;
 }
 
+.m365t-slide-subtitle {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 1.5rem 0 0.75rem;
+  padding-left: 0.25rem;
+}
+
+.m365t-slide-subtitle i {
+  color: var(--accent);
+  margin-right: 0.4rem;
+}
+
 .m365t-table-wrap {
   background: rgba(20, 28, 45, 0.9);
   border: 1px solid rgba(255, 255, 255, 0.12);
@@ -2070,16 +2083,16 @@ body.app-page {
 }
 
 /* Sub-headers inside tables */
-.m365t-subheader td {
-  font-size: 0.7rem !important;
-  font-weight: 700 !important;
+.m365t-table .m365t-subheader td {
+  font-size: 0.7rem;
+  font-weight: 700;
   letter-spacing: 0.15em;
   text-transform: uppercase;
-  color: var(--accent) !important;
-  text-align: left !important;
-  padding-top: 1.25rem !important;
-  border-bottom: 1px solid rgba(0, 212, 255, 0.15) !important;
-  background: rgba(0, 212, 255, 0.04) !important;
+  color: var(--accent);
+  text-align: left;
+  padding-top: 1.25rem;
+  border-bottom: 1px solid rgba(0, 212, 255, 0.15);
+  background: rgba(0, 212, 255, 0.04);
 }
 
 /* Status icons */
@@ -2863,9 +2876,9 @@ body.app-page {
 }
 .lb-cfg-table td:first-child { color: var(--text-primary, #e2e8f0); }
 .lb-cfg-table tr:hover td { background: rgba(255,255,255,0.02); }
-.lb-hl { color: var(--accent) !important; }
-.lb-hl--green { color: #66bb6a !important; }
-.lb-hl--amber { color: #ffb74d !important; }
+.lb-cv.lb-hl { color: var(--accent); }
+.lb-cv.lb-hl--green { color: #66bb6a; }
+.lb-cv.lb-hl--amber { color: #ffb74d; }
 
 /* Inline detail section */
 .lb-detail-section {

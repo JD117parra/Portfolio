@@ -16,7 +16,8 @@
     'azure-shared':    initExpandableCards,
     'azure-arch':      initLoadBalancer,
     'm365-comparador': initComparador,
-    'm365-guide':      initM365Guide
+    'm365-guide':      initM365Guide,
+    'pp-guide':        initPPGuide
   };
 
   function switchDoc(docId) {
@@ -237,6 +238,37 @@
         firstTd.appendChild(btn);
       });
     });
+  }
+
+  // === INIT: POWER PLATFORM GUIDE (feature descriptions + swiper) ===
+  function initPPGuide(container) {
+    var ppPanel = container.querySelector('.dt-panel') || container;
+
+    // Feature descriptions
+    fetch('data/pp-feature-descriptions.json')
+      .then(function (res) { return res.json(); })
+      .then(function (data) {
+        initFeatureDescriptions(ppPanel, data.featureDescriptions, {});
+      });
+
+    // Swiper
+    if (typeof Swiper !== 'undefined') {
+      var swiperEl = container.querySelector('.m365t-swiper');
+      if (swiperEl) {
+        new Swiper(swiperEl, {
+          slidesPerView: 1,
+          spaceBetween: 24,
+          navigation: {
+            nextEl: swiperEl.querySelector('.swiper-button-next'),
+            prevEl: swiperEl.querySelector('.swiper-button-prev')
+          },
+          pagination: {
+            el: swiperEl.querySelector('.swiper-pagination'),
+            clickable: true
+          }
+        });
+      }
+    }
   }
 
   // === INIT: COMPARADOR DE LICENCIAS M365 ===
