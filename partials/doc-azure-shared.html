@@ -1,0 +1,107 @@
+      <div class="dt-panel dt-panel--hidden" id="doc-azure-shared">
+
+        <div class="dt-panel__header">
+          <h2 class="dt-panel__title">Responsabilidad Compartida en Azure</h2>
+          <p class="dt-panel__desc">Modelo de capas que define qué gestiona tu organización y qué gestiona Microsoft según el tipo de servicio cloud.</p>
+        </div>
+
+        <!-- Shared Responsibility Matrix -->
+        <div class="srm">
+          <!-- Column headers -->
+          <div class="srm-head">
+            <div class="srm-head__layers">Capas</div>
+            <div class="srm-head__col srm-head__col--iaas">IaaS</div>
+            <div class="srm-head__col srm-head__col--paas">PaaS</div>
+            <div class="srm-head__col srm-head__col--saas">SaaS</div>
+          </div>
+
+          <!-- Rows -->
+          <div class="srm-row">
+            <div class="srm-row__label">Aplicaciones</div>
+            <div class="srm-row__cell srm-cell--you">Tu responsabilidad</div>
+            <div class="srm-row__cell srm-cell--you">Tu responsabilidad</div>
+            <div class="srm-row__cell srm-cell--ms">Microsoft</div>
+          </div>
+          <div class="srm-row">
+            <div class="srm-row__label">Datos</div>
+            <div class="srm-row__cell srm-cell--you">Tu responsabilidad</div>
+            <div class="srm-row__cell srm-cell--you">Tu responsabilidad</div>
+            <div class="srm-row__cell srm-cell--shared">Compartida</div>
+          </div>
+          <div class="srm-row">
+            <div class="srm-row__label">Runtime</div>
+            <div class="srm-row__cell srm-cell--you">Tu responsabilidad</div>
+            <div class="srm-row__cell srm-cell--ms">Microsoft</div>
+            <div class="srm-row__cell srm-cell--ms">Microsoft</div>
+          </div>
+          <div class="srm-row">
+            <div class="srm-row__label">Middleware</div>
+            <div class="srm-row__cell srm-cell--you">Tu responsabilidad</div>
+            <div class="srm-row__cell srm-cell--ms">Microsoft</div>
+            <div class="srm-row__cell srm-cell--ms">Microsoft</div>
+          </div>
+          <div class="srm-row">
+            <div class="srm-row__label">Sistema Operativo</div>
+            <div class="srm-row__cell srm-cell--you">Tu responsabilidad</div>
+            <div class="srm-row__cell srm-cell--ms">Microsoft</div>
+            <div class="srm-row__cell srm-cell--ms">Microsoft</div>
+          </div>
+          <div class="srm-row">
+            <div class="srm-row__label">Virtualización</div>
+            <div class="srm-row__cell srm-cell--ms">Microsoft</div>
+            <div class="srm-row__cell srm-cell--ms">Microsoft</div>
+            <div class="srm-row__cell srm-cell--ms">Microsoft</div>
+          </div>
+          <div class="srm-row">
+            <div class="srm-row__label">Servidores / Almacenamiento</div>
+            <div class="srm-row__cell srm-cell--ms">Microsoft</div>
+            <div class="srm-row__cell srm-cell--ms">Microsoft</div>
+            <div class="srm-row__cell srm-cell--ms">Microsoft</div>
+          </div>
+          <div class="srm-row">
+            <div class="srm-row__label">Redes</div>
+            <div class="srm-row__cell srm-cell--ms">Microsoft</div>
+            <div class="srm-row__cell srm-cell--ms">Microsoft</div>
+            <div class="srm-row__cell srm-cell--ms">Microsoft</div>
+          </div>
+
+          <!-- Legend -->
+          <div class="srm-legend">
+            <div class="srm-legend__item"><span class="srm-legend__dot srm-legend__dot--you"></span> Tu responsabilidad</div>
+            <div class="srm-legend__item"><span class="srm-legend__dot srm-legend__dot--shared"></span> Responsabilidad compartida</div>
+            <div class="srm-legend__item"><span class="srm-legend__dot srm-legend__dot--ms"></span> Gestionado por Microsoft</div>
+          </div>
+        </div>
+
+        <!-- Info cards -->
+        <div class="srm-cards">
+          <div class="srm-card srm-card--iaas">
+            <div class="srm-card__head">
+              <i class="fas fa-server"></i>
+              <div class="srm-card__title">IaaS</div>
+            </div>
+            <div class="srm-card__subtitle">Infrastructure as a Service</div>
+            <div class="srm-card__desc">Tú gestionas desde el sistema operativo hacia arriba: apps, datos, runtime, middleware y SO. Microsoft gestiona virtualización, servidores, almacenamiento y redes.</div>
+            <div class="srm-card__example"><strong>Ejemplo:</strong> Virtual Machines, VMSS, Azure Disk Storage</div>
+          </div>
+          <div class="srm-card srm-card--paas">
+            <div class="srm-card__head">
+              <i class="fas fa-cubes"></i>
+              <div class="srm-card__title">PaaS</div>
+            </div>
+            <div class="srm-card__subtitle">Platform as a Service</div>
+            <div class="srm-card__desc">Solo gestionas aplicaciones y datos. Microsoft gestiona todo lo demás: runtime, middleware, SO, virtualización, servidores y redes.</div>
+            <div class="srm-card__example"><strong>Ejemplo:</strong> App Service, Azure SQL, Azure Functions</div>
+          </div>
+          <div class="srm-card srm-card--saas">
+            <div class="srm-card__head">
+              <i class="fas fa-cloud"></i>
+              <div class="srm-card__title">SaaS</div>
+            </div>
+            <div class="srm-card__subtitle">Software as a Service</div>
+            <div class="srm-card__desc">Microsoft gestiona toda la infraestructura y la aplicación. Tú gestionas la configuración, los datos del usuario y el control de acceso.</div>
+            <div class="srm-card__example"><strong>Ejemplo:</strong> Microsoft 365, Dynamics 365, Power BI</div>
+          </div>
+        </div>
+
+      </div>

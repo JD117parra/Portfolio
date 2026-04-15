@@ -1,0 +1,384 @@
+/* ═══════════════════════════════════════════════════════
+   profile.css — Estilos exclusivos de profile.html
+   (About, Bio, Logo Carousel)
+   ═══════════════════════════════════════════════════════ */
+
+/* #region About Section */
+
+.about-content {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 3rem;
+  align-items: center;
+}
+
+
+.about-text {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: var(--text-muted);
+}
+
+.about-text h3 {
+  color: var(--text-primary);
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+}
+
+/* #endregion */
+
+/* #region Bio */
+
+.bio-companies-section {
+  background: var(--bg-elevated);
+  max-width: 100%;
+  margin: 0;
+  padding: 4rem 1rem 1rem;
+  border-radius: 0;
+  overflow-x: hidden;
+}
+
+.bio-companies-divider {
+  text-align: center;
+  margin-top: 3rem;
+}
+
+.bio-companies-section .section-title {
+  margin: 1rem;
+  font-size: clamp(0.8rem, 5vw, 1.5rem);
+  color: var(--text-muted);
+}
+
+
+.bio-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 0.5rem;
+  align-items: center;
+  margin: 0 6rem;
+}
+
+.bio-text {
+  justify-self: center;
+}
+
+.bio-headline {
+  font-size: 2.8rem;
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 1.5rem;
+  background: linear-gradient(135deg, var(--accent), var(--purple-accent));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+}
+
+.bio-description {
+  font-size: 1.15rem;
+  line-height: 1.7;
+  color: var(--text-muted);
+  margin-bottom: 2rem;
+  max-width: 520px;
+}
+
+
+.bio-buttons {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.bio-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.8rem 1.6rem;
+  border-radius: var(--radius-card);
+  font-weight: 600;
+  font-size: 1rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.bio-btn:hover {
+  transform: translateY(-3px);
+}
+
+.bio-btn--primary {
+  background: linear-gradient(135deg, var(--accent), var(--dark-accent));
+  color: var(--bg-deep);
+  box-shadow: 0 4px 20px var(--accent-glow);
+}
+
+.bio-btn--primary:hover {
+  box-shadow: 0 8px 30px var(--accent-glow-strong);
+}
+
+.bio-btn--outline {
+  background: transparent;
+  color: var(--accent);
+  border: 2px solid var(--accent);
+  box-shadow: 0 0 15px var(--accent-subtle);
+}
+
+.bio-btn--outline:hover {
+  background: var(--accent-subtle);
+  box-shadow: 0 0 25px var(--accent-glow);
+}
+
+/* Tarjetas apiladas */
+.bio-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  position: relative;
+}
+
+.bio-stat-card {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+  padding: 1.4rem 1.8rem;
+  width: fit-content;
+  min-width: min(473px, 90vw);
+  background: var(--card-inner);
+  border: 1px solid var(--accent-border);
+  border-radius: var(--radius-card);
+  box-shadow: 0 4px 25px var(--shadow-sm), 0 0 15px var(--accent-subtle);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.bio-stat-card--1 {
+  transform: rotate(-2deg);
+}
+
+.bio-stat-card--2 {
+  transform: rotate(1.5deg) translateX(20px);
+}
+
+.bio-stat-card--3 {
+  transform: rotate(-1deg);
+}
+
+.bio-stat-icon {
+  font-size: 2rem;
+  color: var(--accent);
+  flex-shrink: 0;
+}
+
+.bio-stat-number {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+.bio-stat-label {
+  font-size: 1rem;
+  color: var(--text-muted);
+  line-height: 1.3;
+}
+
+/* #endregion */
+
+/* #endregion */
+
+/* #region Responsive — Profile */
+
+@media (max-width: 768px) {
+  .about-content {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .logo-slide {
+    width: 150px;
+    height: 60px;
+  }
+
+  .logo-slide img {
+    max-height: 50px;
+    max-width: 140px;
+  }
+
+  .logo-slide.logo-square img,
+  .logo-slide.logo-microsoft img,
+  .logo-slide.logo-wide img,
+  .logo-slide.logo-extrawide img {
+    max-height: 50px;
+    max-width: 140px;
+  }
+
+  .logo-slide.logo-microsoft img {
+    max-height: 95px;
+    max-width: 190px;
+  }
+
+  .logo-slide.logo-square img {
+    max-height: 95px;
+    max-width: 190px;
+  }
+
+  .logo-slide.logo-wide img {
+    max-height: 75px;
+    max-width: 165px;
+  }
+
+  .logo-track {
+    gap: 1.5rem;
+  }
+
+  .logo-carousel::before,
+  .logo-carousel::after {
+    width: 40px;
+  }
+
+  .bio-companies-section {
+    padding: 2.5rem 0.5rem 0.5rem;
+  }
+
+  .bio-grid {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+    text-align: center;
+    margin: 0 1.8rem;
+  }
+
+  .bio-headline {
+    font-size: 2rem;
+  }
+
+  .bio-description {
+    max-width: 100%;
+  }
+
+  .bio-buttons {
+    justify-content: center;
+  }
+
+  .bio-stat-card--1 {
+    transform: rotate(-1deg);
+  }
+
+  .bio-stat-card--2 {
+    transform: rotate(1deg) translateX(10px);
+  }
+
+  .bio-stat-card--3 {
+    transform: rotate(-0.5deg);
+  }
+}
+
+@media (max-width: 480px) {
+  .about-content {
+    gap: 0.5rem;
+  }
+
+  .logo-slide {
+    width: 140px;
+    height: 60px;
+  }
+
+  .logo-slide img {
+    max-height: 50px;
+    max-width: 130px;
+  }
+
+  .logo-slide.logo-square img,
+  .logo-slide.logo-microsoft img,
+  .logo-slide.logo-wide img,
+  .logo-slide.logo-extrawide img {
+    max-height: 55px;
+    max-width: 130px;
+  }
+
+  .logo-slide.logo-microsoft img {
+    max-height: 110px;
+    max-width: 210px;
+  }
+
+  .logo-slide.logo-square img {
+    max-height: 110px;
+    max-width: 210px;
+  }
+
+  .logo-slide.logo-wide img {
+    max-height: 60px;
+    max-width: 150px;
+  }
+
+  .logo-track {
+    gap: 1rem;
+  }
+
+  .logo-carousel::before,
+  .logo-carousel::after {
+    width: 25px;
+  }
+
+  /* profile.html: sin tarjeta, botones en fila ocupando todo el ancho */
+  .contact:not(:has(.contact-grid--services)) .contact-links {
+    grid-column: 1 / -1;
+    flex-direction: row;
+    gap: 0.5rem;
+    margin-top: 0;
+  }
+
+  .contact:not(:has(.contact-grid--services)) .contact-link {
+    flex: 1;
+    min-width: unset;
+    padding: 0.5rem 0.4rem;
+    font-size: 0.78rem;
+    justify-content: center;
+  }
+
+  .bio-companies-section {
+    padding: 1.5rem 0.5rem 0.5rem;
+    overflow-x: hidden;
+  }
+
+  .bio-grid {
+    margin: 0 auto;
+    padding: 0 1rem;
+    text-align: center;
+  }
+
+  .bio-headline {
+    font-size: 1.4rem;
+    word-break: break-word;
+  }
+
+  .bio-description {
+    font-size: 1rem;
+  }
+
+  .bio-buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .bio-stat-card {
+    padding: 1rem 1.2rem;
+  }
+
+  .bio-stat-card--2 {
+    transform: rotate(1deg) translateX(0);
+  }
+
+  .bio-stat-card--2:hover {
+    transform: rotate(0deg) translateY(-4px);
+  }
+
+  .bio-stat-number {
+    font-size: 2rem;
+  }
+
+  .bio-stat-icon {
+    font-size: 1.5rem;
+  }
+}
+
+/* #endregion */

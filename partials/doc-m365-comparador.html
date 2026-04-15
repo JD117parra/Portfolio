@@ -1,0 +1,76 @@
+      <div class="dt-panel dt-panel--hidden" id="doc-m365-comparador">
+        <div class="dt-panel__header">
+          <h2 class="dt-panel__title">Comparador de Licencias M365</h2>
+          <p class="dt-panel__desc">
+            Responde 6 preguntas y obtén una recomendación técnica basada en
+            <a
+              href="https://learn.microsoft.com/microsoft-365/"
+              target="_blank"
+              rel="noopener noreferrer"
+              >documentación oficial de Microsoft</a
+            >
+          </p>
+        </div>
+
+        <!-- Quiz wizard -->
+        <div class="cmp-wizard" id="cmpWizard">
+          <div
+            class="cmp-progress-bar"
+            id="cmpProgressBar"
+            role="progressbar"
+            aria-valuenow="0"
+            aria-valuemin="0"
+            aria-valuemax="6"
+            aria-label="Progreso del cuestionario"
+          >
+            <div class="cmp-progress-fill" id="cmpProgressFill"></div>
+          </div>
+          <div
+            class="cmp-steps"
+            id="cmpSteps"
+            aria-label="Pasos del cuestionario"
+          ></div>
+          <div class="cmp-question-stage">
+            <div
+              class="cmp-question cmp-question--visible"
+              id="cmpQuestion"
+            ></div>
+          </div>
+        </div>
+
+        <!-- Result (hidden until quiz complete) -->
+        <div class="cmp-result" id="cmpResult" hidden aria-live="polite">
+          <div class="cmp-result-header">
+            <p class="cmp-result-eyebrow">
+              <i class="fas fa-check-circle"></i> Recomendación para tu
+              organización
+            </p>
+            <div id="cmpPlanBadge" class="cmp-plan-badge"></div>
+            <p id="cmpPlanSubtitle" class="cmp-result-subtitle"></p>
+          </div>
+          <div class="cmp-result-body">
+            <div id="cmpJustification" class="cmp-justification"></div>
+            <div id="cmpAddons" class="cmp-addons"></div>
+          </div>
+          <div class="cmp-result-actions">
+            <a href="index.html#contact" class="cta-button"
+              ><i class="fas fa-envelope"></i> Solicitar propuesta
+              personalizada</a
+            >
+            <button
+              class="cta-button cta-button--outline"
+              id="cmpRestart"
+              type="button"
+            >
+              <i class="fas fa-redo"></i> Reiniciar comparador
+            </button>
+            <button
+              class="cta-button cta-button--ghost"
+              id="cmpGoToTable"
+              type="button"
+            >
+              <i class="fas fa-table"></i> Ver tabla completa
+            </button>
+          </div>
+        </div>
+      </div>
